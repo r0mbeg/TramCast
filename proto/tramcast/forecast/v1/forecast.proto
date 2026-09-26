@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package tramcast.forecast.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/r0mbeg/TramCast/backend/internal/gen/tramcast/forecast/v1;forecastv1";
+
+// Python inference service with one fixed model and dataset bundle.
+// Go owns the job queue, forecast versions and prediction storage.
+service ForecastService {
+  // Computes every hour for one route over the full forecast version horizon.
+  // Returns a complete result or a non-OK gRPC status; never a partial success.
+  // The caller sets a deadline. The server must observe cancellation while
+  // computing. Retried calls may repeat inference; publication is fenced by Go.
+  rpc Predict(PredictRequest) returns (PredictResponse);
+}
+
+// Required fields and cross-field constraints are validated by the application.
+// Model training and dataset preparation happen before this request.
+message PredictRequest {
+  // Required positive public route number, e.g. 50; not the internal routes.id.
+  int32 route_number = 1;
+
+  // Required valid timestamp, inclusive; aligned to an hour in Europe/Moscow.
+  // Go supplies the full horizon of its selected forecast version.
+  google.protobuf.Timestamp forecast_from = 2;
+
+  // Required valid timestamp, exclusive; aligned to an hour in Europe/Moscow.
+  // Must be strictly later than forecast_from; nanos must be zero on both.
+  google.protobuf.Timestamp forecast_to = 3;
+}
+
+message PredictResponse {
+  // Required nonblank ID of the model and feature configuration actually used,
+  // read from the loaded artifact metadata. Go compares it with its pinned
+  // forecast version before publishing any points.
+  string model_version = 1;
+
+  // Required nonblank ID of the data snapshot used by the loaded bundle,
+  // including training data and any separately loaded inference inputs.
+  // Read from artifact metadata; Go verifies it against its forecast version.
+  string dataset_version = 2;
+
+  // Required complete hourly grid for [forecast_from, forecast_to), sorted by
+  // hour_start ascending. Each expected hour appears exactly once. Include
+  // structural zeros and the explicitly supported route 5 zero fallback.
+  // Missing, duplicate, out-of-range or unordered points invalidate the result.
+  repeated PredictionPoint points = 3;
+}
+
+message PredictionPoint {
+  // Required valid timestamp of the hour start; nanos = 0, aligned to an hour
+  // in Europe/Moscow. Go derives the local date and hour for storage.
+  google.protobuf.Timestamp hour_start = 1;
+
+  // Application-required value in [0, 9223372036854775807]. Explicit presence
+  // distinguishes a valid zero from a missing prediction. Check presence before
+  // reading the value. Python rejects non-finite model output, clamps negatives
+  // to zero, rounds half-up once, and verifies the int64 range before returning.
+  optional int64 boardings = 2;
+}

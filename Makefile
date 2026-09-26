@@ -3,10 +3,11 @@
 DOCKER_COMPOSE ?= docker compose
 GOOSE ?= goose
 SQLC ?= sqlc
+PROTOC ?= protoc
 
 .PHONY: help env-up env-down env-port-forward env-port-close ps logs \
 	migrate-up migrate-status migrate-down migrate-create migrate-validate \
-	sqlc-compile sqlc-generate
+	sqlc-compile sqlc-generate proto-generate-go
 
 help:
 	@echo TramCast commands
@@ -23,6 +24,7 @@ help:
 	@echo   make migrate-validate       Validate local migration files
 	@echo   make sqlc-compile           Check SQL queries and sqlc configuration
 	@echo   make sqlc-generate          Generate Go database code
+	@echo   make proto-generate-go      Generate Go messages and gRPC interfaces
 
 env-up:
 	@$(DOCKER_COMPOSE) up -d --wait postgres env-port-forwarder
@@ -63,3 +65,6 @@ sqlc-compile:
 
 sqlc-generate:
 	@$(SQLC) -f backend/sqlc.yaml generate
+
+proto-generate-go:
+	@$(PROTOC) --proto_path=proto --go_out=backend --go_opt=module=github.com/r0mbeg/TramCast/backend --go-grpc_out=backend --go-grpc_opt=module=github.com/r0mbeg/TramCast/backend proto/tramcast/forecast/v1/forecast.proto
