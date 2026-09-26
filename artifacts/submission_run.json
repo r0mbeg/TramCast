@@ -1,0 +1,65 @@
+{
+  "model": "amazon/chronos-2",
+  "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "mode": "zero-shot; no covariates; no fine-tuning",
+  "history_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "code_sha256": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5",
+  "windows": [
+    [
+      "2025-06-30",
+      "2025-08-31"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  ],
+  "seed": 42,
+  "quantile": 0.5,
+  "batch_size": 32,
+  "context_length": 512,
+  "cross_learning": false,
+  "dtype": "float32",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "gpu_total_bytes": 11539054592,
+  "job_id": "8476931",
+  "reservation": null,
+  "node": "vt12.zhores",
+  "python": "3.12.13",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "torch": "2.6.0+cu124",
+    "chronos-forecasting": "2.3.2",
+    "transformers": "4.57.6",
+    "accelerate": "1.15.0"
+  },
+  "model_load_seconds": 6.6500584203749895,
+  "seconds": 9.526131546124816,
+  "peak_rss_bytes": 1237946368,
+  "missing_policy": "absent counts = 0; observed validation unchanged",
+  "postprocessing": "floor(max(0,p)+0.5); route5 and hours1-4 forced0",
+  "pretrained_availability": "modern weights; not deployable at historical 2025 cutoff",
+  "submission": {
+    "cutoff": "2025-10-31",
+    "end": "2025-12-31",
+    "representation": "daily_total",
+    "rows": 14640,
+    "prediction_total": 12152709,
+    "sha256": "4b37870e1e8e92f0d30fbfb6d0708793fa7951238827f67c1bec2d9ac5eeab7c"
+  },
+  "export_sha256": "4b37870e1e8e92f0d30fbfb6d0708793fa7951238827f67c1bec2d9ac5eeab7c",
+  "local_verification": {
+    "scores_recomputed": 6,
+    "changed_historical_cells": 2,
+    "maximum_cell_difference": 1,
+    "submission_contract": "passed"
+  }
+}

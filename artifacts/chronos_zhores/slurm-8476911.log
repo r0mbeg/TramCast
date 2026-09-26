@@ -1,0 +1,114 @@
+Sat Sep 26 17:42:19 UTC 2026
+Requirement already satisfied: torch==2.6.0+cu124 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (2.6.0+cu124)
+Requirement already satisfied: numpy==1.26.4 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (1.26.4)
+Requirement already satisfied: pandas==2.2.3 in ./.venv/lib/python3.12/site-packages (2.2.3)
+Requirement already satisfied: chronos-forecasting==2.3.2 in ./.venv/lib/python3.12/site-packages (2.3.2)
+Requirement already satisfied: transformers==4.57.6 in ./.venv/lib/python3.12/site-packages (4.57.6)
+Collecting filelock (from torch==2.6.0+cu124)
+  Downloading filelock-4.0.4-py3-none-any.whl.metadata (2.0 kB)
+Requirement already satisfied: typing-extensions>=4.10.0 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (4.15.0)
+Collecting networkx (from torch==2.6.0+cu124)
+  Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Requirement already satisfied: jinja2 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (3.1.6)
+Collecting fsspec (from torch==2.6.0+cu124)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (12.3.1.170)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (0.6.2)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (12.4.127)
+Requirement already satisfied: triton==3.2.0 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (3.2.0)
+Requirement already satisfied: setuptools in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (82.0.0)
+Requirement already satisfied: sympy==1.13.1 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from torch==2.6.0+cu124) (1.13.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from pandas==2.2.3) (2.9.0.post0)
+Collecting pytz>=2020.1 (from pandas==2.2.3)
+  Downloading pytz-2026.4-py2.py3-none-any.whl.metadata (22 kB)
+Requirement already satisfied: tzdata>=2022.7 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from pandas==2.2.3) (2025.3)
+Requirement already satisfied: accelerate<2,>=1.1.0 in ./.venv/lib/python3.12/site-packages (from chronos-forecasting==2.3.2) (1.15.0)
+Requirement already satisfied: einops<1,>=0.7.0 in ./.venv/lib/python3.12/site-packages (from chronos-forecasting==2.3.2) (0.8.2)
+Requirement already satisfied: huggingface-hub<1.0,>=0.34.0 in ./.venv/lib/python3.12/site-packages (from transformers==4.57.6) (0.36.2)
+Requirement already satisfied: packaging>=20.0 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from transformers==4.57.6) (26.0)
+Requirement already satisfied: pyyaml>=5.1 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from transformers==4.57.6) (6.0.3)
+Collecting regex!=2019.12.17 (from transformers==4.57.6)
+  Downloading regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Requirement already satisfied: requests in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from transformers==4.57.6) (2.32.5)
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.57.6)
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting safetensors>=0.4.3 (from transformers==4.57.6)
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: tqdm>=4.27 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from transformers==4.57.6) (4.67.3)
+Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch==2.6.0+cu124)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Requirement already satisfied: psutil in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from accelerate<2,>=1.1.0->chronos-forecasting==2.3.2) (7.2.2)
+Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub<1.0,>=0.34.0->transformers==4.57.6)
+  Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Requirement already satisfied: six>=1.5 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas==2.2.3) (1.17.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from jinja2->torch==2.6.0+cu124) (3.0.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from requests->transformers==4.57.6) (3.4.5)
+Requirement already satisfied: idna<4,>=2.5 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from requests->transformers==4.57.6) (3.11)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from requests->transformers==4.57.6) (2.6.3)
+Requirement already satisfied: certifi>=2017.4.17 in /trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages (from requests->transformers==4.57.6) (2026.4.22)
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading pytz-2026.4-py2.py3-none-any.whl (506 kB)
+Downloading regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 804.6/804.6 kB 13.4 MB/s eta 0:00:00
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 50.4 MB/s eta 0:00:00
+Downloading filelock-4.0.4-py3-none-any.whl (108 kB)
+Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 41.3 MB/s eta 0:00:00
+Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 46.6 MB/s eta 0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 36.0 MB/s eta 0:00:00
+Installing collected packages: pytz, mpmath, safetensors, regex, networkx, hf-xet, fsspec, filelock, tokenizers
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+lerobot 0.5.0 requires cmake<4.2.0,>=3.29.0.1, which is not installed.
+lerobot 0.5.0 requires datasets<5.0.0,>=4.0.0, which is not installed.
+lerobot 0.5.0 requires deepdiff<9.0.0,>=7.0.1, which is not installed.
+lerobot 0.5.0 requires diffusers<0.36.0,>=0.27.2, which is not installed.
+lerobot 0.5.0 requires draccus==0.10.0, which is not installed.
+lerobot 0.5.0 requires gymnasium<2.0.0,>=1.1.1, which is not installed.
+lerobot 0.5.0 requires imageio[ffmpeg]<3.0.0,>=2.34.0, which is not installed.
+lerobot 0.5.0 requires jsonlines<5.0.0,>=4.0.0, which is not installed.
+lerobot 0.5.0 requires pynput<1.9.0,>=1.7.8, which is not installed.
+lerobot 0.5.0 requires pyserial<4.0,>=3.5, which is not installed.
+lerobot 0.5.0 requires rerun-sdk<0.27.0,>=0.24.0, which is not installed.
+lerobot 0.5.0 requires termcolor<4.0.0,>=2.4.0, which is not installed.
+lerobot 0.5.0 requires torchcodec<0.11.0,>=0.2.1; sys_platform != "win32" and (sys_platform != "linux" or (platform_machine != "aarch64" and platform_machine != "arm64" and platform_machine != "armv7l")) and (sys_platform != "darwin" or platform_machine != "x86_64"), which is not installed.
+lerobot 0.5.0 requires av<16.0.0,>=15.0.0, but you have av 17.0.1 which is incompatible.
+lerobot 0.5.0 requires huggingface-hub<2.0.0,>=1.0.0, but you have huggingface-hub 0.36.2 which is incompatible.
+lerobot 0.5.0 requires numpy<2.3.0,>=2.0.0, but you have numpy 1.26.4 which is incompatible.
+lerobot 0.5.0 requires opencv-python-headless<4.13.0,>=4.9.0, but you have opencv-python-headless 4.13.0 which is incompatible.
+lerobot 0.5.0 requires packaging<26.0,>=24.2, but you have packaging 26.0 which is incompatible.
+lerobot 0.5.0 requires setuptools<81.0.0,>=71.0.0, but you have setuptools 82.0.0 which is incompatible.
+lerobot 0.5.0 requires wandb<0.25.0,>=0.24.0, but you have wandb 0.23.0 which is incompatible.
+Successfully installed filelock-4.0.4 fsspec-2026.9.0 hf-xet-1.6.0 mpmath-1.3.0 networkx-3.7 pytz-2026.4 regex-2026.9.10 safetensors-0.8.0 tokenizers-0.22.2
+Checks passed: boundaries, success filter, route 5, rounding, WAPE, cutoff isolation.
+Chronos adapter checks passed: cutoff isolation, grid, shares, control, zeros, rounding.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 818.88it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"method": "mean_all", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.022599361836910248, "wape_score": 0.7791483433598319, "absolute_error": 2361493.0, "actual_total": 10692666.0, "bias": 1663067.0, "peak_gpu_allocated_bytes": 0}
+{"method": "chronos_daily_total", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.7507807910442352, "wape_score": 0.8309951886648288, "absolute_error": 1807112.0, "actual_total": 10692666.0, "bias": 482888.0, "peak_gpu_allocated_bytes": 493028352}
+{"method": "chronos_route_hour", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.21200716122984886, "wape_score": 0.8393833680019558, "absolute_error": 1717420.0, "actual_total": 10692666.0, "bias": 604092.0, "peak_gpu_allocated_bytes": 509376512}
+{"method": "mean_all", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.016909457743167877, "wape_score": 0.8624291035541123, "absolute_error": 1751473.0, "actual_total": 12731421.0, "bias": -834053.0, "peak_gpu_allocated_bytes": 0}
+{"method": "chronos_daily_total", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.060985539108514786, "wape_score": 0.8675967121030717, "absolute_error": 1685682.0, "actual_total": 12731421.0, "bias": -737404.0, "peak_gpu_allocated_bytes": 494194176}
+{"method": "chronos_route_hour", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.21271121501922607, "wape_score": 0.8461167060613266, "absolute_error": 1959153.0, "actual_total": 12731421.0, "bias": -930795.0, "peak_gpu_allocated_bytes": 514210304}
+             method     cutoff        end  seconds  wape_score  absolute_error  actual_total      bias  peak_gpu_allocated_bytes
+           mean_all 2025-06-30 2025-08-31 0.022599    0.779148       2361493.0    10692666.0 1663067.0                         0
+chronos_daily_total 2025-06-30 2025-08-31 0.750781    0.830995       1807112.0    10692666.0  482888.0                 493028352
+ chronos_route_hour 2025-06-30 2025-08-31 0.212007    0.839383       1717420.0    10692666.0  604092.0                 509376512
+           mean_all 2025-08-31 2025-10-31 0.016909    0.862429       1751473.0    12731421.0 -834053.0                         0
+chronos_daily_total 2025-08-31 2025-10-31 0.060986    0.867597       1685682.0    12731421.0 -737404.0                 494194176
+ chronos_route_hour 2025-08-31 2025-10-31 0.212711    0.846117       1959153.0    12731421.0 -930795.0                 514210304
+Sat Sep 26 17:42:55 UTC 2026

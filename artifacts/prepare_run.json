@@ -1,0 +1,11 @@
+{
+  "command": "prepare",
+  "seconds": 126.09434695809614,
+  "peak_rss_bytes": 1006305280,
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "missing_policy": "absent counts = 0, observation masks retained",
+  "seed": null,
+  "rounding": "floor(max(0, prediction) + 0.5)"
+}

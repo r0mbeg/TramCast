@@ -1,0 +1,69 @@
+{
+  "model": "HistGradientBoostingRegressor",
+  "parameters": {
+    "loss": "absolute_error",
+    "max_iter": 150,
+    "learning_rate": 0.08,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 50,
+    "l2_regularization": 1.0,
+    "categorical_features": [
+      "route",
+      "weekday"
+    ],
+    "early_stopping": false,
+    "random_state": 42
+  },
+  "excluded_origins": [
+    "2025-01-31"
+  ],
+  "target": "boardings - mean_all",
+  "residual_limit": 0.2,
+  "features": [
+    "route",
+    "hour",
+    "weekday",
+    "horizon",
+    "mean_all",
+    "mean_28",
+    "median_28"
+  ],
+  "folds": [
+    {
+      "cutoff": "2025-06-30",
+      "end": "2025-08-31",
+      "training_rows": 33480,
+      "origins": [
+        "2025-02-28",
+        "2025-03-28",
+        "2025-04-25"
+      ],
+      "seconds": 4.305049458984286,
+      "artifact": "model_residual_no_january_2025-06-30.pkl"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "end": "2025-10-31",
+      "training_rows": 55800,
+      "origins": [
+        "2025-02-28",
+        "2025-03-28",
+        "2025-04-25",
+        "2025-05-23",
+        "2025-06-20"
+      ],
+      "seconds": 4.417882542009465,
+      "artifact": "model_residual_no_january_2025-08-31.pkl"
+    }
+  ],
+  "seconds": 8.831000457983464,
+  "threads": 4,
+  "peak_rss_bytes": 242679808,
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "sklearn": "1.9.1",
+  "input_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "missing_policy": "same zero-filled grid as baseline; no imputation",
+  "rounding": "floor(max(0, prediction)+0.5); route5 and hours1-4 forced zero"
+}

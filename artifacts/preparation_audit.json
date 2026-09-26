@@ -1,0 +1,37 @@
+{
+  "train.csv": {
+    "rows": 49051926,
+    "outside_period": 0,
+    "unsuccessful_in_period": 2138693,
+    "successful_in_period": 46913233,
+    "removed_nonworking": 99046,
+    "removed_route5_working": 0,
+    "bytes": 8160068959,
+    "mtime_ns": 1789376644000000000
+  },
+  "test.csv": {
+    "rows": 13391571,
+    "outside_period": 615,
+    "unsuccessful_in_period": 636998,
+    "successful_in_period": 12753958,
+    "removed_nonworking": 23005,
+    "removed_route5_working": 0,
+    "bytes": 2231502820,
+    "mtime_ns": 1789376648000000000
+  },
+  "september_boundary": {
+    "train_rows": 550,
+    "test_rows": 242385,
+    "matching_five_field_occurrences": 0,
+    "train_unmatched_occurrences": 550,
+    "train_repeated_tran_no": 7,
+    "test_repeated_tran_no": 163784
+  },
+  "reconciliation": {
+    "mismatched_keys": 0,
+    "raw_total": 59667191,
+    "supplied_total": 59667191,
+    "cleaned_total": 59545140,
+    "removed_total": 122051
+  }
+}

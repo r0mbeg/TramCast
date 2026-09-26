@@ -4,4 +4,7 @@ dataset/*
 !dataset/README.md
 __pycache__/
 .venv/
+.venv-boost/
 *.pyc
+artifacts/model_*.pkl
+artifacts/boost_comparison/*.pkl

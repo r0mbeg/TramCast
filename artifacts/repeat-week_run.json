@@ -1,0 +1,31 @@
+{
+  "command": "repeat-week",
+  "seconds": 14.541411207988858,
+  "peak_rss_bytes": 152535040,
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "missing_policy": "absent counts = 0, observation masks retained",
+  "seed": null,
+  "rounding": "floor(max(0, prediction) + 0.5)",
+  "history_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "features": [
+    "route",
+    "weekday",
+    "hour"
+  ],
+  "parameters": {
+    "source": "last complete Monday\u2013Sunday",
+    "update_within_horizon": false
+  },
+  "windows": [
+    {
+      "cutoff": "2025-06-30",
+      "end": "2025-08-31"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "end": "2025-10-31"
+    }
+  ]
+}

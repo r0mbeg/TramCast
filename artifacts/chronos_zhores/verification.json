@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "forecast_rows": 88560,
+  "configurations": 6,
+  "checks": [
+    "local history/code SHA256 match cluster metadata",
+    "full validation keys and unchanged ground truth",
+    "nonnegative integers and mandatory zeros",
+    "independent metric recomputation",
+    "baseline matches fresh local predictions"
+  ],
+  "mean_window_scores": {
+    "chronos_daily_total": 0.8492959503839502,
+    "chronos_route_hour": 0.8427500370316412,
+    "mean_all": 0.8207887234569721
+  }
+}

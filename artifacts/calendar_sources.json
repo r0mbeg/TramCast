@@ -1,0 +1,33 @@
+{
+  "coverage": ["2025-01-01", "2025-12-31"],
+  "known_at": "2024-10-04",
+  "retrieved_at": "2026-09-26",
+  "scope": "Russian federal five-day working-week calendar; demand feature, not tram operating schedule",
+  "acquisition": "Manual extraction of dates from official sources via web search/open; government document and news text retrieved through search index because direct open failed. No raw page snapshot retained.",
+  "sources": [
+    {
+      "id": "holidays",
+      "url": "https://mintrud.gov.ru/labour/relationship/351",
+      "published_at": "2019-05-31",
+      "title": "Количество нерабочих праздничных дней установлено 112 статьей Трудового кодекса",
+      "used": "Annual federal holiday dates only; the article's proposed 2020 transfers are not used"
+    },
+    {
+      "id": "transfers",
+      "url": "https://government.ru/docs/all/155500/",
+      "published_at": "2024-10-04",
+      "title": "Постановление Правительства РФ от 04.10.2024 № 1335",
+      "corroborating_url": "https://government.ru/news/52895/"
+    }
+  ],
+  "holidays": ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05", "2025-01-06", "2025-01-07", "2025-01-08", "2025-02-23", "2025-03-08", "2025-05-01", "2025-05-09", "2025-06-12", "2025-11-04"],
+  "transfers": {
+    "2025-01-04": "2025-05-02",
+    "2025-01-05": "2025-12-31",
+    "2025-02-23": "2025-05-08",
+    "2025-03-08": "2025-06-13",
+    "2025-11-01": "2025-11-03"
+  },
+  "working_weekends": ["2025-11-01"],
+  "excluded": ["school holidays", "regional holidays", "shortened working-day adjustments", "weather", "transport schedules"]
+}

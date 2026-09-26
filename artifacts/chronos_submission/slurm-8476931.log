@@ -1,0 +1,17 @@
+Checks passed: boundaries, success filter, route 5, rounding, WAPE, cutoff isolation.
+Chronos adapter checks passed: cutoff isolation, grid, shares, control, zeros, rounding.
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"method": "mean_all", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.028883768245577812, "wape_score": 0.7791483433598319, "absolute_error": 2361493.0, "actual_total": 10692666.0, "bias": 1663067.0, "peak_gpu_allocated_bytes": 0}
+{"method": "chronos_daily_total", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.7082329103723168, "wape_score": 0.8309951886648288, "absolute_error": 1807112.0, "actual_total": 10692666.0, "bias": 482888.0, "peak_gpu_allocated_bytes": 493028352}
+{"method": "chronos_route_hour", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.2620554408058524, "wape_score": 0.8393832744799099, "absolute_error": 1717421.0, "actual_total": 10692666.0, "bias": 604093.0, "peak_gpu_allocated_bytes": 509376512}
+{"method": "mean_all", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.01909257099032402, "wape_score": 0.8624291035541123, "absolute_error": 1751473.0, "actual_total": 12731421.0, "bias": -834053.0, "peak_gpu_allocated_bytes": 0}
+{"method": "chronos_daily_total", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.07192060723900795, "wape_score": 0.8675967906488993, "absolute_error": 1685681.0, "actual_total": 12731421.0, "bias": -737403.0, "peak_gpu_allocated_bytes": 494194176}
+{"method": "chronos_route_hour", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.24250611662864685, "wape_score": 0.8461167060613266, "absolute_error": 1959153.0, "actual_total": 12731421.0, "bias": -930795.0, "peak_gpu_allocated_bytes": 514210304}
+             method     cutoff        end  seconds  wape_score  absolute_error  actual_total      bias  peak_gpu_allocated_bytes
+           mean_all 2025-06-30 2025-08-31 0.028884    0.779148       2361493.0    10692666.0 1663067.0                         0
+chronos_daily_total 2025-06-30 2025-08-31 0.708233    0.830995       1807112.0    10692666.0  482888.0                 493028352
+ chronos_route_hour 2025-06-30 2025-08-31 0.262055    0.839383       1717421.0    10692666.0  604093.0                 509376512
+           mean_all 2025-08-31 2025-10-31 0.019093    0.862429       1751473.0    12731421.0 -834053.0                         0
+chronos_daily_total 2025-08-31 2025-10-31 0.071921    0.867597       1685681.0    12731421.0 -737403.0                 494194176
+ chronos_route_hour 2025-08-31 2025-10-31 0.242506    0.846117       1959153.0    12731421.0 -930795.0                 514210304

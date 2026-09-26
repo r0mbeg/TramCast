@@ -1,0 +1,5 @@
+-r requirements.txt
+catboost==1.2.10
+lightgbm==4.7.0
+xgboost==3.4.1
+scipy==1.18.1

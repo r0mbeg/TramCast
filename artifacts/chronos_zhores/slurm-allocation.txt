@@ -1,0 +1,31 @@
+JobId=8476911 JobName=tram-chronos
+   UserId=m.persiyanov(2364) GroupId=m.persiyanov(2364) MCS_label=N/A
+   Priority=1349 Nice=0 Account=lmfcoptt QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:45:00 TimeMin=N/A
+   SubmitTime=2026-09-26T20:42:18 EligibleTime=2026-09-26T20:42:18
+   AccrueTime=2026-09-26T20:42:18
+   StartTime=2026-09-26T20:42:19 EndTime=2026-09-26T21:27:19 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-09-26T20:42:19 Scheduler=Main
+   Partition=ais-gpu AllocNode:Sid=an01:526433
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=gn28
+   BatchHost=gn28
+   NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=8 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=8,mem=32G,node=1,billing=8,gres/gpu=1
+   AllocTRES=cpu=8,mem=32G,node=1,billing=8,gres/gpu=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=8 MinMemoryNode=32G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   Reservation=HPC-2966
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/zhores_chronos.sbatch
+   WorkDir=/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926
+   StdErr=/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/artifacts/slurm-8476911.log
+   StdIn=/dev/null
+   StdOut=/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/artifacts/slurm-8476911.log
+   TresPerNode=gres/gpu:a100:1
+   TresPerTask=cpu=8
+   
+
