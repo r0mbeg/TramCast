@@ -37,8 +37,6 @@ lerna-debug.log*
 .vscode/
 .idea/
 *.swp
-AGENTS.md
-
 
 # Sysfiles
 .DS_Store
