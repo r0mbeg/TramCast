@@ -1,16 +1,81 @@
-.DS_Store
-dataset.zip
-dataset/*
-!dataset/README.md
-__pycache__/
-.venv/
-.venv-boost/
-*.pyc
-artifacts/model_*.pkl
-artifacts/boost_comparison/*.pkl
+# -------------------
+# Binary files
+# -------------------
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+#/[a-zA-Z0-9_-]*
 
+# -------------------
+# Logs
+# -------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Conf/temp files
+*.json
+*.env
+*.tmp
+*.bak
+*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Sysfiles
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# Go
+/cmd/forecast
+
+# Local PostgreSQL data
+/out/pgdata/
+
+
+# ML
+/dataset/
+
+# Docs
+*.pdf
+
+
+# Python and local ML inputs
+__pycache__/
+*.pyc
+.venv*/
 ml/.venv*/
-ml/artifacts/model_*.pkl
-ml/artifacts/boost_comparison/*.pkl
 ml/model/
 ml/hf-cache/
+ml/artifacts/*.pkl
+ml/artifacts/boost_comparison/*.pkl
+# Versioned dependency pins and serving metadata
+!ml/requirements*.txt
+!ml/forecast_bundle.json

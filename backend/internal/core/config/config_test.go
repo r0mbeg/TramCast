@@ -1,0 +1,239 @@
+package core_config
+
+import (
+	"errors"
+	"log/slog"
+	"os"
+	"path/filepath"
+	"strings"
+	"testing"
+	"time"
+)
+
+// These tests change process environment and therefore must not run in parallel.
+func cleanConfigEnv(t *testing.T) {
+	t.Helper()
+	for _, key := range []string{
+		"HTTP_ADDR", "HTTP_READ_HEADER_TIMEOUT", "HTTP_READ_TIMEOUT",
+		"HTTP_WRITE_TIMEOUT", "HTTP_IDLE_TIMEOUT", "HTTP_SHUTDOWN_TIMEOUT", "HTTP_PROBE_TIMEOUT",
+		"LOGGER_LEVEL", "LOGGER_FORMAT", "POSTGRES_HOST", "POSTGRES_PORT",
+		"POSTGRES_USER", "POSTGRES_PASSWORD", "POSTGRES_DB", "POSTGRES_SSLMODE",
+		"POSTGRES_MAX_CONNS", "POSTGRES_MIN_CONNS", "POSTGRES_CONNECT_TIMEOUT", "POSTGRES_STARTUP_TIMEOUT",
+		"WEB_DIR",
+	} {
+		previous, existed := os.LookupEnv(key)
+		if err := os.Unsetenv(key); err != nil {
+			t.Fatalf("unset %s: %v", key, err)
+		}
+		t.Cleanup(func() {
+			var err error
+			if existed {
+				err = os.Setenv(key, previous)
+			} else {
+				err = os.Unsetenv(key)
+			}
+			if err != nil {
+				t.Errorf("restore %s: %v", key, err)
+			}
+		})
+	}
+}
+
+func setRequiredEnv(t *testing.T) {
+	t.Helper()
+	t.Setenv("POSTGRES_USER", "test_user")
+	t.Setenv("POSTGRES_PASSWORD", "test_password")
+	t.Setenv("POSTGRES_DB", "test_db")
+}
+
+func writeEnvFile(t *testing.T, contents string) string {
+	t.Helper()
+	path := filepath.Join(t.TempDir(), ".env")
+	if err := os.WriteFile(path, []byte(contents), 0600); err != nil {
+		t.Fatal(err)
+	}
+	return path
+}
+
+func TestLoadDefaults(t *testing.T) {
+	cleanConfigEnv(t)
+	setRequiredEnv(t)
+	cfg, err := Load("")
+	if err != nil {
+		t.Fatal(err)
+	}
+	wantHTTP := HTTPConfig{
+		Addr: ":8080", ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 15 * time.Second,
+		WriteTimeout: 30 * time.Second, IdleTimeout: time.Minute,
+		ShutdownTimeout: 10 * time.Second, ProbeTimeout: 2 * time.Second,
+	}
+	if cfg.HTTP != wantHTTP {
+		t.Errorf("HTTP defaults: got %+v, want %+v", cfg.HTTP, wantHTTP)
+	}
+	if cfg.Logger.Level != slog.LevelInfo || cfg.Logger.Format != "text" {
+		t.Error("unexpected logger defaults")
+	}
+	if cfg.Postgres.Host != "127.0.0.1" || cfg.Postgres.Port != 5433 || cfg.Postgres.SSLMode != "disable" ||
+		cfg.Postgres.MaxConns != 10 || cfg.Postgres.MinConns != 0 ||
+		cfg.Postgres.ConnectTimeout != 5*time.Second || cfg.Postgres.StartupTimeout != 10*time.Second {
+		t.Error("unexpected PostgreSQL defaults")
+	}
+}
+
+func TestLoadResolvesWebDir(t *testing.T) {
+	root := t.TempDir()
+	backend := filepath.Join(root, "backend")
+	if err := os.Mkdir(backend, 0700); err != nil {
+		t.Fatal(err)
+	}
+	t.Chdir(backend)
+
+	t.Run("default is relative to the working directory", func(t *testing.T) {
+		cleanConfigEnv(t)
+		setRequiredEnv(t)
+		cfg, err := Load("")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if want := filepath.Join(root, "frontend", "dist"); cfg.Web.Dir != want {
+			t.Errorf("WEB_DIR default = %q, want %q", cfg.Web.Dir, want)
+		}
+	})
+	t.Run("custom relative path", func(t *testing.T) {
+		cleanConfigEnv(t)
+		setRequiredEnv(t)
+		t.Setenv("WEB_DIR", "../frontend")
+		cfg, err := Load("")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if want := filepath.Join(root, "frontend"); cfg.Web.Dir != want {
+			t.Errorf("WEB_DIR = %q, want %q", cfg.Web.Dir, want)
+		}
+	})
+}
+
+func TestLoadExplicitEnvFileAndProcessPriority(t *testing.T) {
+	cleanConfigEnv(t)
+	path := writeEnvFile(t, "POSTGRES_USER=file_user\nPOSTGRES_PASSWORD='file $ # password'\nPOSTGRES_DB=file_db\nHTTP_ADDR=:9090\nLOGGER_LEVEL=DEBUG\nLOGGER_FORMAT=json\n")
+	t.Setenv("POSTGRES_USER", "process_user")
+	t.Setenv("HTTP_ADDR", "127.0.0.1:8081")
+	t.Setenv("LOGGER_LEVEL", "WARN")
+
+	cfg, err := Load(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cfg.Postgres.User != "process_user" || cfg.HTTP.Addr != "127.0.0.1:8081" || cfg.Logger.Level != slog.LevelWarn {
+		t.Error("process environment must override the dotenv file")
+	}
+	if cfg.Postgres.Database != "file_db" || cfg.Postgres.Password != "file $ # password" || cfg.Logger.Format != "json" {
+		t.Error("unset variables must be loaded from the explicit dotenv file without changing quoted values")
+	}
+}
+
+func TestLoadEmptyProcessValueOverridesFile(t *testing.T) {
+	cleanConfigEnv(t)
+	path := writeEnvFile(t, "POSTGRES_USER=file_user\nPOSTGRES_PASSWORD=file_password\nPOSTGRES_DB=file_db\n")
+	t.Setenv("POSTGRES_PASSWORD", "")
+	_, err := Load(path)
+	if err == nil || !strings.Contains(err.Error(), "POSTGRES_PASSWORD") {
+		t.Fatal("an explicitly empty password must override the file and fail validation")
+	}
+}
+
+func TestLoadDoesNotSearchForDotEnv(t *testing.T) {
+	cleanConfigEnv(t)
+	path := writeEnvFile(t, "POSTGRES_USER=file_user\nPOSTGRES_PASSWORD=file_password\nPOSTGRES_DB=file_db\n")
+	t.Chdir(filepath.Dir(path))
+	_, err := Load("")
+	if err == nil || !strings.Contains(err.Error(), "POSTGRES_USER") {
+		t.Fatal("Load without an env-file path must not implicitly load .env")
+	}
+}
+
+func TestLoadValidation(t *testing.T) {
+	for _, tt := range []struct{ name, key, value string }{
+		{"blank host", "POSTGRES_HOST", " "},
+		{"blank user", "POSTGRES_USER", " "},
+		{"blank password", "POSTGRES_PASSWORD", " "},
+		{"blank database", "POSTGRES_DB", " "},
+		{"zero port", "POSTGRES_PORT", "0"},
+		{"overflow port", "POSTGRES_PORT", "65536"},
+		{"zero pool", "POSTGRES_MAX_CONNS", "0"},
+		{"negative pool minimum", "POSTGRES_MIN_CONNS", "-1"},
+		{"minimum exceeds maximum", "POSTGRES_MIN_CONNS", "11"},
+		{"invalid sslmode", "POSTGRES_SSLMODE", "off"},
+		{"zero connect timeout", "POSTGRES_CONNECT_TIMEOUT", "0s"},
+		{"negative startup timeout", "POSTGRES_STARTUP_TIMEOUT", "-1s"},
+		{"zero header timeout", "HTTP_READ_HEADER_TIMEOUT", "0s"},
+		{"zero read timeout", "HTTP_READ_TIMEOUT", "0s"},
+		{"zero write timeout", "HTTP_WRITE_TIMEOUT", "0s"},
+		{"zero idle timeout", "HTTP_IDLE_TIMEOUT", "0s"},
+		{"zero shutdown timeout", "HTTP_SHUTDOWN_TIMEOUT", "0s"},
+		{"zero probe timeout", "HTTP_PROBE_TIMEOUT", "0s"},
+		{"missing HTTP port", "HTTP_ADDR", "localhost"},
+		{"named HTTP port", "HTTP_ADDR", "localhost:http"},
+		{"overflow HTTP port", "HTTP_ADDR", ":65536"},
+		{"invalid HTTP host", "HTTP_ADDR", "bad host:8080"},
+		{"invalid log level", "LOGGER_LEVEL", "quiet"},
+		{"invalid log format", "LOGGER_FORMAT", "xml"},
+		{"blank web directory", "WEB_DIR", " "},
+	} {
+		t.Run(tt.name, func(t *testing.T) {
+			cleanConfigEnv(t)
+			setRequiredEnv(t)
+			t.Setenv(tt.key, tt.value)
+			_, err := Load("")
+			if err == nil || !strings.Contains(err.Error(), tt.key) {
+				t.Errorf("expected a validation error naming %s", tt.key)
+			}
+		})
+	}
+}
+
+func TestLoadRequiredEnvironment(t *testing.T) {
+	for _, key := range []string{"POSTGRES_USER", "POSTGRES_PASSWORD", "POSTGRES_DB"} {
+		t.Run(key, func(t *testing.T) {
+			cleanConfigEnv(t)
+			setRequiredEnv(t)
+			if err := os.Unsetenv(key); err != nil {
+				t.Fatal(err)
+			}
+			_, err := Load("")
+			if err == nil || !strings.Contains(err.Error(), key) {
+				t.Errorf("expected a missing-variable error naming %s", key)
+			}
+		})
+	}
+}
+
+func TestLoadErrorsDoNotExposeValues(t *testing.T) {
+	const sensitiveValue = "sensitive-test-value"
+	t.Run("dotenv syntax", func(t *testing.T) {
+		cleanConfigEnv(t)
+		path := writeEnvFile(t, "POSTGRES_PASSWORD='"+sensitiveValue)
+		_, err := Load(path)
+		if err == nil || strings.Contains(err.Error(), sensitiveValue) {
+			t.Fatal("invalid dotenv must return an error without file contents")
+		}
+	})
+	t.Run("typed environment value", func(t *testing.T) {
+		cleanConfigEnv(t)
+		setRequiredEnv(t)
+		t.Setenv("POSTGRES_PORT", sensitiveValue)
+		_, err := Load("")
+		if err == nil || strings.Contains(err.Error(), sensitiveValue) || !strings.Contains(err.Error(), "POSTGRES_PORT") {
+			t.Fatal("parse errors must identify the setting without its value")
+		}
+	})
+}
+
+func TestLoadMissingExplicitFile(t *testing.T) {
+	cleanConfigEnv(t)
+	setRequiredEnv(t)
+	_, err := Load(filepath.Join(t.TempDir(), "missing.env"))
+	if !errors.Is(err, os.ErrNotExist) {
+		t.Fatalf("expected a missing-file error, got %v", err)
+	}
+}
