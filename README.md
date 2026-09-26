@@ -4,7 +4,7 @@
 
 TramCast предназначен для диспетчеров: выбор маршрута и периода, карта остановок и графики прогноза по часам и дням. Прогноз строится по данным успешных валидаций проезда.
 
-**Статус:** готовы SQL-схема, запросы sqlc и окружение PostgreSQL в Docker Compose. Backend пока состоит из каркаса; возможности ниже описывают план MVP.
+**Статус:** готовы SQL-схема, сгенерированный код sqlc/gRPC и базовый запуск Go-сервера с конфигурацией, логированием и подключением к PostgreSQL. Возможности ниже описывают план MVP.
 
 ## Возможности MVP
 
@@ -18,7 +18,7 @@ TramCast предназначен для диспетчеров: выбор ма
 
 | Компонент | Технологии |
 | --- | --- |
-| Backend | Go 1.25, Gin |
+| Backend | Go 1.26.8, Gin, slog |
 | База данных | PostgreSQL, pgx/v5, sqlc, goose |
 | ML-сервис | Python, gRPC; ML-фреймворк выбирает команда |
 | Frontend | React, TypeScript, Vite, TanStack Query |
@@ -42,10 +42,10 @@ Go отдаёт готовый фронтенд с диска и читает п
 
 ```text
 TramCast/
-├── backend/     # Go: каркас, SQL-миграции и запросы sqlc
+├── backend/     # Go: запуск сервера, SQL-миграции и код sqlc/gRPC
 ├── frontend/    # React и сборка статики — планируется
 ├── ml/          # Python-модель и gRPC-сервер — планируется
-├── proto/       # Общий Protobuf-контракт — планируется
+├── proto/       # Общий Protobuf-контракт Go ↔ Python
 ├── docker-compose.yaml  # PostgreSQL, миграции и локальный доступ к БД
 ├── Makefile     # Команды разработки
 ├── AGENTS.md    # Правила разработки и подробный контракт
@@ -55,7 +55,8 @@ TramCast/
 ## Разработка
 
 - [Backend: каталоги, первая миграция и генерация sqlc](backend/README.md).
+- [gRPC: контракт прогнозирования и генерация Go/Python](proto/README.md).
 - [Локальная разработка: PostgreSQL, миграции и Makefile](docs/development.md).
 - [Контракт проекта: схема БД, API, очередь, требования к данным и ML](AGENTS.md).
 
-Для локальной БД настройте `.env` по `.env.example`, затем выполните `make env-up` и `make migrate-up`. Данные сохраняются в `out/pgdata`. Backend, frontend и ML-сервис будут подключены по мере реализации.
+Для локального запуска настройте `.env` по `.env.example`, затем выполните `make env-up`, `make migrate-up` и `make run-backend`. HTTP-сервер доступен на порту 8080; `/healthz` проверяет HTTP, `/readyz` — подключение к PostgreSQL. Справочники читаются через `/api/routes`, `/api/routes/{route_id}/stops` и `/api/stops`; остальные пути отдают сборку фронтенда из `frontend/dist`. Данные БД сохраняются в `out/pgdata`. Прогнозирование, frontend и ML-сервис появятся по мере реализации.
