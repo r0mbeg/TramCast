@@ -1,0 +1,61 @@
+name: tramcast
+
+services:
+  postgres:
+    image: postgres:18.1-bookworm
+    container_name: tramcast-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?Set POSTGRES_USER in .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:?Set POSTGRES_DB in .env}
+    volumes:
+      - ./out/pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -p 5432 -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  env-port-forwarder:
+    image: alpine/socat:1.8.0.3
+    container_name: tramcast-env-port-forwarder
+    profiles: [dev]
+    entrypoint: ["socat"]
+    command: ["-d", "-d", "TCP-LISTEN:5432,fork,reuseaddr", "TCP:postgres:5432"]
+    ports:
+      - "127.0.0.1:${POSTGRES_FORWARD_PORT:-5433}:5432"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  migrate:
+    image: tramcast-goose:3.28.0
+    container_name: tramcast-migrate
+    profiles: [tools]
+    build:
+      context: .
+      dockerfile_inline: |
+        ARG TARGETARCH
+        FROM debian:bookworm AS goose-amd64
+        ADD --chmod=0755 --checksum=sha256:ab073515b78ef345f64f018c0d79aa7db50106806efc686dda7181253765ae13 https://github.com/pressly/goose/releases/download/v3.28.0/goose_linux_x86_64 /usr/local/bin/goose
+        FROM debian:bookworm AS goose-arm64
+        ADD --chmod=0755 --checksum=sha256:3968855c11b4093af271c5226909789ea294468f6e50203d738b7504995b6247 https://github.com/pressly/goose/releases/download/v3.28.0/goose_linux_arm64 /usr/local/bin/goose
+        FROM goose-$${TARGETARCH} AS final
+        ENTRYPOINT ["/usr/local/bin/goose"]
+    environment:
+      GOOSE_DRIVER: postgres
+      GOOSE_MIGRATION_DIR: /migrations
+      GOOSE_DBSTRING: "host=postgres port=5432 sslmode=disable"
+      PGUSER: ${POSTGRES_USER:?Set POSTGRES_USER in .env}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      PGDATABASE: ${POSTGRES_DB:?Set POSTGRES_DB in .env}
+    volumes:
+      - ./backend/migrations:/migrations:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: ["status"]
+    restart: "no"

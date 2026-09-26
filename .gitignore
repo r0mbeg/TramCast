@@ -58,11 +58,13 @@ Thumbs.db
 # Go
 /cmd/forecast
 
+# Local PostgreSQL data
+/out/pgdata/
+
 
 # ML
 /dataset/
 
 # Docs
 *.pdf
-
 
