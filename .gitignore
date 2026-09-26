@@ -8,3 +8,9 @@ __pycache__/
 *.pyc
 artifacts/model_*.pkl
 artifacts/boost_comparison/*.pkl
+
+ml/.venv*/
+ml/artifacts/model_*.pkl
+ml/artifacts/boost_comparison/*.pkl
+ml/model/
+ml/hf-cache/
