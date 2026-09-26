@@ -5,7 +5,7 @@ sql:
     queries: "internal/features/routes/repository/postgres/queries"
     gen:
       go:
-        package: "routes"
+        package: "routes_sqlc"
         out: "internal/features/routes/repository/postgres/sqlc"
         sql_package: "pgx/v5"
         emit_json_tags: true
@@ -17,7 +17,7 @@ sql:
     queries: "internal/features/stops/repository/postgres/queries"
     gen:
       go:
-        package: "stops"
+        package: "stops_sqlc"
         out: "internal/features/stops/repository/postgres/sqlc"
         sql_package: "pgx/v5"
         emit_json_tags: true
@@ -29,7 +29,7 @@ sql:
     queries: "internal/features/forecasts/repository/postgres/queries"
     gen:
       go:
-        package: "forecasts"
+        package: "forecasts_sqlc"
         out: "internal/features/forecasts/repository/postgres/sqlc"
         sql_package: "pgx/v5"
         emit_json_tags: true

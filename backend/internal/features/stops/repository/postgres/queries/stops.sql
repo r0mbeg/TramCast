@@ -1,3 +1,8 @@
+-- name: ListStops :many
+SELECT id, source_stop_id, name, latitude, longitude
+FROM stops
+ORDER BY id;
+
 -- name: GetStopByID :one
 SELECT id, source_stop_id, name, latitude, longitude
 FROM stops
