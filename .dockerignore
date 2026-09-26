@@ -5,3 +5,9 @@ out/
 dataset/
 *.zip
 *.pdf
+**/.venv*
+**/__pycache__
+ml/artifacts/
+ml/analysis/
+ml/model/
+ml/hf-cache/

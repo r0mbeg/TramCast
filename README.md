@@ -4,7 +4,7 @@
 
 TramCast предназначен для диспетчеров: выбор маршрута и периода, карта остановок и графики прогноза по часам и дням. Прогноз строится по данным успешных валидаций проезда.
 
-**Статус:** готовы SQL-схема, сгенерированный код sqlc/gRPC и базовый запуск Go-сервера с конфигурацией, логированием и подключением к PostgreSQL. Возможности ниже описывают план MVP.
+**Статус:** готовы SQL-схема, сгенерированный код sqlc/gRPC и базовый запуск Go-сервера с конфигурацией, логированием и подключением к PostgreSQL. Добавлен Python gRPC-сервис с сохранённым прогнозом Chronos-2; интеграция очереди Go с ним пока не реализована. Возможности ниже описывают план MVP.
 
 ## Возможности MVP
 
@@ -20,7 +20,7 @@ TramCast предназначен для диспетчеров: выбор ма
 | --- | --- |
 | Backend | Go 1.26.8, Gin, slog |
 | База данных | PostgreSQL, pgx/v5, sqlc, goose |
-| ML-сервис | Python, gRPC; ML-фреймворк выбирает команда |
+| ML-сервис | Python, gRPC; сохранённый прогноз Chronos-2 |
 | Frontend | React, TypeScript, Vite, TanStack Query |
 | Карта и графики | MapLibre GL JS, Apache ECharts |
 | Контракты и запуск | OpenAPI, Protobuf, Docker Compose |
@@ -44,7 +44,7 @@ Go отдаёт готовый фронтенд с диска и читает п
 TramCast/
 ├── backend/     # Go: запуск сервера, SQL-миграции и код sqlc/gRPC
 ├── frontend/    # React и сборка статики — планируется
-├── ml/          # Python-модель и gRPC-сервер — планируется
+├── ml/          # ML-пайплайн, эксперименты и gRPC-сервер
 ├── proto/       # Общий Protobuf-контракт Go ↔ Python
 ├── docker-compose.yaml  # PostgreSQL, миграции и локальный доступ к БД
 ├── Makefile     # Команды разработки
@@ -54,9 +54,10 @@ TramCast/
 
 ## Разработка
 
+- [ML: запуск сервиса, тесты и результаты](ml/README.md).
 - [Backend: каталоги, первая миграция и генерация sqlc](backend/README.md).
 - [gRPC: контракт прогнозирования и генерация Go/Python](proto/README.md).
 - [Локальная разработка: PostgreSQL, миграции и Makefile](docs/development.md).
 - [Контракт проекта: схема БД, API, очередь, требования к данным и ML](AGENTS.md).
 
-Для локального запуска настройте `.env` по `.env.example`, затем выполните `make env-up`, `make migrate-up` и `make run-backend`. HTTP-сервер доступен на порту 8080; `/healthz` проверяет HTTP, `/readyz` — подключение к PostgreSQL. Справочники читаются через `/api/routes`, `/api/routes/{route_id}/stops` и `/api/stops`; остальные пути отдают сборку фронтенда из `frontend/dist`. Данные БД сохраняются в `out/pgdata`. Прогнозирование, frontend и ML-сервис появятся по мере реализации.
+Для локального запуска настройте `.env` по `.env.example`, затем выполните `make env-up`, `make migrate-up` и `make run-backend`. HTTP-сервер доступен на порту 8080; `/healthz` проверяет HTTP, `/readyz` — подключение к PostgreSQL. Справочники читаются через `/api/routes`, `/api/routes/{route_id}/stops` и `/api/stops`; остальные пути отдают сборку фронтенда из `frontend/dist`. Данные БД сохраняются в `out/pgdata`. API прогнозов и frontend пока не реализованы. ML-сервис запускается отдельно через `make run-ml` или `docker compose up -d --build ml`; он выдаёт готовый прогноз 002 за ноябрь–декабрь 2025 по существующему gRPC-контракту.

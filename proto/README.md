@@ -77,7 +77,7 @@ make proto-generate-go
 protoc --proto_path=proto --go_out=backend --go_opt=module=github.com/r0mbeg/TramCast/backend --go-grpc_out=backend --go-grpc_opt=module=github.com/r0mbeg/TramCast/backend proto/tramcast/forecast/v1/forecast.proto
 ```
 
-Результат в `backend/internal/gen/tramcast/forecast/v1/`: сообщения `forecast.pb.go` и gRPC-интерфейсы `forecast_grpc.pb.go`. Рабочий Go-клиент использует `NewForecastServiceClient`; преобразование и валидация остаются в `internal/features/forecasts/predictor/grpc`.
+Результат в `backend/internal/gen/tramcast/forecast/v1/`: сообщения `forecast.pb.go` и gRPC-интерфейсы `forecast_grpc.pb.go`. Будущий Go-клиент использует `NewForecastServiceClient`; преобразование и валидация остаются в `internal/features/forecasts/predictor/grpc`.
 
 Runtime-зависимости `google.golang.org/protobuf` и `google.golang.org/grpc` закреплены в `backend/go.mod`. Сгенерированный код хранится в репозитории; при изменении `.proto` его нужно обновить той же командой. Версии генераторов указаны в заголовках сгенерированных файлов. [Пути генерации Go](https://protobuf.dev/reference/go/go-generated/#compiler-invocation).
 
@@ -96,3 +96,9 @@ python -m grpc_tools.protoc --proto_path=proto --python_out=ml/generated --pyi_o
 ## Изменения контракта
 
 Номера существующих полей не меняются и не используются повторно. При удалении поля резервируются его номер и имя через `reserved`. Новые поля не должны становиться обязательными для существующих клиентов; несовместимые изменения получают новый пакет `tramcast.forecast.v2`.
+
+## Текущая Python-реализация
+
+[ml/service.py](../ml/service.py) реализует этот контракт с предварительно рассчитанной посылкой Chronos 002. Это согласованный режим интеграции: сохранённый прогноз вместо повторного inference. ID версии модели, конфигурация, ID снимка истории, период и контрольная сумма CSV находятся в [метаданных пакета](../ml/forecast_bundle.json). При старте проверяются все ключи и значения; выдаются исходные целые числа без повторного округления. Ошибочный пакет даёт FAILED_PRECONDITION, подробности пишутся в лог. Замена пакета требует перезапуска.
+
+Сгенерированный Python-код хранится в репозитории. Для его обновления: установить `ml/requirements-proto.txt`, выполнить `make proto-generate-python`. Сервер и проверки запускаются по [инструкции ML](../ml/README.md).

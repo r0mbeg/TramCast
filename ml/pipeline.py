@@ -10,12 +10,11 @@ import time
 
 import numpy as np
 import pandas as pd
+from constants import KEYS, ROUTES
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "artifacts"
 DATA = ROOT.parent / "dataset"
-ROUTES = [1, 5, 7, 11, 12, 17, 25, 26, 28, 50]
-KEYS = ["route", "date", "hour"]
 
 
 def working_time(timestamp):

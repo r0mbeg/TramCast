@@ -6,11 +6,13 @@ SQLC ?= sqlc
 PROTOC ?= protoc
 GO ?= go
 ENV_FILE ?= ../.env
+PYTHON ?= python3
 
 .PHONY: help env-up env-down env-port-forward env-port-close ps logs \
 	migrate-up migrate-status migrate-down migrate-create migrate-validate \
 	sqlc-compile sqlc-generate proto-generate-go \
-	tidy-backend tidy-backend-check run-backend
+	tidy-backend tidy-backend-check run-backend \
+	proto-generate-python run-ml test-ml test-ml-service
 
 help:
 	@echo TramCast commands
@@ -31,6 +33,10 @@ help:
 	@echo   make tidy-backend           Sync backend go.mod and go.sum with imports
 	@echo   make tidy-backend-check     Show required go.mod and go.sum changes without writing
 	@echo   make run-backend            Run the Go backend with the root .env file
+	@echo   make proto-generate-python  Generate Python messages and gRPC interfaces
+	@echo   make run-ml                 Serve the saved Chronos forecast on localhost:50051
+	@echo   make test-ml-service        Check the real gRPC service without ML dependencies
+	@echo   make test-ml                Run ML checks and the gRPC contract check
 
 env-up:
 	@$(DOCKER_COMPOSE) up -d --wait postgres env-port-forwarder
@@ -83,3 +89,16 @@ tidy-backend-check:
 
 run-backend:
 	@$(GO) -C backend run ./cmd/tramcast -env-file "$(ENV_FILE)"
+
+proto-generate-python:
+	@mkdir -p ml/generated
+	@$(PYTHON) -m grpc_tools.protoc --proto_path=proto --python_out=ml/generated --pyi_out=ml/generated --grpc_python_out=ml/generated proto/tramcast/forecast/v1/forecast.proto
+
+run-ml:
+	@cd ml && PYTHONPATH=generated $(PYTHON) service.py
+
+test-ml-service:
+	@cd ml && PYTHONPATH=generated $(PYTHON) -m tests.test_service
+
+test-ml:
+	@cd ml && PYTHONPATH=generated $(PYTHON) -m tests

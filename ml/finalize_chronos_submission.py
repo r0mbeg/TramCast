@@ -12,7 +12,9 @@ def main():
     source = OUT / "chronos_submission"
     run = json.loads((source / "run.json").read_text())
     assert run["history_sha256"] == hashlib.sha256((OUT / "hourly_clean.csv").read_bytes()).hexdigest()
-    assert run["code_sha256"] == hashlib.sha256((OUT / "source_snapshot_09cab47/chronos_experiment.py").read_bytes()).hexdigest()
+    sources = [ROOT / "experiments/chronos_experiment.py",
+               OUT / "source_snapshot_09cab47/chronos_experiment.py"]
+    assert run["code_sha256"] in {hashlib.sha256(path.read_bytes()).hexdigest() for path in sources}
     assert run["submission"]["sha256"] == hashlib.sha256((source / "submission.csv").read_bytes()).hexdigest()
     history = pd.read_csv(OUT / "hourly_clean.csv", sep=";", parse_dates=["date"])
     predictions = pd.read_csv(source / "predictions.csv", sep=";", parse_dates=["date"])

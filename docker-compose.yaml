@@ -1,6 +1,14 @@
 name: tramcast
 
 services:
+  ml:
+    build:
+      context: .
+      dockerfile: ml/Dockerfile
+    expose:
+      - "50051"
+    restart: unless-stopped
+
   postgres:
     image: postgres:18.1-bookworm
     container_name: tramcast-postgres

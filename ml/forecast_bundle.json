@@ -1,0 +1,48 @@
+{
+  "model_version": "chronos2-daily-a29d28d10d886236f387c9bc5735c8fc97fdaf79a54bb85095d021f0ab2149e7",
+  "dataset_version": "hourly-clean-sha256-7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "timezone": "Europe/Moscow",
+  "history_end": "2025-11-01T00:00:00+03:00",
+  "forecast_from": "2025-11-01T00:00:00+03:00",
+  "forecast_to": "2026-01-01T00:00:00+03:00",
+  "route_numbers": [
+    1,
+    5,
+    7,
+    11,
+    12,
+    17,
+    25,
+    26,
+    28,
+    50
+  ],
+  "prediction_file": "submissions/002_chronos_daily_zero_shot.csv",
+  "prediction_sha256": "4b37870e1e8e92f0d30fbfb6d0708793fa7951238827f67c1bec2d9ac5eeab7c",
+  "serving_mode": "precomputed; no inference or training during RPC",
+  "model_configuration": {
+    "model": "amazon/chronos-2",
+    "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "mode": "zero-shot; no covariates; no fine-tuning",
+    "code_sha256": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5",
+    "seed": 42,
+    "quantile": 0.5,
+    "batch_size": 32,
+    "context_length": 512,
+    "cross_learning": false,
+    "dtype": "float32",
+    "postprocessing": "floor(max(0,p)+0.5); route5 and hours1-4 forced0",
+    "versions": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "torch": "2.6.0+cu124",
+      "chronos-forecasting": "2.3.2",
+      "transformers": "4.57.6",
+      "accelerate": "1.15.0"
+    },
+    "representation": "daily_total",
+    "hourly_shares": "route x weekday x hour from cleaned history through cutoff"
+  },
+  "provenance": "artifacts/submission_run.json; Zhores job 8476931",
+  "route5_policy": "always zero: erroneous/empty route per organizers and user decision"
+}
