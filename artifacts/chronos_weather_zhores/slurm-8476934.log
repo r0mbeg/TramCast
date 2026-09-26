@@ -1,0 +1,7 @@
+Chronos adapter checks passed: cutoff isolation, grid, shares, control, zeros, rounding.
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"method": "chronos_daily_total", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.7016579834744334, "wape_score": 0.8309951886648288, "absolute_error": 1807112.0, "actual_total": 10692666.0, "bias": 482888.0, "peak_gpu_allocated_bytes": 493028352}
+{"method": "chronos_daily_climatology", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.07627861853688955, "wape_score": 0.8260792958463306, "absolute_error": 1859676.0, "actual_total": 10692666.0, "bias": 718146.0, "peak_gpu_allocated_bytes": 506123776}
+{"method": "chronos_daily_total", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.07218670286238194, "wape_score": 0.8675967906488993, "absolute_error": 1685681.0, "actual_total": 12731421.0, "bias": -737403.0, "peak_gpu_allocated_bytes": 494194176}
+{"method": "chronos_daily_climatology", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.0761774331331253, "wape_score": 0.847225537510699, "absolute_error": 1945036.0, "actual_total": 12731421.0, "bias": -1184034.0, "peak_gpu_allocated_bytes": 510144512}

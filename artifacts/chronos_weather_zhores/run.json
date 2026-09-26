@@ -1,0 +1,60 @@
+{
+  "model": "amazon/chronos-2",
+  "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "seed": 42,
+  "quantile": 0.5,
+  "context_length": 512,
+  "batch_size": 32,
+  "cross_learning": false,
+  "dtype": "float32",
+  "mode": "zero-shot",
+  "features": [
+    "climate_temperature",
+    "climate_wet_probability"
+  ],
+  "weather_period": [
+    "2020-01-01",
+    "2024-12-31"
+  ],
+  "smoothing_days": 31,
+  "wet_threshold_mm": 1,
+  "windows": [
+    [
+      "2025-06-30",
+      "2025-08-31"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  ],
+  "submission_cutoff": "2025-10-31",
+  "job_id": "8476934",
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "seconds": 2.0797569677233696,
+  "peak_rss_bytes": 1233121280,
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "torch": "2.6.0+cu124",
+    "chronos-forecasting": "2.3.2",
+    "transformers": "4.57.6"
+  },
+  "sha256": {
+    "/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "artifacts/weather_climatology/era5_moscow_2020_2024.json": "fc3683ab2694fbeb63bae27dfb8b2dd2eacac6159e894e98ae3639605fd03b00",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-weather-20260926/chronos_weather_experiment.py": "61e6c0585e927d7cee4d188da7f6350e2186aa89937479c2edda08c5156c49db",
+    "chronos_experiment.py": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5",
+    "pipeline.py": "9924011d2bb5c05555c6fbeaf04d67b7bdbac372cc257ea8362606cd85599c06",
+    "artifacts/results/submission.csv": "48c7e77e3d7b93b381578a6182033b12514c063a722f4348e237c91ecfdd522c"
+  },
+  "missing_policy": "absent counts = 0; observed validation unchanged",
+  "postprocessing": "floor(max(0,p)+0.5); route5 and hours1-4 forced0",
+  "availability": "Weather 2020\u20132024 retrieved in 2026, historical release vintage not verified; modern pretrained weights"
+}
