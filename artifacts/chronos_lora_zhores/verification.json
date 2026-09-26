@@ -1,0 +1,52 @@
+{
+  "verified_rows": 59040,
+  "hashes_verified": true,
+  "lora_parameters_verified": true,
+  "checks": "full grid, local facts, WAPE, integer zeros, zero-shot control",
+  "mean_scores": {
+    "chronos_daily_lora": 0.8476299389498141,
+    "chronos_daily_zero_shot": 0.849295989656864
+  },
+  "pooled_scores": {
+    "chronos_daily_lora": 0.8489933460373503,
+    "chronos_daily_zero_shot": 0.8508888308005345
+  },
+  "rows": [
+    {
+      "method": "chronos_daily_lora",
+      "cutoff": "2025-06-30",
+      "end": "2025-08-31",
+      "wape_score": 0.8319651993244715,
+      "absolute_error": 1796740.0,
+      "actual_total": 10692666.0,
+      "bias": 547350.0
+    },
+    {
+      "method": "chronos_daily_lora",
+      "cutoff": "2025-08-31",
+      "end": "2025-10-31",
+      "wape_score": 0.8632946785751567,
+      "absolute_error": 1740453.0,
+      "actual_total": 12731421.0,
+      "bias": -847585.0
+    },
+    {
+      "method": "chronos_daily_zero_shot",
+      "cutoff": "2025-06-30",
+      "end": "2025-08-31",
+      "wape_score": 0.8309951886648288,
+      "absolute_error": 1807112.0,
+      "actual_total": 10692666.0,
+      "bias": 482888.0
+    },
+    {
+      "method": "chronos_daily_zero_shot",
+      "cutoff": "2025-08-31",
+      "end": "2025-10-31",
+      "wape_score": 0.8675967906488993,
+      "absolute_error": 1685681.0,
+      "actual_total": 12731421.0,
+      "bias": -737403.0
+    }
+  ]
+}
