@@ -4,10 +4,13 @@ DOCKER_COMPOSE ?= docker compose
 GOOSE ?= goose
 SQLC ?= sqlc
 PROTOC ?= protoc
+GO ?= go
+ENV_FILE ?= ../.env
 
 .PHONY: help env-up env-down env-port-forward env-port-close ps logs \
 	migrate-up migrate-status migrate-down migrate-create migrate-validate \
-	sqlc-compile sqlc-generate proto-generate-go
+	sqlc-compile sqlc-generate proto-generate-go \
+	tidy-backend tidy-backend-check run-backend
 
 help:
 	@echo TramCast commands
@@ -25,6 +28,9 @@ help:
 	@echo   make sqlc-compile           Check SQL queries and sqlc configuration
 	@echo   make sqlc-generate          Generate Go database code
 	@echo   make proto-generate-go      Generate Go messages and gRPC interfaces
+	@echo   make tidy-backend           Sync backend go.mod and go.sum with imports
+	@echo   make tidy-backend-check     Show required go.mod and go.sum changes without writing
+	@echo   make run-backend            Run the Go backend with the root .env file
 
 env-up:
 	@$(DOCKER_COMPOSE) up -d --wait postgres env-port-forwarder
@@ -68,3 +74,12 @@ sqlc-generate:
 
 proto-generate-go:
 	@$(PROTOC) --proto_path=proto --go_out=backend --go_opt=module=github.com/r0mbeg/TramCast/backend --go-grpc_out=backend --go-grpc_opt=module=github.com/r0mbeg/TramCast/backend proto/tramcast/forecast/v1/forecast.proto
+
+tidy-backend:
+	@$(GO) -C backend mod tidy
+
+tidy-backend-check:
+	@$(GO) -C backend mod tidy -diff
+
+run-backend:
+	@$(GO) -C backend run ./cmd/tramcast -env-file "$(ENV_FILE)"
