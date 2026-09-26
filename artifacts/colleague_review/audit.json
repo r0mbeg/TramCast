@@ -1,0 +1,125 @@
+{
+  "archive_sha256": "9762132c0aeaa8e5ddfd8fa97005a9b1c4316151c8a74fcafaf4e95ec4c250aa",
+  "forecast_target_equals_template_rows": 14640,
+  "submission_template_correlation": 0.995105460126483,
+  "submission_template_mae": 34.35245901639344,
+  "submission_total": 12351034,
+  "template_total": 12578688,
+  "route5_nonzero": 1048,
+  "route5_total": 74185,
+  "offhours_nonzero": 2196,
+  "offhours_total": 817922,
+  "forced_zero_union_total": 892107,
+  "weather_columns": [
+    "weather_is_freezing_avg",
+    "weather_is_rain_avg",
+    "weather_is_snow_avg"
+  ],
+  "feature_tables": {
+    "train": {
+      "rows": 52488,
+      "holiday_sum": 0,
+      "holiday_eve_sum": 0,
+      "school_holiday_sum": 0,
+      "historical_profile_zero_fraction": 1.0
+    },
+    "val": {
+      "rows": 13176,
+      "holiday_sum": 0,
+      "holiday_eve_sum": 0,
+      "school_holiday_sum": 1080,
+      "historical_profile_zero_fraction": 0.11627200971463267
+    },
+    "forecast": {
+      "rows": 14640,
+      "holiday_sum": 0,
+      "holiday_eve_sum": 0,
+      "school_holiday_sum": 1440,
+      "historical_profile_zero_fraction": 0.20484972677595628
+    }
+  },
+  "raw_weather": {
+    "rows": 7330,
+    "first": "2020-11-01 00:00:00",
+    "last": "2025-01-01 00:00:00",
+    "duplicate_timestamps": 5,
+    "null_fraction": {
+      "datetime": 0.0,
+      "temp": 0.0,
+      "dwpt": 0.0,
+      "rhum": 0.0,
+      "prcp": 0.4102319236016371,
+      "snow": 0.9727148703956344,
+      "wdir": 0.0035470668485675307,
+      "wspd": 0.0,
+      "wpgt": 1.0,
+      "pres": 0.0,
+      "tsun": 1.0,
+      "coco": 0.0
+    },
+    "dtypes": {
+      "datetime": "datetime64[ns]",
+      "temp": "Float64",
+      "dwpt": "Float64",
+      "rhum": "Float64",
+      "prcp": "Float64",
+      "snow": "Float64",
+      "wdir": "Float64",
+      "wspd": "Float64",
+      "wpgt": "Float64",
+      "pres": "Float64",
+      "tsun": "Float64",
+      "coco": "Float64"
+    }
+  },
+  "old_validation": {
+    "rows": 13176,
+    "hours": [
+      0
+    ],
+    "duplicate_keys": 12627,
+    "exactly_reconstructed_target_rows": 12960,
+    "masked_score": 0.9845469935109419,
+    "full_score": 0.9825044607291148
+  },
+  "final_fit": {
+    "validation_rows_used_as_training": 8176,
+    "early_stopping_route_counts": {
+      "25": 608,
+      "26": 1464,
+      "28": 1464,
+      "50": 1464
+    },
+    "early_stopping_start": "2025-09-01",
+    "early_stopping_end": "2025-10-31"
+  },
+  "exactly_reproduced_submission_rows": 14640,
+  "model_route_hour_categories": [
+    "11_0",
+    "12_0",
+    "17_0",
+    "1_0",
+    "25_0",
+    "26_0",
+    "28_0",
+    "50_0",
+    "7_0"
+  ],
+  "forecast_unknown_route_hour_rows": 14091,
+  "weather_gain_fraction": 0.0015913509537933239,
+  "template_sensitivity": {
+    "0.5": {
+      "prediction_total": 6377730,
+      "ratio_to_original": 0.5163721515137922
+    },
+    "1.0": {
+      "prediction_total": 12351034,
+      "ratio_to_original": 1.0
+    },
+    "2.0": {
+      "prediction_total": 24110834,
+      "ratio_to_original": 1.9521308094528766
+    }
+  },
+  "current_feature_table_leaky_score": 0.8808221204767172
+}
