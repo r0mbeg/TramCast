@@ -1,5 +1,5 @@
-// Package forecasts_service registers forecast versions and switches the
-// active one.
+// Package forecasts_service registers forecast versions, switches the active
+// one and runs the prediction job queue.
 package forecasts_service
 
 import (

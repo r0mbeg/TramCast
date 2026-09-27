@@ -20,6 +20,9 @@ func cleanConfigEnv(t *testing.T) {
 		"POSTGRES_USER", "POSTGRES_PASSWORD", "POSTGRES_DB", "POSTGRES_SSLMODE",
 		"POSTGRES_MAX_CONNS", "POSTGRES_MIN_CONNS", "POSTGRES_CONNECT_TIMEOUT", "POSTGRES_STARTUP_TIMEOUT",
 		"WEB_DIR", "CATALOG_FILE", "CATALOG_OSM_FILE", "ML_GRPC_ADDR", "ML_GRPC_TIMEOUT",
+		"PREDICTION_JOB_WORKER_ENABLED", "PREDICTION_JOB_WORKERS", "PREDICTION_JOB_QUEUE_CAPACITY",
+		"PREDICTION_JOB_MAX_ATTEMPTS", "PREDICTION_JOB_LEASE_DURATION", "PREDICTION_JOB_RETRY_DELAY",
+		"PREDICTION_JOB_POLL_INTERVAL", "PREDICTION_JOB_SHUTDOWN_TIMEOUT",
 	} {
 		previous, existed := os.LookupEnv(key)
 		if err := os.Unsetenv(key); err != nil {
@@ -80,6 +83,53 @@ func TestLoadDefaults(t *testing.T) {
 	}
 	if want := (MLConfig{Addr: "127.0.0.1:50051", Timeout: 930 * time.Second}); cfg.ML != want {
 		t.Errorf("ML defaults: got %+v, want %+v", cfg.ML, want)
+	}
+	wantJobs := PredictionJobConfig{
+		WorkerEnabled: true, Workers: 1, QueueCapacity: 20, MaxAttempts: 3,
+		LeaseDuration: time.Minute, RetryDelay: 30 * time.Second,
+		PollInterval: 2 * time.Second, ShutdownTimeout: 5 * time.Second,
+	}
+	if cfg.PredictionJobs != wantJobs {
+		t.Errorf("prediction job defaults: got %+v, want %+v", cfg.PredictionJobs, wantJobs)
+	}
+}
+
+func TestLoadPredictionJobLimits(t *testing.T) {
+	cleanConfigEnv(t)
+	setRequiredEnv(t)
+	for key, value := range map[string]string{
+		"PREDICTION_JOB_WORKER_ENABLED":   "false",
+		"PREDICTION_JOB_WORKERS":          "16",
+		"PREDICTION_JOB_QUEUE_CAPACITY":   "1",
+		"PREDICTION_JOB_MAX_ATTEMPTS":     "100",
+		"PREDICTION_JOB_LEASE_DURATION":   "3s",
+		"PREDICTION_JOB_RETRY_DELAY":      "0s",
+		"PREDICTION_JOB_POLL_INTERVAL":    "1ms",
+		"PREDICTION_JOB_SHUTDOWN_TIMEOUT": "0s",
+	} {
+		t.Setenv(key, value)
+	}
+	cfg, err := Load("")
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := PredictionJobConfig{
+		Workers: 16, QueueCapacity: 1, MaxAttempts: 100, LeaseDuration: 3 * time.Second,
+		PollInterval: time.Millisecond,
+	}
+	if cfg.PredictionJobs != want {
+		t.Errorf("prediction jobs = %+v, want %+v", cfg.PredictionJobs, want)
+	}
+
+	// The upper bounds of the durations are allowed too.
+	t.Setenv("PREDICTION_JOB_LEASE_DURATION", "1h")
+	t.Setenv("PREDICTION_JOB_RETRY_DELAY", "60m")
+	t.Setenv("PREDICTION_JOB_SHUTDOWN_TIMEOUT", "20s")
+	if cfg, err = Load(""); err != nil {
+		t.Fatal(err)
+	}
+	if jobs := cfg.PredictionJobs; jobs.LeaseDuration != time.Hour || jobs.RetryDelay != time.Hour || jobs.ShutdownTimeout != 20*time.Second {
+		t.Errorf("prediction jobs = %+v, want a 1h lease and retry delay and a 20s shutdown timeout", jobs)
 	}
 }
 
@@ -268,6 +318,26 @@ func TestLoadValidation(t *testing.T) {
 		{"ML target URI", "ML_GRPC_ADDR", "dns:///ml:50051"},
 		{"zero ML timeout", "ML_GRPC_TIMEOUT", "0s"},
 		{"negative ML timeout", "ML_GRPC_TIMEOUT", "-1s"},
+		{"invalid worker switch", "PREDICTION_JOB_WORKER_ENABLED", "maybe"},
+		{"zero workers", "PREDICTION_JOB_WORKERS", "0"},
+		{"too many workers", "PREDICTION_JOB_WORKERS", "17"},
+		{"zero queue capacity", "PREDICTION_JOB_QUEUE_CAPACITY", "0"},
+		{"negative queue capacity", "PREDICTION_JOB_QUEUE_CAPACITY", "-1"},
+		{"zero attempts", "PREDICTION_JOB_MAX_ATTEMPTS", "0"},
+		{"too many attempts", "PREDICTION_JOB_MAX_ATTEMPTS", "101"},
+		{"overflow attempts", "PREDICTION_JOB_MAX_ATTEMPTS", "2147483648"},
+		{"zero lease", "PREDICTION_JOB_LEASE_DURATION", "0s"},
+		{"short lease", "PREDICTION_JOB_LEASE_DURATION", "2s"},
+		{"long lease", "PREDICTION_JOB_LEASE_DURATION", "1h0m1s"},
+		{"fractional lease", "PREDICTION_JOB_LEASE_DURATION", "60.5s"},
+		{"negative retry delay", "PREDICTION_JOB_RETRY_DELAY", "-1s"},
+		{"fractional retry delay", "PREDICTION_JOB_RETRY_DELAY", "1500ms"},
+		{"long retry delay", "PREDICTION_JOB_RETRY_DELAY", "61m"},
+		{"zero poll interval", "PREDICTION_JOB_POLL_INTERVAL", "0s"},
+		{"negative poll interval", "PREDICTION_JOB_POLL_INTERVAL", "-1s"},
+		{"negative shutdown timeout", "PREDICTION_JOB_SHUTDOWN_TIMEOUT", "-1s"},
+		{"long shutdown timeout", "PREDICTION_JOB_SHUTDOWN_TIMEOUT", "20.001s"},
+		{"duration without unit", "PREDICTION_JOB_SHUTDOWN_TIMEOUT", "5"},
 	} {
 		t.Run(tt.name, func(t *testing.T) {
 			cleanConfigEnv(t)

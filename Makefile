@@ -40,7 +40,7 @@ endif
 	tidy-backend tidy-backend-check run-backend \
 	proto-generate-python prepare-ml-model run-ml test-ml test-ml-service \
 	ml-install ml-up ml-warm ml-start ml-check ml-describe ml-logs ml-down \
-	import-catalog import-catalog-dry-run forecast-version-register \
+	import-catalog import-catalog-dry-run forecast-version-register prediction-jobs-enqueue \
 	frontend-install frontend-dev frontend-build frontend-test
 
 help:
@@ -82,6 +82,7 @@ help:
 	@echo   make import-catalog         Import the workbook from CATALOG_FILE and the OSM snapshot from CATALOG_OSM_FILE
 	@echo   make import-catalog-dry-run Check the workbook and OSM snapshot and roll the import back
 	@echo   make forecast-version-register METADATA=x  Register ML version metadata, ACTIVATE=1 DRY_RUN=1 ALLOW_REPLAY=1 VERIFY=0
+	@echo   make prediction-jobs-enqueue  Queue a prediction job for every forecast route, VERSION=x DRY_RUN=1 WAIT=1
 	@echo   make frontend-install       Install frontend dependencies from package-lock.json
 	@echo   make frontend-dev           Run the Vite dev server with /api proxied to :8080
 	@echo   make frontend-build         Build frontend/dist, which the backend serves
@@ -210,6 +211,11 @@ METADATA_PATH = $(if $(filter /%,$(METADATA))$(findstring :,$(METADATA)),$(strip
 forecast-version-register:
 	$(if $(strip $(METADATA)),,$(error Set METADATA, for example: make forecast-version-register METADATA=out/ml-describe.json))
 	@$(GO) -C backend run ./cmd/register-forecast-version -env-file "$(ENV_FILE)" -metadata "$(METADATA_PATH)"$(if $(filter 1,$(ACTIVATE)), -activate)$(if $(filter 1,$(DRY_RUN)), -dry-run)$(if $(filter 1,$(ALLOW_REPLAY)), -allow-replay)$(if $(filter 0,$(VERIFY)), -verify=false)
+
+# The worker of a running backend computes the jobs; VERSION defaults to the
+# active forecast version.
+prediction-jobs-enqueue:
+	@$(GO) -C backend run ./cmd/enqueue-prediction-jobs -env-file "$(ENV_FILE)"$(if $(strip $(VERSION)), -version "$(strip $(VERSION))")$(if $(filter 1,$(DRY_RUN)), -dry-run)$(if $(filter 1,$(WAIT)), -wait)
 
 frontend-install:
 	@$(NPM) --prefix frontend ci

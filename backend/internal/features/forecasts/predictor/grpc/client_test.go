@@ -8,10 +8,12 @@ import (
 	"strings"
 	"sync"
 	"testing"
+	"testing/synctest"
 	"time"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/connectivity"
 	"google.golang.org/grpc/status"
 	"google.golang.org/grpc/test/bufconn"
 	"google.golang.org/protobuf/types/known/timestamppb"
@@ -376,6 +378,68 @@ func TestPredictCallerCancellation(t *testing.T) {
 	_, err := client.Predict(ctx, testRequest(1, 3))
 	requireError(t, err, "ml_cancelled", false)
 	waitClosed(t, done, "the cancellation")
+}
+
+func TestNewDoesNotConnect(t *testing.T) {
+	dialed := make(chan struct{}, 1)
+	client, err := New("passthrough:///idle", time.Minute, grpc.WithContextDialer(
+		func(context.Context, string) (net.Conn, error) {
+			dialed <- struct{}{}
+			return nil, errors.New("connection refused")
+		}))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if state := client.conn.GetState(); state != connectivity.Idle {
+		t.Errorf("state = %s, want Idle until the first call", state)
+	}
+	if err := client.Close(); err != nil {
+		t.Fatal(err)
+	}
+	select {
+	case <-dialed:
+		t.Fatal("New must not dial")
+	default:
+	}
+}
+
+// TestReconnectDelayIsCapped keeps the server down and records every dial in
+// fake time. The default gRPC backoff grows to 120 s (about 43 s by the ninth
+// attempt); the client must retry at least every reconnectMaxDelay plus 20%
+// jitter, so an ML restart is noticed within about 10 s.
+func TestReconnectDelayIsCapped(t *testing.T) {
+	synctest.Test(t, func(t *testing.T) {
+		var mu sync.Mutex
+		var dials []time.Time
+		client, err := New("passthrough:///down", time.Minute, grpc.WithContextDialer(
+			func(context.Context, string) (net.Conn, error) {
+				mu.Lock()
+				dials = append(dials, time.Now())
+				mu.Unlock()
+				return nil, errors.New("connection refused")
+			}))
+		if err != nil {
+			t.Fatal(err)
+		}
+		_, err = client.Predict(context.Background(), testRequest(1, 3))
+		requireError(t, err, "ml_unavailable", true)
+		time.Sleep(3 * time.Minute)
+		if err := client.Close(); err != nil {
+			t.Fatal(err)
+		}
+		synctest.Wait()
+
+		mu.Lock()
+		defer mu.Unlock()
+		if len(dials) < 15 {
+			t.Fatalf("dials = %d in 3 minutes, want at least 15", len(dials))
+		}
+		for i := 1; i < len(dials); i++ {
+			if gap := dials[i].Sub(dials[i-1]); gap > reconnectMaxDelay*6/5 {
+				t.Fatalf("dial %d waited %s after the previous one, want at most %s", i, gap, reconnectMaxDelay*6/5)
+			}
+		}
+	})
 }
 
 func TestNewRejectsNonPositiveTimeout(t *testing.T) {

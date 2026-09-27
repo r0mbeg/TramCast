@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/backoff"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/status"
@@ -70,6 +71,10 @@ type Client struct {
 	timeout time.Duration
 }
 
+// reconnectMaxDelay caps the delay between reconnection attempts, which grows
+// to 120 s by default: after an ML restart calls reach it again within ~10 s.
+const reconnectMaxDelay = 10 * time.Second
+
 // New prepares a plain-text client for a loopback or private-network address.
 // It does not connect: a server that is down surfaces as ml_unavailable from
 // Predict. gRPC retries are disabled, since the attempt budget belongs to the
@@ -78,9 +83,13 @@ func New(addr string, timeout time.Duration, opts ...grpc.DialOption) (*Client, 
 	if timeout <= 0 {
 		return nil, errors.New("ML gRPC timeout must be positive")
 	}
+	reconnect := backoff.DefaultConfig
+	reconnect.MaxDelay = reconnectMaxDelay
 	options := append([]grpc.DialOption{
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 		grpc.WithDisableRetry(),
+		// 20 s is the gRPC default; a zero value would shorten connect attempts.
+		grpc.WithConnectParams(grpc.ConnectParams{Backoff: reconnect, MinConnectTimeout: 20 * time.Second}),
 	}, opts...)
 	conn, err := grpc.NewClient(addr, options...)
 	if err != nil {
