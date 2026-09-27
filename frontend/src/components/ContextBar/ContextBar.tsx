@@ -1,6 +1,6 @@
-import { ChevronLeft, ChevronRight, FlaskConical, Keyboard } from 'lucide-react'
-import { useState } from 'react'
-import type { ForecastVersion } from '../../forecast/types'
+import { AlertCircle, ChevronLeft, ChevronRight, History, Keyboard } from 'lucide-react'
+import type { ReactNode } from 'react'
+import type { VersionState } from '../../forecast/useForecast'
 import {
   HORIZON_END,
   HORIZON_START,
@@ -14,7 +14,7 @@ import {
 } from '../../lib/calendar'
 import { hourRange, isServiceOff } from '../../lib/format'
 import { actions, type AppState } from '../../state/appState'
-import { Button, Kbd, Segmented, uiStyles } from '../ui/controls'
+import { Button, Kbd, uiStyles } from '../ui/controls'
 import { Popover } from '../ui/Popover'
 import styles from './ContextBar.module.css'
 
@@ -52,23 +52,78 @@ function MonthGrid({ month, title, selected, onPick }: { month: string; title: s
   )
 }
 
-/** A prototype action: the forecast API is not connected yet. */
-function PrototypeAction({ label }: { label: string }) {
-  const [phase, setPhase] = useState<'idle' | 'busy' | 'done'>('idle')
+/** 01.11.2025 from an RFC 3339 time in Moscow, as the API sends it. */
+function dayOf(time: string): string {
+  return `${time.slice(8, 10)}.${time.slice(5, 7)}.${time.slice(0, 4)}`
+}
+
+/** The last day of [from, to): the day before an end at midnight. */
+function lastDay(to: string): string {
+  const date = to.slice(0, 10)
+  return dayOf(to.slice(11, 16) === '00:00' ? addDays(date, -1) : date)
+}
+
+function versionLabel(version: VersionState): ReactNode {
+  switch (version.status) {
+    case 'ready':
+      return (
+        <>
+          Версия <span className={styles.versionModel}>{version.version.modelVersion}</span> · история до {dayOf(version.version.historyEnd)}
+        </>
+      )
+    case 'loading':
+      return 'Версия: загрузка…'
+    case 'none':
+      return 'Нет активной версии прогноза'
+    case 'error':
+      return 'Версия прогноза недоступна'
+  }
+}
+
+function VersionDetails({ version }: { version: VersionState }) {
+  if (version.status === 'none') {
+    return (
+      <p className={styles.popoverText}>
+        Сервер не назначил активную версию прогноза, поэтому расчёт не запускается. Её регистрирует и активирует администратор: <code>make forecast-version-register ACTIVATE=1</code>. Страница проверяет снова каждые 30 с.
+      </p>
+    )
+  }
+  if (version.status === 'error') {
+    return (
+      <>
+        <p className={styles.popoverText}>Не удалось получить версию прогноза: сервер недоступен или ответил ошибкой.</p>
+        <Button onClick={version.retry}>Повторить</Button>
+      </>
+    )
+  }
+  if (version.status === 'loading') return <p className={styles.popoverText}>Загрузка…</p>
+  const { id, modelVersion, datasetVersion, historyEnd, forecastFrom, forecastTo, timezone } = version.version
   return (
-    <div>
-      <Button
-        busy={phase === 'busy'}
-        disabled={phase === 'busy'}
-        onClick={() => {
-          setPhase('busy')
-          window.setTimeout(() => setPhase('done'), 400)
-        }}
-      >
-        {phase === 'busy' ? 'Запрос…' : label}
-      </Button>
-      {phase === 'done' ? <p className={styles.actionResult}>Прототип: API прогнозов ещё не подключено.</p> : null}
-    </div>
+    <>
+      <dl className={styles.definition}>
+        <dt>Модель</dt>
+        <dd>{modelVersion}</dd>
+        <dt>Данные</dt>
+        <dd>{datasetVersion}</dd>
+        <dt>ID версии</dt>
+        <dd>{id}</dd>
+        <dt>История</dt>
+        <dd>
+          до {dayOf(historyEnd)} {historyEnd.slice(11, 16)} МСК, не включая
+        </dd>
+        <dt>Период</dt>
+        <dd>
+          {dayOf(forecastFrom)} — {lastDay(forecastTo)}, {timezone}
+        </dd>
+        <dt>Значения</dt>
+        <dd>целые посадки за час, округление half-up</dd>
+        <dt>№ 5</dt>
+        <dd>нулевой fallback: нет истории валидаций</dd>
+      </dl>
+      <p className={styles.legend}>Конкурсная выгрузка: 10 маршрутов × 61 день × 24 часа = 14 640 строк.</p>
+      <Button disabled>Выгрузить конкурсный CSV</Button>
+      <p className={styles.actionResult}>Выгрузка из приложения — следующий этап.</p>
+    </>
   )
 }
 
@@ -84,7 +139,7 @@ const SHORTCUTS: [string[], string][] = [
   [['Esc'], 'Закрыть маршрут или слот'],
 ]
 
-export function ContextBar({ state, version }: { state: AppState; version: ForecastVersion }) {
+export function ContextBar({ state, version }: { state: AppState; version: VersionState }) {
   const type = dayType(state.date)
   return (
     <header className={styles.bar}>
@@ -150,63 +205,46 @@ export function ContextBar({ state, version }: { state: AppState; version: Forec
         label="Версия прогноза"
         align="end"
         trigger={(props) => (
-          <button type="button" className={styles.versionButton} {...props}>
-            Версия: демо · история до 01.11.2025
+          <button
+            type="button"
+            className={`${styles.versionButton} ${version.status === 'none' || version.status === 'error' ? styles.versionProblem : ''}`}
+            title={version.status === 'ready' ? version.version.modelVersion : undefined}
+            {...props}
+          >
+            {version.status === 'none' || version.status === 'error' ? <AlertCircle size={14} aria-hidden /> : null}
+            {versionLabel(version)}
           </button>
         )}
       >
         {() => (
           <>
             <h2 className={uiStyles.popoverTitle}>Версия прогноза</h2>
-            <dl className={styles.definition}>
-              <dt>Модель</dt>
-              <dd>{version.modelVersion}</dd>
-              <dt>Данные</dt>
-              <dd>{version.datasetVersion}</dd>
-              <dt>История</dt>
-              <dd>до 01.11.2025 00:00 МСК, не включая</dd>
-              <dt>Период</dt>
-              <dd>01.11–31.12.2025, Europe/Moscow</dd>
-              <dt>Значения</dt>
-              <dd>целые посадки за час, округление half-up</dd>
-              <dt>№ 5</dt>
-              <dd>нулевой fallback: нет истории валидаций</dd>
-            </dl>
-            <p className={styles.legend}>Конкурсная выгрузка: 10 маршрутов × 61 день × 24 часа = 14 640 строк.</p>
-            <PrototypeAction label="Выгрузить конкурсный CSV" />
+            <VersionDetails version={version} />
           </>
         )}
       </Popover>
 
-      <Popover
-        label="Демо-данные"
-        align="end"
-        trigger={(props) => (
-          <button type="button" className={`${uiStyles.chip} ${uiStyles.chipDemo}`} {...props}>
-            <FlaskConical size={14} aria-hidden />
-            Демо-данные
-          </button>
-        )}
-      >
-        {() => (
-          <>
-            <h2 className={uiStyles.popoverTitle}>Демо-данные</h2>
-            <p className={styles.popoverText}>
-              Маршруты, остановки и схемы — настоящие: справочник организаторов и OpenStreetMap. Значения прогноза, версия и состояния расчёта — демонстрационные: API прогнозов ещё не подключено.
-            </p>
-            <Segmented
-              label="Сценарий"
-              value={state.scenario}
-              options={[
-                { value: 'ready', label: 'Всё готово' },
-                { value: 'mixed', label: 'Смешанный', hint: '№ 1 — нет прогноза, № 11 — расчёт, № 12 — ошибка' },
-              ]}
-              onChange={actions.setScenario}
-            />
-            <p className={styles.legend}>«Смешанный»: у № 1 нет прогноза, у № 11 идёт расчёт, у № 12 ошибка.</p>
-          </>
-        )}
-      </Popover>
+      {version.status === 'ready' && version.version.replay ? (
+        <Popover
+          label="Replay"
+          align="end"
+          trigger={(props) => (
+            <button type="button" className={`${uiStyles.chip} ${uiStyles.chipDashed}`} {...props}>
+              <History size={14} aria-hidden />
+              Replay · сохранённый результат
+            </button>
+          )}
+        >
+          {() => (
+            <>
+              <h2 className={uiStyles.popoverTitle}>Replay</h2>
+              <p className={styles.popoverText}>
+                Эта версия отдаёт заранее сохранённый результат рецепта 030 без пересчёта моделью. Она нужна для разработки и проверки интеграции и не заменяет рабочую версию, которую считает модель на GPU.
+              </p>
+            </>
+          )}
+        </Popover>
+      ) : null}
 
       <Popover
         label="Клавиши"

@@ -38,10 +38,9 @@ export interface DayChartInput {
   selectedHour: number
   yMax: number
   width: number
-  demo: boolean
 }
 
-export function dayChartOption({ values, selectedHour, yMax, width, demo }: DayChartInput): ChartOption {
+export function dayChartOption({ values, selectedHour, yMax, width }: DayChartInput): ChartOption {
   const peakHour = values.reduce((best, value, hour) => (value > (values[best] ?? 0) ? hour : best), 0)
   const allLabels = width / 24 >= LABEL_MIN_BAR
   return {
@@ -54,7 +53,7 @@ export function dayChartOption({ values, selectedHour, yMax, width, demo }: DayC
         const value = values[hour] ?? 0
         const body = isServiceOff(hour) ? 'терминалы выключены, прогноз 0' : `${formatNumber(value)} посадок`
         const note = isPartialHour(hour) ? '<br/><span style="color:' + hex.text3 + '">учитываются посадки с 05:30</span>' : ''
-        return `${hourRange(hour)} — ${escape(body)}${note}${demo ? `<br/><span style="color:${hex.text3}">демо-данные</span>` : ''}`
+        return `${hourRange(hour)} — ${escape(body)}${note}`
       },
     },
     xAxis: {
@@ -132,10 +131,9 @@ export interface PeriodChartInput {
   yMax: number
   width: number
   period: 'week' | 'month'
-  demo: boolean
 }
 
-export function periodChartOption({ dates, totals, selectedDate, yMax, width, period, demo }: PeriodChartInput): ChartOption {
+export function periodChartOption({ dates, totals, selectedDate, yMax, width, period }: PeriodChartInput): ChartOption {
   const known = totals.map((total, index) => ({ total, index })).filter((item): item is { total: number; index: number } => item.total !== null)
   const max = known.reduce((best, item) => (item.total > best.total ? item : best), known[0] ?? { total: 0, index: -1 })
   const min = known.reduce((best, item) => (item.total < best.total ? item : best), known[0] ?? { total: 0, index: -1 })
@@ -150,7 +148,7 @@ export function periodChartOption({ dates, totals, selectedDate, yMax, width, pe
         const date = dates[index] ?? ''
         const total = totals[index]
         const body = total === null || total === undefined ? 'вне периода прогноза' : `${formatNumber(total)} посадок за сутки`
-        return `${escape(formatShort(date))} — ${escape(body)}<br/><span style="color:${hex.text3}">щелчок — часы этого дня${demo ? ' · демо-данные' : ''}</span>`
+        return `${escape(formatShort(date))} — ${escape(body)}<br/><span style="color:${hex.text3}">щелчок — часы этого дня</span>`
       },
     },
     xAxis: {

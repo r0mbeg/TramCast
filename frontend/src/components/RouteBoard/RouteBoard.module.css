@@ -11,7 +11,7 @@
   align-items: center;
   gap: 0.5rem;
   height: 2.5rem;
-  padding: 0 0.75rem 0 1rem;
+  padding: 0 1rem;
 }
 
 .title {
@@ -33,14 +33,18 @@
   overflow-y: auto;
 }
 
-/* Shared column template keeps the ruler aligned with every strip. */
+/*
+ * Shared column template keeps the ruler aligned with every strip. The hour
+ * column takes the spare width, so the numbers never reach the padding:
+ * 448 px board: 32 padding + 40 + 239 (strip) + 3 × 8 gaps + 56 leaves 57 for the hour;
+ * 576 px board from 1680 px: 32 + 40 + 358 + 24 + 56 leaves 66.
+ */
 .ruler,
 .row {
   display: grid;
-  /* 448 px board: 40 + 239 (strip) + 48 + 56 + 3 × 8 gaps + 28 padding = 435. */
-  grid-template-columns: 2.5rem var(--strip-w) 3rem 3.5rem;
+  grid-template-columns: 2.5rem var(--strip-w) minmax(3rem, 1fr) 3.5rem;
   column-gap: 0.5rem;
-  padding: 0 0.75rem 0 1rem;
+  padding: 0 1rem;
   --cell-w: 9px;
   --cell-gap: 1px;
   --strip-w: calc(24 * var(--cell-w) + 23 * var(--cell-gap));
@@ -98,8 +102,8 @@
   border-bottom: 0;
 }
 
+/* Each label stands over the right edge of its numbers. */
 .rulerLabel {
-  grid-column: 3 / 5;
   justify-self: end;
   padding-bottom: 0.3rem;
 }
@@ -216,7 +220,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  padding: 0.75rem 1rem;
   border-top: 1px solid var(--color-border);
 }
 
@@ -242,7 +246,7 @@
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  padding: 0.5rem 1rem;
   border-top: 1px solid var(--color-border);
   color: var(--color-text-3);
   font-size: var(--text-xs);
@@ -255,10 +259,10 @@
 
 /* Compact board for browser zoom around 125 %: names and sums go to tooltips. */
 @media (max-width: 1279px) {
-  /* 336 px board: 40 + 191 (strip) + 44 + 2 × 8 gaps + 28 padding = 319. */
+  /* 336 px board: 32 padding + 40 + 191 (strip) + 2 × 8 gaps leaves 57 for the hour. */
   .ruler,
   .row {
-    grid-template-columns: 2.5rem var(--strip-w) 2.75rem;
+    grid-template-columns: 2.5rem var(--strip-w) minmax(2.75rem, 1fr);
     --cell-w: 7px;
   }
 
@@ -267,7 +271,7 @@
   }
 
   .sum,
-  .rulerLabel {
+  .rulerDay {
     display: none;
   }
 

@@ -1,6 +1,4 @@
-// The future POST /api/predictions/query answers 200 with a full slice or 202
-// with a job (AGENTS.md). The demo source returns exactly these shapes, so only
-// the source changes when the API arrives.
+// A slice of POST /api/predictions/query and GET /api/predictions.
 
 export interface ForecastPoint {
   date: string
@@ -18,6 +16,7 @@ export interface ForecastSlice {
   points: ForecastPoint[]
 }
 
+/** The version every forecast request of the session pins. */
 export interface ForecastVersion {
   id: string
   modelVersion: string
@@ -26,19 +25,19 @@ export interface ForecastVersion {
   forecastFrom: string
   forecastTo: string
   timezone: 'Europe/Moscow'
-  demo: boolean
+  /** A replay serves a saved result and is never a live model version. */
+  replay: boolean
 }
+
+/** Why a route has no forecast and no job. */
+export type MissingReason = 'no_version' | 'queue_full' | 'version_inactive'
 
 export type ForecastResult =
   | { status: 'ready'; slice: ForecastSlice; fallback: boolean }
-  | { status: 'missing' }
-  | { status: 'running'; jobId: string; startedAt: number }
-  | { status: 'failed'; jobId: string; code: string }
-
-export interface ForecastSource {
-  version(): ForecastVersion
-  forecast(route: { id: number; routeNumber: number }): Promise<ForecastResult>
-}
+  | { status: 'missing'; reason: MissingReason; retryMs?: number }
+  /** startedAt is when this page first saw the job, not when it started. */
+  | { status: 'running'; jobId: string; jobStatus: 'queued' | 'running'; startedAt: number; pollMs: number }
+  | { status: 'failed'; jobId: string }
 
 /** Hourly values by date: 24 integers per day of the horizon. */
 export type DailySeries = Map<string, number[]>

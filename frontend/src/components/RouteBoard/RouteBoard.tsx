@@ -2,12 +2,13 @@ import { AlertCircle, Clock3, MapPinOff } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import type { Route } from '../../api/catalog'
 import { sum } from '../../forecast/aggregate'
-import { routeStatus, useElapsed, type RouteStatus } from '../../forecast/status'
+import { MISSING_LABEL, jobLabel, routeStatus, useElapsed, type RouteStatus } from '../../forecast/status'
 import type { ForecastState } from '../../forecast/useForecast'
 import { formatMedium } from '../../lib/calendar'
 import { formatElapsed, formatNumber, hourLabel, hourRange, isServiceOff } from '../../lib/format'
 import { loadHex } from '../../lib/loadScale'
 import { actions, activeSlot, slotLetter, type AppState } from '../../state/appState'
+import { BOARD_ID } from '../../state/layout'
 import { RouteBadge, Segmented } from '../ui/controls'
 import styles from './RouteBoard.module.css'
 
@@ -35,18 +36,18 @@ function Strip({ status, date, hour, onPickHour }: { status: RouteStatus; date: 
       </div>
     )
   }
-  if (status.kind === 'missing') return <div className={styles.stripMessage}>— Прогноз не рассчитан</div>
+  if (status.kind === 'missing') return <div className={styles.stripMessage}>— {MISSING_LABEL[status.reason]}</div>
   if (status.kind === 'running') {
     return (
       <div className={styles.stripMessage}>
-        <Clock3 size={12} aria-hidden /> Идёт расчёт · {formatElapsed(elapsed)}
+        <Clock3 size={12} aria-hidden /> {jobLabel(status.jobStatus)} · {formatElapsed(elapsed)}
       </div>
     )
   }
   if (status.kind === 'failed' || status.kind === 'error') {
     return (
       <div className={`${styles.stripMessage} ${styles.stripError}`}>
-        <AlertCircle size={12} aria-hidden /> Ошибка расчёта
+        <AlertCircle size={12} aria-hidden /> {status.kind === 'failed' ? 'Ошибка расчёта' : 'Прогноз не получен'}
       </div>
     )
   }
@@ -134,7 +135,7 @@ export function RouteBoard({ state, routes, forecasts, withGeometry }: RouteBoar
   }
 
   return (
-    <aside className={styles.board} aria-label="Маршруты">
+    <aside id={BOARD_ID} className={styles.board} aria-label="Маршруты">
       <div className={styles.header}>
         <h2 className={styles.title}>Маршруты</h2>
         <span className={styles.subtitle}>{formatMedium(state.date)}</span>
@@ -157,7 +158,8 @@ export function RouteBoard({ state, routes, forecasts, withGeometry }: RouteBoar
             </button>
           ))}
         </div>
-        <span className={styles.rulerLabel}>час · сутки</span>
+        <span className={styles.rulerLabel}>час</span>
+        <span className={`${styles.rulerLabel} ${styles.rulerDay}`}>сутки</span>
       </div>
 
       <div className={styles.list} role="list">
@@ -213,7 +215,7 @@ export function RouteBoard({ state, routes, forecasts, withGeometry }: RouteBoar
 
       <div className={styles.footer}>
         <span>
-          Сеть за сутки <strong>{formatNumber(networkTotal)}</strong> · демо
+          Сеть за сутки <strong>{formatNumber(networkTotal)}</strong>
         </span>
         <span>
           Готово {ready}

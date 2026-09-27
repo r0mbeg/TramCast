@@ -3,6 +3,7 @@ import { maxDaily, maxHourly, niceCeil } from '../../forecast/aggregate'
 import { routeStatus } from '../../forecast/status'
 import type { ForecastState } from '../../forecast/useForecast'
 import { actions, slotDate, slotLetter, type AppState } from '../../state/appState'
+import { DOCK_ID } from '../../state/layout'
 import { DayMatrix } from './DayMatrix'
 import styles from './Dock.module.css'
 import { Slot, periodTotal, type SlotScale } from './Slot'
@@ -21,7 +22,7 @@ export function Dock({ state, routes, forecasts }: DockProps) {
 
   if (open.length === 0) {
     return (
-      <section className={styles.dock} aria-label="Картина дня">
+      <section id={DOCK_ID} className={styles.dock} aria-label="Картина дня">
         <DayMatrix state={state} routes={routes} forecasts={forecasts} />
       </section>
     )
@@ -41,7 +42,7 @@ export function Dock({ state, routes, forecasts }: DockProps) {
   const reference = open.length > 1 && firstTotal !== null && firstLetter ? { letter: firstLetter, period: first.slot.period, total: firstTotal } : null
 
   return (
-    <section className={styles.dock} aria-label="Прогноз маршрута">
+    <section id={DOCK_ID} className={styles.dock} aria-label="Прогноз маршрута">
       {state.slots.length > 1 ? (
         <div className={styles.compareBar}>
           <span>Сравнение · дата и час из верхней строки, у слота с закреплённой датой — своя</span>

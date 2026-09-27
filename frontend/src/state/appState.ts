@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react'
-import type { DemoScenario } from '../forecast/demo'
 import { addDays, clampToHorizon, inHorizon } from '../lib/calendar'
+import { layoutActions } from './layout'
 import {
   activeSlot,
   maxSlots,
@@ -92,8 +92,13 @@ export const actions = {
     }
     commit({ ...state, date, hour: Math.min(23, Math.max(0, hour)) }, 'replace')
   },
-  /** Opens a route in the active slot; the slot keeps its period and date. */
+  /**
+   * Opens a route in the active slot; the slot keeps its period and date.
+   * Opening shows the route, so a hidden dock comes back, as the side panel
+   * of a map app does when a place is picked.
+   */
   selectRoute(routeId: number, hour?: number) {
+    layoutActions.setDockCollapsed(false)
     commit(
       { ...state, slots: updateSlot(state.activeSlotId, { routeId }), hour: hour ?? state.hour },
       'push',
@@ -120,6 +125,7 @@ export const actions = {
     const source = activeSlot(state)
     const id = Math.max(...state.slots.map((slot) => slot.id)) + 1
     const slot: Slot = { id, routeId: routeId ?? source.routeId, period: source.period, date: null }
+    layoutActions.setDockCollapsed(false)
     commit({ ...state, slots: [...state.slots, slot], activeSlotId: id }, 'push')
     return true
   },
@@ -143,9 +149,6 @@ export const actions = {
     if (!slot) return
     if (slot.date) commit({ ...state, slots: updateSlot(slotId, { period: 'day', date }) }, 'push')
     else commit({ ...state, date, slots: updateSlot(slotId, { period: 'day' }) }, 'push')
-  },
-  setScenario(scenario: DemoScenario) {
-    commit({ ...state, scenario }, 'replace')
   },
   setCommonScale(commonScale: boolean) {
     commit({ ...state, commonScale }, 'replace')

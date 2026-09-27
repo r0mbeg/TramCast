@@ -1,8 +1,8 @@
-import { AlertCircle, CalendarClock, ChevronLeft, ChevronRight, Clock3, Columns2, Copy, Info, X } from 'lucide-react'
+import { AlertCircle, CalendarClock, ChevronLeft, ChevronRight, Clock3, Columns2, Copy, Info, RotateCw, X } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useRouteStops, type Route } from '../../api/catalog'
 import { dayTotals, peak, sum } from '../../forecast/aggregate'
-import { useElapsed, type RouteStatus } from '../../forecast/status'
+import { jobLabel, useElapsed, type RouteStatus } from '../../forecast/status'
 import { HORIZON_END, HORIZON_START, formatMedium, formatMonth, formatRange, formatShort, monthDates, weekDates } from '../../lib/calendar'
 import { formatElapsed, formatNumber, formatPercent, hourRange } from '../../lib/format'
 import { actions, maxSlots, slotDate, slotLetter, type AppState, type Period, type Slot as SlotModel } from '../../state/appState'
@@ -53,23 +53,17 @@ export function periodTotal(status: RouteStatus, period: Period, date: string): 
   return dayTotals(status.series, periodDates(period, date)).reduce((total, day) => total + (day.total ?? 0), 0)
 }
 
-function PrototypeButton({ label }: { label: string }) {
-  const [phase, setPhase] = useState<'idle' | 'busy' | 'done'>('idle')
+function Missing({ status }: { status: Extract<RouteStatus, { kind: 'missing' }> }) {
+  const [title, text] = {
+    no_version: ['Нет активной версии прогноза', 'Сервер не назначил активную версию, поэтому расчёт не запускается. Страница проверяет снова каждые 30 с.'],
+    queue_full: ['Очередь расчёта заполнена', `Запрос повторится сам через ${Math.round((status.retryMs ?? 30_000) / 1000)} с.`],
+    version_inactive: ['Версия прогноза неактивна', 'Версия этой страницы больше не активна, и новый расчёт для неё не ставится. Обновите страницу, чтобы перейти на активную версию.'],
+  }[status.reason]
   return (
-    <>
-      <Button
-        variant="primary"
-        busy={phase === 'busy'}
-        disabled={phase === 'busy'}
-        onClick={() => {
-          setPhase('busy')
-          window.setTimeout(() => setPhase('done'), 400)
-        }}
-      >
-        {phase === 'busy' ? 'Запрос…' : label}
-      </Button>
-      {phase === 'done' ? <p className={styles.centerText}>Прототип: API прогнозов ещё не подключено.</p> : null}
-    </>
+    <div className={styles.center}>
+      <p className={styles.centerTitle}>{title}</p>
+      <p className={styles.centerText}>{text}</p>
+    </div>
   )
 }
 
@@ -103,31 +97,43 @@ function Running({ status }: { status: Extract<RouteStatus, { kind: 'running' }>
   return (
     <div className={styles.center}>
       <Clock3 size={20} aria-hidden />
-      <p className={styles.centerTitle}>Расчёт выполняется · прошло {formatElapsed(elapsed)}</p>
-      <p className={styles.centerText}>Задание {status.jobId.slice(0, 8)}… Можно продолжать работу — результат появится здесь.</p>
+      <p className={styles.centerTitle}>
+        {jobLabel(status.jobStatus)} · ждём {formatElapsed(elapsed)}
+      </p>
+      <p className={styles.centerText}>
+        Задание {status.jobId.slice(0, 8)}… {status.jobStatus === 'queued' ? 'ждёт свободного обработчика.' : 'считает модель.'} Можно продолжать работу — результат появится здесь.
+      </p>
     </div>
   )
 }
 
-function Failed({ status }: { status: Extract<RouteStatus, { kind: 'failed' }> | { kind: 'error'; jobId?: undefined; code?: undefined } }) {
+function Failed({ status }: { status: Extract<RouteStatus, { kind: 'failed' }> }) {
   const [copied, setCopied] = useState(false)
   return (
     <div className={styles.center}>
       <AlertCircle size={20} className={styles.error} aria-hidden />
       <p className={`${styles.centerTitle} ${styles.error}`}>Расчёт не выполнен</p>
-      <p className={styles.centerText}>
-        {status.code ? `Код ${status.code}` : 'Не удалось получить прогноз'}
-        {status.jobId ? ` · задание ${status.jobId.slice(0, 8)}…` : ''}. Автоматически не повторяется.
-      </p>
-      {status.jobId ? (
-        <Button
-          onClick={() => {
-            void navigator.clipboard?.writeText(status.jobId!).then(() => setCopied(true))
-          }}
-        >
-          <Copy size={14} aria-hidden /> {copied ? 'ID скопирован' : 'Скопировать ID задания'}
-        </Button>
-      ) : null}
+      <p className={styles.centerText}>Задание {status.jobId.slice(0, 8)}… завершилось ошибкой и автоматически не повторяется. Причина — в журнале сервера по ID задания.</p>
+      <Button
+        onClick={() => {
+          void navigator.clipboard?.writeText(status.jobId).then(() => setCopied(true))
+        }}
+      >
+        <Copy size={14} aria-hidden /> {copied ? 'ID скопирован' : 'Скопировать ID задания'}
+      </Button>
+    </div>
+  )
+}
+
+function Unavailable({ status }: { status: Extract<RouteStatus, { kind: 'error' }> }) {
+  return (
+    <div className={styles.center}>
+      <AlertCircle size={20} className={styles.error} aria-hidden />
+      <p className={`${styles.centerTitle} ${styles.error}`}>Не удалось получить прогноз</p>
+      <p className={styles.centerText}>Сервер недоступен или ответил ошибкой.</p>
+      <Button onClick={status.retry}>
+        <RotateCw size={14} aria-hidden /> Повторить
+      </Button>
     </div>
   )
 }
@@ -157,7 +163,7 @@ export function Slot({ state, slot, route, status, scale, reference }: SlotProps
   const option = useMemo(() => {
     if (status.kind !== 'ready') return null
     if (slot.period === 'day') {
-      return dayChartOption({ values: status.series.get(date) ?? new Array(24).fill(0), selectedHour: state.hour, yMax: scale.day, width, demo: true })
+      return dayChartOption({ values: status.series.get(date) ?? new Array(24).fill(0), selectedHour: state.hour, yMax: scale.day, width })
     }
     return periodChartOption({
       dates: days.map((day) => day.date),
@@ -166,7 +172,6 @@ export function Slot({ state, slot, route, status, scale, reference }: SlotProps
       yMax: scale.period,
       width,
       period: slot.period,
-      demo: true,
     })
   }, [status, slot.period, date, state.hour, scale, width, days])
 
@@ -260,7 +265,6 @@ export function Slot({ state, slot, route, status, scale, reference }: SlotProps
               {delta === 0 ? `столько же, сколько ${reference!.letter}` : `на ${formatPercent(Math.abs(delta) * 100)} ${delta > 0 ? 'больше' : 'меньше'}, чем ${reference!.letter}`}
             </span>
           ) : null}
-          <span className={styles.readoutMeta}>· демо-данные</span>
         </div>
       ) : null}
 
@@ -281,16 +285,10 @@ export function Slot({ state, slot, route, status, scale, reference }: SlotProps
               ))}
             </div>
           ) : null}
-          {status.kind === 'missing' ? (
-            <div className={styles.center}>
-              <p className={styles.centerTitle}>Прогноз для маршрута ещё не рассчитан</p>
-              <p className={styles.centerText}>Расчёт займёт время; интерфейс останется рабочим, а результат появится здесь.</p>
-              <PrototypeButton label="Рассчитать прогноз" />
-            </div>
-          ) : null}
+          {status.kind === 'missing' ? <Missing status={status} /> : null}
           {status.kind === 'running' ? <Running status={status} /> : null}
           {status.kind === 'failed' ? <Failed status={status} /> : null}
-          {status.kind === 'error' ? <Failed status={{ kind: 'error' }} /> : null}
+          {status.kind === 'error' ? <Unavailable status={status} /> : null}
           {status.kind === 'ready' && status.fallback && slot.period === 'day' ? (
             <div className={styles.center}>
               <p className={styles.centerTitle}>Нулевой прогноз во все часы</p>
