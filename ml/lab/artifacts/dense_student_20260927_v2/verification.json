@@ -1,0 +1,12 @@
+{
+  "native_reload_exact": true,
+  "future_target_and_mask_poison_unchanged": true,
+  "full_grid": true,
+  "rows": 14640,
+  "nonnegative_int64": true,
+  "structural_zeros": true,
+  "year_boundary_starts_checked": true,
+  "source_hashes_unchanged": true,
+  "gpu_modules_loaded": [],
+  "submission_sha256": "4fbcd01fa1cff89ad23d078fe20593b22b7c01f7500490b137d4d3dbcdb598e5"
+}

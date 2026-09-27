@@ -1,0 +1,104 @@
+{
+  "checked_at": "2026-09-27T04:51:53.012796+00:00",
+  "phase": "P60",
+  "sources": [
+    {
+      "id": "lit_2024_2025",
+      "url": "https://www.lit.msu.ru/files/public/2024/calengr20242025b.pdf",
+      "known_at": "2024-10-29",
+      "sha256": "27ec9475e06f9ce73612c6f97e038217ed21e2c5d5c887ebc039516a26005598",
+      "visual_check": true
+    },
+    {
+      "id": "donm_2025_2026",
+      "url": "https://old-school.online/docs/op/holidays.pdf",
+      "known_at": "2025-05-16",
+      "sha256": "8cb6e056b3ebed5933c9a7f9e5eb26bbda38f02eae7e3e465e520c740c40e98a",
+      "visual_check": true
+    },
+    {
+      "id": "old_school_2024_2025",
+      "url": "https://old-school.online/docs/op/calend2425.pdf",
+      "known_at": null,
+      "sha256": "eb36eef0dde39d5e31a1a320d5edd245ab72a71b277887cb9b6dcffe30161f73",
+      "visual_check": true
+    },
+    {
+      "id": "old_school_2025_2026",
+      "url": "https://old-school.online/docs/op/calend2526.pdf",
+      "known_at": null,
+      "sha256": "d128329420d8962a2951232384981e39bd32d6252b31ce595d48dea3f6a930a5",
+      "visual_check": false
+    }
+  ],
+  "coverage": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "scheme": "modular_proxy_LIT_3_11_plus_DONM_recommendation",
+  "intervals": [
+    {
+      "start": "2024-12-29",
+      "end": "2025-01-08",
+      "kind": "short",
+      "source": "lit_2024_2025"
+    },
+    {
+      "start": "2025-02-16",
+      "end": "2025-02-23",
+      "kind": "short",
+      "source": "lit_2024_2025"
+    },
+    {
+      "start": "2025-04-06",
+      "end": "2025-04-13",
+      "kind": "short",
+      "source": "lit_2024_2025"
+    },
+    {
+      "start": "2025-05-31",
+      "end": "2025-08-31",
+      "kind": "summer",
+      "source": "lit_2024_2025"
+    },
+    {
+      "start": "2025-10-04",
+      "end": "2025-10-12",
+      "kind": "short",
+      "source": "donm_2025_2026"
+    },
+    {
+      "start": "2025-11-15",
+      "end": "2025-11-23",
+      "kind": "short",
+      "source": "donm_2025_2026"
+    },
+    {
+      "start": "2025-12-31",
+      "end": "2026-01-11",
+      "kind": "short",
+      "source": "donm_2025_2026"
+    }
+  ],
+  "limitations": [
+    "Not a universal Moscow school calendar or measured passenger school share",
+    "LIT has separate summer practice May29-Jun18 for former grade10, not imposed on all passengers",
+    "Traditional old-school calendars retained as counterexample; summer boundary not explicitly tabulated, excluded",
+    "Do not use secondary SEO date summaries as model data"
+  ],
+  "search_status": "verified primary proxy; school-specific full2025 LIT schedule remains unavailable",
+  "search_budget_minutes": 15,
+  "failed_primary_fetches": [
+    "sch1208uv.mskobr.ru original DONM mirror timedout",
+    "1517.mskobr.ru calendars timedout",
+    "547.mskobr.ru education timedout",
+    "lyc1533.mskobr.ru/edu-news/3304 timedout"
+  ],
+  "secondary_navigation_only": [
+    "skillbox.ru",
+    "eduela.ru",
+    "ppt-online.org",
+    "cheloveke.store"
+  ],
+  "model_run": false
+}

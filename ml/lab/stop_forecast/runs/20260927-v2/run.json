@@ -1,0 +1,66 @@
+{
+  "created_at": "2026-09-27T11:16:34.900861+00:00",
+  "sources": [
+    {
+      "path": "dataset/spravochniki/Хакатон_пример_валидаций.xlsx",
+      "sha256": "334d995fa79a9e62c8b50892a974f789cc7ec0eb46fe4c258699dc9b6bf69c99"
+    },
+    {
+      "path": "dataset/spravochniki/Хакатон_справочники_трамвай_10_маршрутов.xlsx",
+      "sha256": "c6890032eee2aaa9ed1e252b1fe5c10c37a28c7bb5c1720a01a1409b1ff2bb71"
+    },
+    {
+      "path": "data/osm/tram_routes.json",
+      "sha256": "a5833ac74361f59821b3af4eb4c8d38440651ac08b2f7b8397d806b11336edc0",
+      "use": "geography snapshot only; no event positions"
+    },
+    {
+      "path": "dataset/train.csv",
+      "sha256": "e4157ed76a617c8a0ab5674eb7de3b3503489f21307ba68893dd0de04317360f"
+    },
+    {
+      "path": "dataset/test.csv",
+      "sha256": "d58523f79b0d47d72eafe0da9a0c72fb8b472bf4b74e68a4e9f789bd6656557a"
+    },
+    {
+      "path": "ml/lab/artifacts/hourly_clean.csv",
+      "sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae"
+    },
+    {
+      "path": "dataset/labels/labels_day_train.csv",
+      "sha256": "20a61009b4ee00327784c6fa888109609fd3a1905ea3a8509b36964dd9baced7"
+    },
+    {
+      "path": "dataset/labels/labels_day_test.csv",
+      "sha256": "37479acea3e319ac613d72df7217bbe57b66af49644e538139174fd534ce2347"
+    },
+    {
+      "path": "ml/lab/stop_forecast/audit.py",
+      "sha256": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9"
+    },
+    {
+      "path": "ml/lab/pipeline.py",
+      "sha256": "9994399a18a9e3a1e3706aa4950116c3d7ee8271261698914f0333c7922027c3"
+    },
+    {
+      "path": "ml/lab/artifacts/methodology_20260927/data/audit_data.py",
+      "sha256": "6aa329276d48d180b1d25b1d8f0f1e19e275d69d958479e906334044ce8aaf69"
+    },
+    {
+      "path": "ml/lab/stop_forecast/PROTOCOL.md",
+      "sha256": "a001c99e356d77f73f42b2a0fcb7ef4f7c2a045b354d7bb2616eda1ca66fc86d"
+    }
+  ],
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "wall_seconds": 479.36029262503143,
+  "cpu_seconds": 450.924734,
+  "protocol": "S20260927-v1",
+  "gpu_seconds": 0,
+  "outputs": {
+    "audit.json": "c916a0ab5c7d5db8bf48059a16a014a663e508fada5f5fd90c7f0ed55a3228db",
+    "geography.json": "6080a2bf865789a2db3739558adf85c60813680232b0247c05800a0d1438c475",
+    "pilot_unassigned.csv": "19d038097ce744b0a4ce211afe6465c34d17af83f56753cb0f24dcc385fae36a",
+    "route_hour_balance.csv": "a053de834a33bdb1fe10f2262a6b71fe362c9355e16105935b727d1f22f249c2"
+  }
+}

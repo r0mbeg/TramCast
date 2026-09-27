@@ -1,0 +1,13 @@
+{
+  "elapsed_seconds": 120.11804020905402,
+  "final_fit_seconds": 39.48497037508059,
+  "features_predict_seconds": 0.20407104108016938,
+  "peak_rss_mib": 630.09375,
+  "model_bytes": 1743479,
+  "submission_sha256": "910abb1251c923416ebd3547858d2b307dc1d8f67295d148a408eb4acd21025e",
+  "rows": 14640,
+  "prediction_total": 12116491,
+  "checks": "grid, zeros, int64, reload, future poison passed",
+  "gpu_used": false,
+  "sources_unchanged": true
+}

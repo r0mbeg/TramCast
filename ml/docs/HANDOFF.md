@@ -1,9 +1,108 @@
 # Запуск ML-сервиса из репозитория
 
+## Основной режим: CPU CatBoost
+
+По умолчанию сервис запускает дистиллированный CatBoost. GPU, PyTorch и TabPFN
+для этого режима не нужны. Закрытый score, сообщённый пользователем: **0.88362**;
+у работающей тяжёлой модели — **0.88543**. Прогноз обеих поставок: ноябрь–декабрь
+2025, 14 640 часов. Фронтенд и gRPC-контракт не меняются.
+
+Передайте организаторам репозиторий и файл весов `dense-student-v3.cbm`
+(3 081 572 байта) отдельно: веса исключены из Git.
+Положите его в `ml/models/dense-student-v3.cbm`.
+Контрольная сумма закреплена в `ml/recipes/catboost-cpu/recipe.json`;
+сервис откажется работать с другим файлом. В рабочей копии веса уже установлены.
+[Проверки CPU-поставки](../deploy/cpu-verified-20260927/README.md) подтвердили
+побайтовое совпадение с конкурсной посылкой на Mac и в Docker ARM64.
+Исходник обученной модели: `ml/lab/artifacts/dense_student_20260927_v3/bundle/student.cbm`.
+
+```sh
+docker compose -f ml/compose.yaml up -d --build --wait ml-cpu
+docker compose -f ml/compose.yaml exec ml-cpu python service.py --warm-cache
+docker compose -f ml/compose.yaml exec ml-cpu python service.py --describe
+```
+
+Адрес — `127.0.0.1:50051`. На промахе кэша запускается настоящий CatBoost CPU,
+затем используется прежний SQLite-кэш. Признаки фиксированного горизонта уже
+подготовлены офлайн и входят в Git. История, lab и учитель при выдаче не нужны.
+Это не выдача сохранённого submission. Для других дат нужен новый пакет признаков;
+публичный runtime пока сохраняет конкурсный горизонт.
+
+Без Docker, из корня репозитория (Python 3.12):
+
+```sh
+python3.12 -m venv ml/.venv-cpu
+ml/.venv-cpu/bin/python -m pip install -r ml/runtime/requirements-cpu.txt
+make run-ml PYTHON="$PWD/ml/.venv-cpu/bin/python"
+```
+
+## Ручной выбор модели
+
+В одном сервисе работает один комплект. Переключение выполняет оператор,
+не пользователь фронтенда; автоматической подмены при ошибке нет.
+
+CPU → GPU:
+
+```sh
+docker compose -f ml/compose.yaml stop ml-cpu
+docker compose -f ml/compose.yaml run --rm --build ml-install
+docker compose -f ml/compose.yaml up -d --build --wait ml-gpu
+docker compose -f ml/compose.yaml exec ml-gpu python service.py --warm-cache
+docker compose -f ml/compose.yaml exec ml-gpu python service.py --describe
+```
+
+GPU → CPU:
+
+```sh
+docker compose -f ml/compose.yaml stop ml-gpu
+docker compose -f ml/compose.yaml up -d --wait ml-cpu
+docker compose -f ml/compose.yaml exec ml-cpu python service.py --describe
+```
+
+Локальный запуск выбирает комплект через `--config` или `ML_CONFIG`:
+`ml/recipes/catboost-cpu/recipe.json` либо `ml/recipes/tabpfn-030/recipe.json`.
+У GPU должны быть установлены его зависимости и checkpoint; CPU-окружение
+специально их не содержит. Конфигурацию передавайте абсолютным путём при `make run-ml`.
+После переключения зарегистрируйте **новую версию** в backend по выводу
+`--describe` и сделайте её активной. Не заменяйте ID старой версии и её точки:
+они продолжают обозначать прежнюю модель. Фронтенд использует активную версию.
+Остановочные профили применяются к суммам выбранной модели и остаются
+сценарными, без измеренной остановочной точности.
+
+Ниже сохранены подробности тяжёлого режима и его установки.
+
+Для новой истории используйте [подготовку нового пакета](PREPARATION.md), затем
+[порядок подключения обновления к backend](INTEGRATION.md#как-подключить-обновление-данных).
+Подготовка запускается отдельной командой на ML-хосте, не через `Predict`.
+Ниже описан запуск сервиса с поставочным пакетом ноября–декабря 2025.
+
 Код и инструкция передаются через GitHub; отдельный архив не нужен.
+Для остановочной функции добавлен `PredictStops` и клиент `--stops`.
+Компактный пакет профилей входит в оба Docker-образа, `lab` для работы не нужен.
+[Подробная интеграция Go: запуск, версии, поля ответа, проверки и хранение](STOPS_INTEGRATION.md).
 После получения ветки с ML-изменениями выполняйте команды **из корня TramCast**.
 Для самостоятельного запуска нужны Docker и Compose v2; PostgreSQL, Go,
 локальный Python и корневой `.env` не требуются.
+
+## Если запуск останавливается на `Input checksum mismatch: base.csv`
+
+Git с `core.autocrlf=true` может заменить LF на CRLF при скачивании на Windows.
+Числа в CSV остаются прежними, но SHA256 меняется. `ml/.gitattributes` запрещает
+такое преобразование для входов и сохранённых прогнозов; исходники runtime
+получают LF, поскольку их байты также участвуют в ID модели.
+
+Для ранее скачанной копии нужно восстановить исходные байты и пересобрать образ.
+Если перечисленные файлы не содержат ваших правок, выполните из корня проекта
+(работает и до получения обновлённого `.gitattributes`):
+
+```sh
+git -c core.autocrlf=false restore --source=HEAD --worktree -- ml/recipes/tabpfn-030/base.csv ml/bundles/002/forecast.csv ml/bundles/030/forecast.csv ml/runtime/model_030.py ml/runtime/constants.py
+docker compose -f ml/compose.yaml --profile gpu up -d --build --wait
+docker compose -f ml/compose.yaml --profile gpu exec ml-gpu python service.py --warm-cache
+```
+
+Веса и кэш сохраняются; заново запускать `ml-install` не требуется.
+Не заменяйте ожидаемые SHA256 в `recipe.json`: они проверяют целостность входов.
 
 ## Рабочий режим: расчёт на GPU, выдача кэша на CPU
 

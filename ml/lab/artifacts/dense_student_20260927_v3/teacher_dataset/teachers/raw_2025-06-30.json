@@ -1,0 +1,10 @@
+{
+  "origin": "2025-06-30",
+  "end": "2025-08-30",
+  "history_max": "2025-06-30",
+  "sha256": "036c019d73f9f15a1539c4fb4700c9e71998fba255e89b0b0837e74502ea1532",
+  "rows": 14640,
+  "source_manifest": "imported_monthly.json",
+  "history_input_physically_truncated": false,
+  "provenance": "Existing frozen 030; history_max denotes fitting cutoff used by cutoff-guarded legacy functions, not original raw input extent"
+}

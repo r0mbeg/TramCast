@@ -1,0 +1,26 @@
+{
+  "checked_date": "2026-09-27",
+  "route": 12,
+  "sources": [
+    {
+      "url": "https://transport.mos.ru/mostrans/all_news/124737",
+      "publisher": "Московский транспорт",
+      "published_date": "2025-06-02",
+      "announced_start": "2025-06-07",
+      "announced_day_type": "weekends",
+      "announced_variant": "Восточное Измайлово — проспект Будённого — МЦД Новогиреево",
+      "reason": "ремонт путей на шоссе Энтузиастов",
+      "end_date": null,
+      "retrieval": "Web search indexed official page; direct web open failed",
+      "limitation": "No full ordered stops, actual trips or verified end date; applicability to each September date not established"
+    },
+    {
+      "url": "https://mosmetro.ru/tram",
+      "publisher": "Московский метрополитен",
+      "retrieval": "Web search indexed current route page",
+      "limitation": "Current page mentions the June7 alternate route; not a dated historical snapshot"
+    }
+  ],
+  "conclusion": "One late workbook pattern cannot be assumed for all 2025 days; no historical stop matching performed",
+  "used_in_activity_model": false
+}

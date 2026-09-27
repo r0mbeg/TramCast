@@ -1,0 +1,47 @@
+{
+  "version": "network-inputs-v1",
+  "inputs": {
+    "data/catalog/catalog.xlsx": "01e0fe81cfbb9781488546981ddd739110c8cf16f9e937a9cc42469e433555f1",
+    "data/osm/tram_routes.json": "a5833ac74361f59821b3af4eb4c8d38440651ac08b2f7b8397d806b11336edc0",
+    "ml/lab/stop_forecast/runs/access-20260927-v1/entrances.csv": "cb89a14fa75a20c47ca9a6cba8c3dc8caa342e3218fb656216caee4e4009878b",
+    "ml/lab/stop_forecast/runs/access-20260927-v1/manifest.json": "099234fb503951b5ad4bf633987dba63d0f6de9ba991e1481c81bdff0eb9fd82",
+    "ml/lab/stop_forecast/runs/shares-20260927-v2/scenario_profiles.csv.gz": "b5b5e8ad6cbf22f5292f0e28f1469f024245bfcc8739a80415e3c461df70cc02",
+    "ml/lab/stop_forecast/runs/shares-20260927-v2/manifest.json": "d4edae3987a9f6675d09c1d3b4a0627664688b28cb6e0a5a5c30a221d47b5041",
+    "ml/lab/stop_forecast/network_package.py": "bde6c95b9c749f56c02e0dd726195f5616e07ceafed325e456d498240712d67e",
+    "ml/lab/stop_forecast/NETWORK_PROTOCOL.md": "e2778cc104b76bb364618b6c9ffca75c2dca8b5b5b2b56f9b360bbe2e78befc6",
+    "ml/lab/stop_forecast/build_metro_access.py": "e747ef72b75b1b4b4d055ac850ecb23fca912963d66b50e536b4b65b233706a5",
+    "ml/lab/artifacts/methodology_20260927/data/audit_data.py": "6aa329276d48d180b1d25b1d8f0f1e19e275d69d958479e906334044ce8aaf69"
+  },
+  "sources": {
+    "metro": {
+      "original": "https://data.mos.ru/opendata/624",
+      "mirror": "https://data.apicrafter.ru/packages/datamos-metro",
+      "download": "https://data.apicrafter.ru/packages/datamos-metro/build/datamos-7704786030-metro-2021-10-23-7-35/get",
+      "retrieved_date": "2026-09-27",
+      "snapshot_date": "2021-10-23",
+      "original_modified": "27.09.2021",
+      "original_version": "5.2",
+      "licenses_in_archive": [
+        {
+          "name": "rusgov-copyright",
+          "path": "https://data.gov.ru/information-usage",
+          "title": "Типовые условия доступа к открытым данным органов власти в РФ"
+        }
+      ],
+      "mirror_page_license": "CC-BY-SA (version unspecified)",
+      "license_discrepancy": "Mirror page and archive differ; retained locally, not published"
+    },
+    "metro_usage": "nearest entrance distance only, not metro passenger counts",
+    "osm": {
+      "snapshot": "2026-09-26T22:39:54Z",
+      "attribution": "© участники OpenStreetMap",
+      "license": "ODbL-1.0",
+      "url": "https://www.openstreetmap.org/copyright"
+    },
+    "shares": "B-v4 aggregate-only shares preserved in F-v2; not observed stop fractions"
+  },
+  "outputs": {
+    "positions.csv": "877d806e33994cc97938b6be9cad2ee60626b5e56450bbe4d03f56225e92d714",
+    "source_profiles.csv.gz": "602f36f4b4b97f0bf50352f7d94c49dfc337ce294c55daaf18009210e6a788ec"
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "version": "F20260927-v1",
+  "supervised_blfs_status": "implemented_not_fitted_missing_real_stop_labels",
+  "joint_panel_status": "not_implemented",
+  "stop_wape": null,
+  "stop_mae": null,
+  "verified_stop_coverage": 0,
+  "entropy_diagnostics": [
+    {
+      "cutoff": "2025-04-30",
+      "prior": "uniform",
+      "strength": 0.0,
+      "normalized_entropy": 0.7336135185901398,
+      "mean_kl_to_prior": 1.1533220312768684,
+      "mean_tv_from_base": 0.0,
+      "mean_tv_between_priors": 0.0
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "uniform",
+      "strength": 0.1,
+      "normalized_entropy": 0.7786101691895105,
+      "mean_kl_to_prior": 0.9570403228143011,
+      "mean_tv_from_base": 0.05584887006955323,
+      "mean_tv_between_priors": 0.010668577277670342
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "uniform",
+      "strength": 1.0,
+      "normalized_entropy": 0.9457541349601286,
+      "mean_kl_to_prior": 0.23283663583106157,
+      "mean_tv_from_base": 0.3149761306720472,
+      "mean_tv_between_priors": 0.06197790186051335
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "uniform",
+      "strength": 10.0,
+      "normalized_entropy": 0.9986279497711064,
+      "mean_kl_to_prior": 0.005907177591561802,
+      "mean_tv_from_base": 0.4805031165514871,
+      "mean_tv_between_priors": 0.11795852165831441
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "uniform",
+      "strength": 100.0,
+      "normalized_entropy": 0.9999835339142248,
+      "mean_kl_to_prior": 7.09641443864909e-05,
+      "mean_tv_from_base": 0.5036045258913602,
+      "mean_tv_between_priors": 0.1299555733908299
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "centre_scenario",
+      "strength": 0.0,
+      "normalized_entropy": 0.7336135185901398,
+      "mean_kl_to_prior": 1.0930759121684472,
+      "mean_tv_from_base": 0.0,
+      "mean_tv_between_priors": 0.0
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "centre_scenario",
+      "strength": 0.1,
+      "normalized_entropy": 0.7775637305340138,
+      "mean_kl_to_prior": 0.8972707680930784,
+      "mean_tv_from_base": 0.05572965138624346,
+      "mean_tv_between_priors": 0.010668577277670342
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "centre_scenario",
+      "strength": 1.0,
+      "normalized_entropy": 0.9369893238625828,
+      "mean_kl_to_prior": 0.20033349650164176,
+      "mean_tv_from_base": 0.31239978923446954,
+      "mean_tv_between_priors": 0.06197790186051335
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "centre_scenario",
+      "strength": 10.0,
+      "normalized_entropy": 0.9863645510126938,
+      "mean_kl_to_prior": 0.004470300105177874,
+      "mean_tv_from_base": 0.4672451975828504,
+      "mean_tv_between_priors": 0.11795852165831441
+    },
+    {
+      "cutoff": "2025-04-30",
+      "prior": "centre_scenario",
+      "strength": 100.0,
+      "normalized_entropy": 0.988432099602632,
+      "mean_kl_to_prior": 5.282810119373332e-05,
+      "mean_tv_from_base": 0.4865764228816241,
+      "mean_tv_between_priors": 0.1299555733908299
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "uniform",
+      "strength": 0.0,
+      "normalized_entropy": 0.7260332686831845,
+      "mean_kl_to_prior": 1.1875313008335235,
+      "mean_tv_from_base": 0.0,
+      "mean_tv_between_priors": 0.0
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "uniform",
+      "strength": 0.1,
+      "normalized_entropy": 0.7705461824189213,
+      "mean_kl_to_prior": 0.993278457599095,
+      "mean_tv_from_base": 0.05470049555500913,
+      "mean_tv_between_priors": 0.009989780138879073
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "uniform",
+      "strength": 1.0,
+      "normalized_entropy": 0.9415982315499732,
+      "mean_kl_to_prior": 0.25134332645332264,
+      "mean_tv_from_base": 0.31437298207157893,
+      "mean_tv_between_priors": 0.059591051438971684
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "uniform",
+      "strength": 10.0,
+      "normalized_entropy": 0.9984525027773143,
+      "mean_kl_to_prior": 0.0066890163177711435,
+      "mean_tv_from_base": 0.4877283011550162,
+      "mean_tv_between_priors": 0.11734222559040589
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "uniform",
+      "strength": 100.0,
+      "normalized_entropy": 0.9999812155573193,
+      "mean_kl_to_prior": 8.127340351040302e-05,
+      "mean_tv_from_base": 0.5124611831938763,
+      "mean_tv_between_priors": 0.12988583886754806
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "centre_scenario",
+      "strength": 0.0,
+      "normalized_entropy": 0.7260332686831845,
+      "mean_kl_to_prior": 1.1057071450561675,
+      "mean_tv_from_base": 0.0,
+      "mean_tv_between_priors": 0.0
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "centre_scenario",
+      "strength": 0.1,
+      "normalized_entropy": 0.7692585089443342,
+      "mean_kl_to_prior": 0.9145016369989513,
+      "mean_tv_from_base": 0.054385281431120515,
+      "mean_tv_between_priors": 0.009989780138879073
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "centre_scenario",
+      "strength": 1.0,
+      "normalized_entropy": 0.9318266205566005,
+      "mean_kl_to_prior": 0.21126982279912454,
+      "mean_tv_from_base": 0.3104166769943995,
+      "mean_tv_between_priors": 0.059591051438971684
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "centre_scenario",
+      "strength": 10.0,
+      "normalized_entropy": 0.9857273481303249,
+      "mean_kl_to_prior": 0.0049078355164689225,
+      "mean_tv_from_base": 0.4696468598431426,
+      "mean_tv_between_priors": 0.11734222559040589
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prior": "centre_scenario",
+      "strength": 100.0,
+      "normalized_entropy": 0.988370572209001,
+      "mean_kl_to_prior": 5.870579448364014e-05,
+      "mean_tv_from_base": 0.4899771462781509,
+      "mean_tv_between_priors": 0.12988583886754806
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "uniform",
+      "strength": 0.0,
+      "normalized_entropy": 0.7412673102911851,
+      "mean_kl_to_prior": 1.1222387432856846,
+      "mean_tv_from_base": 0.0,
+      "mean_tv_between_priors": 0.0
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "uniform",
+      "strength": 0.1,
+      "normalized_entropy": 0.7832707863330255,
+      "mean_kl_to_prior": 0.9389876731934045,
+      "mean_tv_from_base": 0.05254666519427562,
+      "mean_tv_between_priors": 0.009918771644236662
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "uniform",
+      "strength": 1.0,
+      "normalized_entropy": 0.9456181493879416,
+      "mean_kl_to_prior": 0.23456319002584794,
+      "mean_tv_from_base": 0.30270515038928525,
+      "mean_tv_between_priors": 0.0595067034256177
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "uniform",
+      "strength": 10.0,
+      "normalized_entropy": 0.9988012690151852,
+      "mean_kl_to_prior": 0.005227802801251692,
+      "mean_tv_from_base": 0.47019856106063945,
+      "mean_tv_between_priors": 0.11765752573963631
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "uniform",
+      "strength": 100.0,
+      "normalized_entropy": 0.9999867215490312,
+      "mean_kl_to_prior": 5.8124964811989004e-05,
+      "mean_tv_from_base": 0.49326761928562346,
+      "mean_tv_between_priors": 0.12994048081714443
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "centre_scenario",
+      "strength": 0.0,
+      "normalized_entropy": 0.7412673102911851,
+      "mean_kl_to_prior": 1.0344431925018498,
+      "mean_tv_from_base": 0.0,
+      "mean_tv_between_priors": 0.0
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "centre_scenario",
+      "strength": 0.1,
+      "normalized_entropy": 0.7818284579166961,
+      "mean_kl_to_prior": 0.855641255438855,
+      "mean_tv_from_base": 0.05190739054208813,
+      "mean_tv_between_priors": 0.009918771644236662
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "centre_scenario",
+      "strength": 1.0,
+      "normalized_entropy": 0.9354572415596454,
+      "mean_kl_to_prior": 0.19380114564153467,
+      "mean_tv_from_base": 0.29608057038963126,
+      "mean_tv_between_priors": 0.0595067034256177
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "centre_scenario",
+      "strength": 10.0,
+      "normalized_entropy": 0.9859504194585919,
+      "mean_kl_to_prior": 0.0035427332975306613,
+      "mean_tv_from_base": 0.4480775039760048,
+      "mean_tv_between_priors": 0.11765752573963631
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prior": "centre_scenario",
+      "strength": 100.0,
+      "normalized_entropy": 0.9883637785993313,
+      "mean_kl_to_prior": 3.7690741909894e-05,
+      "mean_tv_from_base": 0.46629346328477295,
+      "mean_tv_between_priors": 0.12994048081714443
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "uniform",
+      "strength": 0.0,
+      "normalized_entropy": 0.6969831300894926,
+      "mean_kl_to_prior": 1.3058439965821638,
+      "mean_tv_from_base": 0.0,
+      "mean_tv_between_priors": 0.0
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "uniform",
+      "strength": 0.1,
+      "normalized_entropy": 0.7384783886016769,
+      "mean_kl_to_prior": 1.125498947601996,
+      "mean_tv_from_base": 0.0474521791205399,
+      "mean_tv_between_priors": 0.017553604729917367
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "uniform",
+      "strength": 1.0,
+      "normalized_entropy": 0.9322229001436557,
+      "mean_kl_to_prior": 0.28820149957506447,
+      "mean_tv_from_base": 0.328515221298457,
+      "mean_tv_between_priors": 0.08165273124425151
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "uniform",
+      "strength": 10.0,
+      "normalized_entropy": 0.9987837365829094,
+      "mean_kl_to_prior": 0.005104308367869804,
+      "mean_tv_from_base": 0.5231119115733518,
+      "mean_tv_between_priors": 0.12260828691967203
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "uniform",
+      "strength": 100.0,
+      "normalized_entropy": 0.9999864719543694,
+      "mean_kl_to_prior": 5.669052691673129e-05,
+      "mean_tv_from_base": 0.5432340209566422,
+      "mean_tv_between_priors": 0.1304743071795286
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "centre_scenario",
+      "strength": 0.0,
+      "normalized_entropy": 0.6969831300894926,
+      "mean_kl_to_prior": 1.539819129013058,
+      "mean_tv_from_base": 0.0,
+      "mean_tv_between_priors": 0.0
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "centre_scenario",
+      "strength": 0.1,
+      "normalized_entropy": 0.7424328613948672,
+      "mean_kl_to_prior": 1.3071276112713435,
+      "mean_tv_from_base": 0.055760191031066476,
+      "mean_tv_between_priors": 0.017553604729917367
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "centre_scenario",
+      "strength": 1.0,
+      "normalized_entropy": 0.9386180095272003,
+      "mean_kl_to_prior": 0.3101049397455377,
+      "mean_tv_from_base": 0.36022051099170926,
+      "mean_tv_between_priors": 0.08165273124425151
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "centre_scenario",
+      "strength": 10.0,
+      "normalized_entropy": 0.9903498068596077,
+      "mean_kl_to_prior": 0.005527620382500274,
+      "mean_tv_from_base": 0.5617935615685116,
+      "mean_tv_between_priors": 0.12260828691967203
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prior": "centre_scenario",
+      "strength": 100.0,
+      "normalized_entropy": 0.9888867422063562,
+      "mean_kl_to_prior": 6.2000490941023e-05,
+      "mean_tv_from_base": 0.5831007499894852,
+      "mean_tv_between_priors": 0.1304743071795286
+    }
+  ],
+  "route_controls": [
+    {
+      "cutoff": "2025-04-30",
+      "rows": 4853,
+      "inherited_030_wape": 0.11065935527618342,
+      "note": "Same for all normalized allocations by construction; not stop accuracy"
+    },
+    {
+      "cutoff": "2025-06-30",
+      "rows": 4861,
+      "inherited_030_wape": 0.10739168320950225,
+      "note": "Same for all normalized allocations by construction; not stop accuracy"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "rows": 4854,
+      "inherited_030_wape": 0.09830864359709644,
+      "note": "Same for all normalized allocations by construction; not stop accuracy"
+    }
+  ],
+  "export": {
+    "rows": 142008,
+    "strength": 1.0,
+    "prior": "uniform",
+    "selection": "illustrative_not_accuracy_selected"
+  },
+  "max_route_balance_error": 2.7284841053187847e-12
+}

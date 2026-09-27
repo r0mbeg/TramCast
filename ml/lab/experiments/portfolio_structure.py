@@ -9,7 +9,7 @@ from pipeline import KEYS
 
 def tagged(frame, cutoff):
     calendar = calendar_table()
-    if calendar.known_at.gt(cutoff).any():
+    if calendar.loc[calendar.date.isin(frame.date), "known_at"].gt(cutoff).any():
         raise ValueError("Calendar unavailable at cutoff")
     result = frame.merge(calendar, on="date", validate="many_to_one")
     result["off"] = result.day_type.isin(["holiday", "transferred_off"])

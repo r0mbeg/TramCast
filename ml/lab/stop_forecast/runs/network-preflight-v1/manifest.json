@@ -1,0 +1,32 @@
+{
+  "package_version": "E-network-v1-a4c3c9acf351fa12",
+  "inputs": {
+    "prepared": {
+      "positions.csv": "877d806e33994cc97938b6be9cad2ee60626b5e56450bbe4d03f56225e92d714",
+      "source_profiles.csv.gz": "602f36f4b4b97f0bf50352f7d94c49dfc337ce294c55daaf18009210e6a788ec",
+      "manifest.json": "f82e20052694b2672fed6da92a679124e3d73f07cbad42053e411435111ba81a"
+    },
+    "code": {
+      "ml/lab/stop_forecast/network_package.py": "bde6c95b9c749f56c02e0dd726195f5616e07ceafed325e456d498240712d67e",
+      "ml/lab/stop_forecast/NETWORK_PROTOCOL.md": "e2778cc104b76bb364618b6c9ffca75c2dca8b5b5b2b56f9b360bbe2e78befc6",
+      "ml/lab/stop_forecast/fractional_split.py": "f346ad96b76670a77dc4499a5a24a7e11bdf780bd6eeedb7321f0c1fd8b9d56d",
+      "ml/lab/stop_forecast/build_app_package.py": "904caad610c1ef05a9490497c644c7c5d0b38d9d43f50b3681d8d6430fa2f34c",
+      "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+      "ml/lab/stop_forecast/build_metro_access.py": "e747ef72b75b1b4b4d055ac850ecb23fca912963d66b50e536b4b65b233706a5"
+    },
+    "route_bundle": {
+      "ml/bundles/030/forecast.csv": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e",
+      "ml/bundles/030/forecast_bundle.json": "880d53459d55372e7afdb6bdbd1d07772d028216b35bfc9ea03725b9f0c515b4"
+    }
+  },
+  "outputs": {
+    "coverage.csv": "d51d81024ad77a9454269984c55a8e85613d717e6aef4d72b2c5004217b2c6aa",
+    "metadata.json": "8c5902b85c50a4e85fb6f470235d9638cad889d86caa8357579df49f7236b9a2",
+    "occurrences.csv": "877d806e33994cc97938b6be9cad2ee60626b5e56450bbe4d03f56225e92d714",
+    "profiles.csv.gz": "c6a9ee1be2c5a4938d8721d1dcffe521e9aabf2eaa2cb91adb1e607ee952979b",
+    "route_balance.csv": "a056c9990e53849570d54104eca0fedf0c6959f8fbc523cd6c89045a7ac365ec",
+    "route_forecast.csv": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e",
+    "sensitivity.csv": "0c5a5fbc241cde3e0d5c710ef1f1b3bb668ad461b8464040c003db1911a0458f",
+    "stop_estimates.csv.gz": "10dbeee182321c259b31acc4a672230a511ad894a6459d656f4c52cc94d75b8e"
+  }
+}

@@ -1,0 +1,7 @@
+# These artifacts have pinned byte checksums; checkout must not rewrite them.
+recipes/** -text
+bundles/** -text
+lab/stop_forecast/** -text
+
+# Source bytes contribute to model_version, including inside Docker builds.
+runtime/*.py text eol=lf

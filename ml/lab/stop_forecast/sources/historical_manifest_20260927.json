@@ -1,0 +1,37 @@
+{
+  "retrieved_at": "2026-09-27T11:28:02.926324+00:00",
+  "used_in_model": false,
+  "artifacts": [
+    {
+      "path": "dataset/external/stop_history_20260927/kolomna_crowd_raw.csv",
+      "url": "https://raw.githubusercontent.com/kolomna-trams/open-data/ffae7d164badf9b609b9e45ff6f8ee1ae7d2fcb5/crowd/crowd_raw.csv",
+      "bytes": 60679,
+      "sha256": "4eb70a082c1913f6d96172f36277ff69945b74d463d26fcc4902db7d46f0357f",
+      "kind": "manual_stop_counts_other_city",
+      "license": "No LICENSE in inspected repository tree; attribution retained; redistribution terms unconfirmed"
+    },
+    {
+      "path": "dataset/external/stop_history_20260927/metro_mirror.zip",
+      "url": "https://disk.360.yandex.ru/d/UUrUv2RA7TiPiA",
+      "bytes": 727290,
+      "sha256": "6860c756ddf381fb183ee082a28ece8ab4fb13ee7f7d67630f54080d2c61cfaa",
+      "kind": "quarterly_metro_counts_mirror",
+      "license": "Primary source data.mos.ru/62743; mirror terms unconfirmed"
+    },
+    {
+      "path": "dataset/external/stop_history_20260927/zurich_2018.zip",
+      "url": "https://data.stadt-zuerich.ch/dataset/vbz_fahrgastzahlen_ogd/download/Fahrgastzahlen_2018.zip",
+      "bytes": 13102098,
+      "sha256": "fef78cceeaaff1299d738a1d53666a6631b0f745ac79877a1115cb78f76882fb",
+      "kind": "estimated_typical_stop_counts_other_city",
+      "license": "CC0 per provider catalog"
+    },
+    {
+      "path": "dataset/external/stop_history_20260927/metro_passenger_traffic.csv",
+      "archive_member": "Metro/data/PassengerTraffic.csv",
+      "parent": "metro_mirror.zip",
+      "bytes": 791134,
+      "sha256": "2565f6701584bdc4af8a8f6cd96c62d46c3eb622e2a3e23d5c1a0ee54984a509"
+    }
+  ]
+}

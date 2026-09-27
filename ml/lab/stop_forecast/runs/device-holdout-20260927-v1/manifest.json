@@ -1,0 +1,17 @@
+{
+  "version": "VH20260927-v1",
+  "inputs": {
+    "ml/lab/stop_forecast/build_device_holdout.py": "34943452b956e9352af1b7aeafb1f8998e59058e597b7357a6de96ad9b1b293b",
+    "ml/lab/stop_forecast/device_signal.py": "6b1346f857dbfd048f9e7159803bcfbc014cfc7d0d8e400ce96b12e004b41be1",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/stop_forecast/ACTIVITY_PROTOCOL.md": "49f942b45ce3bc2b5a6faf3e6c982c1e0529eec0b1d94dd6b208927fc0ac8978",
+    "ml/lab/stop_forecast/runs/20260927-v2/route_hour_balance.csv": "a053de834a33bdb1fe10f2262a6b71fe362c9355e16105935b727d1f22f249c2",
+    "ml/lab/stop_forecast/runs/device-signal-20260927-v1/manifest.json": "abb750501edfdd0ce95ac86789960f97e2d53510730c57a4fd6024f399ee3903",
+    "dataset/test.csv": "d58523f79b0d47d72eafe0da9a0c72fb8b472bf4b74e68a4e9f789bd6656557a"
+  },
+  "outputs": {
+    "summary.json": "c226232dd21f16c2030f41cccadfb2215417af131cac133a7c02077648a9eb19",
+    "binned_counts.npz": "d778e5341fc95e84dc8a9d889b4135a0bfbddb3085b79243baf897f50816214f",
+    "device_hour_scores.csv": "5b49bfe190b4ea86c552a0608814f6d25dbeaf67127361ca33506eed14cbaa26"
+  }
+}

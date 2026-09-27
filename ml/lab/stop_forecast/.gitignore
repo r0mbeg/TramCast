@@ -1,0 +1,42 @@
+# Versioned audit evidence; raw events and private identifiers are never written here.
+!availability.json
+!runs/*/*.json
+!sources/*.json
+# Reproducible bulky scenario outputs stay local; metrics/manifests stay reviewable.
+runs/bayes-*/*.csv
+runs/bayes-*/*.csv.gz
+runs/bayes-*/*.npy
+runs/shares-*/*.csv.gz
+runs/preliminary-*/*.csv
+runs/preliminary-*/*.csv.gz
+runs/metro-*/*.csv
+runs/metro-*/*.csv.gz
+runs/access-*/*.csv
+runs/proximity-*/*.csv
+runs/proximity-*/*.csv.gz
+runs/device-signal-*/*.csv
+runs/device-signal-*/*.npz
+runs/device-holdout-*/*.csv
+runs/device-holdout-*/*.npz
+runs/activity-*/*.csv
+runs/activity-*/*.npz
+runs/catalog-alignment-*/*.csv
+runs/catalog-alignment-*/*.npz
+runs/historical-geometry-*/*.csv
+runs/known-counts-*/*.csv
+runs/elastic-data-*/*.csv
+runs/elastic-data-*/*.npz
+releases/*/*.csv
+releases/*/*.csv.gz
+!releases/*/*.json
+# Approved integration snapshot is delivered through Git, without a ZIP archive.
+!releases/route12-entropy-v1/*.csv
+!releases/route12-entropy-v1/*.csv.gz
+# Compact, self-contained inputs and the ten-route integration snapshot.
+!inputs/network-v1/*.json
+!inputs/network-v1/*.csv
+!inputs/network-v1/*.csv.gz
+!releases/network-entropy-v1/*.csv
+!releases/network-entropy-v1/*.csv.gz
+runs/network-preflight-*/*.csv
+runs/network-preflight-*/*.csv.gz

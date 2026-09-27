@@ -1,0 +1,74 @@
+{
+  "hypothesis": "Compact CPU CatBoost reproduces saved 030 on held-out forecast origins with CPU-only features",
+  "train_origins": [
+    "2025-04-30",
+    "2025-05-31",
+    "2025-06-30"
+  ],
+  "selection_origin": "2025-07-31",
+  "test_origins": [
+    "2025-08-14",
+    "2025-08-31",
+    "2025-10-31"
+  ],
+  "final_refit_origins": [
+    "2025-04-30",
+    "2025-05-31",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-14",
+    "2025-08-31",
+    "2025-10-31"
+  ],
+  "candidates": [
+    {
+      "depth": 6,
+      "iterations": 500
+    },
+    {
+      "depth": 8,
+      "iterations": 700
+    }
+  ],
+  "target": "Published rounded 030 counts, route-scaled MAE",
+  "selection": "Lowest teacher WAPE on selection origin; no actual target based selection",
+  "common_params": {
+    "loss": "MAE",
+    "learning_rate": 0.06,
+    "seed": 42,
+    "threads": 2,
+    "cold_start_weight": 0.1
+  },
+  "budget_seconds": 1800,
+  "gpu": false,
+  "future_facts_in_features": false,
+  "caveats": [
+    "Seven origins only; historical teacher recipe selected with hindsight",
+    "Final all-origin refit is a retrospective fixed-year surrogate, not an as-of backtest",
+    "January-April and 2026 have no teacher labels; cold-start extrapolation is unvalidated",
+    "Calendar and movement snapshots are retrospective external scenarios",
+    "Teacher input contexts are fixed; response to arbitrary changed history is unvalidated"
+  ],
+  "versions": {
+    "catboost": "1.2.10",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "ml/lab/artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "ml/lab/artifacts/calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "ml/preparation/movement_calendar.json": "7c3c3fcc5a3b62e4a15f09d6168758d363e375696cd16dfce4b9f3ada71438c3",
+    "ml/lab/cpu_student/train.py": "ad067826878f6ca8e4db2b9a0a44dc53def23ebae15b3f0dd781ad9ca576eef0",
+    "ml/lab/cpu_student/model.py": "36591c80d6d703649c90023e4216c841c9c92053636e4ca94ead6eb57944bd51",
+    "ml/runtime/constants.py": "1c0494094170f9b9b0c14aaac2145fee0eeb2315db88132e643f32c442e3fd36",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-04-30.csv": "63066dff331204c64ea37162bb98c375af317b94e785965a8a3dc572eb7ee01a",
+    "ml/lab/artifacts/selection_audit_20260927/new/030/raw_2025-05-31.csv": "8fb38f65752bb44756fdb70ce3dacc4799125d973b8a2f1fba2049f2e2048071",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-06-30.csv": "036c019d73f9f15a1539c4fb4700c9e71998fba255e89b0b0837e74502ea1532",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-07-31.csv": "c2e9bbe5570de89ee5ec2dceb3468f174c4e53752cc737fdc312be6f9d7369ff",
+    "ml/lab/artifacts/selection_audit_20260927/new/030/raw_2025-08-14.csv": "a0750e308084ea41091d65015aed6cd2cc5e357e8941e9f7efdb6718e4235f62",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-08-31.csv": "8fc2496c1545a98472fce285cf573d47c8eff49e598fb11d8135033b793aafd3",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-10-31.csv": "9ddb408217e42c91ff7c0f0e96ff01e378366e553f24417b4bba9286c0a553c3"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "source_sha256": {
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-06-30.csv": "036c019d73f9f15a1539c4fb4700c9e71998fba255e89b0b0837e74502ea1532",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-07-31.csv": "c2e9bbe5570de89ee5ec2dceb3468f174c4e53752cc737fdc312be6f9d7369ff",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-08-31.csv": "8fc2496c1545a98472fce285cf573d47c8eff49e598fb11d8135033b793aafd3",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-10-31.csv": "9ddb408217e42c91ff7c0f0e96ff01e378366e553f24417b4bba9286c0a553c3"
+  },
+  "recipe": "original frozen 030"
+}

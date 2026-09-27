@@ -1,0 +1,191 @@
+{
+  "calendar": {
+    "coverage": [
+      "2025-01-01",
+      "2025-12-31"
+    ],
+    "known_at": "2024-10-04",
+    "retrieved_at": "2026-09-26",
+    "scope": "Russian federal five-day working-week calendar; demand feature, not tram operating schedule",
+    "acquisition": "Manual extraction of dates from official sources via web search/open; government document and news text retrieved through search index because direct open failed. No raw page snapshot retained.",
+    "sources": [
+      {
+        "id": "holidays",
+        "url": "https://mintrud.gov.ru/labour/relationship/351",
+        "published_at": "2019-05-31",
+        "title": "Количество нерабочих праздничных дней установлено 112 статьей Трудового кодекса",
+        "used": "Annual federal holiday dates only; the article's proposed 2020 transfers are not used"
+      },
+      {
+        "id": "transfers",
+        "url": "https://government.ru/docs/all/155500/",
+        "published_at": "2024-10-04",
+        "title": "Постановление Правительства РФ от 04.10.2024 № 1335",
+        "corroborating_url": "https://government.ru/news/52895/"
+      }
+    ],
+    "holidays": [
+      "2025-01-01",
+      "2025-01-02",
+      "2025-01-03",
+      "2025-01-04",
+      "2025-01-05",
+      "2025-01-06",
+      "2025-01-07",
+      "2025-01-08",
+      "2025-02-23",
+      "2025-03-08",
+      "2025-05-01",
+      "2025-05-09",
+      "2025-06-12",
+      "2025-11-04"
+    ],
+    "transfers": {
+      "2025-01-04": "2025-05-02",
+      "2025-01-05": "2025-12-31",
+      "2025-02-23": "2025-05-08",
+      "2025-03-08": "2025-06-13",
+      "2025-11-01": "2025-11-03"
+    },
+    "working_weekends": [
+      "2025-11-01"
+    ],
+    "excluded": [
+      "school holidays",
+      "regional holidays",
+      "shortened working-day adjustments",
+      "weather",
+      "transport schedules"
+    ]
+  },
+  "movement": {
+    "coverage": [
+      "2025-01-01",
+      "2025-12-31"
+    ],
+    "sources": [
+      "ml/lab/artifacts/portfolio_20260926/external/EVENTS.md",
+      "ml/lab/artifacts/portfolio_20260926/continuation/external/july_restoration_sources.json"
+    ],
+    "note": "Historical recipe intervals. Extending coverage requires reviewing new notices; absence of new events is an explicit assumption, not an automatic fact.",
+    "events": {
+      "april17": [
+        {
+          "routes": [
+            17
+          ],
+          "start": "2025-04-05",
+          "end": "2025-04-30",
+          "weekdays": [
+            5,
+            6
+          ]
+        }
+      ],
+      "july": [
+        {
+          "routes": [
+            7,
+            50
+          ],
+          "start": "2025-07-10",
+          "end": "2025-08-06"
+        }
+      ],
+      "july_verified": [
+        {
+          "routes": [
+            7,
+            50
+          ],
+          "start": "2025-07-10",
+          "end": "2025-08-10"
+        }
+      ],
+      "autumn": [
+        {
+          "routes": [
+            7,
+            50
+          ],
+          "start": "2025-09-06",
+          "end": "2025-11-14",
+          "weekdays": [
+            5,
+            6
+          ]
+        }
+      ],
+      "august7": [
+        {
+          "routes": [
+            7
+          ],
+          "start": "2025-08-16",
+          "end": "2025-09-05",
+          "weekdays": [
+            5,
+            6
+          ]
+        }
+      ]
+    }
+  },
+  "model_version": "cpu-observed-2025-0359b8eac1ab2587",
+  "features": [
+    "route",
+    "hour",
+    "weekday",
+    "month",
+    "day_of_year",
+    "horizon",
+    "origin_day",
+    "target_year",
+    "is_workday",
+    "movement_april17",
+    "movement_july_verified",
+    "movement_august7",
+    "movement_autumn",
+    "profile_all",
+    "profile_112",
+    "profile_28",
+    "route_hour",
+    "route_level",
+    "history_age",
+    "history_days"
+  ],
+  "route_scales": {
+    "1": 839.5,
+    "11": 1554.0,
+    "12": 1519.0,
+    "17": 2542.0,
+    "25": 339.0,
+    "26": 791.0,
+    "28": 469.0,
+    "50": 900.0,
+    "7": 956.5,
+    "5": 1.0
+  },
+  "model_weight": 0.5,
+  "training_target_end": "2025-10-31",
+  "model_sha256": "151ba93d5ed984660314b3ba76b6ca85866599b11006c78f1c6fd1bb736a3415",
+  "dataset_version": "observed-7031c686c149fcb5",
+  "training_rows": 238555,
+  "training_origins": 22,
+  "params": {
+    "depth": 5,
+    "iterations": 350
+  },
+  "role": "direct_observed_target_forecaster",
+  "teacher_used": false,
+  "sources_sha256": {
+    "ml/lab/artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "ml/lab/artifacts/calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "ml/preparation/movement_calendar.json": "7c3c3fcc5a3b62e4a15f09d6168758d363e375696cd16dfce4b9f3ada71438c3",
+    "ml/lab/cpu_forecast/train.py": "bd3fe41fa5486dd10f3c7b5f0becf7c9cb9e93428952631edc762b78bb4140dc",
+    "ml/lab/cpu_forecast/model.py": "5b6277cbf9a1961da28e4ce1c70f8ba8dd8ad3783936f397faf10565668b7bf9",
+    "ml/lab/cpu_student/model.py": "dc49fb8ed8fb027f8d48571a21da481ad9d10998f9ff3bc9127cca4706c65fb8",
+    "ml/lab/cpu_student/train.py": "696ccbb1cb65b3b4f86ca0dde3424773056d9bb1d30b0e8f9fa03a42f648e7c9",
+    "ml/runtime/constants.py": "1c0494094170f9b9b0c14aaac2145fee0eeb2315db88132e643f32c442e3fd36"
+  }
+}

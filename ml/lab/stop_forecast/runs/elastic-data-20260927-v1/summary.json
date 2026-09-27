@@ -1,0 +1,31 @@
+{
+  "version": "ELD20260927-v1",
+  "source_events": 398446,
+  "selected_events": 10161,
+  "exclusions": {
+    "invalid_keys": 843,
+    "conflicting_device_day": 390,
+    "multiple_route_vehicle_day": 23283,
+    "weekend": 37825,
+    "partial_hour5": 2640,
+    "outside_eligible_three_hour_blocks": 323100,
+    "eligible_but_not_selected": 204
+  },
+  "eligible_blocks": 20,
+  "selected_blocks": 19,
+  "blocks_by_date": {
+    "2025-09-15": 1,
+    "2025-09-17": 1,
+    "2025-09-18": 1,
+    "2025-09-19": 4,
+    "2025-09-22": 6,
+    "2025-09-23": 2,
+    "2025-09-24": 1,
+    "2025-09-25": 2,
+    "2025-09-26": 1
+  },
+  "selected_reference_events": 8294,
+  "selected_held_events": 1867,
+  "completeness_verified": false,
+  "verified_stop_labels": 0
+}

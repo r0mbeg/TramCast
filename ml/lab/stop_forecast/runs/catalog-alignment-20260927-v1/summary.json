@@ -1,0 +1,93 @@
+{
+  "version": "C20260927-v1",
+  "catalog": {
+    "catalog_routes": 10,
+    "catalog_stops": 489,
+    "catalog_occurrences": 622,
+    "catalog_patterns": 20,
+    "sheets_equal_to_original": {
+      "Маршруты GTFS_ROUTES": true,
+      "Остановки GTFS_STOPS": true,
+      "Порядок_остановок GTFS_TRIPS_ST": true
+    },
+    "repeated_occurrences_within_pattern": 0,
+    "osm_routes": [
+      "17",
+      "25",
+      "26",
+      "28",
+      "50"
+    ],
+    "osm_patterns": 10,
+    "osm_stop_occurrences": 257,
+    "osm_referenced_stop_nodes": 242,
+    "osm_all_nodes": 352,
+    "osm_ways": 0,
+    "osm_snapshot": "2026-09-26T22:39:54Z",
+    "stop_event_observations": 0,
+    "scheduled_or_actual_stop_times": 0
+  },
+  "pilot_positions": 97,
+  "pilot_start_dates": [
+    "2025-12-20"
+  ],
+  "assumed_turnaround_links": 2,
+  "direct_edge_distance_sum_m": 36476.31251417323,
+  "episodes_total": 21127,
+  "uncensored_episodes": 20846,
+  "eligible_hours": 1390,
+  "selected_hours": 64,
+  "selected_episodes": 972,
+  "selected_episode_events": 6020,
+  "source_compared_events": 169368,
+  "mean_pairwise_scenario_tv": 0.24278771904150034,
+  "same_top_occurrence_all_scenarios_fraction": 0.00205761316872428,
+  "mean_max_probability_by_scenario": [
+    0.05597882402608517,
+    0.06304543178231115,
+    0.03716377884246877,
+    0.034379132221510456,
+    0.033602067949574044,
+    0.029215921442649347
+  ],
+  "max_probability_ge_08_fraction_by_scenario": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "accepted_stop_assignments": 0,
+  "independent_stop_labels": 0,
+  "stop_accuracy": null,
+  "historical_network_verified": false,
+  "absolute_time_anchor_available": false,
+  "unassigned_ledger_modified": false,
+  "scenario_parameters": [
+    {
+      "speed_kmh": 10,
+      "dwell_seconds": 0
+    },
+    {
+      "speed_kmh": 10,
+      "dwell_seconds": 15
+    },
+    {
+      "speed_kmh": 15,
+      "dwell_seconds": 0
+    },
+    {
+      "speed_kmh": 15,
+      "dwell_seconds": 15
+    },
+    {
+      "speed_kmh": 20,
+      "dwell_seconds": 0
+    },
+    {
+      "speed_kmh": 20,
+      "dwell_seconds": 15
+    }
+  ]
+}

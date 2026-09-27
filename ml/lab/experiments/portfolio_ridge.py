@@ -16,7 +16,7 @@ ACTIVE_ROUTES = [r for r in ROUTES if r != 5]
 
 def add_calendar(frame, cutoff):
     calendar = calendar_table()
-    if calendar.known_at.gt(cutoff).any():
+    if calendar.loc[calendar.date.isin(frame.date), "known_at"].gt(cutoff).any():
         raise ValueError("Calendar unavailable at cutoff")
     result = frame.merge(calendar[["date", "weekday", "day_type", "is_workday"]],
                          on="date", how="left", validate="many_to_one")

@@ -1,0 +1,103 @@
+{
+  "schema_version": "tramcast.stop-estimate.v2",
+  "package_version": "E-network-v1-a4c3c9acf351fa12",
+  "status": "scenario_estimate_unvalidated",
+  "route_numbers": [
+    1,
+    5,
+    7,
+    11,
+    12,
+    17,
+    25,
+    26,
+    28,
+    50
+  ],
+  "stop_estimates": 884256,
+  "timezone": "Europe/Moscow",
+  "history_end": "2025-11-01T00:00:00+03:00",
+  "forecast_from": "2025-11-01T00:00:00+03:00",
+  "forecast_to": "2026-01-01T00:00:00+03:00",
+  "route_model_version": "tabpfn030-zhores8477154-replay",
+  "route_forecast_mode": "Replay of verified GPU calculation 8477154; no local inference",
+  "route_dataset_version": "prepared-844b17f7f0a0d34e203758ba3c1158ef820ae416c8c09b21fc4cd4c5c4c1898e",
+  "ui_label": "Расчётное распределение посадок",
+  "ui_description": "Оценка по маршрутному прогнозу и предположениям модели; точность по отдельным остановкам не проверена.",
+  "method": "min_KL_p_to_s_plus_lambda_KL_p_to_q",
+  "strength": 1.0,
+  "alpha": 0.5,
+  "distance_scale_m": 500.0,
+  "prior": "half_uniform_half_exponential_nearest_metro_entrance_distance",
+  "parameter_selection": "fixed_scenario_not_accuracy_selected",
+  "calendar": "hour_and_Saturday_Sunday_indicator_only",
+  "allocation_model_version": "network-entropy-c45d5c2ce0ced802",
+  "dataset_version": "network-inputs-883be594d8064e8e",
+  "source_share_policy": {
+    "aggregate_fit_routes": [
+      1,
+      7,
+      11,
+      12
+    ],
+    "uniform_source_routes": [
+      17,
+      25,
+      26,
+      28,
+      50
+    ],
+    "zero_fallback_routes": [
+      5
+    ]
+  },
+  "network_validity": "late_snapshots_assumed_available_all_forecast_dates_not_verified",
+  "boarding_policy": "OSM_exit_only_zero_other_OSM_roles_allowed_workbook_stop_mode_unverified",
+  "rounding": "largest_remainder_exact_decimal_weights",
+  "rounding_tie_break": [
+    "route",
+    "direction_id",
+    "pattern_key",
+    "stop_sequence",
+    "source_stop_id"
+  ],
+  "catalog_mapping_fraction": 1.0,
+  "verified_stop_observation_coverage": 0.0,
+  "real_service_coverage": null,
+  "stop_wape": null,
+  "stop_mae": null,
+  "occupancy_available": false,
+  "sensitivity_interpretation": "assumption_sensitivity_not_accuracy_or_confidence_interval",
+  "mapping_failure_policy": "keep_unmapped_integer_mass_unassigned_never_renormalize",
+  "unassigned_semantics": "zero_under_complete_snapshot_support_assumption_only",
+  "sources": {
+    "metro": {
+      "original": "https://data.mos.ru/opendata/624",
+      "mirror": "https://data.apicrafter.ru/packages/datamos-metro",
+      "download": "https://data.apicrafter.ru/packages/datamos-metro/build/datamos-7704786030-metro-2021-10-23-7-35/get",
+      "retrieved_date": "2026-09-27",
+      "snapshot_date": "2021-10-23",
+      "original_modified": "27.09.2021",
+      "original_version": "5.2",
+      "licenses_in_archive": [
+        {
+          "name": "rusgov-copyright",
+          "path": "https://data.gov.ru/information-usage",
+          "title": "Типовые условия доступа к открытым данным органов власти в РФ"
+        }
+      ],
+      "mirror_page_license": "CC-BY-SA (version unspecified)",
+      "license_discrepancy": "Mirror page and archive differ; retained locally, not published"
+    },
+    "metro_usage": "nearest entrance distance only, not metro passenger counts",
+    "osm": {
+      "snapshot": "2026-09-26T22:39:54Z",
+      "attribution": "© участники OpenStreetMap",
+      "license": "ODbL-1.0",
+      "url": "https://www.openstreetmap.org/copyright"
+    },
+    "shares": "B-v4 aggregate-only shares preserved in F-v2; not observed stop fractions"
+  },
+  "integrated": false,
+  "published": false
+}

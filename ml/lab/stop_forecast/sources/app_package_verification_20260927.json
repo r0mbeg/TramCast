@@ -1,0 +1,19 @@
+{
+  "package_version": "E20260927-v1-88f891a83f8f266f",
+  "package_manifest_sha256": "e7f0bed7b94aeb7116df8c4cf3ff02656010987c7aec2c9756be78ce2b9cecc9",
+  "estimates": 142008,
+  "route_hours": 1464,
+  "total": 1964916,
+  "source_checksums": "verified_by_builder",
+  "output_checksums": "passed",
+  "analytic_entropy_solution": "passed",
+  "exact_balance": "passed",
+  "structural_zeros": "passed",
+  "partial_mapping_balance": "passed",
+  "exported_profile_integer_replay": "passed",
+  "empirical_stop_accuracy": "unavailable",
+  "byte_identical_reproduction": true,
+  "compared_files": 8,
+  "input_checksums_independently_rechecked": true,
+  "verifier_sha256": "61304949e8086cfaadb598f33490f3922a865a17fb415938697fa9342ffdffaf"
+}

@@ -1,0 +1,30 @@
+{
+  "version": "C20260927-v1",
+  "inputs": {
+    "data/catalog/catalog.xlsx": "01e0fe81cfbb9781488546981ddd739110c8cf16f9e937a9cc42469e433555f1",
+    "dataset/spravochniki/Хакатон_справочники_трамвай_10_маршрутов.xlsx": "c6890032eee2aaa9ed1e252b1fe5c10c37a28c7bb5c1720a01a1409b1ff2bb71",
+    "data/osm/tram_routes.json": "a5833ac74361f59821b3af4eb4c8d38440651ac08b2f7b8397d806b11336edc0",
+    "ml/lab/stop_forecast/runs/activity-20260927-v1/manifest.json": "1efe1a0c20e326d789d642072523c194ed7ea684234761e6c5452016f402ca2c",
+    "ml/lab/stop_forecast/runs/activity-20260927-v1/high_activity_probabilities.npz": "e95b60c9c88f31a52fa08db6941a9b0aafbb5f492b202e3f5a01cf6708b7e88a",
+    "ml/lab/stop_forecast/runs/activity-20260927-v1/holdout_scores.csv": "0f2d7c0c544b67a6438cbafe3a09bcf7ac2b0f7d033c231955e4d14c1a3b1289",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/manifest.json": "a15ec5c8e581331e78bc5fefa7ab28c55f4aa6cbb550c2fa8edd45c67d500989",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/binned_counts.npz": "d778e5341fc95e84dc8a9d889b4135a0bfbddb3085b79243baf897f50816214f",
+    "ml/lab/stop_forecast/catalog_alignment_experiment.py": "d48a5e0ff86360f099f169689bf374779beeb68df71952aafa90b898fe2c8938",
+    "ml/lab/stop_forecast/catalog_sequences.py": "9db6a4c4627d44646a57eeeb004881cdcf73cf7bfbd96a9584f4a2577bdb3def",
+    "ml/lab/stop_forecast/episode_alignment.py": "a2cb19e3f0a8fcf5d532b7b80a76fe978dfdfa652e7fd7ae8f0cf6b1e940f063",
+    "ml/lab/stop_forecast/CATALOG_ALIGNMENT_PROTOCOL.md": "c6ecfd337c5bd193158436ffca7cfad20ecc38b32813d385622c588532915056",
+    "ml/lab/stop_forecast/build_metro_access.py": "e747ef72b75b1b4b4d055ac850ecb23fca912963d66b50e536b4b65b233706a5",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/artifacts/methodology_20260927/data/audit_data.py": "6aa329276d48d180b1d25b1d8f0f1e19e275d69d958479e906334044ce8aaf69"
+  },
+  "outputs": {
+    "summary.json": "f9f9b93ac9d7fc9179bece0cc1cc1e8655fb898f5573bcbbbf5f8537c2c6d05f",
+    "catalog_occurrences.csv": "50869515243f827711209a2136f7b862127dab249e89df509effa4e897043693",
+    "conditional_evidence.csv": "e17aa44d0a98212a273ecaf1c8773931fa61fd77e9d8aae2aae4fe1c26566f6f",
+    "selected_episodes.csv": "a08a4cbf818b7622ad3b8580a6f162786741c8c8d8f8761857512d6859b71137",
+    "registration_episodes.csv": "24278de2298d5424bf85b1f6a716d8c560236716e561ab22025a611df9c6eee7",
+    "alignment_candidates.csv": "0657ce721b192320d0c5587185bbc6a7f344bdad1a82ebf0f6e81790521aeb28",
+    "conditional_probabilities.npz": "66458ddf3672339491b9e780643a97eaac56cc577a4029fcfa5f6b90187f83ed",
+    "route12_cycle.csv": "e7144cf0c8a88a8cb715cbfab18a20f6d3179a86c9355db1ea9a52fd067882a2"
+  }
+}

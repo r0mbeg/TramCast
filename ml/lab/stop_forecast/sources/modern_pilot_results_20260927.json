@@ -1,0 +1,51 @@
+{
+  "version": "N20260927-v1",
+  "report": "MODERN_PILOT.md",
+  "prepared_manifest_sha256": "39ea269d6ebe24bea66586ce0c4efa5603447b2a05ddffe4c447c40196bf5e57",
+  "positions": 95,
+  "roster_positions": 12,
+  "captures": [
+    {
+      "folder": "dataset/external/route12_live_20260927/capture-001",
+      "manifest_sha256": "8301c3b5f3e0ee0e23b0f18a553b240ecbcd251ed263aa92b7957f9c72f9b965",
+      "requests": 12,
+      "successes": 12,
+      "route12_eta_rows": 17,
+      "route12_kinds": {
+        "schedule_eta": 17
+      },
+      "unmatched_pattern_stop_rows": 0,
+      "from_utc": "2026-09-27T15:06:07.556845+00:00",
+      "to_utc": "2026-09-27T15:06:15.123621+00:00"
+    },
+    {
+      "folder": "dataset/external/route12_live_20260927/capture-002",
+      "manifest_sha256": "a54e88caa1e69338d90a7824f7c3d852350cd760e89dd758ff06cc51742a685b",
+      "requests": 12,
+      "successes": 12,
+      "route12_eta_rows": 18,
+      "route12_kinds": {
+        "schedule_eta": 18
+      },
+      "unmatched_pattern_stop_rows": 0,
+      "from_utc": "2026-09-27T15:08:19.376152+00:00",
+      "to_utc": "2026-09-27T15:08:26.001008+00:00"
+    }
+  ],
+  "route12_total_eta_rows": 35,
+  "route12_telemetry_rows": 0,
+  "successful_validation_labels": 0,
+  "actual_stop_visits": 0,
+  "raw_captures_do_not_establish_unique_trips": true,
+  "direct_api_check": {
+    "url": "https://api.moscowapp.mos.ru/v8.2/stop_v2/9101377e-282b-47d5-8c22-45fc7ccb0af2",
+    "file": "dataset/external/route12_live_20260927/direct_stop_check.json",
+    "sha256": "dd5701944ecc5b8ace2af1030b4f5c61ef60f1810c64a23b4beb2365684b825e",
+    "retrieved_at_utc": "2026-09-27T15:06:43.676045+00:00",
+    "route12_byTelemetry": [
+      0
+    ]
+  },
+  "decision": "Do not treat this ETA channel as actual visits or boarding truth",
+  "reproduction_verified": true
+}

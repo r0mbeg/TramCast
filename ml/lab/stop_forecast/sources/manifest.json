@@ -1,0 +1,98 @@
+[
+  {
+    "url": "https://storage.googleapis.com/parquet.gtfsrt.io/inventory.json",
+    "file": "gtfsrt_inventory_20260927.json",
+    "method": "HTTP GET via curl -fLsS; connect timeout 10s, total timeout 30s",
+    "download_completed_at_utc": "2026-09-27T11:02:46.039849+00:00",
+    "sha256": "d7685827825e58566ec0d3021cd7d83ecd854eb28ddd6897d14aaa1f577dc9af",
+    "bytes": 34624,
+    "use": "availability audit only; no training or labels",
+    "feeds": 73,
+    "agencies": [
+      "AC Transit",
+      "Big Blue Bus",
+      "Broward County Transit",
+      "Butler County RTA",
+      "Charlotte Area Transit System",
+      "CityBus of Greater Lafayette",
+      "Greater Cleveland RTA",
+      "Greater Dayton RTA",
+      "Houston METRO",
+      "King County Metro",
+      "Metro Transit (Minneapolis)",
+      "Metro Transit - City of Madison",
+      "Metrolink",
+      "Metropolitan Transportation Authority",
+      "Mountain Line (Missoula)",
+      "NYC Ferry",
+      "PATH",
+      "SEPTA",
+      "Santa Clara VTA",
+      "Sound Transit",
+      "Western Reserve Transit Authority (Youngstown)"
+    ],
+    "earliest_date": "2026-01-04",
+    "latest_date": "2026-09-26"
+  },
+  {
+    "url": "https://busobservatory-lake.s3.amazonaws.com/index/data-inventory.json",
+    "file": "busobservatory_inventory_20260927.json",
+    "method": "HTTP GET via curl -fLsS; connect timeout 10s, total timeout 30s",
+    "download_completed_at_utc": "2026-09-27T11:03:41.296981+00:00",
+    "sha256": "9887a72da53fa493cb373d3ac62e42571a3b0264a77ff4fcae8118e5cd02bb9c",
+    "bytes": 1490482,
+    "use": "availability audit only; no training or labels",
+    "generated_at": "2026-09-27T05:00:51.148735+00:00",
+    "feeds": {
+      "mbta_all": {
+        "system_name": "Mbta All",
+        "city_name": "",
+        "first_date": "2023-04-28",
+        "last_date": "2025-10-22",
+        "active": false
+      },
+      "njtransit_bus": {
+        "system_name": "Njtransit Bus",
+        "city_name": "",
+        "first_date": "2023-04-28",
+        "last_date": "2023-07-06",
+        "active": false
+      },
+      "nyct_mta_bus_gtfsrt": {
+        "system_name": "New York City Transit (GTFS-RT)",
+        "city_name": "New York City, NY, US",
+        "first_date": "2023-04-28",
+        "last_date": "2026-09-26",
+        "active": true
+      },
+      "nyct_mta_bus_siri": {
+        "system_name": "Nyct Mta Bus Siri",
+        "city_name": "",
+        "first_date": "2023-04-28",
+        "last_date": "2025-01-10",
+        "active": false
+      },
+      "sf_muni": {
+        "system_name": "Sf Muni",
+        "city_name": "",
+        "first_date": "2023-06-21",
+        "last_date": "2025-10-22",
+        "active": false
+      },
+      "tfnsw_bus": {
+        "system_name": "Tfnsw Bus",
+        "city_name": "",
+        "first_date": "2023-04-28",
+        "last_date": "2025-10-22",
+        "active": false
+      },
+      "wmata_bus": {
+        "system_name": "Wmata Bus",
+        "city_name": "",
+        "first_date": "2023-04-28",
+        "last_date": "2025-10-22",
+        "active": false
+      }
+    }
+  }
+]

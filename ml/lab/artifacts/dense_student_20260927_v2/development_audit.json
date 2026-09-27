@@ -1,0 +1,40 @@
+[
+  {
+    "fit_cutoff": "2025-04-30",
+    "actual_rows": 53260,
+    "teacher_rows": 32940,
+    "teacher_origins": [
+      "2025-04-09",
+      "2025-04-16",
+      "2025-04-23"
+    ],
+    "actual_latest_target": "2025-04-30",
+    "teacher_latest_target": "2025-06-23",
+    "teacher_targets_after_cutoff": 25380,
+    "purged_teacher_targets": false
+  },
+  {
+    "fit_cutoff": "2025-06-30",
+    "actual_rows": 100299,
+    "teacher_rows": 142740,
+    "teacher_origins": [
+      "2025-04-09",
+      "2025-04-16",
+      "2025-04-23",
+      "2025-04-30",
+      "2025-05-07",
+      "2025-05-14",
+      "2025-05-21",
+      "2025-05-28",
+      "2025-05-31",
+      "2025-06-04",
+      "2025-06-11",
+      "2025-06-18",
+      "2025-06-25"
+    ],
+    "actual_latest_target": "2025-06-30",
+    "teacher_latest_target": "2025-08-25",
+    "teacher_targets_after_cutoff": 50940,
+    "purged_teacher_targets": false
+  }
+]

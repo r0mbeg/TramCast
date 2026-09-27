@@ -1,0 +1,26 @@
+{
+  "check": "CPU: golden CSV, full gRPC grid, stops, restart cache, versions, integrity",
+  "rows": 14640,
+  "cold_worker_seconds": 1.0327936670510098,
+  "sha256": "538872b074d8ced7f0997e2f1427db4f3dab39db3f3dba0e8be9f80a68a15695",
+  "metadata": {
+    "timezone": "Europe/Moscow",
+    "route_numbers": [
+      1,
+      5,
+      7,
+      11,
+      12,
+      17,
+      25,
+      26,
+      28,
+      50
+    ],
+    "history_end": "2025-11-01T00:00:00+03:00",
+    "forecast_from": "2025-11-01T00:00:00+03:00",
+    "forecast_to": "2026-01-01T00:00:00+03:00",
+    "model_version": "catboost-cpu-d8e7e56c65f370c7f08aa33910f9d07f37662716e872c1cb49c1d8c0a9092569",
+    "dataset_version": "prepared-cpu-f78af320354a9674f075d6102ba683594dd10a0a5ce33dbb05dccaa561221ac1"
+  }
+}

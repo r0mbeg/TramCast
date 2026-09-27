@@ -1,0 +1,8 @@
+*
+!.gitignore
+!weather_2025.csv
+!weather_2025_era5.json
+!weather_source.json
+!july_restoration_sources.json
+!school_calendar/
+!school_calendar/sources.json

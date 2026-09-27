@@ -1,0 +1,33 @@
+{
+  "check": "passed",
+  "fresh_process_wall_seconds": 0.6942452499642968,
+  "metadata": {
+    "model_version": "cpu-student-030-2025-a2ec62f22c05",
+    "timezone": "Europe/Moscow",
+    "from_date": "2025-09-15",
+    "to_exclusive": "2025-11-15",
+    "rows": 14640,
+    "history_latest_used": "2025-09-14",
+    "teacher_start_range": [
+      "2025-05-01",
+      "2025-11-01"
+    ],
+    "warnings": [
+      "fixed_year_distillation_not_historical_as_of_validation"
+    ],
+    "status": "research_surrogate",
+    "route_5_reason": "organizer_required_zero_no_history",
+    "load_history_features_predict_seconds": 0.13115837494842708
+  },
+  "files": [
+    "REPORT.md",
+    "README.md",
+    "hourly_clean.csv",
+    "bundle/metadata.json",
+    "bundle/student.cbm",
+    "bundle/LICENSE.txt",
+    "ml/runtime/constants.py",
+    "ml/lab/cpu_student/requirements.txt",
+    "ml/lab/cpu_student/model.py"
+  ]
+}

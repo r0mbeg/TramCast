@@ -95,11 +95,23 @@ ml/lab/artifacts/boost_comparison/*.pkl
 !ml/runtime/requirements*.txt
 !ml/bundles/002/forecast_bundle.json
 !ml/bundles/030/forecast_bundle.json
+!ml/bundles/stops-network-v1/allocation_bundle.json
 !ml/lab/requirements*.txt
 !ml/lab/forecast_bundle.json
 
 # Inference weights and disposable persistent cache
 /ml/models/
 /ml/cache/
+/ml/releases/
+/ml/sources/
+!ml/preparation/movement_calendar.json
+!ml/preparation/requirements.txt
 !ml/recipes/tabpfn-030/recipe.json
 !ml/recipes/tabpfn-030/LICENSE.txt
+!ml/recipes/catboost-cpu/*.json
+!ml/deploy/cpu-verified-20260927/*.json
+!ml/deploy/cpu-verified-20260927/*.txt
+!ml/deploy/verified-20260927/*.json
+!ml/deploy/verified-20260927/*.txt
+!deploy/server/verified-20260927/*.json
+!deploy/server/verified-20260927/*.log

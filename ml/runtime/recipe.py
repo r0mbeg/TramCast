@@ -21,6 +21,7 @@ MODEL_SHA = "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736"
 
 
 class Recipe:
+    worker = "model_030.py"
     def __init__(self, path):
         self.path = Path(path).resolve()
         self.spec = json.loads(self.path.read_text())
@@ -62,6 +63,11 @@ class Recipe:
                      code={n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest()
                            for n in ("model_030.py", "constants.py")})
         data = {k: spec[k] for k in ("files", "history_sha256", "history_end", "forecast_from", "forecast_to")}
+        if "source_manifest_sha256" in spec:
+            manifest = self.path.parent / spec.get("inputs_dir", ".") / "sources.json"
+            if hashlib.sha256(manifest.read_bytes()).hexdigest() != spec["source_manifest_sha256"]:
+                raise ValueError("Source manifest checksum mismatch")
+            data["source_manifest_sha256"] = spec["source_manifest_sha256"]
         self.metadata = {k: spec[k] for k in ("timezone", "route_numbers", "history_end", "forecast_from", "forecast_to")}
         self.metadata.update(model_version="tabpfn030-"+cache_key(model),
                              dataset_version="prepared-"+cache_key(data))
@@ -84,7 +90,7 @@ class Recipe:
                        OMP_NUM_THREADS=str(spec["threads"]), MKL_NUM_THREADS=str(spec["threads"]),
                        OPENBLAS_NUM_THREADS=str(spec["threads"]))
             with (folder/"worker.log").open("w+") as log:
-                process = subprocess.Popen([sys.executable, str(ROOT/"model_030.py"),
+                process = subprocess.Popen([sys.executable, str(ROOT/self.worker),
                     "--spec", str(folder/"spec.json"), "--output", str(folder/"forecast.csv")],
                     env=env, stdout=log, stderr=log)
                 try:

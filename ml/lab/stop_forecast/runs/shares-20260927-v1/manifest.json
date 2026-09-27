@@ -1,0 +1,34 @@
+{
+  "version": "F20260927-v1",
+  "timezone": "Europe/Moscow",
+  "forecast_from": "2025-11-01",
+  "forecast_to_inclusive": "2025-12-31",
+  "status": "unvalidated_scenario",
+  "occupancy_available": false,
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "pandas": "2.2.3"
+  },
+  "inputs": {
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/manifest.json": "82e9228e4c25c600ae81f2ddde040857491a6cb84889de4fdcc2b291181d5bde",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/results.json": "72c0ba464f80105b4be8ab2565fecae089a4a93a7da0e8ffd0b35e4ef9c3c240",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/occurrences.csv": "1bf08fa7a871d90d92f2f6ae945a097ed5d7b104d170402218baf59836a60cfd",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/spatial_features.npy": "b79552d61044d35c1fa14cdd85ca4a6c5bd04446bc213710791fd046daa6938e",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/route_predictions_2025-04-30.csv": "df75cc0c609a147290de1ae3e65f351f0c4660c92099654f974f216f69695ce2",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/route_predictions_2025-06-30.csv": "f6edb6f5deaf4f16d5b7f344cb32952799011dac2535ab53a0b494646ca671aa",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/route_predictions_2025-08-31.csv": "2a5077478596eb2e0642c3608516ae3c378d67e8cc7ff8db1bb70245143d1fed",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/route12_scenario.csv.gz": "e0fd3a87d6165dd474f3dd8d64311a7104c8743978590f002165eefeed2162bb",
+    "ml/lab/stop_forecast/fractional_split.py": "0d14e219190de140f2eb2fad6cb5f9a8a2b42da0118f9bb7feba251fb5f5903c",
+    "ml/lab/stop_forecast/shares_experiment.py": "d991455b7c3b12e814c3490e1847bd3285f400fc86cb3050443ef107ed4d40fa",
+    "ml/lab/stop_forecast/SHARES_PROTOCOL.md": "457343d9157a1ff867876b1b4d63ad91d2edcff8019d1222cb39ddd1dc560997",
+    "ml/lab/stop_forecast/bayes_experiment.py": "1a306036fe9764ab061cb83eb22ed1a4be378ece3cd2d0255d2390ab361bf0ed",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9"
+  },
+  "outputs": {
+    "results.json": "583ffa07325c1ddeb37f34f4b7d84bc090bb5024c13317a3d0034ca42b2ca52e",
+    "route12_scenario.csv.gz": "99801ba8d6dc68bb7ba742ee618832f028bdb356013f5b69e12ce84a44f70626",
+    "scenario_profiles.csv.gz": "9908b5dfe78e671d947f63ad502bfb0d5c3a99e7b5d1fdd8dbc8e5a46b653703"
+  }
+}

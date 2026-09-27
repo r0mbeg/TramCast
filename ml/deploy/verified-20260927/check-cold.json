@@ -1,0 +1,67 @@
+{
+  "model_version": "tabpfn030-530bff4e9421db2166c308ac58da454baff12085a3e5cc06bac2d23929d3a49d",
+  "dataset_version": "prepared-844b17f7f0a0d34e203758ba3c1158ef820ae416c8c09b21fc4cd4c5c4c1898e",
+  "routes": [
+    {
+      "route": 1,
+      "hours": 1464,
+      "boardings": 1103275,
+      "seconds": 55.6032629837282
+    },
+    {
+      "route": 5,
+      "hours": 1464,
+      "boardings": 0,
+      "seconds": 0.00444047199562192
+    },
+    {
+      "route": 7,
+      "hours": 1464,
+      "boardings": 1440563,
+      "seconds": 0.20104439510032535
+    },
+    {
+      "route": 11,
+      "hours": 1464,
+      "boardings": 1900968,
+      "seconds": 0.19374545104801655
+    },
+    {
+      "route": 12,
+      "hours": 1464,
+      "boardings": 1964934,
+      "seconds": 0.18916074186563492
+    },
+    {
+      "route": 17,
+      "hours": 1464,
+      "boardings": 3009162,
+      "seconds": 0.19352987408638
+    },
+    {
+      "route": 25,
+      "hours": 1464,
+      "boardings": 450078,
+      "seconds": 0.20155160082504153
+    },
+    {
+      "route": 26,
+      "hours": 1464,
+      "boardings": 1075268,
+      "seconds": 0.20155305694788694
+    },
+    {
+      "route": 28,
+      "hours": 1464,
+      "boardings": 606716,
+      "seconds": 0.20200144313275814
+    },
+    {
+      "route": 50,
+      "hours": 1464,
+      "boardings": 1255206,
+      "seconds": 0.19858590373769403
+    }
+  ],
+  "repeat_and_error_checks": "passed"
+}

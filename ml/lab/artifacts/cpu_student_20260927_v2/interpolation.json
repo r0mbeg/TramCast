@@ -1,0 +1,27 @@
+{
+  "heldout_start": "2025-08-15",
+  "train_origins": [
+    "2025-04-30",
+    "2025-05-31",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31",
+    "2025-10-31"
+  ],
+  "teacher": {
+    "rows": 14640,
+    "mae": 42.793169398907104,
+    "wape": 0.05601771130078989,
+    "score": 0.9439822886992101,
+    "bias": 347614.0
+  },
+  "observed_actual": {
+    "rows": 10734,
+    "mae": 130.63359418669648,
+    "wape": 0.11659184734030391,
+    "score": 0.8834081526596961,
+    "bias": -500381.0
+  },
+  "seconds": 27.598057208932005,
+  "caveat": "Retrospective fixed-year interpolation with future-origin teacher knowledge; not an as-of historical forecast"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "partial_transport_tests": 3,
+  "unittest_discovery_tests": 10,
+  "summary_metrics_exactly_reproduced": true,
+  "hourly_scores_byte_identical": true,
+  "compared_models": 21,
+  "hours_per_model": 96,
+  "excluded_from_summary_equality": [
+    "elapsed_seconds"
+  ],
+  "original_manifest_sha256": "3b51f7dc2d5ffd1cc27e987f7f06f35adb9f60f6df693b33db3d6c19b8f382c4",
+  "reproduced_manifest_sha256": "80fa76dfd8f64479ead1e14c9681738af9f2eb93647fd872767fc3266fd1098d",
+  "stop_accuracy_verified": false
+}

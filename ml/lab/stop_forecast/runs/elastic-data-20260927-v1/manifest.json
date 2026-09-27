@@ -1,0 +1,16 @@
+{
+  "inputs": {
+    "ml/lab/stop_forecast/build_elastic_data.py": "93c65b45d61b78c1e899dfb3badf571e4443981a1dface548d38f7521d787155",
+    "ml/lab/stop_forecast/ELASTIC_PROTOCOL.md": "2040bf45d5d41b47e3c46883c4148604dfb8ad78cfffa7d59ea4e242c4473c2e",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/pipeline.py": "97f5bf60891d68c93ee6477ceca33df4788d8d6cb924b460b698877af4fb0c7b",
+    "ml/lab/stop_forecast/runs/20260927-v2/route_hour_balance.csv": "a053de834a33bdb1fe10f2262a6b71fe362c9355e16105935b727d1f22f249c2",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/manifest.json": "a15ec5c8e581331e78bc5fefa7ab28c55f4aa6cbb550c2fa8edd45c67d500989",
+    "dataset/test.csv": "d58523f79b0d47d72eafe0da9a0c72fb8b472bf4b74e68a4e9f789bd6656557a"
+  },
+  "outputs": {
+    "summary.json": "1b9c874157e60b79ba5d577cdbce0214b736f4bf97cd0051e8e3c74e08bda418",
+    "counts.npz": "625a0fe570a2219c406448f9ddf3c9ffd810dfe45b37f06681bfe95c7e6f819f",
+    "blocks.csv": "a99da0e01b259a526c08f64f1705310183f8741ef50484e995e63905cf2d6e14"
+  }
+}

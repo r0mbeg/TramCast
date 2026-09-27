@@ -1,5 +1,6 @@
 """P11: retrospective permitted movement notices, coefficients from cutoff history only."""
 import argparse
+from functools import lru_cache
 import json
 import os
 from pathlib import Path
@@ -11,7 +12,24 @@ from experiments.portfolio_experiment import load_history, save_candidate, write
 from experiments.portfolio_ridge import ridge_forecast
 
 
+@lru_cache(maxsize=1)
+def movement_calendar():
+    path = Path("artifacts/portfolio_20260926/continuation/external/movement_calendar.json")
+    return json.loads(path.read_text()) if path.exists() else None
+
+
 def disrupted(frame, event):
+    calendar = movement_calendar()
+    if calendar is not None:
+        if not frame.date.between(*calendar["coverage"]).all():
+            raise ValueError("Movement calendar does not cover requested dates")
+        result = pd.Series(False, index=frame.index)
+        for interval in calendar["events"][event]:
+            selected = frame.route.isin(interval["routes"]) & frame.date.between(interval["start"], interval["end"])
+            if "weekdays" in interval:
+                selected &= frame.date.dt.dayofweek.isin(interval["weekdays"])
+            result |= selected
+        return result
     if event == "april17":
         return frame.route.eq(17) & frame.date.between("2025-04-05", "2025-04-30") & frame.date.dt.dayofweek.ge(5)
     if event == "july":

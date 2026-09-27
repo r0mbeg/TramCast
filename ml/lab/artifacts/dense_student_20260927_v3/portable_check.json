@@ -1,0 +1,22 @@
+{
+  "load_model_history_seconds": 0.04425520799122751,
+  "features_predict_seconds": 0.10677191708236933,
+  "peak_rss_mib": 180.53125,
+  "model_bytes": 3081572,
+  "exact_submission_reload": true,
+  "csv_format": true,
+  "checksum_corruption_rejected": true,
+  "gpu_modules_loaded": [],
+  "submission_sha256": "538872b074d8ced7f0997e2f1427db4f3dab39db3f3dba0e8be9f80a68a15695",
+  "forecast_info": {
+    "model_version": "dense-030-cpu-5cea6bf3e187",
+    "rows": 14640,
+    "warnings": [
+      "retrospective_external_weather_scenario"
+    ],
+    "latest_history_used": "2025-10-31",
+    "fit_cutoff": "2025-10-31",
+    "teacher_latest_origin": "2025-10-31",
+    "gpu_required": false
+  }
+}

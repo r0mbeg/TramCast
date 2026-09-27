@@ -1,0 +1,211 @@
+{
+  "version": "V20260927-v1",
+  "pilot_clean_successes": 229468,
+  "used_events": 181189,
+  "held_events": 32503,
+  "reference_events": 148686,
+  "compared_vehicle_days": 137,
+  "compared_hours": 1464,
+  "exclusions": {
+    "invalid_keys": 0,
+    "conflicting_device_day": 0,
+    "multiple_route_vehicle_day": 14714,
+    "partial_hour5": 1491,
+    "insufficient_device_hour_events": 32074
+  },
+  "contrasts": {
+    "slow": {
+      "nats_per_held_event": 0.5967400611341698,
+      "cluster_bootstrap_95": [
+        0.575311639562985,
+        0.6161218164190273
+      ]
+    },
+    "uniform": {
+      "nats_per_held_event": 0.8278862309556739,
+      "cluster_bootstrap_95": [
+        0.8007140870172711,
+        0.8511756413951851
+      ]
+    },
+    "mean_placebo": {
+      "nats_per_held_event": 1.8015521865457018,
+      "cluster_bootstrap_95": [
+        1.7674917435533388,
+        1.83594668101966
+      ]
+    }
+  },
+  "per_day": {
+    "2025-09-08": {
+      "slow": {
+        "nats_per_held_event": 0.6475830433996322,
+        "cluster_bootstrap_95": [
+          0.6177340542047304,
+          0.6820420162857112
+        ]
+      },
+      "uniform": {
+        "nats_per_held_event": 0.8833088955250861,
+        "cluster_bootstrap_95": [
+          0.8531242028249701,
+          0.9215175757417539
+        ]
+      },
+      "mean_placebo": {
+        "nats_per_held_event": 1.8742509554401166,
+        "cluster_bootstrap_95": [
+          1.8254422854369503,
+          1.9292330465710978
+        ]
+      }
+    },
+    "2025-09-09": {
+      "slow": {
+        "nats_per_held_event": 0.5521587565957354,
+        "cluster_bootstrap_95": [
+          0.5022705963797527,
+          0.6060426740728286
+        ]
+      },
+      "uniform": {
+        "nats_per_held_event": 0.7939644229143917,
+        "cluster_bootstrap_95": [
+          0.7293336046572644,
+          0.8655854064632652
+        ]
+      },
+      "mean_placebo": {
+        "nats_per_held_event": 1.7522249314251181,
+        "cluster_bootstrap_95": [
+          1.658845967308261,
+          1.8446053901381538
+        ]
+      }
+    },
+    "2025-09-10": {
+      "slow": {
+        "nats_per_held_event": 0.5881808126831067,
+        "cluster_bootstrap_95": [
+          0.5403080389984436,
+          0.6380539381250506
+        ]
+      },
+      "uniform": {
+        "nats_per_held_event": 0.7956880241546777,
+        "cluster_bootstrap_95": [
+          0.7377515883545193,
+          0.8531970843097166
+        ]
+      },
+      "mean_placebo": {
+        "nats_per_held_event": 1.7175816741932852,
+        "cluster_bootstrap_95": [
+          1.6482944657459762,
+          1.7849372459841033
+        ]
+      }
+    },
+    "2025-09-11": {
+      "slow": {
+        "nats_per_held_event": 0.6049055761426237,
+        "cluster_bootstrap_95": [
+          0.5794146379042663,
+          0.6299389217489391
+        ]
+      },
+      "uniform": {
+        "nats_per_held_event": 0.8240216519603737,
+        "cluster_bootstrap_95": [
+          0.796787928626223,
+          0.8500591367200917
+        ]
+      },
+      "mean_placebo": {
+        "nats_per_held_event": 1.7719344485602426,
+        "cluster_bootstrap_95": [
+          1.7220175791850376,
+          1.8257121392936275
+        ]
+      }
+    },
+    "2025-09-12": {
+      "slow": {
+        "nats_per_held_event": 0.656128310247625,
+        "cluster_bootstrap_95": [
+          0.6137634872223542,
+          0.705470544428826
+        ]
+      },
+      "uniform": {
+        "nats_per_held_event": 0.9171829341126874,
+        "cluster_bootstrap_95": [
+          0.8574033316229247,
+          0.9827241106277481
+        ]
+      },
+      "mean_placebo": {
+        "nats_per_held_event": 1.9425198419002279,
+        "cluster_bootstrap_95": [
+          1.8625174902299484,
+          2.029761470286539
+        ]
+      }
+    },
+    "2025-09-13": {
+      "slow": {
+        "nats_per_held_event": 0.5267266604216073,
+        "cluster_bootstrap_95": [
+          0.4340326468689934,
+          0.624301128402961
+        ]
+      },
+      "uniform": {
+        "nats_per_held_event": 0.7649052225610304,
+        "cluster_bootstrap_95": [
+          0.6534515987912162,
+          0.8720537330309883
+        ]
+      },
+      "mean_placebo": {
+        "nats_per_held_event": 1.8021156394800855,
+        "cluster_bootstrap_95": [
+          1.6509605944136365,
+          1.9327018955117348
+        ]
+      }
+    },
+    "2025-09-14": {
+      "slow": {
+        "nats_per_held_event": 0.5506212404821869,
+        "cluster_bootstrap_95": [
+          0.4832897827128767,
+          0.6258230422760029
+        ]
+      },
+      "uniform": {
+        "nats_per_held_event": 0.7731700503188681,
+        "cluster_bootstrap_95": [
+          0.700026215230863,
+          0.854604817248645
+        ]
+      },
+      "mean_placebo": {
+        "nats_per_held_event": 1.774427551919448,
+        "cluster_bootstrap_95": [
+          1.688788841798264,
+          1.8723643066814177
+        ]
+      }
+    }
+  },
+  "seed": 20260927,
+  "sigma_seconds": [
+    20,
+    300
+  ],
+  "bin_seconds": 10,
+  "uniform_mixture": 0.1,
+  "stop_accuracy": null,
+  "status": "contemporaneous_device_signal_not_stop_truth"
+}

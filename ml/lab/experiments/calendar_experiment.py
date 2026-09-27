@@ -18,6 +18,16 @@ MIN_DAYS = 3  # Fixed before evaluation; not tuned on the validation windows.
 
 def calendar_table():
     spec = json.loads(SOURCES.read_text(encoding="utf-8"))
+    if "calendars" in spec:
+        tables = [_calendar_table(item) for item in spec["calendars"]]
+        result = pd.concat(tables, ignore_index=True).sort_values("date").reset_index(drop=True)
+        if result.date.duplicated().any():
+            raise ValueError("Overlapping calendar coverage")
+        return result
+    return _calendar_table(spec)
+
+
+def _calendar_table(spec):
     dates = pd.date_range(*spec["coverage"])
     table = pd.DataFrame({"date": dates, "weekday": dates.dayofweek})
     table["day_type"] = "weekday_" + table.weekday.astype(str)
@@ -41,7 +51,7 @@ def calendar_predict(history, keys, cutoff):
     if train.empty or train.duplicated(KEYS).any() or not np.isfinite(train.boardings).all() or train.boardings.lt(0).any():
         raise ValueError("Invalid training history")
     calendar = calendar_table()
-    if calendar.known_at.gt(cutoff).any():
+    if calendar.loc[calendar.date.isin(pd.concat([history.date, keys.date])), "known_at"].gt(cutoff).any():
         raise ValueError("Calendar was not available at cutoff")
     train = train.merge(calendar, on="date", how="left", validate="many_to_one")
     result = keys[KEYS].merge(calendar, on="date", how="left", validate="many_to_one")

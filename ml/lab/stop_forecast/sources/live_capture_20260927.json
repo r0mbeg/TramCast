@@ -1,0 +1,23 @@
+{
+  "version": "L20260927-v1",
+  "kind": "prospective_eta_capture_not_boarding_dataset",
+  "requested_stops": 1,
+  "successful_responses": 1,
+  "forecast_rows": 6,
+  "telemetry_eta_rows": 2,
+  "schedule_eta_rows": 4,
+  "route12_rows": 0,
+  "actual_stop_visits": 0,
+  "successful_validation_labels": 0,
+  "source_freshness_verified": false,
+  "dates": [
+    "2026-09-27"
+  ],
+  "historical_2025_coverage": false,
+  "capture": "dataset/external/stop_evidence_20260927/capture-001",
+  "capture_manifest_sha256": "72b53a484e22f6a6113df498ec1f25818292c2f0adba74ffc371cf3eee4af321",
+  "report": "COLLECTION_PROTOCOL.md",
+  "source": "https://moscowtransport.app/api/stop_v2/",
+  "retrieval": "Single HTTPS GET without authentication; stdlib urllib, TLS verification enabled",
+  "verified_replay": true
+}

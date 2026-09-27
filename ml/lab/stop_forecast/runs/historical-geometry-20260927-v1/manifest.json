@@ -1,0 +1,20 @@
+{
+  "version": "H20260927-v1",
+  "inputs": {
+    "ml/lab/stop_forecast/sources/route12_osm_history_20260927.json": "5ffadb14ae59d95f12245835ce0401453831e95ffd0ab17c4abdb0d68ad441cd",
+    "ml/lab/stop_forecast/historical_geometry.py": "98e33abac0a85939045fd6777d139d6ffa9f97e21d5d5bdae8b2cfc94cfaabce",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/stop_forecast/build_metro_access.py": "e747ef72b75b1b4b4d055ac850ecb23fca912963d66b50e536b4b65b233706a5",
+    "dataset/external/route12_osm_history_20260927/discovery.json": "636135a83334ec4441f8204b900cfb63d0762dd046a252e8cf8904b3fb792131",
+    "dataset/external/route12_osm_history_20260927/start.json": "41effb58d76ee2aa837d7f67aa42d0b4aa08293f75eb0f029db48263d570f5f3",
+    "dataset/external/route12_osm_history_20260927/end.json": "41effb58d76ee2aa837d7f67aa42d0b4aa08293f75eb0f029db48263d570f5f3",
+    "ml/lab/stop_forecast/runs/catalog-alignment-20260927-v1/route12_cycle.csv": "e7144cf0c8a88a8cb715cbfab18a20f6d3179a86c9355db1ea9a52fd067882a2",
+    "ml/lab/stop_forecast/runs/catalog-alignment-20260927-v1/manifest.json": "ea433459db51cbf39ae0a64135259244dd5897b4cb18a155635055fb82b7ef22"
+  },
+  "outputs": {
+    "summary.json": "abdae1aa506e6d87b7b966e9e890a2470397b1cc8320b695b2d60e7d3465d13e",
+    "catalog_coverage.csv": "e756727ab63cbaaa8b14ca958c9048fe074cb9a2ed584445bf728a2f58d8aed6",
+    "historical_occurrences.csv": "d142815bc09d4d305ca824eacccdae5b0bdad5791fa970552f38d323581df850",
+    "catalog_candidates.csv": "6a73698718e4a49b052cea4443eade6a49787289565bdf428870e6a02d2d3ea7"
+  }
+}

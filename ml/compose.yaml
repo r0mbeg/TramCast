@@ -21,6 +21,22 @@ services:
       retries: 3
     restart: unless-stopped
 
+  ml-cpu:
+    build:
+      context: ..
+      dockerfile: ml/Dockerfile
+      target: cpu
+    image: tramcast-ml-cpu:local
+    environment:
+      ML_CONFIG: "${ML_CPU_CONFIG:-/app/ml/recipes/catboost-cpu/recipe.json}"
+    ports:
+      - "127.0.0.1:${ML_PORT:-50051}:50051"
+    volumes:
+      - ./models:/app/ml/models:ro
+      - ml-cache:/app/ml/cache
+    healthcheck: *ml-health
+    restart: unless-stopped
+
   ml-install:
     profiles: [tools]
     build:

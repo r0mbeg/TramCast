@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#tramcast/forecast/v1/forecast.proto\x12\x14tramcast.forecast.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8a\x01\n\x0ePredictRequest\x12\x14\n\x0croute_number\x18\x01 \x01(\x05\x12\x31\n\rforecast_from\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x66orecast_to\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x0fPredictResponse\x12\x15\n\rmodel_version\x18\x01 \x01(\t\x12\x17\n\x0f\x64\x61taset_version\x18\x02 \x01(\t\x12\x35\n\x06points\x18\x03 \x03(\x0b\x32%.tramcast.forecast.v1.PredictionPoint\"g\n\x0fPredictionPoint\x12.\n\nhour_start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\tboardings\x18\x02 \x01(\x03H\x00\x88\x01\x01\x42\x0c\n\n_boardings2i\n\x0f\x46orecastService\x12V\n\x07Predict\x12$.tramcast.forecast.v1.PredictRequest\x1a%.tramcast.forecast.v1.PredictResponseBQZOgithub.com/r0mbeg/TramCast/backend/internal/gen/tramcast/forecast/v1;forecastv1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#tramcast/forecast/v1/forecast.proto\x12\x14tramcast.forecast.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8a\x01\n\x0ePredictRequest\x12\x14\n\x0croute_number\x18\x01 \x01(\x05\x12\x31\n\rforecast_from\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x66orecast_to\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x0fPredictResponse\x12\x15\n\rmodel_version\x18\x01 \x01(\t\x12\x17\n\x0f\x64\x61taset_version\x18\x02 \x01(\t\x12\x35\n\x06points\x18\x03 \x03(\x0b\x32%.tramcast.forecast.v1.PredictionPoint\"g\n\x0fPredictionPoint\x12.\n\nhour_start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\tboardings\x18\x02 \x01(\x03H\x00\x88\x01\x01\x42\x0c\n\n_boardings\"\xac\x03\n\x14PredictStopsResponse\x12\x15\n\rmodel_version\x18\x01 \x01(\t\x12\x17\n\x0f\x64\x61taset_version\x18\x02 \x01(\t\x12\x1b\n\x13route_model_version\x18\x03 \x01(\t\x12\x1d\n\x15route_dataset_version\x18\x04 \x01(\t\x12 \n\x18\x61llocation_model_version\x18\x05 \x01(\t\x12\"\n\x1a\x61llocation_dataset_version\x18\x06 \x01(\t\x12\x17\n\x0fnetwork_version\x18\x07 \x01(\t\x12\x39\n\x0boccurrences\x18\x08 \x03(\x0b\x32$.tramcast.forecast.v1.StopOccurrence\x12\x37\n\x05hours\x18\t \x03(\x0b\x32(.tramcast.forecast.v1.StopPredictionHour\x12\x17\n\x0f\x65stimate_status\x18\n \x01(\t\x12\x18\n\x10geography_status\x18\x0b \x01(\t\x12\"\n\x1a\x61llocation_package_version\x18\x0c \x01(\t\"\xf8\x01\n\x0eStopOccurrence\x12\x15\n\roccurrence_id\x18\x01 \x01(\t\x12\x17\n\x0fsource_route_id\x18\x02 \x01(\t\x12\x13\n\x0bpattern_key\x18\x03 \x01(\t\x12\x14\n\x0c\x64irection_id\x18\x04 \x01(\x05\x12\x15\n\rstop_sequence\x18\x05 \x01(\x05\x12\x16\n\x0esource_stop_id\x18\x06 \x01(\t\x12\x11\n\tstop_name\x18\x07 \x01(\t\x12\x1d\n\x10\x62oarding_allowed\x18\x08 \x01(\x08H\x00\x88\x01\x01\x12\x15\n\rboarding_role\x18\t \x01(\tB\x13\n\x11_boarding_allowed\"\xcd\x01\n\x12StopPredictionHour\x12.\n\nhour_start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x1c\n\x0froute_boardings\x18\x02 \x01(\x03H\x00\x88\x01\x01\x12\x1f\n\x13\x65stimated_boardings\x18\x03 \x03(\x03\x42\x02\x10\x01\x12\x34\n\x06status\x18\x04 \x01(\x0e\x32$.tramcast.forecast.v1.StopHourStatusB\x12\n\x10_route_boardings*\x9d\x01\n\x0eStopHourStatus\x12 \n\x1cSTOP_HOUR_STATUS_UNSPECIFIED\x10\x00\x12\x1d\n\x19STOP_HOUR_STATUS_SCENARIO\x10\x01\x12$\n STOP_HOUR_STATUS_NONWORKING_ZERO\x10\x02\x12$\n STOP_HOUR_STATUS_ROUTE5_FALLBACK\x10\x03\x32\xcb\x01\n\x0f\x46orecastService\x12V\n\x07Predict\x12$.tramcast.forecast.v1.PredictRequest\x1a%.tramcast.forecast.v1.PredictResponse\x12`\n\x0cPredictStops\x12$.tramcast.forecast.v1.PredictRequest\x1a*.tramcast.forecast.v1.PredictStopsResponseBQZOgithub.com/r0mbeg/TramCast/backend/internal/gen/tramcast/forecast/v1;forecastv1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,12 +33,22 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'tramcast.forecast.v1.foreca
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'ZOgithub.com/r0mbeg/TramCast/backend/internal/gen/tramcast/forecast/v1;forecastv1'
+  _globals['_STOPPREDICTIONHOUR'].fields_by_name['estimated_boardings']._loaded_options = None
+  _globals['_STOPPREDICTIONHOUR'].fields_by_name['estimated_boardings']._serialized_options = b'\020\001'
+  _globals['_STOPHOURSTATUS']._serialized_start=1353
+  _globals['_STOPHOURSTATUS']._serialized_end=1510
   _globals['_PREDICTREQUEST']._serialized_start=95
   _globals['_PREDICTREQUEST']._serialized_end=233
   _globals['_PREDICTRESPONSE']._serialized_start=235
   _globals['_PREDICTRESPONSE']._serialized_end=355
   _globals['_PREDICTIONPOINT']._serialized_start=357
   _globals['_PREDICTIONPOINT']._serialized_end=460
-  _globals['_FORECASTSERVICE']._serialized_start=462
-  _globals['_FORECASTSERVICE']._serialized_end=567
+  _globals['_PREDICTSTOPSRESPONSE']._serialized_start=463
+  _globals['_PREDICTSTOPSRESPONSE']._serialized_end=891
+  _globals['_STOPOCCURRENCE']._serialized_start=894
+  _globals['_STOPOCCURRENCE']._serialized_end=1142
+  _globals['_STOPPREDICTIONHOUR']._serialized_start=1145
+  _globals['_STOPPREDICTIONHOUR']._serialized_end=1350
+  _globals['_FORECASTSERVICE']._serialized_start=1513
+  _globals['_FORECASTSERVICE']._serialized_end=1716
 # @@protoc_insertion_point(module_scope)

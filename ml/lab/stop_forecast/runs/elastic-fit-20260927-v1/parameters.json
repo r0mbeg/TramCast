@@ -1,0 +1,112 @@
+{
+  "theta": [
+    3.4847840123590412,
+    2.7913528101748666,
+    0.461180118618704
+  ],
+  "diagnostics": {
+    "starts": [
+      {
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": 5319.825218543204,
+        "iterations": 9,
+        "projected_gradient_max": 0.00045474735365017796,
+        "theta": [
+          3.4847840123590412,
+          2.7913528101748666,
+          0.461180118618704
+        ]
+      },
+      {
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": 5319.825218543293,
+        "iterations": 9,
+        "projected_gradient_max": 0.0007275957658402848,
+        "theta": [
+          3.4847842225089916,
+          2.7913538786652303,
+          0.4611808720692181
+        ]
+      },
+      {
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": 5319.825218543308,
+        "iterations": 8,
+        "projected_gradient_max": 0.0003637978829201424,
+        "theta": [
+          3.484784394647163,
+          2.7913537056405504,
+          0.46118114866749366
+        ]
+      }
+    ],
+    "objective": 5319.825218543204,
+    "theta": [
+      3.4847840123590412,
+      2.7913528101748666,
+      0.461180118618704
+    ],
+    "factors": [
+      0.19567095730286158,
+      6.381882985407876
+    ],
+    "stationary_high_probability": 0.13001963706431893,
+    "duration_mean_seconds": [
+      173.02931858942713,
+      25.8594448368566
+    ],
+    "duration_tail_at_cap": [
+      1.4653299617610975e-05,
+      4.622894281668338e-41
+    ],
+    "active_bounds": [
+      false,
+      false,
+      false
+    ],
+    "prior_mean": [
+      1.6094379124341003,
+      2.3978952727983707,
+      0.6931471805599453
+    ],
+    "prior_sd": [
+      1.5,
+      1.0,
+      1.0
+    ],
+    "bounds": [
+      [
+        0.09531017980432493,
+        4.605170185988092
+      ],
+      [
+        0.0,
+        4.07753744390572
+      ],
+      [
+        -1.6094379124341003,
+        2.833213344056216
+      ]
+    ]
+  },
+  "training_blocks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    7
+  ],
+  "training_reference_events": 3094,
+  "training_dates": [
+    "2025-09-15",
+    "2025-09-17",
+    "2025-09-18",
+    "2025-09-19"
+  ],
+  "elapsed_seconds": 3.203176041948609
+}

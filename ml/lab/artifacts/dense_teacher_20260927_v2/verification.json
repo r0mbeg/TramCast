@@ -1,0 +1,9 @@
+{
+  "teachers": 31,
+  "rows": 453840,
+  "active_rows": 340380,
+  "teacher_compute_seconds_sum": 1370.5767970690504,
+  "min_seconds": 20.435647370293736,
+  "max_seconds": 68.82796852011234,
+  "all_grid_hashes_lineage_and_zeros_passed": true
+}

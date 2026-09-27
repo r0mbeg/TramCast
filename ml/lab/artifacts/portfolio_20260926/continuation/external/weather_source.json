@@ -1,0 +1,22 @@
+{
+  "retrieved_at": "2026-09-26T21:44:39.851770+00:00",
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=55.7558&longitude=37.6173&start_date=2025-01-01&end_date=2025-12-31&daily=temperature_2m_mean,temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,wind_speed_10m_max,daylight_duration&timezone=Europe%2FMoscow&models=era5",
+  "regime": "permitted retrospective external observations; no future target validations",
+  "model": "era5",
+  "period": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "timezone": "Europe/Moscow",
+  "sha256": "050bd828932ba4ab4733a9d1f94b299e6bca88f3533761b52bd61c078e382b14",
+  "units": {
+    "time": "iso8601",
+    "temperature_2m_mean": "\u00b0C",
+    "temperature_2m_max": "\u00b0C",
+    "temperature_2m_min": "\u00b0C",
+    "precipitation_sum": "mm",
+    "snowfall_sum": "cm",
+    "wind_speed_10m_max": "km/h",
+    "daylight_duration": "s"
+  }
+}

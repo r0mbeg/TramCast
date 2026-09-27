@@ -1,0 +1,28 @@
+{
+  "package_version": "E20260927-v1-88f891a83f8f266f",
+  "inputs": {
+    "ml/lab/stop_forecast/runs/shares-20260927-v2/scenario_profiles.csv.gz": "b5b5e8ad6cbf22f5292f0e28f1469f024245bfcc8739a80415e3c461df70cc02",
+    "ml/lab/stop_forecast/runs/shares-20260927-v2/manifest.json": "d4edae3987a9f6675d09c1d3b4a0627664688b28cb6e0a5a5c30a221d47b5041",
+    "ml/bundles/030/forecast.csv": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e",
+    "ml/bundles/030/forecast_bundle.json": "880d53459d55372e7afdb6bdbd1d07772d028216b35bfc9ea03725b9f0c515b4",
+    "data/catalog/catalog.xlsx": "01e0fe81cfbb9781488546981ddd739110c8cf16f9e937a9cc42469e433555f1",
+    "dataset/spravochniki/Хакатон_справочники_трамвай_10_маршрутов.xlsx": "c6890032eee2aaa9ed1e252b1fe5c10c37a28c7bb5c1720a01a1409b1ff2bb71",
+    "data/osm/tram_routes.json": "a5833ac74361f59821b3af4eb4c8d38440651ac08b2f7b8397d806b11336edc0",
+    "ml/lab/stop_forecast/APP_PACKAGE_PROTOCOL.md": "8d870046dec14263183c469b923b78c79700b454a14115f29095f90225dcb183",
+    "ml/lab/stop_forecast/APP_ESTIMATE_DECISION.md": "f7f5a860759769e88eab60f8b8dbdabd3f6d62b86f20343d080120f1f2f3d00d",
+    "ml/lab/stop_forecast/build_app_package.py": "904caad610c1ef05a9490497c644c7c5d0b38d9d43f50b3681d8d6430fa2f34c",
+    "ml/lab/stop_forecast/fractional_split.py": "f346ad96b76670a77dc4499a5a24a7e11bdf780bd6eeedb7321f0c1fd8b9d56d",
+    "ml/lab/stop_forecast/catalog_sequences.py": "9db6a4c4627d44646a57eeeb004881cdcf73cf7bfbd96a9584f4a2577bdb3def",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/artifacts/methodology_20260927/data/audit_data.py": "6aa329276d48d180b1d25b1d8f0f1e19e275d69d958479e906334044ce8aaf69"
+  },
+  "outputs": {
+    "metadata.json": "8aea2ea6a5cb6cc103a74064743132149b7df8ffa853f2a970476ee05546127f",
+    "occurrences.csv": "50a96b781006217cc69d9ded062b6ef605a1e9ae9dd6a56e411e8fae35be3893",
+    "profiles.csv": "5f913b5ec920d44f10358322e63777dafa485f09c7b18d2cbff464819da8bc96",
+    "route_balance.csv": "9835c67beecc1cd1a6ceb36e2fb8fbecfb7dcca2087ffff7a79e7eefbd53df65",
+    "route_forecast.csv": "48771a9ffde47810af56a6c67b544b6d38f1c26fba65d16e00afcbab06f34638",
+    "sensitivity.json": "728ef5a6b5912b95c152223a7c36860a667e2cf5a057e89743ea044662e4f62d",
+    "stop_estimates.csv.gz": "17c452fe2b0e772999265bab5b0f82567cb61145a533504a2557f0ed947c99f9"
+  }
+}
