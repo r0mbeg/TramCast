@@ -8,7 +8,8 @@ GO ?= go
 NPM ?= npm
 ENV_FILE ?= ../.env
 
-.PHONY: help env-up env-down env-port-forward env-port-close ps logs \
+.PHONY: help app-build app-up app-down app-logs \
+	env-up env-down env-port-forward env-port-close ps logs \
 	migrate-up migrate-status migrate-down migrate-create migrate-validate \
 	sqlc-compile sqlc-generate proto-generate-go \
 	tidy-backend tidy-backend-check run-backend \
@@ -17,6 +18,10 @@ ENV_FILE ?= ../.env
 
 help:
 	@echo TramCast commands
+	@echo   make app-build              Build the application and migration images
+	@echo   make app-up                 Build and start the app after migrations and initial catalog import
+	@echo   make app-down               Stop the app environment and keep database files
+	@echo   make app-logs               Follow backend, catalog initialization and migration logs
 	@echo   make env-up                 Start PostgreSQL and the local port-forwarder
 	@echo   make env-down               Stop the environment and keep database volumes
 	@echo   make env-port-forward       Open the PostgreSQL port for local development
@@ -41,11 +46,23 @@ help:
 	@echo   make frontend-build         Build frontend/dist, which the backend serves
 	@echo   make frontend-test          Type-check and run frontend unit tests
 
+app-build:
+	@$(DOCKER_COMPOSE) build backend migrate
+
+app-up:
+	@$(DOCKER_COMPOSE) up -d --build --wait backend
+
+app-down:
+	@$(DOCKER_COMPOSE) --profile dev down
+
+app-logs:
+	@$(DOCKER_COMPOSE) logs --follow backend catalog-init migrate
+
 env-up:
 	@$(DOCKER_COMPOSE) up -d --wait postgres env-port-forwarder
 
 env-down:
-	@$(DOCKER_COMPOSE) --profile dev --profile tools down
+	@$(DOCKER_COMPOSE) --profile dev down
 
 env-port-forward:
 	@$(DOCKER_COMPOSE) up -d --wait env-port-forwarder
@@ -60,13 +77,13 @@ logs:
 	@$(DOCKER_COMPOSE) logs --follow postgres
 
 migrate-up:
-	@$(DOCKER_COMPOSE) run --rm --name tramcast-migrate migrate up
+	@$(DOCKER_COMPOSE) run --rm migrate up
 
 migrate-status:
-	@$(DOCKER_COMPOSE) run --rm --name tramcast-migrate migrate status
+	@$(DOCKER_COMPOSE) run --rm migrate status
 
 migrate-down:
-	@$(DOCKER_COMPOSE) run --rm --name tramcast-migrate migrate down
+	@$(DOCKER_COMPOSE) run --rm migrate down
 
 migrate-create:
 	$(if $(strip $(name)),,$(error Set name, for example: make migrate-create name=init_schema))

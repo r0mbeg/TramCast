@@ -47,7 +47,8 @@ TramCast/
 ├── frontend/    # React + Vite: прототип интерфейса, сборка в dist
 ├── ml/          # Python-модель и gRPC-сервер — планируется
 ├── proto/       # Общий Protobuf-контракт Go ↔ Python
-├── docker-compose.yaml  # PostgreSQL, миграции и локальный доступ к БД
+├── Dockerfile   # Сборка Go, импортёра и фронтенда в один образ
+├── docker-compose.yaml  # Приложение, PostgreSQL, миграции и первичный импорт
 ├── Makefile     # Команды разработки
 ├── AGENTS.md    # Правила разработки и подробный контракт
 ├── PRODUCT.md   # Контекст дизайна интерфейса
@@ -61,4 +62,12 @@ TramCast/
 - [Локальная разработка: PostgreSQL, миграции и Makefile](docs/development.md).
 - [Контракт проекта: схема БД, API, очередь, требования к данным и ML](AGENTS.md).
 
-Для локального запуска настройте `.env` по `.env.example`, затем выполните `make env-up`, `make migrate-up`, `make import-catalog` (загрузка справочников из книги по пути `CATALOG_FILE` и снимка OpenStreetMap из репозитория по пути `CATALOG_OSM_FILE`) и `make run-backend`. HTTP-сервер доступен на порту 8080; `/healthz` проверяет HTTP, `/readyz` — подключение к PostgreSQL. Справочники читаются через `/api/routes`, `/api/routes/geometry`, `/api/routes/{route_id}/stops` и `/api/stops`; остальные пути отдают сборку фронтенда из `frontend/dist`. Интерфейс собирается командами `make frontend-install` и `make frontend-build` (нужен Node.js 24) и открывается на `http://localhost:8080`; для разработки есть `make frontend-dev` на порту 5173. Данные БД сохраняются в `out/pgdata`. Прогнозирование и ML-сервис появятся по мере реализации.
+Для запуска нужны Docker с Compose и отдельно полученная книга справочников. Скопируйте `.env.example` в `.env`, задайте пароль PostgreSQL и `CATALOG_HOST_FILE` — путь к книге от корня проекта либо абсолютный путь. Затем:
+
+```text
+docker compose up --build -d --wait
+```
+
+Compose собирает Go и фронтенд, применяет миграции и загружает справочники в пустую БД перед запуском сервера. Интерфейс открывается на `http://localhost:8080`. Повторный запуск сохраняет данные и пропускает первичный импорт, если справочники уже содержат записи. XLSX подключается только импортёру для чтения и не входит в образ; снимок OSM входит в образ. Данные БД сохраняются в `out/pgdata`.
+
+Для разработки доступны локальный Go (`make run-backend`) и Vite (`make frontend-dev`). Настройка, ручное обновление справочников и диагностика описаны в [инструкции разработки](docs/development.md). Прогнозы интерфейса остаются демонстрационными; API прогнозов и ML-сервис ещё не реализованы.

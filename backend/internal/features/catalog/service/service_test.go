@@ -148,6 +148,10 @@ func (s *fakeStore) LockCatalogImport(context.Context) error {
 	return nil
 }
 
+func (s *fakeStore) CatalogHasData(context.Context) (bool, error) {
+	return len(s.routes) > 0 || len(s.stops) > 0 || len(s.positions) > 0, nil
+}
+
 func (s *fakeStore) DeleteUnusedStopsNotInCatalog(_ context.Context, sourceStopIDs []string) (int64, error) {
 	before := len(s.stops)
 	s.stops = slices.DeleteFunc(s.stops, func(stop stops_sqlc.Stop) bool {

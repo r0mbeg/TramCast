@@ -30,6 +30,7 @@ func main() {
 	file := flag.String("file", "", "workbook path; overrides CATALOG_FILE for this run")
 	osmFile := flag.String("osm-file", "", "OSM snapshot path; overrides CATALOG_OSM_FILE for this run")
 	dryRun := flag.Bool("dry-run", false, "validate and run the import, then roll it back")
+	ifEmpty := flag.Bool("if-empty", false, "import only when the catalog tables are empty; otherwise skip without reading sources")
 	flag.Parse()
 	// Flag parsing stops at the first positional argument, so a stray path would
 	// silently drop the flags after it, including -dry-run.
@@ -41,13 +42,13 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
-	if err := run(ctx, *envFile, *file, *osmFile, *dryRun); err != nil {
+	if err := run(ctx, *envFile, *file, *osmFile, *dryRun, *ifEmpty); err != nil {
 		slog.Error("catalog import failed", "error", err)
 		os.Exit(1)
 	}
 }
 
-func run(ctx context.Context, envFile, file, osmFile string, dryRun bool) error {
+func run(ctx context.Context, envFile, file, osmFile string, dryRun, ifEmpty bool) error {
 	cfg, err := core_config.Load(envFile)
 	if err != nil {
 		return fmt.Errorf("load configuration: %w", err)
@@ -62,7 +63,7 @@ func run(ctx context.Context, envFile, file, osmFile string, dryRun bool) error 
 	if sources.OSM, err = pathOverride(cfg.Catalog.OSMFile, osmFile, "-osm-file"); err != nil {
 		return err
 	}
-	log.Info("importing catalog", "file", sources.Workbook, "osm_file", sources.OSM, "dry_run", dryRun)
+	log.Info("importing catalog", "file", sources.Workbook, "osm_file", sources.OSM, "dry_run", dryRun, "if_empty", ifEmpty)
 
 	pool, err := core_postgres.NewPool(ctx, cfg.Postgres)
 	if err != nil {
@@ -71,7 +72,11 @@ func run(ctx context.Context, envFile, file, osmFile string, dryRun bool) error 
 	defer pool.Close()
 
 	service := catalog_service.NewService(catalog_xlsx_repository.NewRepository(), catalog_osm_repository.New(), pool)
-	report, err := service.Import(ctx, sources, dryRun)
+	importCatalog := service.Import
+	if ifEmpty {
+		importCatalog = service.ImportIfEmpty
+	}
+	report, err := importCatalog(ctx, sources, dryRun)
 	var validation *catalog_service.ValidationError
 	if errors.As(err, &validation) {
 		for i, issue := range validation.Issues {
@@ -85,6 +90,10 @@ func run(ctx context.Context, envFile, file, osmFile string, dryRun bool) error 
 	}
 	if err != nil {
 		return err
+	}
+	if report.Skipped {
+		log.Info("catalog already contains data; import skipped")
+		return nil
 	}
 
 	for _, warning := range report.Warnings {

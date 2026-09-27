@@ -1,7 +1,13 @@
 .git
 .idea
-.env
+**/.env
+**/.env.*
+!**/.env.example
 out/
 dataset/
+frontend/node_modules/
+frontend/dist/
+**/*.xlsx
+**/*.xls
 *.zip
 *.pdf
