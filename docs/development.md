@@ -21,7 +21,8 @@ Copy-Item .env.example .env
 Из корня проекта:
 
 ```text
-docker compose up --build -d
+docker compose up --build -d --wait backend ml
+docker compose run --rm prediction-jobs-init -wait
 ```
 
 Либо `make app-up`: он ждёт готовности backend и ML, затем выполняет цепочку версии прогноза на переднем плане и завершается с её кодом. `docker compose up --wait` для всего проекта не используйте: Compose считает ошибкой завершившийся разовый сервис `prediction-jobs-init`, от которого никто не зависит, даже при коде 0. Интерфейс доступен на `http://localhost:8080`; хостовый порт меняется через `HTTP_PORT`. Порт слушает `127.0.0.1`. Сборка выполняется внутри Docker: `npm ci` использует lock-файл, Go собирает сервер, импортёр, регистрацию версии и постановку заданий. Образ `tramcast-app:local` содержит эти четыре бинарника, весь `frontend/dist`, очищенную книгу справочников и снимок OSM. Node и Go SDK остаются в стадиях сборки. Приложение работает от непривилегированного пользователя UID/GID 10001. Образ `tramcast-ml-cpu:local` — CPU CatBoost из `ml/Dockerfile`; веса `ml/models/dense-student-v3.cbm` входят в Git и монтируются только для чтения, кэш хранится в томе `ml-cache`. GPU не нужна.

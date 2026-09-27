@@ -1,9 +1,0 @@
-{
-  "changed_hours": 1620,
-  "max_abs_difference": 3,
-  "total_hours": 14640,
-  "sum_absolute_difference": 1640,
-  "net_difference": -6,
-  "prediction_sha256": "512e9db4746842d4ba31ab1268c50f623b77a23dc8fb111a5727b8c2f460e6d4",
-  "reference_sha256": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e"
-}

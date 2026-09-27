@@ -115,7 +115,8 @@ ml/lab/artifacts/boost_comparison/*.pkl
 !ml/recipes/catboost-cpu/*.json
 !ml/deploy/cpu-verified-20260927/*.json
 !ml/deploy/cpu-verified-20260927/*.txt
-!ml/deploy/verified-20260927/*.json
-!ml/deploy/verified-20260927/*.txt
-!deploy/server/verified-20260927/*.json
-!deploy/server/verified-20260927/*.log
+
+# Public source provenance and reproducible release checks.
+!/data/external/*.json
+!/docs/verification/*.json
+!/docs/verification/*.txt
