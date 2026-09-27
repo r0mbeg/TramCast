@@ -88,43 +88,87 @@ func TestLoadResolvesPaths(t *testing.T) {
 	}
 	t.Chdir(backend)
 
-	t.Run("defaults are relative to the working directory", func(t *testing.T) {
-		cleanConfigEnv(t)
-		setRequiredEnv(t)
-		cfg, err := Load("")
-		if err != nil {
-			t.Fatal(err)
-		}
-		if want := filepath.Join(root, "frontend", "dist"); cfg.Web.Dir != want {
-			t.Errorf("WEB_DIR default = %q, want %q", cfg.Web.Dir, want)
-		}
-		if want := filepath.Join(root, "dataset", "spravochniki", "Хакатон_справочники_трамвай_10_маршрутов.xlsx"); cfg.Catalog.File != want {
-			t.Errorf("CATALOG_FILE default = %q, want %q", cfg.Catalog.File, want)
-		}
-		if want := filepath.Join(root, "data", "osm", "tram_routes.json"); cfg.Catalog.OSMFile != want {
-			t.Errorf("CATALOG_OSM_FILE default = %q, want %q", cfg.Catalog.OSMFile, want)
-		}
-	})
-	t.Run("custom relative paths", func(t *testing.T) {
-		cleanConfigEnv(t)
-		setRequiredEnv(t)
-		t.Setenv("WEB_DIR", "../frontend")
-		t.Setenv("CATALOG_FILE", "../data/catalog.xlsx")
-		t.Setenv("CATALOG_OSM_FILE", "../data/osm.json")
-		cfg, err := Load("")
-		if err != nil {
-			t.Fatal(err)
-		}
-		if want := filepath.Join(root, "frontend"); cfg.Web.Dir != want {
-			t.Errorf("WEB_DIR = %q, want %q", cfg.Web.Dir, want)
-		}
-		if want := filepath.Join(root, "data", "catalog.xlsx"); cfg.Catalog.File != want {
-			t.Errorf("CATALOG_FILE = %q, want %q", cfg.Catalog.File, want)
-		}
-		if want := filepath.Join(root, "data", "osm.json"); cfg.Catalog.OSMFile != want {
-			t.Errorf("CATALOG_OSM_FILE = %q, want %q", cfg.Catalog.OSMFile, want)
-		}
-	})
+	defaults := [3]string{"frontend/dist", "data/catalog/catalog.xlsx", "data/osm/tram_routes.json"}
+	absolute := [3]string{
+		filepath.Join(root, "absolute", "web"),
+		filepath.Join(root, "absolute", "catalog.xlsx"),
+		filepath.Join(root, "absolute", "osm.json"),
+	}
+	for _, tt := range []struct {
+		name         string
+		envFile      string
+		filePaths    [3]string
+		processPaths [3]string
+		wantBase     string
+		wantPaths    [3]string
+	}{
+		{
+			name:     "defaults without env file use working directory",
+			wantBase: backend, wantPaths: defaults,
+		},
+		{
+			name:         "relative process paths without env file use working directory",
+			processPaths: [3]string{"../static", "../catalog.xlsx", "../osm.json"},
+			wantBase:     root, wantPaths: [3]string{"static", "catalog.xlsx", "osm.json"},
+		},
+		{
+			name: "defaults with root env file use repository root", envFile: "../.env",
+			wantBase: root, wantPaths: defaults,
+		},
+		{
+			name: "relative file paths use env directory", envFile: "../.env",
+			filePaths: [3]string{"./static", "./catalog.xlsx", "./osm.json"},
+			wantBase:  root, wantPaths: [3]string{"static", "catalog.xlsx", "osm.json"},
+		},
+		{
+			name: "process overrides use env directory", envFile: "../.env",
+			filePaths:    [3]string{"./file/web", "./file/catalog.xlsx", "./file/osm.json"},
+			processPaths: [3]string{"./process/web", "./process/catalog.xlsx", "./process/osm.json"},
+			wantBase:     root, wantPaths: [3]string{"process/web", "process/catalog.xlsx", "process/osm.json"},
+		},
+		{
+			name: "absolute env file path", envFile: filepath.Join(root, ".env"),
+			wantBase: root, wantPaths: defaults,
+		},
+		{
+			name: "absolute file paths remain absolute", envFile: "../.env",
+			filePaths: absolute, wantPaths: absolute,
+		},
+		{
+			name:         "absolute process paths without env file remain absolute",
+			processPaths: absolute, wantPaths: absolute,
+		},
+	} {
+		t.Run(tt.name, func(t *testing.T) {
+			cleanConfigEnv(t)
+			setRequiredEnv(t)
+			keys := [3]string{"WEB_DIR", "CATALOG_FILE", "CATALOG_OSM_FILE"}
+			var contents strings.Builder
+			for i, key := range keys {
+				if tt.filePaths[i] != "" {
+					contents.WriteString(key + "='" + tt.filePaths[i] + "'\n")
+				}
+				if tt.processPaths[i] != "" {
+					t.Setenv(key, tt.processPaths[i])
+				}
+			}
+			if tt.envFile != "" {
+				if err := os.WriteFile(filepath.Join(root, ".env"), []byte(contents.String()), 0600); err != nil {
+					t.Fatal(err)
+				}
+			}
+			cfg, err := Load(tt.envFile)
+			if err != nil {
+				t.Fatal(err)
+			}
+			for i, got := range [3]string{cfg.Web.Dir, cfg.Catalog.File, cfg.Catalog.OSMFile} {
+				want := filepath.Join(tt.wantBase, tt.wantPaths[i])
+				if got != want {
+					t.Errorf("%s = %q, want %q", keys[i], got, want)
+				}
+			}
+		})
+	}
 }
 
 func TestLoadExplicitEnvFileAndProcessPriority(t *testing.T) {

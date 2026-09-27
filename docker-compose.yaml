@@ -1,7 +1,37 @@
 name: tramcast
 
+x-app: &app
+  image: tramcast-app:local
+  build:
+    context: .
+    target: app
+  environment:
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: "5432"
+    POSTGRES_USER: ${POSTGRES_USER:?Set POSTGRES_USER in .env}
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    POSTGRES_DB: ${POSTGRES_DB:?Set POSTGRES_DB in .env}
+    POSTGRES_SSLMODE: ${POSTGRES_SSLMODE:-disable}
+    POSTGRES_MAX_CONNS: ${POSTGRES_MAX_CONNS:-10}
+    POSTGRES_MIN_CONNS: ${POSTGRES_MIN_CONNS:-0}
+    POSTGRES_CONNECT_TIMEOUT: ${POSTGRES_CONNECT_TIMEOUT:-5s}
+    POSTGRES_STARTUP_TIMEOUT: ${POSTGRES_STARTUP_TIMEOUT:-10s}
+    HTTP_ADDR: ":8080"
+    HTTP_READ_HEADER_TIMEOUT: ${HTTP_READ_HEADER_TIMEOUT:-5s}
+    HTTP_READ_TIMEOUT: ${HTTP_READ_TIMEOUT:-15s}
+    HTTP_WRITE_TIMEOUT: ${HTTP_WRITE_TIMEOUT:-30s}
+    HTTP_IDLE_TIMEOUT: ${HTTP_IDLE_TIMEOUT:-60s}
+    HTTP_SHUTDOWN_TIMEOUT: ${HTTP_SHUTDOWN_TIMEOUT:-10s}
+    HTTP_PROBE_TIMEOUT: ${HTTP_PROBE_TIMEOUT:-2s}
+    LOGGER_LEVEL: ${LOGGER_LEVEL:-INFO}
+    LOGGER_FORMAT: ${LOGGER_FORMAT:-json}
+    WEB_DIR: /app/frontend/dist
+    CATALOG_FILE: /app/data/catalog/catalog.xlsx
+    CATALOG_OSM_FILE: /app/data/osm/tram_routes.json
+
 services:
   ml:
+    profiles: [ml]
     build:
       context: .
       dockerfile: ml/Dockerfile
@@ -52,18 +82,9 @@ services:
 
   migrate:
     image: tramcast-goose:3.28.0
-    container_name: tramcast-migrate
-    profiles: [tools]
     build:
       context: .
-      dockerfile_inline: |
-        ARG TARGETARCH
-        FROM debian:bookworm AS goose-amd64
-        ADD --chmod=0755 --checksum=sha256:ab073515b78ef345f64f018c0d79aa7db50106806efc686dda7181253765ae13 https://github.com/pressly/goose/releases/download/v3.28.0/goose_linux_x86_64 /usr/local/bin/goose
-        FROM debian:bookworm AS goose-arm64
-        ADD --chmod=0755 --checksum=sha256:3968855c11b4093af271c5226909789ea294468f6e50203d738b7504995b6247 https://github.com/pressly/goose/releases/download/v3.28.0/goose_linux_arm64 /usr/local/bin/goose
-        FROM goose-$${TARGETARCH} AS final
-        ENTRYPOINT ["/usr/local/bin/goose"]
+      dockerfile: docker/migrate.Dockerfile
     environment:
       GOOSE_DRIVER: postgres
       GOOSE_MIGRATION_DIR: /migrations
@@ -76,8 +97,34 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    command: ["status"]
+    command: ["up"]
     restart: "no"
+
+  catalog-init:
+    <<: *app
+    entrypoint: ["/app/import-catalog"]
+    command: ["-if-empty"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: "no"
+
+  backend:
+    <<: *app
+    ports:
+      - "127.0.0.1:${HTTP_PORT:-8080}:8080"
+    depends_on:
+      catalog-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "--show-error", "--max-time", "3", "http://127.0.0.1:8080/readyz"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    # Keep this longer than HTTP_SHUTDOWN_TIMEOUT so Go can drain requests.
+    stop_grace_period: 30s
+    restart: unless-stopped
 
 volumes:
   ml-cache:

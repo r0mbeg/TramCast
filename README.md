@@ -20,7 +20,7 @@ TramCast предназначен для диспетчеров: выбор ма
 | --- | --- |
 | Backend | Go 1.26.8, Gin, slog |
 | База данных | PostgreSQL, pgx/v5, sqlc, goose |
-| ML-сервис | Python, gRPC; сохранённый прогноз Chronos-2 |
+| ML-сервис | Python, gRPC, TabPFN (рецепт 030), SQLite-кэш |
 | Frontend | React, TypeScript, Vite, TanStack Query |
 | Карта и графики | MapLibre GL JS, Apache ECharts |
 | Контракты и запуск | OpenAPI, Protobuf, Docker Compose |
@@ -43,13 +43,15 @@ Go отдаёт готовый фронтенд с диска и читает п
 ```text
 TramCast/
 ├── backend/     # Go: запуск сервера, SQL-миграции и код sqlc/gRPC
-├── data/        # Снимок OpenStreetMap для импорта справочников (ODbL)
+├── data/        # Очищенная книга справочников и снимок OpenStreetMap (ODbL)
 ├── frontend/    # React + Vite: прототип интерфейса, сборка в dist
 ├── ml/          # ML-пайплайн и действующий gRPC-сервер
 ├── proto/       # Общий Protobuf-контракт Go ↔ Python
-├── docker-compose.yaml  # PostgreSQL, миграции и локальный доступ к БД
+├── Dockerfile   # Сборка Go, импортёра и фронтенда в один образ
+├── docker/      # Отдельный Dockerfile мигратора Goose
+├── docker-compose.yaml  # Приложение, PostgreSQL, миграции и первичный импорт
 ├── Makefile     # Команды разработки
-├── AGENTS.md    # Правила разработки и подробный контракт
+├── AGENTS.md    # Правила разработки и общие договорённости
 ├── PRODUCT.md   # Контекст дизайна интерфейса
 └── README.md
 ```
@@ -61,6 +63,14 @@ TramCast/
 - [gRPC: контракт прогнозирования и генерация Go/Python](proto/README.md).
 - [Локальная разработка: PostgreSQL, миграции и Makefile](docs/development.md).
 - [Запуск ML и инструкция разработчику backend](ml/docs/HANDOFF.md).
-- [Контракт проекта: схема БД, API, очередь, требования к данным и ML](AGENTS.md).
+- [Правила проекта и договорённости по данным, API и очереди](AGENTS.md).
 
-Для локального запуска настройте `.env` по `.env.example`, затем выполните `make env-up`, `make migrate-up`, `make import-catalog` (загрузка справочников из книги по пути `CATALOG_FILE` и снимка OpenStreetMap из репозитория по пути `CATALOG_OSM_FILE`) и `make run-backend`. HTTP-сервер доступен на порту 8080; `/healthz` проверяет HTTP, `/readyz` — подключение к PostgreSQL. Справочники читаются через `/api/routes`, `/api/routes/geometry`, `/api/routes/{route_id}/stops` и `/api/stops`; остальные пути отдают сборку фронтенда из `frontend/dist`. Интерфейс собирается командами `make frontend-install` и `make frontend-build` (нужен Node.js 24) и открывается на `http://localhost:8080`; для разработки есть `make frontend-dev` на порту 5173. Данные БД сохраняются в `out/pgdata`. ML-сервис запускается через `make run-ml` или `docker compose up -d --build ml`; он пересчитывает рецепт 030 за ноябрь–декабрь 2025 и кэширует результат. Интеграция с API прогнозов Go ещё не реализована.
+Для запуска нужен Docker с Compose. Очищенная книга `data/catalog/catalog.xlsx` и снимок OSM уже находятся в репозитории и входят в образ. Скопируйте `.env.example` в `.env`, задайте пароль PostgreSQL. Затем:
+
+```text
+docker compose up --build -d --wait
+```
+
+Compose собирает Go и фронтенд, применяет миграции и загружает справочники из образа в пустую БД перед запуском сервера. Интерфейс открывается на `http://localhost:8080`. Повторный запуск сохраняет данные и пропускает первичный импорт, если справочники уже содержат записи. Данные БД сохраняются в `out/pgdata`.
+
+Для разработки доступны локальный Go (`make run-backend`) и Vite (`make frontend-dev`). Настройка, ручное обновление справочников и диагностика описаны в [инструкции разработки](docs/development.md). Прогнозы интерфейса остаются демонстрационными; API прогнозов Go и его подключение к ML ещё не реализованы. Python-сервис запускается отдельно по [инструкции ML](ml/docs/HANDOFF.md); GPU-профиль `ml` не включается при обычном запуске приложения.

@@ -49,7 +49,7 @@ type OSMReader interface {
 
 // TxBeginner is satisfied by *pgxpool.Pool.
 type TxBeginner interface {
-	Begin(ctx context.Context) (pgx.Tx, error)
+	BeginTx(ctx context.Context, options pgx.TxOptions) (pgx.Tx, error)
 }
 
 // routeQueries, stopQueries and catalogQueries are the parts of the generated
@@ -72,6 +72,7 @@ type stopQueries interface {
 
 type catalogQueries interface {
 	LockCatalogImport(ctx context.Context) error
+	CatalogHasData(ctx context.Context) (bool, error)
 	DeleteUnusedStopsNotInCatalog(ctx context.Context, sourceStopIDs []string) (int64, error)
 }
 
@@ -108,6 +109,9 @@ type Sources struct {
 // database after the import.
 type Report struct {
 	DryRun bool
+	// Skipped means ImportIfEmpty found existing catalog data. Source files
+	// were not read and the other counts are not populated.
+	Skipped bool
 	// Workbook* count the validated workbook.
 	WorkbookRoutes    int
 	WorkbookStops     int
@@ -135,30 +139,18 @@ type Report struct {
 // transaction. With dryRun every write runs and is then rolled back, so the
 // report shows the effect without changing data.
 func (s *Service) Import(ctx context.Context, sources Sources, dryRun bool) (Report, error) {
-	sheets, err := s.workbook.ReadSheets(ctx, sources.Workbook, sheetSpecs)
+	catalog, report, err := s.prepare(ctx, sources, dryRun)
 	if err != nil {
-		return Report{}, fmt.Errorf("read catalog workbook: %w", err)
+		return Report{}, err
 	}
-	workbook, issues := parseWorkbook(sheets)
-	snapshot, err := s.osm.ReadSnapshot(ctx, sources.OSM)
-	if err != nil {
-		return Report{}, fmt.Errorf("read OSM snapshot: %w", err)
-	}
-	osm, osmIssues := parseOSM(snapshot, OSMRoutes)
-	// Problems of both sources are reported together, before any write.
-	if issues = append(issues, osmIssues...); len(issues) > 0 {
-		return Report{}, &ValidationError{Issues: issues}
-	}
-	catalog, warnings := mergeCatalogs(workbook, osm)
 
-	tx, err := s.db.Begin(ctx)
+	tx, err := s.db.BeginTx(ctx, pgx.TxOptions{IsoLevel: pgx.ReadCommitted})
 	if err != nil {
 		return Report{}, fmt.Errorf("begin catalog import: %w", err)
 	}
 	// After Commit this is a no-op; otherwise it undoes every write.
 	defer func() { _ = tx.Rollback(context.WithoutCancel(ctx)) }()
 
-	report := newReport(dryRun, workbook, catalog, snapshot.BaseTimestamp, warnings)
 	if err := write(ctx, newQueries(tx), catalog, &report); err != nil {
 		return Report{}, err
 	}
@@ -169,6 +161,69 @@ func (s *Service) Import(ctx context.Context, sources Sources, dryRun bool) (Rep
 		return Report{}, fmt.Errorf("commit catalog import: %w", err)
 	}
 	return report, nil
+}
+
+// ImportIfEmpty initializes an empty catalog. Any existing row in routes,
+// stops or routes_stops skips the import without opening either source file.
+// The existing import lock protects the check through commit; READ COMMITTED
+// makes a preceding import visible after waiting for its lock. Partial
+// catalogs are left untouched and can be repaired with an explicit Import.
+func (s *Service) ImportIfEmpty(ctx context.Context, sources Sources, dryRun bool) (Report, error) {
+	tx, err := s.db.BeginTx(ctx, pgx.TxOptions{IsoLevel: pgx.ReadCommitted})
+	if err != nil {
+		return Report{}, fmt.Errorf("begin catalog import: %w", err)
+	}
+	defer func() { _ = tx.Rollback(context.WithoutCancel(ctx)) }()
+
+	q := newQueries(tx)
+	if err := q.catalog.LockCatalogImport(ctx); err != nil {
+		return Report{}, fmt.Errorf("lock catalog import: %w", err)
+	}
+	hasData, err := q.catalog.CatalogHasData(ctx)
+	if err != nil {
+		return Report{}, fmt.Errorf("check existing catalog: %w", err)
+	}
+	if hasData {
+		return Report{DryRun: dryRun, Skipped: true}, nil
+	}
+
+	catalog, report, err := s.prepare(ctx, sources, dryRun)
+	if err != nil {
+		return Report{}, err
+	}
+	if err := writeLocked(ctx, q, catalog, &report); err != nil {
+		return Report{}, err
+	}
+	if dryRun {
+		return report, nil
+	}
+	if err := tx.Commit(ctx); err != nil {
+		return Report{}, fmt.Errorf("commit catalog import: %w", err)
+	}
+	return report, nil
+}
+
+// prepare reads and validates both sources before the first write. Explicit
+// imports do this before BEGIN; initialization holds the lock while reading.
+func (s *Service) prepare(ctx context.Context, sources Sources, dryRun bool) (Catalog, Report, error) {
+	sheets, err := s.workbook.ReadSheets(ctx, sources.Workbook, sheetSpecs)
+	if err != nil {
+		return Catalog{}, Report{}, fmt.Errorf("read catalog workbook: %w", err)
+	}
+	workbook, issues := parseWorkbook(sheets)
+	snapshot, err := s.osm.ReadSnapshot(ctx, sources.OSM)
+	if err != nil {
+		return Catalog{}, Report{}, fmt.Errorf("read OSM snapshot: %w", err)
+	}
+	osm, osmIssues := parseOSM(snapshot, OSMRoutes)
+	// Problems of both sources are reported together, before any write.
+	if issues = append(issues, osmIssues...); len(issues) > 0 {
+		return Catalog{}, Report{}, &ValidationError{Issues: issues}
+	}
+	catalog, warnings := mergeCatalogs(workbook, osm)
+
+	report := newReport(dryRun, workbook, catalog, snapshot.BaseTimestamp, warnings)
+	return catalog, report, nil
 }
 
 // newReport fills the source counts of a report. The sources use disjoint
@@ -193,6 +248,11 @@ func write(ctx context.Context, q queries, catalog Catalog, report *Report) erro
 	if err := q.catalog.LockCatalogImport(ctx); err != nil {
 		return fmt.Errorf("lock catalog import: %w", err)
 	}
+	return writeLocked(ctx, q, catalog, report)
+}
+
+// writeLocked requires LockCatalogImport to be held by this transaction.
+func writeLocked(ctx context.Context, q queries, catalog Catalog, report *Report) error {
 	if err := upsertRoutes(ctx, q.routes, catalog.Routes, report); err != nil {
 		return err
 	}

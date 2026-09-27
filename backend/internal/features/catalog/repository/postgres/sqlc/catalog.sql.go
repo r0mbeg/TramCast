@@ -9,6 +9,25 @@ import (
 	"context"
 )
 
+const catalogHasData = `-- name: CatalogHasData :one
+SELECT EXISTS (
+    SELECT 1 FROM routes
+    UNION ALL
+    SELECT 1 FROM stops
+    UNION ALL
+    SELECT 1 FROM routes_stops
+) AS has_data
+`
+
+// Check after LockCatalogImport in a separate READ COMMITTED statement, so
+// an import that committed while the lock was awaited is visible.
+func (q *Queries) CatalogHasData(ctx context.Context) (bool, error) {
+	row := q.db.QueryRow(ctx, catalogHasData)
+	var has_data bool
+	err := row.Scan(&has_data)
+	return has_data, err
+}
+
 const deleteUnusedStopsNotInCatalog = `-- name: DeleteUnusedStopsNotInCatalog :execrows
 DELETE FROM stops AS s
 WHERE NOT (s.source_stop_id = ANY ($1::text[]))

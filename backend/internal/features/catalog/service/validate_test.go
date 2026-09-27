@@ -214,7 +214,7 @@ func (r fakeOSMReader) ReadSnapshot(context.Context, string) (catalog_osm_reposi
 
 type unusedDB struct{ t *testing.T }
 
-func (db unusedDB) Begin(context.Context) (pgx.Tx, error) {
+func (db unusedDB) BeginTx(context.Context, pgx.TxOptions) (pgx.Tx, error) {
 	db.t.Fatal("the database must not be touched")
 	return nil, nil
 }

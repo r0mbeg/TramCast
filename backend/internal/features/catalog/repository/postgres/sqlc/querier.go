@@ -9,6 +9,9 @@ import (
 )
 
 type Querier interface {
+	// Check after LockCatalogImport in a separate READ COMMITTED statement, so
+	// an import that committed while the lock was awaited is visible.
+	CatalogHasData(ctx context.Context) (bool, error)
 	// Run after positions are replaced: removes stops absent from the imported
 	// sources that no position references any more.
 	DeleteUnusedStopsNotInCatalog(ctx context.Context, sourceStopIds []string) (int64, error)
