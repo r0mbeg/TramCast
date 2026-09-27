@@ -52,27 +52,34 @@ type PostgresConfig struct {
 }
 
 type WebConfig struct {
-	// Dir is the frontend build directory. Load makes it absolute; the default
-	// assumes the process runs in backend/, as with make run-backend.
-	Dir string `envconfig:"WEB_DIR" default:"../frontend/dist"`
+	// Dir is the frontend build directory, resolved by Load like catalog paths.
+	Dir string `envconfig:"WEB_DIR" default:"./frontend/dist"`
 }
 
 type CatalogConfig struct {
 	// File is the reference workbook read by the catalog import command. Load
-	// makes it absolute; the default assumes the process runs in backend/.
-	File string `envconfig:"CATALOG_FILE" default:"../dataset/spravochniki/Хакатон_справочники_трамвай_10_маршрутов.xlsx"`
+	// makes it absolute; the default is the sanitized workbook in data/catalog.
+	File string `envconfig:"CATALOG_FILE" default:"./data/catalog/catalog.xlsx"`
 	// OSMFile is the OpenStreetMap snapshot of the target routes the workbook
 	// lacks, also read by the import command. It is resolved like File; the
 	// default is the snapshot committed in data/osm.
-	OSMFile string `envconfig:"CATALOG_OSM_FILE" default:"../data/osm/tram_routes.json"`
+	OSMFile string `envconfig:"CATALOG_OSM_FILE" default:"./data/osm/tram_routes.json"`
 }
 
 // Load reads process environment and optionally loads the explicitly named
 // dotenv file first. Existing environment variables, including empty values,
 // take precedence. Call once during startup, before launching goroutines.
 // An empty envFile never triggers an implicit search for .env.
+// Relative filesystem paths, including defaults and process overrides, are
+// resolved from the env file's directory, or the working directory without one.
 func Load(envFile string) (Config, error) {
+	pathBase := "."
 	if envFile != "" {
+		absoluteEnvFile, err := filepath.Abs(envFile)
+		if err != nil {
+			return Config{}, fmt.Errorf("resolve env file %q: %w", envFile, err)
+		}
+		pathBase = filepath.Dir(absoluteEnvFile)
 		if err := godotenv.Load(envFile); err != nil {
 			var pathErr *os.PathError
 			if errors.As(err, &pathErr) {
@@ -106,7 +113,11 @@ func Load(envFile string) (Config, error) {
 		{"CATALOG_FILE", &cfg.Catalog.File},
 		{"CATALOG_OSM_FILE", &cfg.Catalog.OSMFile},
 	} {
-		absolute, err := filepath.Abs(*setting.value)
+		path := *setting.value
+		if !filepath.IsAbs(path) {
+			path = filepath.Join(pathBase, path)
+		}
+		absolute, err := filepath.Abs(path)
 		if err != nil {
 			return Config{}, fmt.Errorf("resolve %s: %w", setting.name, err)
 		}

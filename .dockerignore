@@ -8,6 +8,7 @@ dataset/
 frontend/node_modules/
 frontend/dist/
 **/*.xlsx
+!data/catalog/catalog.xlsx
 **/*.xls
 *.zip
 *.pdf

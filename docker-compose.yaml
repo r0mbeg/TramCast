@@ -26,7 +26,7 @@ x-app: &app
     LOGGER_LEVEL: ${LOGGER_LEVEL:-INFO}
     LOGGER_FORMAT: ${LOGGER_FORMAT:-json}
     WEB_DIR: /app/frontend/dist
-    CATALOG_FILE: /run/catalog/catalog.xlsx
+    CATALOG_FILE: /app/data/catalog/catalog.xlsx
     CATALOG_OSM_FILE: /app/data/osm/tram_routes.json
 
 services:
@@ -84,13 +84,6 @@ services:
     <<: *app
     entrypoint: ["/app/import-catalog"]
     command: ["-if-empty"]
-    volumes:
-      - type: bind
-        source: ${CATALOG_HOST_FILE:-./dataset/spravochniki/Хакатон_справочники_трамвай_10_маршрутов.xlsx}
-        target: /run/catalog/catalog.xlsx
-        read_only: true
-        bind:
-          create_host_path: false
     depends_on:
       migrate:
         condition: service_completed_successfully
