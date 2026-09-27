@@ -22,7 +22,7 @@ ML_OTHER_MODE = $(if $(filter gpu,$(ML_MODE)),replay,gpu)
 # Git Bash would otherwise rewrite container paths such as /tmp/... for Docker.
 export MSYS_NO_PATHCONV := 1
 
-ifneq ($(filter ml-%,$(MAKECMDGOALS)),)
+ifneq ($(filter ml-up ml-check ml-logs ml-start ml-warm ml-describe,$(MAKECMDGOALS)),)
 ifeq ($(filter gpu replay,$(ML_MODE)),)
 $(error ML_MODE must be gpu or replay, got "$(ML_MODE)")
 endif
@@ -79,7 +79,7 @@ help:
 	@echo   make ml-describe            Show the model and dataset versions, gpu only
 	@echo   make ml-logs                Follow the logs of the ML container
 	@echo   make ml-down                Stop both ML modes and keep weights and cache
-	@echo   make import-catalog        Import the workbook from CATALOG_FILE and the OSM snapshot from CATALOG_OSM_FILE
+	@echo   make import-catalog         Import the workbook from CATALOG_FILE and the OSM snapshot from CATALOG_OSM_FILE
 	@echo   make import-catalog-dry-run Check the workbook and OSM snapshot and roll the import back
 	@echo   make frontend-install       Install frontend dependencies from package-lock.json
 	@echo   make frontend-dev           Run the Vite dev server with /api proxied to :8080
@@ -176,6 +176,9 @@ ml-up:
 ml-warm:
 	@$(ML_COMPOSE) --profile gpu exec -T ml-gpu python service.py --warm-cache
 
+# The ml-start steps depend on each other. Make 3.81 applies .NOTPARALLEL to
+# the whole file, so make -j still runs them in order.
+.NOTPARALLEL:
 ml-start: ml-install ml-up ml-warm
 
 ml-check:

@@ -186,7 +186,9 @@ ML находится в необязательном профиле `ml`; об�
 
 ### ML-сервис в Docker
 
-Цели `ml-*` оборачивают самостоятельную поставку `ml/compose.yaml` из [инструкции ML-команды](../ml/docs/HANDOFF.md): PostgreSQL, Go, локальный Python и корневой `.env` для них не нужны. Режим задаёт `ML_MODE`: `gpu` (по умолчанию) пересчитывает рецепт 030 на NVIDIA GPU, `replay` на CPU отдаёт сохранённый результат 030 под отдельными версиями и не вызывает модель. На компьютере без NVIDIA работает только `replay`; для проверки gRPC-клиента его достаточно.
+Цели `ml-*` оборачивают самостоятельную поставку `ml/compose.yaml` из [инструкции ML-команды](../ml/docs/HANDOFF.md): PostgreSQL, Go, локальный Python и корневой `.env` для них не нужны. Это отдельный Compose-проект `tramcast-ml` со своими томами весов и кэша. Он не связан с профилем `ml` корневого `docker-compose.yaml` и целью `prepare-ml-model` выше: веса одного способа другому не видны.
+
+Режим задаёт `ML_MODE`: `gpu` (по умолчанию) пересчитывает рецепт 030 на NVIDIA GPU, `replay` на CPU отдаёт сохранённый результат 030 под отдельными версиями и не вызывает модель. На компьютере без NVIDIA работает только `replay`; для проверки gRPC-клиента его достаточно. Задайте его до первого `make ml-up`, иначе начнётся сборка GPU-образа на несколько гигабайт, которая затем остановится на резервировании видеокарты.
 
 ```text
 make ml-start
@@ -194,7 +196,7 @@ make ml-check
 make ml-describe
 ```
 
-`ml-start` выполняет три шага HANDOFF: `ml-install` скачивает закреплённые веса TabPFN (около 42 МБ, нужен интернет) в Docker-том и проверяет SHA256, `ml-up` запускает контейнер и ждёт healthcheck, `ml-warm` один раз рассчитывает полный прогноз (10 маршрутов × 1464 часа) в SQLite-кэш. Обучения при этом нет: веса модели не меняются, исследования и подготовка входов остаются в `ml/lab/`. `ml-check` вызывает `Predict` встроенным клиентом для `ML_ROUTE` (по умолчанию 1) на весь ноябрь–декабрь и печатает число часов и сумму; `ml-describe` показывает ID модели и данных для регистрации версии прогноза. `ml-logs` показывает логи, `ml-down` останавливает оба режима и сохраняет веса и кэш.
+`ml-start` выполняет три шага HANDOFF: `ml-install` скачивает закреплённые веса TabPFN (около 42 МБ) в Docker-том и проверяет SHA256, `ml-up` запускает контейнер и ждёт healthcheck, `ml-warm` один раз рассчитывает полный прогноз (10 маршрутов × 1464 часа) в SQLite-кэш. Сборка образов и первая установка весов требуют интернета; GPU-образ с PyTorch и CUDA весит несколько гигабайт. Обучения при этом нет: веса модели не меняются, исследования и подготовка входов остаются в `ml/lab/`. `ml-check` вызывает `Predict` встроенным клиентом для `ML_ROUTE` (по умолчанию 1) на весь ноябрь–декабрь и печатает число часов и сумму; `ml-describe` показывает ID модели и данных для регистрации версии прогноза. `ml-logs` выводит последние строки логов и следит за ними до Ctrl+C, `ml-down` останавливает оба режима и сохраняет веса и кэш.
 
 Без GPU режим задаётся один раз на сессию PowerShell:
 
@@ -206,18 +208,26 @@ make ml-check
 
 Ожидаемый ответ `replay` для маршрута 1 — 1 464 часа и сумма 1 103 274. `ml-up` сначала останавливает контейнер другого режима: оба публикуют один порт. `ml-warm`, `ml-describe` и `ml-start` работают только в `gpu`. Другой маршрут или период — `make ml-check ML_ROUTE=17 ML_FROM=2025-12-01T00:00:00+03:00`; занятый порт меняется через `ML_PORT=50052`.
 
-Сервис слушает `127.0.0.1:50051` без TLS; метод — `tramcast.forecast.v1.ForecastService/Predict`. Reflection не включён, поэтому внешнему клиенту нужен контракт из `proto/`. Например, [grpcurl](https://github.com/fullstorydev/grpcurl) из корня репозитория:
+Сервис слушает `127.0.0.1:50051` без TLS; метод — `tramcast.forecast.v1.ForecastService/Predict`. Reflection не включён, поэтому внешнему клиенту нужен контракт из `proto/`. Например, [grpcurl](https://github.com/fullstorydev/grpcurl) из корня репозитория в Git Bash:
 
 ```bash
 grpcurl -plaintext -import-path proto -proto tramcast/forecast/v1/forecast.proto -d '{"route_number": 1, "forecast_from": "2025-10-31T21:00:00Z", "forecast_to": "2025-11-01T21:00:00Z"}' 127.0.0.1:50051 tramcast.forecast.v1.ForecastService/Predict
 ```
 
-В JSON-ответе `boardings` приходит строкой, так как это `int64`. Postman и Insomnia принимают тот же `.proto` через импорт. Backend на хосте подключается к `127.0.0.1:50051`; из контейнера — через общую сеть `tramcast-ml_default` по имени `ml-gpu` или `ml-replay`.
+Windows PowerShell 5.1 убирает внутренние кавычки из аргументов программ, поэтому там JSON передаётся через стандартный ввод:
 
-Хеши подготовленных входов (`ml/recipes/`), сохранённых результатов (`ml/bundles/`) и кода расчёта проверяются побайтно. `.gitattributes` запрещает Git менять в них переводы строк. Если клон был получен до этого правила при `core.autocrlf=true` и контейнер падает с `Input checksum mismatch`, перевыпишите файлы и пересоберите образ:
+```powershell
+'{"route_number": 1, "forecast_from": "2025-10-31T21:00:00Z", "forecast_to": "2025-11-01T21:00:00Z"}' | grpcurl -plaintext -import-path proto -proto tramcast/forecast/v1/forecast.proto -d '@' 127.0.0.1:50051 tramcast.forecast.v1.ForecastService/Predict
+```
+
+В JSON-ответе `boardings` приходит строкой, так как это `int64`. Postman и Insomnia принимают тот же `.proto` через импорт. Backend на хосте (`make run-backend`) подключается к `127.0.0.1:50051`. Контейнер backend корневого Compose к этой поставке сейчас не подключён: для этого его нужно явно добавить во внешнюю сеть `tramcast-ml_default` и обращаться к `ml-gpu:50051` или `ml-replay:50051`.
+
+Подготовленные входы (`ml/recipes/`) и сохранённые результаты (`ml/bundles/`) сверяются по SHA256, а байты `model_030.py` и `constants.py` входят в `model_version`. `.gitattributes` запрещает Git менять в этих файлах переводы строк. В клоне, полученном до этого правила при `core.autocrlf=true`, режим `gpu` падает с `Input checksum mismatch`, а `replay` пишет в лог `Forecast checksum mismatch` и остаётся unhealthy. `git pull` такие файлы не исправляет, а `git status` может показывать их изменёнными, даже если правок нет.
+
+Восстановление перезаписывает эти файлы из коммита. Сначала убедитесь, что первая команда ничего не выводит: она показывает только настоящие правки и не учитывает CRLF. Вторая команда рассчитана на cmd или Git Bash, где `&&` не даёт выполнить checkout после ошибки. Затем пересоберите образ, а в режиме `gpu` снова заполните кэш через `make ml-warm`.
 
 ```text
-git rm -r --cached -q ml/recipes ml/bundles ml/runtime
-git checkout HEAD -- ml/recipes ml/bundles ml/runtime
+git diff --ignore-cr-at-eol --stat -- ml/recipes ml/bundles ml/runtime
+git rm -r --cached -q -- ml/recipes ml/bundles ml/runtime/model_030.py ml/runtime/constants.py && git -c core.autocrlf=false checkout HEAD -- ml/recipes ml/bundles ml/runtime/model_030.py ml/runtime/constants.py
 make ml-up
 ```
