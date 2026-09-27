@@ -1,0 +1,14 @@
+{
+  "rows": 71180,
+  "features": 380,
+  "latest_target_date": "2025-10-31",
+  "earliest_target_date": "2025-03-22",
+  "origin_count": 8,
+  "intercept": -0.006075185886120091,
+  "noise_precision": 98.78081565232746,
+  "coefficient_precision": 176017.97924268778,
+  "fit_seconds": 3.341230181977153,
+  "peak_rss_kib": 1324064,
+  "iterations": 8,
+  "uncertainty": "conditional dependent hourly residual variance; not closed-score confidence"
+}

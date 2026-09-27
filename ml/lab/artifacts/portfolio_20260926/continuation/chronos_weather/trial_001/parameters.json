@@ -1,0 +1,4 @@
+{
+  "representation": "daily_weather",
+  "quantile": 0.25
+}

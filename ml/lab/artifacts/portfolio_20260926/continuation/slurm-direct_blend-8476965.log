@@ -1,0 +1,12 @@
+[I 2026-09-27 02:10:36,611] A new study created in RDB with name: direct_blend
+[I 2026-09-27 02:10:37,349] Trial 0 finished with value: 0.8648463666960231 and parameters: {'base': 'bayes', 'base_weight': 0.75}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:38,177] Trial 1 finished with value: 0.8604768782464569 and parameters: {'base': 'operations', 'base_weight': 0.25}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:38,993] Trial 2 finished with value: 0.8570397304591106 and parameters: {'base': 'bayes', 'base_weight': 0.0}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:39,820] Trial 3 finished with value: 0.8570397304591106 and parameters: {'base': 'operations', 'base_weight': 0.0}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:40,647] Trial 4 finished with value: 0.8634691029336947 and parameters: {'base': 'bayes', 'base_weight': 0.5}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:41,476] Trial 5 finished with value: 0.8626758130336694 and parameters: {'base': 'operations', 'base_weight': 0.5}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:42,279] Trial 6 finished with value: 0.8648098388051131 and parameters: {'base': 'bayes', 'base_weight': 1.0}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:43,074] Trial 7 finished with value: 0.8630607927894957 and parameters: {'base': 'operations', 'base_weight': 1.0}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:43,898] Trial 8 finished with value: 0.863533780458807 and parameters: {'base': 'operations', 'base_weight': 0.75}. Best is trial 0 with value: 0.8648463666960231.
+[I 2026-09-27 02:10:44,720] Trial 9 finished with value: 0.8608101283311576 and parameters: {'base': 'bayes', 'base_weight': 0.25}. Best is trial 0 with value: 0.8648463666960231.
+direct_blend {'base': 'bayes', 'base_weight': 0.75} [0.8683301800657989, 0.8613625533262472, 0.891241442585927, 0.9033890246815339]

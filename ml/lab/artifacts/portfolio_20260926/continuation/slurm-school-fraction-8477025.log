@@ -1,0 +1,5 @@
+[I 2026-09-27 07:54:19,353] A new study created in RDB with name: school_fraction
+[I 2026-09-27 07:54:19,887] Trial 0 finished with value: 0.883438054980804 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.883438054980804.
+[I 2026-09-27 07:54:21,787] Trial 1 finished with value: 0.8834832049330559 and parameters: {'recipe': 'half'}. Best is trial 1 with value: 0.8834832049330559.
+[I 2026-09-27 07:54:22,370] Trial 2 finished with value: 0.883516081309472 and parameters: {'recipe': 'new'}. Best is trial 2 with value: 0.883516081309472.
+school_fraction {'recipe': 'new'} [0.8843676154914588, 0.8826645471274852, 0.8874140388685599, 0.9005729211216879]

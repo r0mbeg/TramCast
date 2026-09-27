@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH --job-name=tram-portfolio-hourly-quantile
+#SBATCH --partition=ais-cpu
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=4G
+#SBATCH --time=00:30:00
+#SBATCH --output=artifacts/portfolio_20260926/continuation/slurm-hourly-quantile-%j.log
+set -euo pipefail
+if [ "${1:-}" != worker ]; then
+    exec srun --ntasks=1 --cpus-per-task=4 --cpu-bind=cores bash jobs/zhores_portfolio_hourly_quantile.sbatch worker "${1:-study}"
+fi
+export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 NUMEXPR_NUM_THREADS=4
+export PYTHONNOUSERSITE=1 PYTHONUNBUFFERED=1
+export PYTHONPATH="$PWD/deps"
+previous=/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926
+out=artifacts/portfolio_20260926/continuation
+set -- "${2:-study}"
+case "$1" in
+    pilot) set -- --pilot ;;
+    study) set -- ;;
+    finish-ipm) set -- --finish-ipm ;;
+    *) exit 2 ;;
+esac
+scontrol show job "$SLURM_JOB_ID" > "$out/allocation-hourly-quantile-$SLURM_JOB_ID.txt"
+"$previous/.venv/bin/python" -m experiments.portfolio_hourly_quantile --history artifacts/hourly_clean.csv \
+    --output "$out/hourly_quantile" "$@"

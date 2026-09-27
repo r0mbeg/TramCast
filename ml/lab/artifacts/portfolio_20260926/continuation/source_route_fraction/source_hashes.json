@@ -1,0 +1,14 @@
+{
+  "experiments/portfolio_route_fraction.py": "e28992a04dd9de635169885bb2e50a1cd7aa761351ff04eedb6dbe6b3a69031c",
+  "experiments/portfolio_route_allocation.py": "7ccee2e63f16271203d188eaef5bdffbf188c5f2dee70c13a375ded0c6710c73",
+  "experiments/portfolio_nonlinear_errors.py": "187af01fcfe2c7a6a61af6a3e93421210fba410024ee37ab7547d44a6f1a06a1",
+  "experiments/portfolio_timesfm_errors.py": "fc993b58b966173d28ed0c9d7d31f1dd0eb7587897d5f879b3fd3e9ed9b5d11e",
+  "experiments/portfolio_timesfm.py": "b10e9bceef8cb52676c5533d4f5ab8adc2ad494db4e8454ea4e755c106885c1b",
+  "experiments/portfolio_bayes_volume.py": "16660b3df05e23d288d75e9766dfd2b2fe5e3b768ce73300b57961652339a5c0",
+  "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+  "experiments/portfolio_experiment.py": "29454837d2de34550a15a001d1d5dafc4c3c4564fe7a2fdd257c7a95121889fa",
+  "experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+  "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+  "tests/test_portfolio_route_fraction.py": "214dfdda82800837ddcc59f9df7e1028dbbd1fe1fff32b0c6c2ee3e8e64aeb5f",
+  "jobs/zhores_portfolio_route_fraction.sbatch": "8d0a236e48553ddcbe9bce1324772a2a8d6d08c57172d21d2462ee1b935a93c2"
+}

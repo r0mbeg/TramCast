@@ -1,0 +1,8 @@
+{
+  "params": {
+    "recipe": "bayes_half"
+  },
+  "trial": 0,
+  "value": 0.881868139895476,
+  "selection": "bestnew W1/W2; parent stilloverallwinner"
+}

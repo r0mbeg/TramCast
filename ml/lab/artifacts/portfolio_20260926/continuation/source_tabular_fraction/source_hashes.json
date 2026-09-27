@@ -1,0 +1,6 @@
+{
+  "experiments/portfolio_tabular_fraction.py": "c8f6e608ed57b9f2d9712e6f7a67d459845790bae22c9aad92f63d639eb511c4",
+  "experiments/test_portfolio_tabular_fraction.py": "1ffa70723e0f7dd197c9038231566f1d0f5ac545ed63c707688c4ae4b8b3f163",
+  "jobs/zhores_portfolio_tabular_download.sbatch": "3539e26d19bf0ab12ec277e66ccaeaf3a9640f5bfd04a537cab2dd9725fe3b52",
+  "jobs/zhores_portfolio_tabular_fraction.sbatch": "6577f5dea1179bbf0bcecb1485caa7f1361f718583434f64c794113bbeb26737"
+}

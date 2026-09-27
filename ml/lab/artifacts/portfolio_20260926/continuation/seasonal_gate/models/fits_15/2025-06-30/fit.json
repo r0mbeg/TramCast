@@ -1,0 +1,15 @@
+{
+  "cutoff": "2025-06-30",
+  "leaves": 15,
+  "rows": 2196,
+  "features": 23,
+  "earliest_target_date": "2025-02-01",
+  "latest_target_date": "2025-06-30",
+  "origins": 4,
+  "iterations": 100,
+  "loss": "absolute actual/base ratio, weighted base/repeats; daily L1 surrogate",
+  "model_sha256": "c777a36b29880c9924b830471174ece3f4414332438efd1cee2f3c2066c70d24",
+  "model_reload_exact": true,
+  "fit_seconds": 0.5279346276074648,
+  "peak_rss_kib": 209636
+}

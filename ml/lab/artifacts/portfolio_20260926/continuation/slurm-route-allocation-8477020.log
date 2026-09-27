@@ -1,0 +1,5 @@
+[I 2026-09-27 07:19:47,394] A new study created in RDB with name: route_allocation
+[I 2026-09-27 07:19:47,883] Trial 0 finished with value: 0.8830272693231019 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.8830272693231019.
+[I 2026-09-27 07:19:48,872] Trial 1 finished with value: 0.8830408788569668 and parameters: {'recipe': 'half'}. Best is trial 1 with value: 0.8830408788569668.
+[I 2026-09-27 07:19:49,408] Trial 2 finished with value: 0.8830280675400708 and parameters: {'recipe': 'full'}. Best is trial 1 with value: 0.8830408788569668.
+route_allocation {'recipe': 'half'} [0.8842634605324686, 0.881818297181465, 0.8884094576856486, 0.8992129786612193]

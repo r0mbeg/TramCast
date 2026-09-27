@@ -1,0 +1,14 @@
+{
+  "scope": "Posthoc bottleneck isolation with unavailable future facts; not candidates, training examples or selection data. Actual sum is not an L1 oracle upper bound.",
+  "rounding_bound": "For fixed route/hour shares, each positive cell rounding changes L1 by at most 0.5. Continuous optimum score + 0.5*n_positive/sum_truth bounds published score for any nonnegative network-day volumes.",
+  "checks": "Frozen keys/targets, structural zeros, nonnegative half-up integers, continuous weighted-median subgradient optimality.",
+  "sha256": {
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/artifacts/portfolio_20260926/continuation/adaptive_shape/diagnose_components.py": "cc650785c57134349f694755deda3158ff3771304a48b53da625ca1b9db40d7a",
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selected/raw_2025-07-31.csv": "f6ede6631594e560286288389dc8f0992eb4da4ca1a6a82f899f1f76e440a4d7",
+    "artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selected/raw_2025-10-31.csv": "58fff596d4b23727474b8aa6b0be03434ace327342d82f9084b8c44f304d296a",
+    "artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selected/raw_2025-04-30.csv": "6882641a15ef816ce285654be29508828fa7b5da82eefb56271f6c856ac3d577",
+    "artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selected/raw_2025-08-31.csv": "fabbaa53260c5509b3eaeaeec2bd730e5576a18bcbab237973ddf9bd133a23aa",
+    "artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selected/raw_2025-06-30.csv": "c017a6e8fb96a270d63ea84c4694fb6886ab96e2c3483670804d3c67e244b58d"
+  }
+}

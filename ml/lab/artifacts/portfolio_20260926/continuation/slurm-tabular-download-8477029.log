@@ -1,0 +1,19 @@
+tabpfn_package/tabpfn-2.0.9-py3-none-any.whl: OK
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tabular_fraction.py", line 146, in <module>
+    parser.add_argument('--download',action='store_true');run(parser.parse_args())
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tabular_fraction.py", line 109, in run
+    write_json(root/'download.json',dict(job_id=os.environ['SLURM_JOB_ID'],model_url=MODEL_URL,model_sha256=MODEL_SHA,
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 58, in write_json
+    temporary.write_text(json.dumps(value, indent=2, ensure_ascii=False), encoding="utf-8")
+  File "/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/pathlib.py", line 1047, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/portfolio_20260926/continuation/tabular_fraction/download.json.tmp'
+srun: error: cn58: task 0: Exited with exit code 1

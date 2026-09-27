@@ -134,8 +134,10 @@ make tidy-backend-check
 
 ## Python ML
 
-`make run-ml` запускает gRPC на `127.0.0.1:50051`; `make test-ml-service` проверяет реальный сетевой вызов и контракт. `make test-ml` добавляет проверки ML-пайплайна. Переменная `PYTHON` выбирает интерпретатор; для venv передавайте абсолютный путь, поскольку цели запуска работают из `ml/`. Зависимости сервиса — `ml/requirements-service.txt`, исследований — `ml/requirements.txt`, генератора — `ml/requirements-proto.txt`.
+`make run-ml` запускает gRPC на `127.0.0.1:50051`; `make test-ml-service` проверяет реальный сетевой вызов и контракт. `make test-ml` запускает тот же набор сервиса и клиента; исследовательские проверки перенесены в архив. Переменная `PYTHON` выбирает интерпретатор; для venv передавайте абсолютный путь, поскольку цели запуска работают из `ml/runtime/`. Зависимости сервиса с пересчётом — `ml/runtime/requirements-inference.txt`, быстрых тестов — `ml/runtime/requirements.txt`, исследований — `ml/lab/requirements.txt`, генератора — `ml/runtime/requirements-proto.txt`.
 
-`make proto-generate-python` генерирует Python из того же `.proto`, что используется Go. Сгенерированный код хранится в `ml/generated/`.
+`make proto-generate-python` генерирует Python из того же `.proto`, что используется Go. Сгенерированный код хранится в `ml/runtime/generated/`.
 
 `docker compose up -d --build ml` запускает только ML. Внутри сети Compose адрес — `ml:50051`; порт не публикуется на хост. Сервис не зависит от PostgreSQL. Текущий Go-клиент ещё не реализован: добавление сервиса не означает готовности полного пользовательского сценария.
+
+Перед запуском ML с пересчётом установите веса: `make prepare-ml-model PYTHON=<абсолютный путь>`. Основной рецепт — 030; Compose требует NVIDIA GPU и NVIDIA Container Toolkit для холодного расчёта, локальный SQLite-кэш сохраняется в volume `ml-cache`. Выдача кэша выполняется на CPU; руководство — [ML README](../ml/README.md).

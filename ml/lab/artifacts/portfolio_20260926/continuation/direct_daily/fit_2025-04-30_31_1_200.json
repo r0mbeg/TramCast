@@ -1,0 +1,37 @@
+{
+  "cutoff": "2025-04-30",
+  "latest_target": "2025-04-30",
+  "rows": 4797,
+  "origins": 13,
+  "target_days": 89,
+  "features": [
+    "route",
+    "effective_weekday",
+    "season",
+    "off",
+    "horizon",
+    "annual_sin",
+    "annual_cos",
+    "log_reference",
+    "ratio7",
+    "ratio14",
+    "ratio28",
+    "temperature_2m_mean",
+    "precipitation_sum",
+    "daylight_duration",
+    "origin_temperature",
+    "origin_daylight"
+  ],
+  "params": {
+    "leaves": 31,
+    "l2": 1,
+    "max_iter": 200
+  },
+  "loss": "MAE normalized ratio weighted reference/count(route,date)",
+  "base_params": {
+    "july7": 0.45,
+    "july50": 1.25,
+    "route_season": false,
+    "shape": "season"
+  }
+}

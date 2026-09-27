@@ -1,0 +1,26 @@
+{
+  "cutoff": "2025-04-30",
+  "rows": 1098,
+  "features": 97,
+  "nu": 4.0,
+  "sigma2": 0.013824958394048051,
+  "precision": 19001.888970309934,
+  "objective_trace": [
+    316.07600001061724,
+    290.7186610143612,
+    289.69017334539984,
+    289.66271735824796,
+    289.661936056252,
+    289.66190808395976,
+    289.66190661373355,
+    289.6619064973891,
+    289.66190648559825,
+    289.6619064842773,
+    289.6619064841241
+  ],
+  "iterations": 10,
+  "latest_target_date": "2025-04-30",
+  "uncertainty": "Old Gaussian predictive attenuation preserved; fixed-hyperparameter Student-t MAP, no exact t posterior.",
+  "fit_seconds": 0.18511812388896942,
+  "peak_rss_kib": 210260
+}

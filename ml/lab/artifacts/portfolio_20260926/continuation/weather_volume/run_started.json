@@ -1,0 +1,35 @@
+{
+  "job_id": "8476949",
+  "partition": "ais-cpu",
+  "node": "cn63.zhores",
+  "affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/weather_volume",
+    "--families",
+    "weather_volume"
+  ],
+  "history_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "code_sha256": {
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py": "fcb24cb9f7ed9ff8650e5d6f18bd24aaea0eaa64e5ad571ae3d54f91be7cc24a",
+    "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+    "experiments/chronos_experiment.py": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5",
+    "experiments/portfolio_weather_volume.py": "303a67efb421f1ac0aa45880ca9893f4a5d25759390ba796144dc0645e3964e9",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074"
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  }
+}

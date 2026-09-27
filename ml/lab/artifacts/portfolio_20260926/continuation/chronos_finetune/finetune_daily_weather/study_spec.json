@@ -1,0 +1,30 @@
+{
+  "sampler": "grid",
+  "space": {
+    "steps": [
+      200,
+      800
+    ],
+    "learning_rate": [
+      1e-06,
+      1e-05
+    ]
+  },
+  "trials": 4,
+  "family": "finetune_daily_weather",
+  "timeout": 1800,
+  "seed": 42,
+  "objective": "mean WAPE-score of both development windows",
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "pruning": false,
+  "n_jobs": 1
+}

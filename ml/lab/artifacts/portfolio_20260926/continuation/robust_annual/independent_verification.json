@@ -1,0 +1,18 @@
+{
+  "sha256_files": {
+    "pilot": 44,
+    "study": 44
+  },
+  "verified_fits": [
+    "artifacts/portfolio_20260926/continuation/robust_annual/pilot/fits/2025-10-31",
+    "artifacts/portfolio_20260926/continuation/robust_annual/study/fits/2025-04-30",
+    "artifacts/portfolio_20260926/continuation/robust_annual/study/fits/2025-06-30",
+    "artifacts/portfolio_20260926/continuation/robust_annual/study/fits/2025-07-31",
+    "artifacts/portfolio_20260926/continuation/robust_annual/study/fits/2025-08-31",
+    "artifacts/portfolio_20260926/continuation/robust_annual/study/fits/2025-10-31",
+    "artifacts/portfolio_20260926/continuation/robust_annual/pilot/repeat"
+  ],
+  "raw_forecasts": 22,
+  "checks": "Causal completed teachers, fixed targets, inverse repeat weights, saved scaler/X, t MAP stationary gradient and monotonic objective, frozen prior/noise/attenuation, network totals, fixed route/hour allocation, mixes and zeros.",
+  "audit_code_sha256": "a9a452aa84d262346d99612f4985942b7c6fb5e25219bace0e1dd8ba806d6c63"
+}

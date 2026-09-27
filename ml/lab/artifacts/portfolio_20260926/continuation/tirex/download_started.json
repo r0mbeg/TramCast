@@ -1,0 +1,15 @@
+{
+  "job_id": "8477016",
+  "revision": "63c740922493f5fbe60b277609ec62babfba2762",
+  "authentication": "public token=False",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tirex.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--model-path",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/model-tirex",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/tirex",
+    "--download"
+  ]
+}

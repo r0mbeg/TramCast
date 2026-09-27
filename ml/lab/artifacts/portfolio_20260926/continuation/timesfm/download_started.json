@@ -1,0 +1,17 @@
+{
+  "job_id": "8476973",
+  "model": "google/timesfm-2.5-200m-pytorch",
+  "revision": "1d952420fba87f3c6dee4f240de0f1a0fbc790e3",
+  "weights_sha256": "2f776efe6245e42b24bc4153ffdf61810140210e4bd3b01fb21f7aa779ab6ce8",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_timesfm.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--model-path",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/model-timesfm2p5",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/timesfm",
+    "--download"
+  ],
+  "authentication": "public download, token=False"
+}

@@ -1,0 +1,165 @@
+{
+  "note": "Reconstructed after completion from frozen training history and the executed formula; no new fit or tuning.",
+  "coefficients": [
+    {
+      "cutoff": "2025-04-30",
+      "event": "july",
+      "route": 7,
+      "observed_days": 0,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-04-30",
+      "event": "july",
+      "route": 50,
+      "observed_days": 0,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-04-30",
+      "event": "autumn",
+      "route": 7,
+      "observed_days": 0,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-04-30",
+      "event": "autumn",
+      "route": 50,
+      "observed_days": 0,
+      "factor": 0.0,
+      "origin": "official cancellation"
+    },
+    {
+      "cutoff": "2025-06-30",
+      "event": "july",
+      "route": 7,
+      "observed_days": 0,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-06-30",
+      "event": "july",
+      "route": 50,
+      "observed_days": 0,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-06-30",
+      "event": "autumn",
+      "route": 7,
+      "observed_days": 0,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-06-30",
+      "event": "autumn",
+      "route": 50,
+      "observed_days": 0,
+      "factor": 0.0,
+      "origin": "official cancellation"
+    },
+    {
+      "cutoff": "2025-07-31",
+      "event": "july",
+      "route": 7,
+      "observed_days": 22,
+      "factor": 0.40987172551577233,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-07-31",
+      "event": "july",
+      "route": 50,
+      "observed_days": 22,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-07-31",
+      "event": "autumn",
+      "route": 7,
+      "observed_days": 0,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-07-31",
+      "event": "autumn",
+      "route": 50,
+      "observed_days": 0,
+      "factor": 0.0,
+      "origin": "official cancellation"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "event": "july",
+      "route": 7,
+      "observed_days": 28,
+      "factor": 0.4168422694874768,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "event": "july",
+      "route": 50,
+      "observed_days": 28,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "event": "autumn",
+      "route": 7,
+      "observed_days": 0,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "event": "autumn",
+      "route": 50,
+      "observed_days": 0,
+      "factor": 0.0,
+      "origin": "official cancellation"
+    },
+    {
+      "cutoff": "2025-10-31",
+      "event": "july",
+      "route": 7,
+      "observed_days": 28,
+      "factor": 0.4163523341594107,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-10-31",
+      "event": "july",
+      "route": 50,
+      "observed_days": 28,
+      "factor": 1.0,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-10-31",
+      "event": "autumn",
+      "route": 7,
+      "observed_days": 16,
+      "factor": 0.5934329759700301,
+      "origin": "cutoff-only observed ratio; fallback1 if fewer than3"
+    },
+    {
+      "cutoff": "2025-10-31",
+      "event": "autumn",
+      "route": 50,
+      "observed_days": 16,
+      "factor": 0.0,
+      "origin": "official cancellation"
+    }
+  ]
+}

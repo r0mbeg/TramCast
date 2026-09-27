@@ -1,0 +1,10 @@
+{
+  "job_id": "8477030",
+  "model_url": "https://huggingface.co/Prior-Labs/TabPFN-v2-reg/resolve/4972a65a1b30806315c6f92499959ffbfc69a673/tabpfn-v2-regressor.ckpt",
+  "model_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+  "model_bytes": 44390977,
+  "sklearn_wheel": "scikit_learn-1.6.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+  "sklearn_sha256": "2e69fab4ebfc9c9b580a7a80111b43d214ab06250f8a7ef590a4edf72464dd86",
+  "authentication": false,
+  "attribution": "Built with PriorLabs-TabPFN"
+}

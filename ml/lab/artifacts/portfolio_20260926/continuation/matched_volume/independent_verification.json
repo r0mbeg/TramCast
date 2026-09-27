@@ -1,0 +1,108 @@
+{
+  "checked_at": "2026-09-27T06:29:06.465024+00:00",
+  "input_code_sha256": {
+    "pilot": 72,
+    "study": 72
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-10-31",
+      "rows": 2053
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-06-30",
+      "rows": 549
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-07-31",
+      "rows": 549
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-08-31",
+      "rows": 1029
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-10-31",
+      "rows": 2053
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-06-30",
+      "rows": 549
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-07-31",
+      "rows": 549
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-08-31",
+      "rows": 1029
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-10-31",
+      "rows": 2053
+    }
+  ],
+  "raw_forecasts_checked": 14,
+  "paired_data_matches_independently_audited_P65": true,
+  "matched_exact030_forecasts_reconstructed": true,
+  "completed_61day_gate_checked": true,
+  "family_budget_not_reset": true,
+  "absolute_passenger_targets_reconstructed": true,
+  "future_truth_free": true,
+  "native_model_unweighted": true,
+  "teacher_final_model_identical": true,
+  "source_profiles_features_and_zero_days_checked": true,
+  "predicted_errors_clip_factor_and_hourshares_checked": true,
+  "exact_030_control": true,
+  "pilot_repeat_and_selected_freshfit_exact": true,
+  "seed73_raw_differences": [
+    {
+      "cutoff": "2025-07-31",
+      "relative_l1": 0.004273787587522856
+    },
+    {
+      "cutoff": "2025-10-31",
+      "relative_l1": 0.003178201183918741
+    },
+    {
+      "cutoff": "2025-04-30",
+      "relative_l1": 0.0
+    },
+    {
+      "cutoff": "2025-08-31",
+      "relative_l1": 0.005401625072278595
+    },
+    {
+      "cutoff": "2025-06-30",
+      "relative_l1": 0.004204561619311554
+    }
+  ],
+  "audit_code_sha256": "86dfcd9da48de8b14257c1edac3a2edf946a070ee60b02198638d4f986033488"
+}

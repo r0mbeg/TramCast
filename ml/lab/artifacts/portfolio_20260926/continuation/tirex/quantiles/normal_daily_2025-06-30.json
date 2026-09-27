@@ -1,0 +1,18 @@
+{
+  "input_sha256": "b7aeaf1c5e38bc37884f3e38c3c5bbdf3569979b0300ba192e2c5239e2a31cc5",
+  "config": {
+    "backend": "torch",
+    "compile": false,
+    "dtype": "float32",
+    "batch_size": 9,
+    "prediction_length": 61,
+    "resample_strategy": null,
+    "seed": 42,
+    "july_verified": true
+  },
+  "end": "2025-08-30",
+  "model_sha256": "b8c3f5a036c63272ce4b91c00187e26922a394cb6cb49d4e16db070ad0422314",
+  "wheel_sha256": "e470b2e1a4ad2fe6ab95012da6b92ffa20f69ff3a5d44b5b37ba3cd86ff2b2e0",
+  "origin": "2025-06-30",
+  "sha256": "a8b0f07ad1b49ee6c8cb418fabec3a3042910ef598921a51477dac1f91a2ad6f"
+}

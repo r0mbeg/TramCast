@@ -1,0 +1,82 @@
+{
+  "checked_at": "2026-09-27T06:43:16.004180+00:00",
+  "input_code_sha256": 31,
+  "causal_component_panels_reconstructed": true,
+  "repeated_origins_averaged_by_route_date": true,
+  "finite_simplex_generalized_posterior_independently_reconstructed": true,
+  "conditional_past_risk_and_weight_sd_checked": true,
+  "future_season_support_and_weights_checked": true,
+  "raw_replay_exact": true,
+  "calibrations": [
+    {
+      "cutoff": "2025-06-30",
+      "origins": [
+        "2025-04-30"
+      ],
+      "unique_route_days": 549,
+      "posterior_groups": 108
+    },
+    {
+      "cutoff": "2025-07-31",
+      "origins": [
+        "2025-04-30"
+      ],
+      "unique_route_days": 549,
+      "posterior_groups": 108
+    },
+    {
+      "cutoff": "2025-08-31",
+      "origins": [
+        "2025-04-30",
+        "2025-06-30"
+      ],
+      "unique_route_days": 1098,
+      "posterior_groups": 108
+    },
+    {
+      "cutoff": "2025-10-31",
+      "origins": [
+        "2025-04-30",
+        "2025-06-30",
+        "2025-07-31",
+        "2025-08-31"
+      ],
+      "unique_route_days": 1656,
+      "posterior_groups": 108
+    }
+  ],
+  "raw_forecasts_checked": 14,
+  "quality_calibration": [
+    {
+      "cutoff": "2025-04-30",
+      "actual_score": 0.8845925763271129,
+      "expected_score_proxy": null,
+      "optimism": null,
+      "exact_season_supported_fraction": 0
+    },
+    {
+      "cutoff": "2025-06-30",
+      "actual_score": 0.8829904139654727,
+      "expected_score_proxy": 0.8777347011532362,
+      "optimism": -0.005255712812236579,
+      "exact_season_supported_fraction": 0.8524590163934426
+    },
+    {
+      "cutoff": "2025-07-31",
+      "actual_score": 0.8862885736816757,
+      "expected_score_proxy": 0.8852726804634844,
+      "optimism": -0.0010158932181912883,
+      "exact_season_supported_fraction": 0.4262295081967213
+    },
+    {
+      "cutoff": "2025-08-31",
+      "actual_score": 0.9010565277827196,
+      "expected_score_proxy": 0.8884745555932926,
+      "optimism": -0.012581972189427026,
+      "exact_season_supported_fraction": 0.0
+    }
+  ],
+  "quality_proxy_is_not_hidden_score_confidence": true,
+  "previous_P17_budget_retained": true,
+  "audit_code_sha256": "4d20d4ab812f4ec1ad8d567a5b6ff18db12a3a86f1054c29fba802f8cd3f893e"
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "8476978",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_bayes_horizon.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/bayes_horizon"
+  ],
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_bayes_horizon.py": "09ea84f579de9d1054683df4cfb86d3a1897889525df10a89dacf057057a5976",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "experiments/portfolio_bayes_volume.py": "0964cda955b01286493f8e93801e7343d4d00d610edf9c38c938c78c87db758d",
+    "experiments/portfolio_direct_daily.py": "a910a0f5d72b26aec4620189fc61929d4c8d64a51c14a216268ef31771371586",
+    "experiments/portfolio_operations.py": "f4b3dd83fe5fae613145f32b0ea51572a973b5b56602f0f665179e17022af30a",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "experiments/portfolio_combine.py": "ef271e459d4332eb800a80770a57f866299b4686b477074c811ba2df7bf2242e",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-07-31.csv": "830bbc90e3e9fc58c6f1ff84a603c5355b9db4f81c277476c291197142c87528",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-06-30.csv": "0d92a933ad75d1469011be0a72a92a6981d34199b7381da38c67111037e2a37f",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-04-30.csv": "448eae6e06b12e4edbd3995e733ace3530cea5702cf28f36a4889018a1e3a203",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-08-31.csv": "e983d68dae7ccebd46713e4859b1150b1f9806ecbfb0750fb7cb46e254122241",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-10-31.csv": "d08e3f873d2a283f753dcc707634b5ee6c805b16bdaabcc489e7b7e7bb5c7518",
+    "artifacts/portfolio_20260926/continuation/operations/operations/selection.json": "fd8954e578acdcceca981e674f93a701a1591ce626f8890e2d8fcef8b1844ccc",
+    "artifacts/portfolio_20260926/continuation/august_operations/august_operations/selection.json": "893e7aabbe1fc68a07af399d9e463ae8abb0d91f2359a0353c507b496847957c"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "recipe": "half",
+  "seed": 73,
+  "selection": "fixed seed42 recipe; no tuning"
+}

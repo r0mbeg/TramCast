@@ -1,0 +1,40 @@
+{
+  "job_id": "8477000",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_direct_blend.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend",
+    "--timesfm",
+    "--bayes-shape"
+  ],
+  "components": {
+    "annual": "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected",
+    "direct": "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected"
+  },
+  "hourly_shares": "fixed 024",
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_direct_blend.py": "93f5989b85abd10819e92e5a3d550ab9a50cf293a7869a81fce127caebcd1152",
+    "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-07-31.csv": "5ab4becb352b30812d135cef66908012ed79ee82ddedbb576a3bcc069ae7a026",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-04-30.csv": "60f2da3c42120a6b523e433fdd191ba99966d123bd2bed0677f79917f737dba0",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-08-31.csv": "197f2c3bdf6259ac87daf97cea018188011dbf951d6aa08fae79746253520bf5",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-06-30.csv": "fef27d6bb056d2cdef0b19d8eca21dedabd02383c9133603b15f6bbe9a995104",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-10-31.csv": "33df602d404fd4f0058ce3a59723470610ed4714303a594e4efee80c34c3b597",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-07-31.csv": "9af0274c045debf58fc598bdaf05008395e068c429d7c3c575b31251f12b9815",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-06-30.csv": "f262c2b8a998c945e7f2131c5bdba17abebdb8d8156becb63109f8f56dd1817a",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-04-30.csv": "d91dd608c39b107361c3861b761b8c7d4e0fa6590525bf48f2dd17faaa048d70",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-08-31.csv": "46343b8183bbe3ccf838b95113c37ad7ec6481119c0c998f310a718df78c37f2",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-10-31.csv": "5f4140e824b1fed333ed46faf3da849f309bf7fa3e7c2cae7ba17f8ec115e7d3"
+  }
+}

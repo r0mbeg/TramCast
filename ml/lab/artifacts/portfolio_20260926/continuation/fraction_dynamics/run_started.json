@@ -1,0 +1,45 @@
+{
+  "job_id": "8477023",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_fraction_dynamics.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/fraction_dynamics"
+  ],
+  "components": {
+    "network": "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected",
+    "fractions": "artifacts/portfolio_20260926/continuation/route_fraction/study/route_fraction/selected",
+    "baseline": "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected"
+  },
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_fraction_dynamics.py": "f966320479314518842e7fa35006c16453bb48afdafaef608b57a649afa1515a",
+    "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+    "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+    "experiments/portfolio_experiment.py": "29454837d2de34550a15a001d1d5dafc4c3c4564fe7a2fdd257c7a95121889fa",
+    "experiments/portfolio_route_allocation.py": "7ccee2e63f16271203d188eaef5bdffbf188c5f2dee70c13a375ded0c6710c73",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-07-31.csv": "7330145ce324eaf4e21d5906ef152c11d7ba1413bd40e7568028db95fec8b782",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-04-30.csv": "9e0ba0c20b8af33617bd0ea9db1d505775f6f861002c3c3fb10200d4696ef161",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-08-31.csv": "1ba752faa390a96cd84694693ceaf4275a44e8705f8f111b2f3724e954d7b075",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-06-30.csv": "81f78e4c8592abf802e4b5dfd5cbe1e252c49ba039979ee46c31edede0f3180d",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-10-31.csv": "0b6c816eeb0e0fa5586f0ce0802ccf39105cbbf76c99b1987575b6e18c3fe3e3",
+    "artifacts/portfolio_20260926/continuation/route_fraction/study/route_fraction/selected/raw_2025-07-31.csv": "eff149229cd91c3441b6e7bd7029575203befa0296b667793923100f6ae88c70",
+    "artifacts/portfolio_20260926/continuation/route_fraction/study/route_fraction/selected/raw_2025-04-30.csv": "575ba3794fd93cba83311cf36e7dae027568f2d6f8a924ecbe2d9879e4e06ba9",
+    "artifacts/portfolio_20260926/continuation/route_fraction/study/route_fraction/selected/raw_2025-08-31.csv": "6634dda5656a2da1b08fb891791306bc093a23b30045d70277e4e06ad803a660",
+    "artifacts/portfolio_20260926/continuation/route_fraction/study/route_fraction/selected/raw_2025-06-30.csv": "bdeca497e84259f136565672f3cc1904b937b5f2a80e907fc262990fa87c5098",
+    "artifacts/portfolio_20260926/continuation/route_fraction/study/route_fraction/selected/raw_2025-10-31.csv": "7b71a7f9e66ca34e0ff890cefb940c7ef887c1b032d2dddea6e14cae662b6b93",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-07-31.csv": "5ab4becb352b30812d135cef66908012ed79ee82ddedbb576a3bcc069ae7a026",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-04-30.csv": "60f2da3c42120a6b523e433fdd191ba99966d123bd2bed0677f79917f737dba0",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-08-31.csv": "197f2c3bdf6259ac87daf97cea018188011dbf951d6aa08fae79746253520bf5",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-06-30.csv": "fef27d6bb056d2cdef0b19d8eca21dedabd02383c9133603b15f6bbe9a995104",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-10-31.csv": "33df602d404fd4f0058ce3a59723470610ed4714303a594e4efee80c34c3b597"
+  }
+}

@@ -1,0 +1,6 @@
+JobID|State|ElapsedRaw|AllocCPUS|AllocTRES|MaxRSS
+8477014|COMPLETED|10|1|billing=1,cpu=1,mem=512M,node=1|
+8477014.batch|COMPLETED|10|1|cpu=1,mem=512M,node=1|1340K
+8477014.extern|COMPLETED|10|1|billing=1,cpu=1,mem=512M,node=1|956K
+8477014.0|COMPLETED|10|1|cpu=1,mem=512M,node=1|1136K
+             JOBID    PARTITION                     NAME    STATE       TIME  NODES NODELIST(REASON)

@@ -1,0 +1,2 @@
+jobs/zhores_portfolio_timesfm.sbatch: line 27: mode_args[@]: unbound variable
+srun: error: vt13: task 0: Exited with exit code 1

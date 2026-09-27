@@ -1,0 +1,8 @@
+{
+  "params": {
+    "representation": "daily",
+    "quantile": 0.25
+  },
+  "value": 0.8311020056156637,
+  "trial": 3
+}

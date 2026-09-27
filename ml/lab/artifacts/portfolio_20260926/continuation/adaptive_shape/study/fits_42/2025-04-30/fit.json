@@ -1,0 +1,21 @@
+{
+  "cutoff": "2025-04-30",
+  "seed": 42,
+  "rows": 1090,
+  "features": 50,
+  "rank": 12,
+  "reused_components": 6,
+  "newly_fitted_components": 6,
+  "variance_retained": 0.9115304231572292,
+  "parent": "artifacts/portfolio_20260926/continuation/tabular_shape/study/fits_42/2025-04-30",
+  "latest_target_date": "2025-04-30",
+  "coordinate_sample_weights": false,
+  "model_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+  "n_estimators": 4,
+  "output_type": "median",
+  "repeated_prediction_exact": null,
+  "fit_seconds": 13.797946564853191,
+  "peak_gpu_bytes": 299058688,
+  "peak_gpu_reserved_bytes": 335544320,
+  "peak_rss_kib": 1332476
+}

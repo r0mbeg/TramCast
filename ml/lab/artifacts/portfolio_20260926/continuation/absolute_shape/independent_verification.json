@@ -1,0 +1,111 @@
+{
+  "checked_at": "2026-09-27T03:11:04.623323+00:00",
+  "input_code_sha256": {
+    "pilot": 33,
+    "study": 33
+  },
+  "training_fits": [
+    {
+      "cutoff": "2025-10-31",
+      "leaves": 31,
+      "rows": 71180,
+      "origins": 8,
+      "phase": "pilot"
+    },
+    {
+      "cutoff": "2025-04-30",
+      "leaves": 15,
+      "rows": 21800,
+      "origins": 2,
+      "phase": "study"
+    },
+    {
+      "cutoff": "2025-06-30",
+      "leaves": 15,
+      "rows": 43600,
+      "origins": 4,
+      "phase": "study"
+    },
+    {
+      "cutoff": "2025-07-31",
+      "leaves": 15,
+      "rows": 53700,
+      "origins": 5,
+      "phase": "study"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "leaves": 15,
+      "rows": 63300,
+      "origins": 6,
+      "phase": "study"
+    },
+    {
+      "cutoff": "2025-10-31",
+      "leaves": 15,
+      "rows": 71180,
+      "origins": 8,
+      "phase": "study"
+    },
+    {
+      "cutoff": "2025-04-30",
+      "leaves": 31,
+      "rows": 21800,
+      "origins": 2,
+      "phase": "study"
+    },
+    {
+      "cutoff": "2025-06-30",
+      "leaves": 31,
+      "rows": 43600,
+      "origins": 4,
+      "phase": "study"
+    }
+  ],
+  "raw_forecasts_checked": 15,
+  "exact_021_control": true,
+  "cutoff_safe_targets": true,
+  "weighted_absolute_share_targets": true,
+  "dayvolume_preserved": true,
+  "model_reloads_exact_on_zhores": true,
+  "local_model_inference_skipped": "sklearn1.9.1 differs from saved1.8.0; transforms audited locally",
+  "final_total": 12806165,
+  "differences": [
+    {
+      "candidate": "025_timesfm_volume_bayesian_shape",
+      "relative_l1": 0.030585524339296184,
+      "changed_rows": 10681
+    },
+    {
+      "candidate": "024_bayesian_hourly_share_errors",
+      "relative_l1": 0.022012739088262533,
+      "changed_rows": 10633
+    },
+    {
+      "candidate": "021_bayesian_verified_operations",
+      "relative_l1": 0.013794109427229377,
+      "changed_rows": 10608
+    },
+    {
+      "candidate": "023_gaussian_process_errors",
+      "relative_l1": 0.03065833432469936,
+      "changed_rows": 10685
+    },
+    {
+      "candidate": "026_timesfm_verified_operations",
+      "relative_l1": 0.10102805432238567,
+      "changed_rows": 10797
+    },
+    {
+      "candidate": "004_ridge_movement",
+      "relative_l1": 0.05158933425223234,
+      "changed_rows": 10728
+    },
+    {
+      "candidate": "005_movement_chronos",
+      "relative_l1": 0.08563086437459848,
+      "changed_rows": 10864
+    }
+  ],
+  "audit_code_sha256": "d56150b1fbdbcbcc97d5ec010cc719d78e22d46d493e8cd4b2ffea5e9589ca8b"
+}

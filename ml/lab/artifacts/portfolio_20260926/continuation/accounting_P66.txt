@@ -1,0 +1,22 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+JobID|State|ElapsedRaw|AllocCPUS|AllocTRES|MaxRSS
+8477037|COMPLETED|46|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|
+8477037.batch|COMPLETED|46|2|cpu=2,gres/gpu=1,mem=2G,node=1|8340K
+8477037.extern|COMPLETED|46|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|940K
+8477037.0|COMPLETED|46|2|cpu=2,gres/gpu=1,mem=2G,node=1|1315880K
+8477038|COMPLETED|89|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|
+8477038.batch|COMPLETED|89|2|cpu=2,gres/gpu=1,mem=2G,node=1|8340K
+8477038.extern|COMPLETED|89|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|664K
+8477038.0|COMPLETED|89|2|cpu=2,gres/gpu=1,mem=2G,node=1|1318296K
+{
+  "job_id": "8477038",
+  "elapsed_seconds": 84.25922967866063,
+  "peak_rss_kib": 1351488
+}method;cutoff;end;seconds;wape_score;absolute_error;actual_total;bias
+tabular_volume_seed73;2025-04-30;2025-06-30;0;0.8732797520678358;1461198.0;11530896.0;781134.0
+tabular_volume_seed73;2025-06-30;2025-08-30;0;0.8872778215086886;1190293.0;10559528.0;-69661.0
+tabular_volume_seed73;2025-07-31;2025-09-30;0;0.8584184210026898;1618898.0;11434383.0;-1225356.0
+tabular_volume_seed73;2025-08-31;2025-10-31;0;0.8977372596507491;1301950.0;12731421.0;231992.0
+JOBID PARTITION NAME STATE TIME CPUS MIN_MEMORY TRES_PER_NODE

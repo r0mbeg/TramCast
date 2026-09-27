@@ -1,0 +1,12 @@
+{
+  "portfolio_conditional_shape.py": "28fad139f269ed32564ac8ed2f6f86f9de6dd8e612e54a6dfad2df9dd2dbb22a",
+  "test_portfolio_experiment.py": "cd22f439866e934e9af77627f151caeda281006da571a17884deb670c970c520",
+  "portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+  "job.sbatch": "706f0f9357fad98994e9c47896a6082e99cf83ff2a15c268a1d4c89ef84e58c2",
+  "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+  "portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+  "portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+  "weather_hourly_source.json": "3612a1963278aebaade91824e70af04bdabcd74fbfdf00879d76030552c021ad",
+  "portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+  "portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac"
+}

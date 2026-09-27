@@ -1,0 +1,25 @@
+P66 preregistered beforecode/compute: previousgoalturn=P65progress(new030archive,
+all4+seed/Optuna/causalbasis audit/new7ranking), no livejob/blocker. Twofixedtargets
+under sameTabPFNv2 median prior: actualday−teacherday and hour-L1-optimalvolume−
+teacherday, divided10000 (absolutepassenger correction, notlog/ratioGaussian/HGB).
+ReuseP65training pairedreliableordinaryprofiles/completedmonthly61daytruth last224days.
+Optimalvolume=P39hourly_targets weightedmedian(actualhour/share) onfull24hour causal
+INNERteachers thenjoin reliable origin/route/date. Targetoptimal isknownpastonly;
+it is a surrogate tofuturehourloss since teacher/finalshape differ, notguaranteed
+exactpopulationhourrisk minimum. Futurebaseline=030raw includingP65shape and029volume;
+pastteacher=P29cachedprofilevolume. Differenceofteacher/finalmodelfamilies explicitly
+recorded, no claimsOOFforecasts ofexact030 inearlymonths. X=P61daily30features+
+20pastteacher/future030hourshares+log1p(teacher/futurevolume)/10 =51features.
+TabPFN2.0.9/sklearn1.6.1 isolated/pinned44MBcheckpoint reused, median4estimators,
+seed42,float32/cuda/low_memory/memory_savingTrue/n_jobs2. Nativefitunweighted,
+actualnetwork/repeatweights inheritedP65 notusedformodel; no hiddenweightchange.
+Newday=clip(future030day+10000*medianerror,.5futureday,2futureday), zero-days/route5
+cannotrevive. Scale030hourshares; structurezeros remain. Grid5control/actual_half/
+actual_full/optimal_half/optimal_full,GridSampler42,meanW1/W2,5trialstotal/1800s
+wholeGPUfamilyincludingresumes/pilot/seed. Selected4+final; ifcontrolwins,bestnewalso
+4+final. Fixednewrecipe seed73repeatall4+final, noseedselection. PilotbothtargetsOct31
+repeatmedian forrepro/cost; requestonegpu_devel2CPU2GiB/5min,studyaftercostmeasure.
+No newmodeldownload/envupgrade/rawtransfer/mainbundle orpreviousCSVoverwrite.
+Freeze source/code/dataSHA beforepilot; storefullpastoptimal/counttarget/reference/
+matrices/future/raw/params/Optuna/log/resource/audit. Smallfeature/weightedmedianL1/
+truthpoison check. Frozenmetric/windows/truth unchanged; ≥.90everywindow gateactive.

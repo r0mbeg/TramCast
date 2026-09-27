@@ -1,0 +1,32 @@
+{
+  "sampler": "grid",
+  "space": {
+    "recipe": [
+      "control",
+      "count_half",
+      "count_full",
+      "ratio_half",
+      "ratio_full"
+    ]
+  },
+  "trials": 5,
+  "previous_tabpfn_trials": 13,
+  "previous_tabpfn_gpu_seconds": 711,
+  "new_allocation_subbudget_seconds": 480,
+  "family": "tabular_direct",
+  "timeout": 1800,
+  "seed": 42,
+  "objective": "mean WAPE-score of both development windows",
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "pruning": false,
+  "n_jobs": 1
+}

@@ -1,0 +1,70 @@
+{
+  "rules": [
+    [
+      "recent",
+      28
+    ],
+    [
+      "recent",
+      56
+    ],
+    [
+      "recent",
+      112
+    ],
+    [
+      "season",
+      28
+    ],
+    [
+      "season",
+      56
+    ],
+    [
+      "season",
+      112
+    ],
+    [
+      "weather",
+      7
+    ],
+    [
+      "weather",
+      14
+    ],
+    [
+      "weather",
+      28
+    ]
+  ],
+  "sampler": "GridSampler",
+  "trials_per_cutoff": 9,
+  "timeout_per_cutoff": 1200,
+  "seed": 42,
+  "objective": "pooled score on completed inner 61-day windows ending <= outer cutoff",
+  "selection": "season score 75%, global score 25%; global fallback if <14 unique seasonal days",
+  "outer_windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ],
+    [
+      "2025-07-31",
+      "2025-09-30"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  ],
+  "final": [
+    "2025-10-31",
+    "2025-12-31"
+  ],
+  "no_outer_targets": true,
+  "regime": "retrospective external ERA5 weather; no future target validations"
+}

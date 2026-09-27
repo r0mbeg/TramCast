@@ -1,0 +1,6 @@
+[I 2026-09-27 02:23:56,325] A new study created in RDB with name: marginal_shape
+[I 2026-09-27 02:24:02,028] Trial 0 finished with value: 0.8678052876665202 and parameters: {'leaves': 63, 'weather': True, 'mix': 0.5, 'normalize': True}. Best is trial 0 with value: 0.8678052876665202.
+[I 2026-09-27 02:24:07,713] Trial 1 finished with value: 0.866197483033806 and parameters: {'leaves': 63, 'weather': True, 'mix': 1.0, 'normalize': True}. Best is trial 0 with value: 0.8678052876665202.
+[I 2026-09-27 02:24:13,379] Trial 2 finished with value: 0.8675939624581493 and parameters: {'leaves': 63, 'weather': True, 'mix': 0.5, 'normalize': False}. Best is trial 0 with value: 0.8678052876665202.
+[I 2026-09-27 02:24:19,081] Trial 3 finished with value: 0.8657594546536713 and parameters: {'leaves': 63, 'weather': True, 'mix': 1.0, 'normalize': False}. Best is trial 0 with value: 0.8678052876665202.
+marginal_shape {'leaves': 63, 'weather': True, 'mix': 0.5, 'normalize': True} [0.8709320593993737, 0.8646785159336667, 0.8916876406886143, 0.9013501320865911]

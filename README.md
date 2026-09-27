@@ -4,7 +4,7 @@
 
 TramCast предназначен для диспетчеров: выбор маршрута и периода, карта остановок и графики прогноза по часам и дням. Прогноз строится по данным успешных валидаций проезда.
 
-**Статус:** готовы SQL-схема, сгенерированный код sqlc/gRPC, Go-сервер со справочниками и схемами маршрутов, импорт справочников из XLSX и снимка OpenStreetMap, прототип интерфейса с картой и графиками на демо-данных прогноза. Python gRPC-сервис выдаёт сохранённый прогноз Chronos-2, интеграция с Go ещё в работе; возможности ниже описывают план MVP.
+**Статус:** готовы SQL-схема, сгенерированный код sqlc/gRPC, Go-сервер со справочниками и схемами маршрутов, импорт справочников из XLSX и снимка OpenStreetMap, прототип интерфейса с картой и графиками на демо-данных прогноза. Python gRPC-сервис пересчитывает рецепт 030 через TabPFN с локальным кэшем, интеграция с Go ещё в работе; возможности ниже описывают план MVP.
 
 ## Возможности MVP
 
@@ -60,6 +60,7 @@ TramCast/
 - [Backend: каталоги, первая миграция и генерация sqlc](backend/README.md).
 - [gRPC: контракт прогнозирования и генерация Go/Python](proto/README.md).
 - [Локальная разработка: PostgreSQL, миграции и Makefile](docs/development.md).
+- [Запуск ML и инструкция разработчику backend](ml/docs/HANDOFF.md).
 - [Контракт проекта: схема БД, API, очередь, требования к данным и ML](AGENTS.md).
 
-Для локального запуска настройте `.env` по `.env.example`, затем выполните `make env-up`, `make migrate-up`, `make import-catalog` (загрузка справочников из книги по пути `CATALOG_FILE` и снимка OpenStreetMap из репозитория по пути `CATALOG_OSM_FILE`) и `make run-backend`. HTTP-сервер доступен на порту 8080; `/healthz` проверяет HTTP, `/readyz` — подключение к PostgreSQL. Справочники читаются через `/api/routes`, `/api/routes/geometry`, `/api/routes/{route_id}/stops` и `/api/stops`; остальные пути отдают сборку фронтенда из `frontend/dist`. Интерфейс собирается командами `make frontend-install` и `make frontend-build` (нужен Node.js 24) и открывается на `http://localhost:8080`; для разработки есть `make frontend-dev` на порту 5173. Данные БД сохраняются в `out/pgdata`. ML-сервис запускается через `make run-ml` или `docker compose up -d --build ml`; он выдаёт готовый прогноз 002 за ноябрь–декабрь 2025. Интеграция с API прогнозов Go ещё не реализована.
+Для локального запуска настройте `.env` по `.env.example`, затем выполните `make env-up`, `make migrate-up`, `make import-catalog` (загрузка справочников из книги по пути `CATALOG_FILE` и снимка OpenStreetMap из репозитория по пути `CATALOG_OSM_FILE`) и `make run-backend`. HTTP-сервер доступен на порту 8080; `/healthz` проверяет HTTP, `/readyz` — подключение к PostgreSQL. Справочники читаются через `/api/routes`, `/api/routes/geometry`, `/api/routes/{route_id}/stops` и `/api/stops`; остальные пути отдают сборку фронтенда из `frontend/dist`. Интерфейс собирается командами `make frontend-install` и `make frontend-build` (нужен Node.js 24) и открывается на `http://localhost:8080`; для разработки есть `make frontend-dev` на порту 5173. Данные БД сохраняются в `out/pgdata`. ML-сервис запускается через `make run-ml` или `docker compose up -d --build ml`; он пересчитывает рецепт 030 за ноябрь–декабрь 2025 и кэширует результат. Интеграция с API прогнозов Go ещё не реализована.

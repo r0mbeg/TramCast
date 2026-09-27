@@ -1,0 +1,7 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 3.9845, 'grad_norm': 55.49980163574219, 'learning_rate': 5e-08, 'epoch': 1.0}
+{'train_runtime': 2.4632, 'train_samples_per_second': 64.955, 'train_steps_per_second': 8.119, 'train_loss': 3.984454345703125, 'epoch': 1.0}
+{'seconds': 6.862516954541206, 'peak_gpu_bytes': 2428277760, 'forecast_shape': [9, 61], 'checkpoints': {'finetuned-ckpt/model.safetensors': '267e91096fb6a9ba136843400028dd1a2df0f33d06f23784c875430badb58996', 'finetuned-ckpt/config.json': '26207068f4631569b58893cc097c81f9f8685d9cc1c5b532c5ddf60b767b8c7a'}}

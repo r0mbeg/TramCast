@@ -1,0 +1,20 @@
+{
+  "source": "sacct top-level COMPLETED0:0",
+  "jobs": [
+    {
+      "job_id": 8476968,
+      "elapsed_seconds": 111,
+      "cpus": 4,
+      "gpus": 1
+    },
+    {
+      "job_id": 8476969,
+      "elapsed_seconds": 15,
+      "cpus": 4,
+      "gpus": 0
+    }
+  ],
+  "cumulative_cpu_core_seconds": 7400,
+  "cumulative_gpu_seconds": 1315,
+  "active_jobs": []
+}

@@ -1,0 +1,7 @@
+{
+  "job_id": "8477017",
+  "elapsed_seconds": 2.3055025162175298,
+  "peak_gpu_bytes": 290458112,
+  "peak_rss_kib": 1014364,
+  "deterministic_repeat_exact": true
+}

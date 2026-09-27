@@ -1,0 +1,92 @@
+{
+  "checked_at": "2026-09-27T02:22:28.650424+00:00",
+  "fits": [
+    {
+      "phase": "pilot",
+      "cutoff": "2025-10-31",
+      "training_rows": 71180,
+      "origins": 8,
+      "iterations": 8,
+      "input_code_sha256": 32
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-04-30",
+      "training_rows": 21800,
+      "origins": 2,
+      "iterations": 9,
+      "input_code_sha256": 32
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-06-30",
+      "training_rows": 43600,
+      "origins": 4,
+      "iterations": 8,
+      "input_code_sha256": 32
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-07-31",
+      "training_rows": 53700,
+      "origins": 5,
+      "iterations": 9,
+      "input_code_sha256": 32
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-08-31",
+      "training_rows": 63300,
+      "origins": 6,
+      "iterations": 10,
+      "input_code_sha256": 32
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-10-31",
+      "training_rows": 71180,
+      "origins": 8,
+      "iterations": 8,
+      "input_code_sha256": 32
+    }
+  ],
+  "all_training_targets_match_frozen": true,
+  "past_prediction_source_match": true,
+  "target_weights_independently_reconstructed": true,
+  "daily_totals_fixed": true,
+  "forced_zeros_fixed": true,
+  "posterior_checks": [
+    {
+      "phase": "pilot",
+      "cutoff": "2025-10-31",
+      "checked_posterior_rows": 20
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-08-31",
+      "checked_posterior_rows": 20
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-06-30",
+      "checked_posterior_rows": 20
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-07-31",
+      "checked_posterior_rows": 20
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-10-31",
+      "checked_posterior_rows": 20
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-04-30",
+      "checked_posterior_rows": 20
+    }
+  ],
+  "thread_count_final_prediction_agreement": true,
+  "max_final_thread_absolute_difference": 6.366462912410498e-12
+}

@@ -1,0 +1,4 @@
+[I 2026-09-27 06:57:01,591] A new study created in RDB with name: seasonal_gate
+[I 2026-09-27 06:57:03,559] Trial 0 finished with value: 0.883389111076646 and parameters: {'recipe': 'gated'}. Best is trial 0 with value: 0.883389111076646.
+[I 2026-09-27 06:57:04,053] Trial 1 finished with value: 0.8830272693231019 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.883389111076646.
+seasonal_gate {'recipe': 'gated'} [0.8820404762995, 0.884737745853792, 0.877428978896369, 0.8995451489664822]

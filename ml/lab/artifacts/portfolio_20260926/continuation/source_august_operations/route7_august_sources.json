@@ -1,0 +1,21 @@
+{
+  "retrieved_at": "2026-09-26T23:48:10.397117+00:00",
+  "source_type": "primary official news, indexed page text",
+  "direct_open": "web fetch timed out; indexed primary text retrieved",
+  "items": [
+    {
+      "url": "https://transport.mos.ru/mostrans/all_news/125846",
+      "published_at": "2025-08-15",
+      "period_start": "2025-08-16",
+      "route": 7,
+      "summary": "Weekend route shortened to Novoslobodskaya; weekdays unchanged, temporary replacement bus on removed segment."
+    },
+    {
+      "url": "https://mosmetro.teletribe.ru/news/details/7596",
+      "published_at": "2025-08-15",
+      "summary": "Official metro news copy corroborates the August route 7 weekend restriction."
+    }
+  ],
+  "application": "Separate August16-September5 weekend regime; September6 starts the already documented separate autumn regime. Remove affected past days from normal fit; estimate ratio from >=3 available affected past days, otherwise development-selected prior.",
+  "known_at_cutoff": "Not known at June/July cutoffs; explicitly retrospective external competition experiment, permitted by user."
+}

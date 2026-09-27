@@ -1,0 +1,96 @@
+{
+  "protocol_version": 1,
+  "created_at": "2026-09-26T20:45:48.031162+00:00",
+  "deadline": "2026-09-27T20:40:40Z",
+  "gpu_hours_limit": 24,
+  "files": {
+    "dataset/train.csv": {
+      "bytes": 8160068959,
+      "sha256": "e4157ed76a617c8a0ab5674eb7de3b3503489f21307ba68893dd0de04317360f"
+    },
+    "dataset/test.csv": {
+      "bytes": 2231502820,
+      "sha256": "d58523f79b0d47d72eafe0da9a0c72fb8b472bf4b74e68a4e9f789bd6656557a"
+    },
+    "dataset/test_submission.csv": {
+      "bytes": 299415,
+      "sha256": "71c8126bb51068c936462a170da885bad860fc91a58b3d2ac731876d324d7ec3"
+    },
+    "dataset/labels/labels_day_train.csv": {
+      "bytes": 954197,
+      "sha256": "20a61009b4ee00327784c6fa888109609fd3a1905ea3a8509b36964dd9baced7"
+    },
+    "dataset/labels/labels_day_test.csv": {
+      "bytes": 234303,
+      "sha256": "37479acea3e319ac613d72df7217bbe57b66af49644e538139174fd534ce2347"
+    },
+    "ml/artifacts/hourly_clean.csv": {
+      "bytes": 3302537,
+      "sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae"
+    },
+    "ml/artifacts/preparation_audit.json": {
+      "bytes": 949,
+      "sha256": "670e2b3b11691cd3752f931fd67b4d2a4de55b17dad340268d82f815ccc92673"
+    },
+    "ml/artifacts/calendar_sources.json": {
+      "bytes": 1702,
+      "sha256": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3"
+    },
+    "ml/submission.csv": {
+      "bytes": 293072,
+      "sha256": "4b37870e1e8e92f0d30fbfb6d0708793fa7951238827f67c1bec2d9ac5eeab7c"
+    },
+    "ml/forecast_bundle.json": {
+      "bytes": 1679,
+      "sha256": "206d1d15aac218925ee2ceea94c0c1617c9987fd2c38c67500cef581072b5282"
+    },
+    "ml/submissions/003_chronos_daily_climatology.csv": {
+      "bytes": 293268,
+      "sha256": "48c7e77e3d7b93b381578a6182033b12514c063a722f4348e237c91ecfdd522c"
+    },
+    "ml/submissions/002_chronos_daily_zero_shot.csv": {
+      "bytes": 293072,
+      "sha256": "4b37870e1e8e92f0d30fbfb6d0708793fa7951238827f67c1bec2d9ac5eeab7c"
+    },
+    "ml/submissions/001_median_all.csv": {
+      "bytes": 293343,
+      "sha256": "26c254501cc7ed0b680ed3611924bf39f640ccae5f9850648a6c067662ed88db"
+    },
+    "ml/pipeline.py": {
+      "bytes": 13905,
+      "sha256": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430"
+    },
+    "ml/model.py": {
+      "bytes": 9107,
+      "sha256": "b4fea90d2313ab2064879b451dd13b4a32b80d06a6f6029f341ba14ed02a9e09"
+    },
+    "ml/experiments/boost_experiment.py": {
+      "bytes": 7507,
+      "sha256": "2d7a922f68f8ceb924a59643053c36627b382622340a76cda3c5237a22b5dadf"
+    },
+    "ml/experiments/chronos_experiment.py": {
+      "bytes": 11097,
+      "sha256": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5"
+    },
+    "ml/experiments/chronos_weather_experiment.py": {
+      "bytes": 6150,
+      "sha256": "7d7543df6de820b12495bcff3ed3cb3b42268a7a32fcfdf7b59d097442174bfa"
+    },
+    "ml/experiments/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ml/experiments/chronos_calendar_experiment.py": {
+      "bytes": 10966,
+      "sha256": "cfd446decbadb90f787e6ddff84557071c01170bcb67364b91981e0dabf2e39b"
+    },
+    "ml/experiments/calendar_experiment.py": {
+      "bytes": 7265,
+      "sha256": "9b5fec4f0121139ce65cfb0a828f950426d200a80cae3fdadd14bc00626bcf36"
+    },
+    "ml/experiments/chronos_finetune_experiment.py": {
+      "bytes": 6953,
+      "sha256": "392eb77418ef76ec2255fc8cf618d09749045c615d4beb84846375bcbcff2e75"
+    }
+  }
+}

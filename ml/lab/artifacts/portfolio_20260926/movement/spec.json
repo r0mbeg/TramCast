@@ -1,0 +1,25 @@
+{
+  "params": {
+    "correction_days": 14,
+    "shape_mix": 0.5,
+    "route_season": false
+  },
+  "job_id": "8476942",
+  "regime": "retrospective external announcements; learned coefficients cutoff-only",
+  "trials": 1,
+  "event_windows": [
+    [
+      "2025-07-10",
+      "2025-08-06"
+    ],
+    [
+      "2025-09-06",
+      "2025-11-14"
+    ]
+  ],
+  "sources": [
+    "https://transport.mos.ru/mostrans/all_news/125272",
+    "https://t.me/DtOperativno/22624",
+    "https://t.me/DtOperativno/23565"
+  ]
+}

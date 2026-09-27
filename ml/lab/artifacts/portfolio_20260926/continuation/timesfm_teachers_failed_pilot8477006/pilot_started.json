@@ -1,0 +1,142 @@
+{
+  "revision": "1d952420fba87f3c6dee4f240de0f1a0fbc790e3",
+  "weights_sha256": "2f776efe6245e42b24bc4153ffdf61810140210e4bd3b01fb21f7aa779ab6ce8",
+  "wheel_sha256": "c7bde94beb1651e1251cdf1e9d09cf6f015e0218d038a4a836a170dc70b08071",
+  "config": {
+    "max_context": 512,
+    "max_horizon": 128,
+    "normalize_inputs": true,
+    "window_size": 0,
+    "per_core_batch_size": 8,
+    "use_continuous_quantile_head": true,
+    "force_flip_invariance": true,
+    "infer_is_positive": true,
+    "fix_quantile_crossing": true,
+    "return_backcast": false
+  },
+  "dtype": "float32",
+  "torch_compile": false,
+  "seed": 42,
+  "quantile_indices": [
+    3
+  ],
+  "verified_july_study": true,
+  "teacher_origins": [
+    [
+      "2025-01-31",
+      "2025-04-02"
+    ],
+    [
+      "2025-02-28",
+      "2025-04-30"
+    ],
+    [
+      "2025-03-31",
+      "2025-05-31"
+    ],
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-05-31",
+      "2025-07-31"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ],
+    [
+      "2025-07-31",
+      "2025-09-30"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ],
+    [
+      "2025-10-31",
+      "2025-12-31"
+    ]
+  ],
+  "pretrained_availability": "modern weights and package; not available at historical 2025 cutoffs",
+  "job_id": "8477006",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_timesfm.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--model-path",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/model-timesfm2p5",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/timesfm_teachers",
+    "--verified-july",
+    "--teachers",
+    "--pilot"
+  ],
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "versions": {
+    "torch": "2.6.0+cu124",
+    "timesfm": "2.0.2",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_timesfm.py": "b10e9bceef8cb52676c5533d4f5ab8adc2ad494db4e8454ea4e755c106885c1b",
+    "experiments/portfolio_factor.py": "ef3eb63f6cc1614f3b6b1691514749d4dd5a369f0900b1f4573bd49a5422d29d",
+    "experiments/portfolio_chronos.py": "fc6611e617c316abff81db57a523bcdcc622e220289ef584238e8884d20418f2",
+    "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "experiments/portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac",
+    "experiments/portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-07-31.csv": "830bbc90e3e9fc58c6f1ff84a603c5355b9db4f81c277476c291197142c87528",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-06-30.csv": "0d92a933ad75d1469011be0a72a92a6981d34199b7381da38c67111037e2a37f",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-04-30.csv": "448eae6e06b12e4edbd3995e733ace3530cea5702cf28f36a4889018a1e3a203",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-08-31.csv": "e983d68dae7ccebd46713e4859b1150b1f9806ecbfb0750fb7cb46e254122241",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-10-31.csv": "d08e3f873d2a283f753dcc707634b5ee6c805b16bdaabcc489e7b7e7bb5c7518",
+    "artifacts/portfolio_20260926/gpu/daily/raw_2025-07-31.csv": "f12fb6ad64384f75d935e8468b922e2a09ae7d85102d4a33cbddc884892a4cd9",
+    "artifacts/portfolio_20260926/gpu/daily/raw_2025-06-30.csv": "88fdb254c9ca45b07e8f3e5bd563507ec15d02e899d32064df998cd3ea546f0f",
+    "artifacts/portfolio_20260926/gpu/daily/raw_2025-04-30.csv": "b4dc25d4c649063690d9c977f4b28c8fed74d8cc3c0590d2494c9c114a9c6ce2",
+    "artifacts/portfolio_20260926/gpu/daily/raw_2025-08-31.csv": "703ada069988af0fa7c3747e47c05e7518e698c2d80e962a41857cc0357efc99",
+    "artifacts/portfolio_20260926/gpu/daily/raw_2025-10-31.csv": "ad6d01ee8f56a99e8879122255c5b1d9dfb33be67525cf594c7d6815e52b655e",
+    "artifacts/portfolio_20260926/continuation/operations/operations/selection.json": "fd8954e578acdcceca981e674f93a701a1591ce626f8890e2d8fcef8b1844ccc",
+    "artifacts/portfolio_20260926/continuation/august_operations/august_operations/selection.json": "893e7aabbe1fc68a07af399d9e463ae8abb0d91f2359a0353c507b496847957c",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-07-31.csv": "5ab4becb352b30812d135cef66908012ed79ee82ddedbb576a3bcc069ae7a026",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-04-30.csv": "60f2da3c42120a6b523e433fdd191ba99966d123bd2bed0677f79917f737dba0",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-08-31.csv": "197f2c3bdf6259ac87daf97cea018188011dbf951d6aa08fae79746253520bf5",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-06-30.csv": "fef27d6bb056d2cdef0b19d8eca21dedabd02383c9133603b15f6bbe9a995104",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-10-31.csv": "33df602d404fd4f0058ce3a59723470610ed4714303a594e4efee80c34c3b597",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-07-31.csv": "9af0274c045debf58fc598bdaf05008395e068c429d7c3c575b31251f12b9815",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-06-30.csv": "f262c2b8a998c945e7f2131c5bdba17abebdb8d8156becb63109f8f56dd1817a",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-04-30.csv": "d91dd608c39b107361c3861b761b8c7d4e0fa6590525bf48f2dd17faaa048d70",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-08-31.csv": "46343b8183bbe3ccf838b95113c37ad7ec6481119c0c998f310a718df78c37f2",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-10-31.csv": "5f4140e824b1fed333ed46faf3da849f309bf7fa3e7c2cae7ba17f8ec115e7d3",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-10-31.npz": "37ba5787ffe8be4999362d20ba131886adfe8ab5de0a42aa82cc7370e54a39f4",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-08-31.npz": "84ca7b2c8b3538e8451432ecdb24d763964fed8f981d3e0bbead04671c49badc",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-08-31.json": "f5aa883a038b2b755a8d7481d38f01b1f22a2d9e0648a85fed3790a07f623ab6",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-04-30.npz": "c9e7221b19f499e66edd811e41592b19d478296f2da3aa57fec245ce30ca41dc",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-10-31.json": "232d5822cd5945c6294faeb0c683e54167fc3000d65003982dd535ff2598ea62",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-06-30.json": "d88dbb55985f2986e1c71d4c48112ade7e99c178a21e935d6055725bfbb00cf9",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-07-31.npz": "ddb52b710adb76b2b610a1f92ba22a0616fd58cce507ad624e359c392d54ab0b",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-06-30.npz": "19267e10fcad47f64ef739c809d3584331548ae8406f81676eeea32ef24d231c",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-07-31.json": "33b3b6de17ebd6e4673ff4beabc6194ab5f06ea3ea4bc80f9407d3506071c32d",
+    "artifacts/portfolio_20260926/continuation/timesfm/quantiles/normal_ratio_2025-04-30.json": "3254a388fb49d51c4079e5eb19f0bfa81719c764efccd4d37e85ccb3444d955a",
+    "artifacts/portfolio_20260926/continuation/external/july_restoration_sources.json": "8d3e541204084feef5c239841c57b97944b934f825a011058eb9c82b96928ee5",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-07-31_july_verified.npz": "e0131b1d640c6643306bb2d3eea4212e6e27848915acf4447de2de178b212011",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-06-30_july_verified.npz": "a5117ac7d029a2a5ff1afd690903ca28ecd233ebf528db633dfedfe040924e17",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-08-31_july_verified.npz": "fd4515f1d6653aca2e7f5af5c3c27c9c0b050b8b0fc93ecb23be89b53d43277e",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-10-31_july_verified.npz": "20eb4be5134f3579e1b21f99b66d35916838b146b131e928d9126b81f92a759e",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-04-30_july_verified.json": "bfdd331fd690b77f0c75b3df859734dc16c18ac5af86b94b4f26171c87cb5bee",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-06-30_july_verified.json": "15322a70c05fe3125975a5cb0f786a2038e25d5d87d80755940d291ad9c72ac8",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-04-30_july_verified.npz": "510453a81cb03ad527bc12d81677661deb7173fbb0fb7a74032390f1db13ba62",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-10-31_july_verified.json": "4e490e507a62a737444dd61740581482c2700bab6dd48eda15817997926a10f0",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-07-31_july_verified.json": "f25d162fa99fa495fbbee07a95ab6f96568e7803157ab93439282f79ae3b05d6",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/quantiles/normal_ratio_2025-08-31_july_verified.json": "2ff27392b27b0049c19d9334ecdc6731a4a0bd48fbf06d8f4741ce0c94d3f481",
+    "experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+    "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+    "experiments/calendar_experiment.py": "9b5fec4f0121139ce65cfb0a828f950426d200a80cae3fdadd14bc00626bcf36",
+    "artifacts/calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3"
+  }
+}

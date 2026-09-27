@@ -1,0 +1,5 @@
+{
+  "experiments/portfolio_tabular_volume.py": "184e1e1d0d0f3dcfc16fd75234cffab06ab81b1a7babe74703e24bafd21037cc",
+  "experiments/test_portfolio_tabular_volume.py": "5ee68767c0d698a5e778bbee4b182f0d84b1ba4b7bac46a0e162b1d08dce2d92",
+  "jobs/zhores_portfolio_tabular_volume.sbatch": "f57285477fd7acdf84553c9ac437cdbf6145587d7ad9fceb36cba1975b370e82"
+}

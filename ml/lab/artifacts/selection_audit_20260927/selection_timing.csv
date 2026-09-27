@@ -1,0 +1,17 @@
+method;cutoff;selection_file;latest_selection_target;selection_completed_at_cutoff
+031;2025-04-30;artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selection.json;2025-08-30;False
+031;2025-06-30;artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selection.json;2025-08-30;False
+031;2025-07-31;artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selection.json;2025-08-30;False
+031;2025-08-31;artifacts/portfolio_20260926/continuation/adaptive_shape/study/adaptive_shape/selection.json;2025-08-30;True
+030;2025-04-30;artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selection.json;2025-08-30;False
+030;2025-06-30;artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selection.json;2025-08-30;False
+030;2025-07-31;artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selection.json;2025-08-30;False
+030;2025-08-31;artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selection.json;2025-08-30;True
+029;2025-04-30;artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selection.json;2025-08-30;False
+029;2025-06-30;artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selection.json;2025-08-30;False
+029;2025-07-31;artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selection.json;2025-08-30;False
+029;2025-08-31;artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selection.json;2025-08-30;True
+025;2025-04-30;artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selection.json;2025-08-30;False
+025;2025-06-30;artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selection.json;2025-08-30;False
+025;2025-07-31;artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selection.json;2025-08-30;False
+025;2025-08-31;artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selection.json;2025-08-30;True

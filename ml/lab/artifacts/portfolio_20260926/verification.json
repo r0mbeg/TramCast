@@ -1,0 +1,60 @@
+{
+  "checked_at": "2026-09-27T08:06:26.717610+00:00",
+  "checked_windows": 1323,
+  "checked_final_forecasts": 105,
+  "protected_sha256_files": 17,
+  "unchanged_autumn_chronos_control": true,
+  "finalists": [
+    {
+      "rank": 1,
+      "attempt": "031_adaptive_hourly_profile_errors",
+      "candidate": "continuation/adaptive_shape/study/adaptive_shape/selected",
+      "rows": 14640,
+      "sha256": "28f6fb76ed137f4fda72e967ee7e3b35df6835eeb6fc5dc1e1088732c5a3c077"
+    },
+    {
+      "rank": 2,
+      "attempt": "029_school_calendar_route_fractions",
+      "candidate": "continuation/school_fraction/study/school_fraction/selected",
+      "rows": 14640,
+      "sha256": "39b856b98c9e08544f1ccfaf6c2387361a2223d1f784afd85e99e82011c94dfd"
+    },
+    {
+      "rank": 3,
+      "attempt": "025_timesfm_volume_bayesian_shape",
+      "candidate": "continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected",
+      "rows": 14640,
+      "sha256": "a4e606d5920155d713e9b3fd100219ae1d67961c3c9fb640f11c8534e7bbcea9"
+    },
+    {
+      "rank": 4,
+      "attempt": "024_bayesian_hourly_share_errors",
+      "candidate": "continuation/bayes_shape/study/bayes_shape/selected",
+      "rows": 14640,
+      "sha256": "d6c2cfc3ce7f6613ec2131f265d13b5bcc93f0bb73b702fbfdd130c9d1c7f505"
+    },
+    {
+      "rank": 5,
+      "attempt": "023_gaussian_process_errors",
+      "candidate": "continuation/gp_errors/gp_errors/selected",
+      "rows": 14640,
+      "sha256": "e0432a12a572a90fdccd21339cbdcfa3e868b0e941067dfaf1996458ed1fba91"
+    },
+    {
+      "rank": 6,
+      "attempt": "026_timesfm_verified_operations",
+      "candidate": "continuation/timesfm_verified_july/timesfm_verified_july/selected",
+      "rows": 14640,
+      "sha256": "5b6716b78a5ebb979e2424776f28765064561bc274e44091cbfe9b55a8a07667"
+    },
+    {
+      "rank": 7,
+      "attempt": "005_movement_chronos",
+      "candidate": "combine/movement_half_chronos",
+      "rows": 14640,
+      "sha256": "09f2d66c21ebd7a235ca0b07db7464d5e054b4f90c204507348a0864a21e1494"
+    }
+  ],
+  "complete": true,
+  "audit_code_sha256": "d3995f9c10677c08b6739cc35d95089547d212ec6f6d139996be062d3b89348a"
+}

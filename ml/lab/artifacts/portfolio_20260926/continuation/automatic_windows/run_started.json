@@ -1,0 +1,19 @@
+{
+  "job_id": "8476947",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_windows.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--weather",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/automatic_windows"
+  ],
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+    "experiments/portfolio_structure.py": "7ecb0de7f2adac3a1f426d84ebda5c2b78c4509850b06ab57ab295b93179b149",
+    "experiments/portfolio_experiment.py": "55e16334fb698a6318971e202d9a493477dd1d84bc3e48533e6f55e387643a45"
+  }
+}

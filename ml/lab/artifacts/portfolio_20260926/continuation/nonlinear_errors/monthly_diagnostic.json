@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-09-27T03:50:14.940049+00:00",
+  "variant": "P53 half15 highest development mean among noncontrols",
+  "monthly_diagnostics": [
+    {
+      "cutoff": "2025-04-30",
+      "month": 5,
+      "actual_total": 5988619,
+      "new_score": 0.8898732746230809,
+      "control_score": 0.8950900032211099,
+      "score_change": -0.005216728598029028,
+      "new_bias_fraction": 0.044599431020741175
+    },
+    {
+      "cutoff": "2025-04-30",
+      "month": 6,
+      "actual_total": 5542277,
+      "new_score": 0.8598332418246146,
+      "control_score": 0.8735768710225057,
+      "score_change": -0.013743629197891048,
+      "new_bias_fraction": 0.09252388503858612
+    },
+    {
+      "cutoff": "2025-06-30",
+      "month": 7,
+      "actual_total": 5394797,
+      "new_score": 0.8813193527022426,
+      "control_score": 0.8757095030637854,
+      "score_change": 0.005609849638457202,
+      "new_bias_fraction": 0.013899688903956904
+    },
+    {
+      "cutoff": "2025-06-30",
+      "month": 8,
+      "actual_total": 5164731,
+      "new_score": 0.8883084133520216,
+      "control_score": 0.8871492048666233,
+      "score_change": 0.0011592084853983683,
+      "new_bias_fraction": -0.005061831874690085
+    }
+  ],
+  "source_sha256": {
+    "artifacts/portfolio_20260926/continuation/nonlinear_errors/study/nonlinear_errors/trial_004/predictions.csv": "ba0a33eceed4d1c0a0a62ef3cffce98b2f5fa60f84ba64110ea25bd515244aaf",
+    "artifacts/portfolio_20260926/continuation/nonlinear_errors/study/nonlinear_errors/trial_003/predictions.csv": "c1b881566e1f9507fb54c0c2f995821881c5b95a4ef7d4fd52a3c22a84038dea"
+  },
+  "note": "descriptive slices of reused W1/W2, not independent tests or new selection objective",
+  "next_idea": "gate nonlinear correction by causal season/effective-weekday support, without choosing validation date ranges"
+}

@@ -1,0 +1,8 @@
+{
+  "params": {
+    "recipe": "normal_ratio_2"
+  },
+  "trial": 4,
+  "value": 0.8760837289905555,
+  "selection_windows": "W1/W2; separate architecture alternative, control remains winner"
+}

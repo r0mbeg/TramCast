@@ -1,0 +1,26 @@
+{
+  "source": "sacct top-level allocations COMPLETED0:0",
+  "jobs": [
+    {
+      "job_id": 8476964,
+      "elapsed_seconds": 1069,
+      "cpus": 4,
+      "gpus": 1
+    },
+    {
+      "job_id": 8476966,
+      "elapsed_seconds": 49,
+      "cpus": 4,
+      "gpus": 0
+    },
+    {
+      "job_id": 8476967,
+      "elapsed_seconds": 35,
+      "cpus": 4,
+      "gpus": 0
+    }
+  ],
+  "cumulative_cpu_core_seconds": 6896,
+  "cumulative_gpu_seconds": 1204,
+  "active_jobs": []
+}

@@ -1,0 +1,51 @@
+[I 2026-09-27 00:51:05,299] A new study created in RDB with name: 2025-04-30
+[I 2026-09-27 00:51:07,234] Trial 0 finished with value: 0.8741256881465919 and parameters: {'rule': 7}. Best is trial 0 with value: 0.8741256881465919.
+[I 2026-09-27 00:51:09,116] Trial 1 finished with value: 0.8798584640347145 and parameters: {'rule': 1}. Best is trial 1 with value: 0.8798584640347145.
+[I 2026-09-27 00:51:11,204] Trial 2 finished with value: 0.8787668083402496 and parameters: {'rule': 5}. Best is trial 1 with value: 0.8798584640347145.
+[I 2026-09-27 00:51:13,034] Trial 3 finished with value: 0.882161662952201 and parameters: {'rule': 0}. Best is trial 3 with value: 0.882161662952201.
+[I 2026-09-27 00:51:14,896] Trial 4 finished with value: 0.8743575648210156 and parameters: {'rule': 8}. Best is trial 3 with value: 0.882161662952201.
+[I 2026-09-27 00:51:16,773] Trial 5 finished with value: 0.8787668083402496 and parameters: {'rule': 2}. Best is trial 3 with value: 0.882161662952201.
+[I 2026-09-27 00:51:18,863] Trial 6 finished with value: 0.8798584640347145 and parameters: {'rule': 4}. Best is trial 3 with value: 0.882161662952201.
+[I 2026-09-27 00:51:20,965] Trial 7 finished with value: 0.882161662952201 and parameters: {'rule': 3}. Best is trial 3 with value: 0.882161662952201.
+[I 2026-09-27 00:51:22,829] Trial 8 finished with value: 0.8733103995333925 and parameters: {'rule': 6}. Best is trial 3 with value: 0.882161662952201.
+[I 2026-09-27 00:51:23,918] A new study created in RDB with name: 2025-06-30
+[I 2026-09-27 00:51:26,145] Trial 0 finished with value: 0.8552566152213064 and parameters: {'rule': 7}. Best is trial 0 with value: 0.8552566152213064.
+[I 2026-09-27 00:51:28,400] Trial 1 finished with value: 0.8648161592544161 and parameters: {'rule': 1}. Best is trial 1 with value: 0.8648161592544161.
+[I 2026-09-27 00:51:30,834] Trial 2 finished with value: 0.8663561210659483 and parameters: {'rule': 5}. Best is trial 2 with value: 0.8663561210659483.
+[I 2026-09-27 00:51:33,079] Trial 3 finished with value: 0.8613539081263435 and parameters: {'rule': 0}. Best is trial 2 with value: 0.8663561210659483.
+[I 2026-09-27 00:51:35,315] Trial 4 finished with value: 0.8554834744436394 and parameters: {'rule': 8}. Best is trial 2 with value: 0.8663561210659483.
+[I 2026-09-27 00:51:37,566] Trial 5 finished with value: 0.8694137238000836 and parameters: {'rule': 2}. Best is trial 5 with value: 0.8694137238000836.
+[I 2026-09-27 00:51:40,044] Trial 6 finished with value: 0.8639269939774691 and parameters: {'rule': 4}. Best is trial 5 with value: 0.8694137238000836.
+[I 2026-09-27 00:51:42,524] Trial 7 finished with value: 0.8613539081263435 and parameters: {'rule': 3}. Best is trial 5 with value: 0.8694137238000836.
+[I 2026-09-27 00:51:44,758] Trial 8 finished with value: 0.8538677133667536 and parameters: {'rule': 6}. Best is trial 5 with value: 0.8694137238000836.
+[I 2026-09-27 00:51:45,844] A new study created in RDB with name: 2025-07-31
+[I 2026-09-27 00:51:47,493] Trial 0 finished with value: 0.8427875420467761 and parameters: {'rule': 7}. Best is trial 0 with value: 0.8427875420467761.
+[I 2026-09-27 00:51:49,074] Trial 1 finished with value: 0.8508143657865402 and parameters: {'rule': 1}. Best is trial 1 with value: 0.8508143657865402.
+[I 2026-09-27 00:51:50,812] Trial 2 finished with value: 0.8507271536557554 and parameters: {'rule': 5}. Best is trial 1 with value: 0.8508143657865402.
+[I 2026-09-27 00:51:52,389] Trial 3 finished with value: 0.8497803633061526 and parameters: {'rule': 0}. Best is trial 1 with value: 0.8508143657865402.
+[I 2026-09-27 00:51:54,009] Trial 4 finished with value: 0.842933310426094 and parameters: {'rule': 8}. Best is trial 1 with value: 0.8508143657865402.
+[I 2026-09-27 00:51:55,585] Trial 5 finished with value: 0.8532371633191739 and parameters: {'rule': 2}. Best is trial 5 with value: 0.8532371633191739.
+[I 2026-09-27 00:51:57,312] Trial 6 finished with value: 0.8500844431538199 and parameters: {'rule': 4}. Best is trial 5 with value: 0.8532371633191739.
+[I 2026-09-27 00:51:59,005] Trial 7 finished with value: 0.8497803633061526 and parameters: {'rule': 3}. Best is trial 5 with value: 0.8532371633191739.
+[I 2026-09-27 00:52:00,627] Trial 8 finished with value: 0.8419070859708889 and parameters: {'rule': 6}. Best is trial 5 with value: 0.8532371633191739.
+[I 2026-09-27 00:52:01,734] A new study created in RDB with name: 2025-08-31
+[I 2026-09-27 00:52:03,520] Trial 0 finished with value: 0.8307675713643078 and parameters: {'rule': 7}. Best is trial 0 with value: 0.8307675713643078.
+[I 2026-09-27 00:52:05,251] Trial 1 finished with value: 0.8424010694884059 and parameters: {'rule': 1}. Best is trial 1 with value: 0.8424010694884059.
+[I 2026-09-27 00:52:07,134] Trial 2 finished with value: 0.8450540167982767 and parameters: {'rule': 5}. Best is trial 2 with value: 0.8450540167982767.
+[I 2026-09-27 00:52:08,871] Trial 3 finished with value: 0.8456518332082583 and parameters: {'rule': 0}. Best is trial 3 with value: 0.8456518332082583.
+[I 2026-09-27 00:52:10,652] Trial 4 finished with value: 0.830942933264445 and parameters: {'rule': 8}. Best is trial 3 with value: 0.8456518332082583.
+[I 2026-09-27 00:52:12,380] Trial 5 finished with value: 0.8392622296880982 and parameters: {'rule': 2}. Best is trial 3 with value: 0.8456518332082583.
+[I 2026-09-27 00:52:14,254] Trial 6 finished with value: 0.8449611214807452 and parameters: {'rule': 4}. Best is trial 3 with value: 0.8456518332082583.
+[I 2026-09-27 00:52:16,082] Trial 7 finished with value: 0.8456518332082583 and parameters: {'rule': 3}. Best is trial 3 with value: 0.8456518332082583.
+[I 2026-09-27 00:52:17,855] Trial 8 finished with value: 0.8305732785879196 and parameters: {'rule': 6}. Best is trial 3 with value: 0.8456518332082583.
+[I 2026-09-27 00:52:19,800] A new study created in RDB with name: 2025-10-31
+[I 2026-09-27 00:52:22,660] Trial 0 finished with value: 0.837624734565496 and parameters: {'rule': 7}. Best is trial 0 with value: 0.837624734565496.
+[I 2026-09-27 00:52:25,521] Trial 1 finished with value: 0.8323170779446546 and parameters: {'rule': 1}. Best is trial 0 with value: 0.837624734565496.
+[I 2026-09-27 00:52:28,539] Trial 2 finished with value: 0.8418029042030227 and parameters: {'rule': 5}. Best is trial 2 with value: 0.8418029042030227.
+[I 2026-09-27 00:52:31,386] Trial 3 finished with value: 0.8340365446490018 and parameters: {'rule': 0}. Best is trial 2 with value: 0.8418029042030227.
+[I 2026-09-27 00:52:34,217] Trial 4 finished with value: 0.8396956816599411 and parameters: {'rule': 8}. Best is trial 2 with value: 0.8418029042030227.
+[I 2026-09-27 00:52:37,060] Trial 5 finished with value: 0.8364257031105795 and parameters: {'rule': 2}. Best is trial 2 with value: 0.8418029042030227.
+[I 2026-09-27 00:52:40,105] Trial 6 finished with value: 0.8342313151009901 and parameters: {'rule': 4}. Best is trial 2 with value: 0.8418029042030227.
+[I 2026-09-27 00:52:43,164] Trial 7 finished with value: 0.8340365446490018 and parameters: {'rule': 3}. Best is trial 2 with value: 0.8418029042030227.
+[I 2026-09-27 00:52:46,004] Trial 8 finished with value: 0.8358379677698223 and parameters: {'rule': 6}. Best is trial 2 with value: 0.8418029042030227.
+[0.8270208143408804, 0.7584402446776031, 0.8476361164393391, 0.8028861036014754]

@@ -1,0 +1,17 @@
+{
+  "fit": {
+    "cutoff": "2025-06-30",
+    "representation": "daily_weather",
+    "params": {
+      "steps": 800,
+      "learning_rate": 1e-05
+    },
+    "seed": 42
+  },
+  "seconds": 70.38594664633274,
+  "checkpoints": {
+    "finetuned-ckpt/config.json": "26207068f4631569b58893cc097c81f9f8685d9cc1c5b532c5ddf60b767b8c7a",
+    "finetuned-ckpt/model.safetensors": "b938102180b3fbd6b7ed1110a1505fc4de8fd8facb9c88e7c2b8b545f15837cd"
+  },
+  "last_target_date": "2025-06-30"
+}

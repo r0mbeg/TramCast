@@ -1,0 +1,178 @@
+{
+  "checked_at": "2026-09-27T05:52:22.378709+00:00",
+  "input_code_sha256": {
+    "pilot": 73,
+    "study": 73
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "seed": 42,
+      "cutoff": "2025-10-31",
+      "rows": 3559,
+      "rank": 6,
+      "variance_retained": 0.7075746373892354
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-04-30",
+      "rows": 1090,
+      "rank": 6,
+      "variance_retained": 0.6543219651862986
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-06-30",
+      "rows": 2180,
+      "rank": 6,
+      "variance_retained": 0.6775151279113137
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-07-31",
+      "rows": 2685,
+      "rank": 6,
+      "variance_retained": 0.68688027097926
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-08-31",
+      "rows": 3165,
+      "rank": 6,
+      "variance_retained": 0.6798901392607708
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-10-31",
+      "rows": 3559,
+      "rank": 6,
+      "variance_retained": 0.7075746373892354
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-04-30",
+      "rows": 1090,
+      "rank": 6,
+      "variance_retained": 0.6543219651862986
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-06-30",
+      "rows": 2180,
+      "rank": 6,
+      "variance_retained": 0.6775151279113137
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-07-31",
+      "rows": 2685,
+      "rank": 6,
+      "variance_retained": 0.68688027097926
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-08-31",
+      "rows": 3165,
+      "rank": 6,
+      "variance_retained": 0.6798901392607708
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-10-31",
+      "rows": 3559,
+      "rank": 6,
+      "variance_retained": 0.7075746373892354
+    }
+  ],
+  "raw_forecasts_checked": 16,
+  "causal_hourly_targets_reconstructed": true,
+  "paired_daily_features_reconstructed": true,
+  "weighted_mean_covariance_eigenbasis_reconstructed": true,
+  "adaptive_past_only_rank": true,
+  "calendar_publication_and_matrix_checked": true,
+  "coordinate_models_unweighted": true,
+  "saved_input_target_matrices_checked": true,
+  "fixed_029_routeday_volumes": true,
+  "exact_029_control": true,
+  "structural_zeros": true,
+  "pilot_repeat_and_study_freshfit_exact": true,
+  "seed73_raw_differences": [
+    {
+      "cutoff": "2025-07-31",
+      "relative_l1": 0.0039474654463820015
+    },
+    {
+      "cutoff": "2025-10-31",
+      "relative_l1": 0.004904392865640232
+    },
+    {
+      "cutoff": "2025-04-30",
+      "relative_l1": 0.003165915685289971
+    },
+    {
+      "cutoff": "2025-08-31",
+      "relative_l1": 0.00432404604819882
+    },
+    {
+      "cutoff": "2025-06-30",
+      "relative_l1": 0.004084736313776092
+    }
+  ],
+  "audit_code_sha256": "dc97b0ca11a95b5d31f227fbb4e8e99eb05d9ee12ea433a092ca64d3d22df56d",
+  "candidate": "030_tabular_hourly_profile_errors",
+  "source": "tabular_shape/study/tabular_shape/selected",
+  "sha256": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e",
+  "recipe": "new",
+  "params": {
+    "rank_rule": "90% weighted variance capped6; achieved65.4–70.8%",
+    "features": 50,
+    "history_days": 224,
+    "n_estimators": 4,
+    "output_type": "median",
+    "seed": 42,
+    "learned_shape_mix": 0.5,
+    "basis_weight": "actualday/repeated route-date",
+    "coordinate_sample_weight": false
+  },
+  "parent_families": [
+    "P47",
+    "P51",
+    "P64",
+    "P65"
+  ],
+  "score_windows": [
+    0.8845925763271129,
+    0.8835833381946617,
+    0.8855484375501503,
+    0.8995918837339524
+  ],
+  "mean": 0.8883290589514693,
+  "worst": 0.8835833381946617,
+  "seed73_scores": [
+    0.8842658020677665,
+    0.8834840913343854,
+    0.8856713125666684,
+    0.8997606001718111
+  ],
+  "closed_score": null,
+  "minimum090_each_window_met": false,
+  "replaced": "027 remains archived; new030 hourly error family has better mean and worst;029 retained as strongest archived mean",
+  "license": "Built with PriorLabs-TabPFN; external/tabpfn/model_LICENSE.txt",
+  "limitations": [
+    "modern pretrained checkpoint historical availability not asserted",
+    "reused overlapping windows are not independent",
+    "basis cap6 retained less than90% training variance",
+    "native coordinate regression unweighted",
+    "causal teachers differ from final corrected model; conditional error estimates not hidden-score assurance"
+  ]
+}

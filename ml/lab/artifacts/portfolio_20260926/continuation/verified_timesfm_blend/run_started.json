@@ -1,0 +1,32 @@
+{
+  "job_id": "8476987",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_direct_blend.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/verified_timesfm_blend",
+    "--timesfm",
+    "--verified-july"
+  ],
+  "components": {
+    "annual": "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected",
+    "direct": "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_direct_blend.py": "4bc498bee38d2cb56f6fe09e72a316b1d23ed83506ebe700554574401ddde94e",
+    "experiments/portfolio_combine.py": "ef271e459d4332eb800a80770a57f866299b4686b477074c811ba2df7bf2242e",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-07-31.csv": "12d1174735112530bd92a6576d8ce4cb7987200e12dab33d03766e8bfc683a27",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-06-30.csv": "d2701c9d5f5aec9fddb1cfa7835a2c2d57cab3d7a178677584803964042139ae",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-04-30.csv": "6f4cb9be9e86c24ad0c1655a548cb8af8ae8dceb262a72401e42361c49d1f484",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-08-31.csv": "eceb560b837ce3c3038669a5abf4449ed6fe1a699ff9e266c2783a02bdc17777",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-10-31.csv": "9cde757749a06fcdb913158f69a4c1c4b47893f59b3fef7656f305f0aef0926e",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-07-31.csv": "9af0274c045debf58fc598bdaf05008395e068c429d7c3c575b31251f12b9815",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-06-30.csv": "f262c2b8a998c945e7f2131c5bdba17abebdb8d8156becb63109f8f56dd1817a",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-04-30.csv": "d91dd608c39b107361c3861b761b8c7d4e0fa6590525bf48f2dd17faaa048d70",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-08-31.csv": "46343b8183bbe3ccf838b95113c37ad7ec6481119c0c998f310a718df78c37f2",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-10-31.csv": "5f4140e824b1fed333ed46faf3da849f309bf7fa3e7c2cae7ba17f8ec115e7d3"
+  }
+}

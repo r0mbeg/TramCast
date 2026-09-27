@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-09-27T04:22:33.322067+00:00",
+  "input_code_sha256": {
+    "pilot": 52,
+    "study": 52
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-04-30",
+      "rows": 1098
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-06-30",
+      "rows": 2196
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-07-31",
+      "rows": 2745
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-08-31",
+      "rows": 3294
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    }
+  ],
+  "raw_forecasts_checked": 11,
+  "past_only_relative_targets": true,
+  "posterior_covariance_factors_reconstructed": true,
+  "network_raw_daily_totals_preserved": true,
+  "fixed_024_hourshares": true,
+  "exact_024_control": true,
+  "audit_code_sha256": "85b11a6dabb5eebbf4536498822fac0660938087b0910716de0b3f2d39211800"
+}

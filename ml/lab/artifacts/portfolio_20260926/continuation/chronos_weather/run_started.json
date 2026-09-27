@@ -1,0 +1,30 @@
+{
+  "job_id": "8476950",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_chronos_weather.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--weather",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv",
+    "--model-path",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/model",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/chronos_weather"
+  ],
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "gpu_total_bytes": 11539054592,
+  "versions": {
+    "torch": "2.6.0+cu124",
+    "chronos-forecasting": "2.3.2",
+    "optuna": "4.5.0",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_chronos_weather.py": "9e3842882e65c231f3c4997da468222fc0b22f8a5e8fb862d1153aa8299bd762",
+    "experiments/portfolio_chronos.py": "fc6611e617c316abff81db57a523bcdcc622e220289ef584238e8884d20418f2",
+    "experiments/portfolio_experiment.py": "fcb24cb9f7ed9ff8650e5d6f18bd24aaea0eaa64e5ad571ae3d54f91be7cc24a"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "job_id": "8476995",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_conditional_shape.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/hourly_weather_shape",
+    "--weather",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv",
+    "--hourly-weather",
+    "artifacts/portfolio_20260926/continuation/external/weather_hourly_2025_era5.json"
+  ],
+  "daily_volume_source": "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected",
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_conditional_shape.py": "28fad139f269ed32564ac8ed2f6f86f9de6dd8e612e54a6dfad2df9dd2dbb22a",
+    "experiments/portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac",
+    "experiments/portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-07-31.csv": "12d1174735112530bd92a6576d8ce4cb7987200e12dab33d03766e8bfc683a27",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-06-30.csv": "d2701c9d5f5aec9fddb1cfa7835a2c2d57cab3d7a178677584803964042139ae",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-04-30.csv": "6f4cb9be9e86c24ad0c1655a548cb8af8ae8dceb262a72401e42361c49d1f484",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-08-31.csv": "eceb560b837ce3c3038669a5abf4449ed6fe1a699ff9e266c2783a02bdc17777",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-10-31.csv": "9cde757749a06fcdb913158f69a4c1c4b47893f59b3fef7656f305f0aef0926e",
+    "artifacts/portfolio_20260926/continuation/external/weather_hourly_2025_era5.json": "76c7b02ca1bd503914ab19737101c0f184b7823d3a863607195affd843eb9df2",
+    "artifacts/portfolio_20260926/continuation/hourly_weather_shape/aligned_hourly_weather.csv": "380d2c4f40fdca2df540e3318f7871554f4789be54a563f5cac497fead315d23"
+  }
+}

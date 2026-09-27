@@ -1,0 +1,15 @@
+{
+  "model_sha256": "2e03dba6dfcb21cd81686c3a099fa6f8d1663a47db0e1fa5b8311e2b16160415",
+  "model_reload_exact": true,
+  "iterations": 100,
+  "seed": 42,
+  "loss": "absolute actual/base ratio weighted networkbase/repeats",
+  "cutoff": "2025-06-30",
+  "model": "absolute",
+  "features": 28,
+  "rows": 244,
+  "latest_target_date": "2025-06-30",
+  "origins": 4,
+  "fit_seconds": 0.28981582447886467,
+  "peak_rss_kib": 208720
+}

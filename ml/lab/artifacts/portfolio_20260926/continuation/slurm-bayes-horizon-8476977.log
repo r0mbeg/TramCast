@@ -1,0 +1,35 @@
+[I 2026-09-27 03:27:30,332] A new study created in RDB with name: bayes_horizon
+[I 2026-09-27 03:27:32,488] Trial 0 finished with value: 0.8465412246323976 and parameters: {'route_specific': False, 'strength': 0.5, 'uncertainty': 1}. Best is trial 0 with value: 0.8465412246323976.
+[I 2026-09-27 03:27:33,507] Trial 1 finished with value: 0.8451183545939494 and parameters: {'route_specific': True, 'strength': 0.5, 'uncertainty': 1}. Best is trial 0 with value: 0.8465412246323976.
+[I 2026-09-27 03:27:34,406] Trial 2 finished with value: 0.8640056916113135 and parameters: {'route_specific': False, 'strength': 0.5, 'uncertainty': 0}. Best is trial 2 with value: 0.8640056916113135.
+[I 2026-09-27 03:27:35,393] Trial 3 finished with value: 0.8582931781464329 and parameters: {'route_specific': True, 'strength': 1.0, 'uncertainty': 1}. Best is trial 2 with value: 0.8640056916113135.
+[I 2026-09-27 03:27:36,275] Trial 4 finished with value: 0.8719256320409641 and parameters: {'route_specific': False, 'strength': 1.0, 'uncertainty': 0}. Best is trial 4 with value: 0.8719256320409641.
+[I 2026-09-27 03:27:37,254] Trial 5 finished with value: 0.8622944007515423 and parameters: {'route_specific': True, 'strength': 0.5, 'uncertainty': 0}. Best is trial 4 with value: 0.8719256320409641.
+[I 2026-09-27 03:27:38,146] Trial 6 finished with value: 0.8606097331170246 and parameters: {'route_specific': False, 'strength': 1.0, 'uncertainty': 1}. Best is trial 4 with value: 0.8719256320409641.
+[I 2026-09-27 03:27:39,137] Trial 7 finished with value: 0.8721115807990706 and parameters: {'route_specific': True, 'strength': 1.0, 'uncertainty': 0}. Best is trial 7 with value: 0.8721115807990706.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_bayes_horizon.py", line 103, in <module>
+    run(parser.parse_args())
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_bayes_horizon.py", line 95, in run
+    run_study(history,out,"bayes_horizon",lambda c,e,p:forecast(history,c,e,p,out),dict(sampler="grid",
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 297, in run_study
+    rows = save_candidate(data, finalist, family,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 216, in save_candidate
+    raw = predict_raw(cutoff, end)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 298, in <lambda>
+    lambda cutoff, end: predict_raw(cutoff, end, best.params))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_bayes_horizon.py", line 95, in <lambda>
+    run_study(history,out,"bayes_horizon",lambda c,e,p:forecast(history,c,e,p,out),dict(sampler="grid",
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_bayes_horizon.py", line 69, in forecast
+    raw=apply_operations(raw[KEYS+["prediction"]],history.loc[history.date.le(cutoff)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_operations.py", line 86, in apply_operations
+    raise ValueError("Invalid operations forecast")
+ValueError: Invalid operations forecast
+srun: error: cn63: task 0: Exited with exit code 1

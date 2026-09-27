@@ -1,0 +1,83 @@
+[I 2026-09-27 03:48:42,287] A new study created in RDB with name: hourly_quantile
+[W 2026-09-27 03:51:14,525] Trial 0 failed with parameters: {'alpha': 0.001} because of the following error: ValueError('Hourly linear program did not converge within its budget').
+Traceback (most recent call last):
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 54, in fit_hourly
+    model.fit(x,target,sample_weight=weights)
+  File "/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/base.py", line 1336, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/linear_model/_quantile.py", line 274, in fit
+    warnings.warn(
+sklearn.exceptions.ConvergenceWarning: Linear programming for QuantileRegressor did not succeed.
+Status is 1: Iteration limit reached.
+Result message of linprog:
+Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/deps/optuna/study/_optimize.py", line 201, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 273, in objective
+    rows = save_candidate(data, trial_out, f"{family}_trial{trial.number}",
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 216, in save_candidate
+    raw = predict_raw(cutoff, end)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 274, in <lambda>
+    lambda cutoff, end: predict_raw(cutoff, end, params), DEVELOPMENT, final=False)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 126, in <lambda>
+    run_study(history,out,"hourly_quantile",lambda c,e,p:forecast(history,c,e,p["alpha"],out),
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 87, in forecast
+    factor,summary=fit_hourly(pd.concat(daily,ignore_index=True),pd.concat(hourly,ignore_index=True),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 56, in fit_hourly
+    raise ValueError("Hourly linear program did not converge within its budget") from error
+ValueError: Hourly linear program did not converge within its budget
+[W 2026-09-27 03:51:14,529] Trial 0 failed with value None.
+[I 2026-09-27 03:52:57,755] Trial 1 finished with value: 0.8776563253314319 and parameters: {'alpha': 0.01}. Best is trial 1 with value: 0.8776563253314319.
+[I 2026-09-27 03:53:59,270] Trial 2 finished with value: 0.8508121425367168 and parameters: {'alpha': 0.1}. Best is trial 1 with value: 0.8776563253314319.
+Traceback (most recent call last):
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 54, in fit_hourly
+    model.fit(x,target,sample_weight=weights)
+  File "/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/base.py", line 1336, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/linear_model/_quantile.py", line 274, in fit
+    warnings.warn(
+sklearn.exceptions.ConvergenceWarning: Linear programming for QuantileRegressor did not succeed.
+Status is 1: Iteration limit reached.
+Result message of linprog:
+Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 136, in <module>
+    run(parser.parse_args())
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 126, in run
+    run_study(history,out,"hourly_quantile",lambda c,e,p:forecast(history,c,e,p["alpha"],out),
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 297, in run_study
+    rows = save_candidate(data, finalist, family,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 216, in save_candidate
+    raw = predict_raw(cutoff, end)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 298, in <lambda>
+    lambda cutoff, end: predict_raw(cutoff, end, best.params))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 126, in <lambda>
+    run_study(history,out,"hourly_quantile",lambda c,e,p:forecast(history,c,e,p["alpha"],out),
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 87, in forecast
+    factor,summary=fit_hourly(pd.concat(daily,ignore_index=True),pd.concat(hourly,ignore_index=True),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_hourly_quantile.py", line 56, in fit_hourly
+    raise ValueError("Hourly linear program did not converge within its budget") from error
+ValueError: Hourly linear program did not converge within its budget
+srun: error: cn55: task 0: Exited with exit code 1

@@ -1,0 +1,6 @@
+{
+  "attempt": "017_bayesian_direct_horizon",
+  "sha256": "66b6e373db1a2f67136370b092f22577ef3d913f8687c229485d56f59f29c859",
+  "rows": 14640,
+  "verification": "independent frozen scorer; raw/integer/forcedzeros exact"
+}

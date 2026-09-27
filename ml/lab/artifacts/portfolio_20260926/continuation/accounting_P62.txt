@@ -1,0 +1,12 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+JobID|State|ElapsedRaw|AllocCPUS|AllocTRES|MaxRSS
+8477026|COMPLETED|4|1|billing=1,cpu=1,mem=512M,node=1|
+8477026.batch|COMPLETED|4|1|cpu=1,mem=512M,node=1|1340K
+8477026.extern|COMPLETED|4|1|billing=1,cpu=1,mem=512M,node=1|956K
+8477026.0|COMPLETED|3|1|cpu=1,mem=512M,node=1|1136K
+8477027|COMPLETED|10|1|billing=1,cpu=1,mem=512M,node=1|
+8477027.batch|COMPLETED|10|1|cpu=1,mem=512M,node=1|1340K
+8477027.extern|COMPLETED|10|1|billing=1,cpu=1,mem=512M,node=1|956K
+8477027.0|COMPLETED|10|1|cpu=1,mem=512M,node=1|1136K

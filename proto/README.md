@@ -83,15 +83,15 @@ Runtime-зависимости `google.golang.org/protobuf` и `google.golang.or
 
 ### Python
 
-В окружении ML-приложения нужен `grpcio-tools` и совместимые runtime-зависимости `grpcio` и `protobuf`. Создайте каталог вывода `ml/generated`: в PowerShell — `New-Item -ItemType Directory -Force ml/generated`, в Linux/macOS — `mkdir -p ml/generated`.
+В окружении ML-приложения нужен `grpcio-tools` и совместимые runtime-зависимости `grpcio` и `protobuf`. Создайте каталог вывода `ml/runtime/generated`: в PowerShell — `New-Item -ItemType Directory -Force ml/runtime/generated`, в Linux/macOS — `mkdir -p ml/runtime/generated`.
 
 ```text
-python -m grpc_tools.protoc --proto_path=proto --python_out=ml/generated --pyi_out=ml/generated --grpc_python_out=ml/generated proto/tramcast/forecast/v1/forecast.proto
+python -m grpc_tools.protoc --proto_path=proto --python_out=ml/runtime/generated --pyi_out=ml/runtime/generated --grpc_python_out=ml/runtime/generated proto/tramcast/forecast/v1/forecast.proto
 ```
 
-Результат в `ml/generated/tramcast/forecast/v1/`: `forecast_pb2.py`, `forecast_pb2.pyi`, `forecast_pb2_grpc.py`. Реализация наследует `ForecastServiceServicer` и регистрируется через `add_ForecastServiceServicer_to_server`. [Генерация Python gRPC](https://grpc.io/docs/languages/python/basics/#generating-client-and-server-code).
+Результат в `ml/runtime/generated/tramcast/forecast/v1/`: `forecast_pb2.py`, `forecast_pb2.pyi`, `forecast_pb2_grpc.py`. Реализация наследует `ForecastServiceServicer` и регистрируется через `add_ForecastServiceServicer_to_server`. [Генерация Python gRPC](https://grpc.io/docs/languages/python/basics/#generating-client-and-server-code).
 
-Каталог `ml/generated` должен входить в путь импорта Python. Для локального запуска из корня в PowerShell установите `$env:PYTHONPATH = (Resolve-Path ml/generated).Path`, в Linux/macOS — `export PYTHONPATH="$PWD/ml/generated"`. После этого импорт доступен как `from tramcast.forecast.v1 import forecast_pb2, forecast_pb2_grpc`. При упаковке ML-приложения этот namespace-пакет нужно включить в его сборку.
+Каталог `ml/runtime/generated` должен входить в путь импорта Python. Для локального запуска из корня в PowerShell установите `$env:PYTHONPATH = (Resolve-Path ml/runtime/generated).Path`, в Linux/macOS — `export PYTHONPATH="$PWD/ml/runtime/generated"`. После этого импорт доступен как `from tramcast.forecast.v1 import forecast_pb2, forecast_pb2_grpc`. При упаковке ML-приложения этот namespace-пакет нужно включить в его сборку.
 
 ## Изменения контракта
 
@@ -99,6 +99,8 @@ python -m grpc_tools.protoc --proto_path=proto --python_out=ml/generated --pyi_o
 
 ## Текущая Python-реализация
 
-[ml/service.py](../ml/service.py) реализует этот контракт с предварительно рассчитанной посылкой Chronos 002. Это согласованный режим интеграции: сохранённый прогноз вместо повторного inference. ID версии модели, конфигурация, ID снимка истории, период и контрольная сумма CSV находятся в [метаданных пакета](../ml/forecast_bundle.json). При старте проверяются все ключи и значения; выдаются исходные целые числа без повторного округления. Ошибочный пакет даёт FAILED_PRECONDITION, подробности пишутся в лог. Замена пакета требует перезапуска.
+[ml/runtime/service.py](../ml/runtime/service.py) реализует контракт в двух режимах: основной рецепт 030 с реальным TabPFN inference и постоянным кэшем либо явный контрольный `--bundle` с готовым Chronos 002. Сервис закреплён за одним рецептом; `--describe` выдаёт фактические model/dataset ID для Go. `--refresh` создаёт новый конфиг для ручного пересчёта, не изменяя текущий процесс или прежние результаты. Кэш опубликованных прогнозов остаётся в PostgreSQL; локальный SQLite в Python предотвращает повторный дорогой расчёт.
 
-Сгенерированный Python-код хранится в репозитории. Для его обновления: установить `ml/requirements-proto.txt`, выполнить `make proto-generate-python`. Сервер и проверки запускаются по [инструкции ML](../ml/README.md).
+Подробности сроков, подготовки входов, отмены и совместного использования версий — [интеграция ML](../ml/docs/INTEGRATION.md). Сгенерированный Python-код обновляется через `make proto-generate-python` после установки `ml/runtime/requirements-proto.txt`. API сообщений не изменён.
+
+Для начала интеграции без GPU есть самостоятельный replay проверенного результата 030 с отдельным ID модели. [Инструкция запуска ML](../ml/docs/HANDOFF.md) содержит команды Docker, проверочный запрос и получение метаданных версии.

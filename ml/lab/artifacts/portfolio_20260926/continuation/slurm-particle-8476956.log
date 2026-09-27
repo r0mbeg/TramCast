@@ -1,0 +1,80 @@
+[I 2026-09-27 01:33:42,440] A new study created in RDB with name: particle
+[I 2026-09-27 01:33:42,692] A new study created in RDB with name: evidence
+[I 2026-09-27 01:33:42,884] Trial 0 finished with value: 1158.0736156493435 and parameters: {'q': 0.0001, 'jump_probability': 0.1}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:43,050] Trial 1 finished with value: 1058.8860948869597 and parameters: {'q': 0.0001, 'jump_probability': 0.0}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:43,213] Trial 2 finished with value: 1144.3488005228612 and parameters: {'q': 0.001, 'jump_probability': 0.02}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:43,373] Trial 3 finished with value: 877.1146279162323 and parameters: {'q': 1e-05, 'jump_probability': 0.0}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:43,539] Trial 4 finished with value: 1108.1269658539336 and parameters: {'q': 0.001, 'jump_probability': 0.1}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:43,703] Trial 5 finished with value: 1065.1659006304567 and parameters: {'q': 0.001, 'jump_probability': 0.0}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:43,866] Trial 6 finished with value: 1157.7112038263224 and parameters: {'q': 0.0001, 'jump_probability': 0.02}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:44,032] Trial 7 finished with value: 1132.0700381314605 and parameters: {'q': 1e-05, 'jump_probability': 0.02}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:44,197] Trial 8 finished with value: 1156.6954010600834 and parameters: {'q': 1e-05, 'jump_probability': 0.1}. Best is trial 0 with value: 1158.0736156493435.
+[I 2026-09-27 01:33:45,113] A new study created in RDB with name: evidence
+[I 2026-09-27 01:33:45,354] Trial 0 finished with value: 1593.8170236623694 and parameters: {'q': 0.0001, 'jump_probability': 0.1}. Best is trial 0 with value: 1593.8170236623694.
+[I 2026-09-27 01:33:45,574] Trial 1 finished with value: 1537.9265698054944 and parameters: {'q': 0.0001, 'jump_probability': 0.0}. Best is trial 0 with value: 1593.8170236623694.
+[I 2026-09-27 01:33:45,793] Trial 2 finished with value: 1590.743617828767 and parameters: {'q': 0.001, 'jump_probability': 0.02}. Best is trial 0 with value: 1593.8170236623694.
+[I 2026-09-27 01:33:46,008] Trial 3 finished with value: 1341.3270221927712 and parameters: {'q': 1e-05, 'jump_probability': 0.0}. Best is trial 0 with value: 1593.8170236623694.
+[I 2026-09-27 01:33:46,226] Trial 4 finished with value: 1538.1498940936474 and parameters: {'q': 0.001, 'jump_probability': 0.1}. Best is trial 0 with value: 1593.8170236623694.
+[I 2026-09-27 01:33:46,449] Trial 5 finished with value: 1547.8169276362212 and parameters: {'q': 0.001, 'jump_probability': 0.0}. Best is trial 0 with value: 1593.8170236623694.
+[I 2026-09-27 01:33:46,672] Trial 6 finished with value: 1619.5419998988054 and parameters: {'q': 0.0001, 'jump_probability': 0.02}. Best is trial 6 with value: 1619.5419998988054.
+[I 2026-09-27 01:33:46,896] Trial 7 finished with value: 1586.2412394964272 and parameters: {'q': 1e-05, 'jump_probability': 0.02}. Best is trial 6 with value: 1619.5419998988054.
+[I 2026-09-27 01:33:47,121] Trial 8 finished with value: 1593.3003317726884 and parameters: {'q': 1e-05, 'jump_probability': 0.1}. Best is trial 6 with value: 1619.5419998988054.
+[I 2026-09-27 01:33:47,903] Trial 0 finished with value: 0.8637146285705462 and parameters: {'grouped': False, 'strength': 0.5, 'uncertainty': 1}. Best is trial 0 with value: 0.8637146285705462.
+[I 2026-09-27 01:33:48,177] A new study created in RDB with name: evidence
+[I 2026-09-27 01:33:48,366] Trial 0 finished with value: 1026.6553780191903 and parameters: {'q': 0.0001, 'jump_probability': 0.1}. Best is trial 0 with value: 1026.6553780191903.
+[I 2026-09-27 01:33:48,533] Trial 1 finished with value: 1012.8996523183426 and parameters: {'q': 0.0001, 'jump_probability': 0.0}. Best is trial 0 with value: 1026.6553780191903.
+[I 2026-09-27 01:33:48,701] Trial 2 finished with value: 1048.174333033316 and parameters: {'q': 0.001, 'jump_probability': 0.02}. Best is trial 2 with value: 1048.174333033316.
+[I 2026-09-27 01:33:48,866] Trial 3 finished with value: 803.8505755574143 and parameters: {'q': 1e-05, 'jump_probability': 0.0}. Best is trial 2 with value: 1048.174333033316.
+[I 2026-09-27 01:33:49,039] Trial 4 finished with value: 948.8599660280051 and parameters: {'q': 0.001, 'jump_probability': 0.1}. Best is trial 2 with value: 1048.174333033316.
+[I 2026-09-27 01:33:49,208] Trial 5 finished with value: 1016.9121372864663 and parameters: {'q': 0.001, 'jump_probability': 0.0}. Best is trial 2 with value: 1048.174333033316.
+[I 2026-09-27 01:33:49,380] Trial 6 finished with value: 1095.028354432542 and parameters: {'q': 0.0001, 'jump_probability': 0.02}. Best is trial 6 with value: 1095.028354432542.
+[I 2026-09-27 01:33:49,554] Trial 7 finished with value: 1086.6030402572849 and parameters: {'q': 1e-05, 'jump_probability': 0.02}. Best is trial 6 with value: 1095.028354432542.
+[I 2026-09-27 01:33:49,727] Trial 8 finished with value: 1029.0179261500111 and parameters: {'q': 1e-05, 'jump_probability': 0.1}. Best is trial 6 with value: 1095.028354432542.
+[I 2026-09-27 01:33:50,641] A new study created in RDB with name: evidence
+[I 2026-09-27 01:33:50,892] Trial 0 finished with value: 1443.1943938414868 and parameters: {'q': 0.0001, 'jump_probability': 0.1}. Best is trial 0 with value: 1443.1943938414868.
+[I 2026-09-27 01:33:51,114] Trial 1 finished with value: 1503.0184502663235 and parameters: {'q': 0.0001, 'jump_probability': 0.0}. Best is trial 1 with value: 1503.0184502663235.
+[I 2026-09-27 01:33:51,337] Trial 2 finished with value: 1488.95221235798 and parameters: {'q': 0.001, 'jump_probability': 0.02}. Best is trial 1 with value: 1503.0184502663235.
+[I 2026-09-27 01:33:51,559] Trial 3 finished with value: 1321.6199444633846 and parameters: {'q': 1e-05, 'jump_probability': 0.0}. Best is trial 1 with value: 1503.0184502663235.
+[I 2026-09-27 01:33:51,787] Trial 4 finished with value: 1344.0363537280157 and parameters: {'q': 0.001, 'jump_probability': 0.1}. Best is trial 1 with value: 1503.0184502663235.
+[I 2026-09-27 01:33:52,012] Trial 5 finished with value: 1473.629093958793 and parameters: {'q': 0.001, 'jump_probability': 0.0}. Best is trial 1 with value: 1503.0184502663235.
+[I 2026-09-27 01:33:52,237] Trial 6 finished with value: 1582.2836045999245 and parameters: {'q': 0.0001, 'jump_probability': 0.02}. Best is trial 6 with value: 1582.2836045999245.
+[I 2026-09-27 01:33:52,463] Trial 7 finished with value: 1554.325460369911 and parameters: {'q': 1e-05, 'jump_probability': 0.02}. Best is trial 6 with value: 1582.2836045999245.
+[I 2026-09-27 01:33:52,695] Trial 8 finished with value: 1448.712203658495 and parameters: {'q': 1e-05, 'jump_probability': 0.1}. Best is trial 6 with value: 1582.2836045999245.
+[I 2026-09-27 01:33:53,485] Trial 1 finished with value: 0.8631022742670197 and parameters: {'grouped': True, 'strength': 0.5, 'uncertainty': 1}. Best is trial 0 with value: 0.8637146285705462.
+[I 2026-09-27 01:33:54,742] Trial 2 finished with value: 0.86376973708254 and parameters: {'grouped': False, 'strength': 0.5, 'uncertainty': 0}. Best is trial 2 with value: 0.86376973708254.
+[I 2026-09-27 01:33:56,002] Trial 3 finished with value: 0.8608185284746431 and parameters: {'grouped': True, 'strength': 1.0, 'uncertainty': 1}. Best is trial 2 with value: 0.86376973708254.
+[I 2026-09-27 01:33:57,254] Trial 4 finished with value: 0.8628713080512693 and parameters: {'grouped': False, 'strength': 1.0, 'uncertainty': 0}. Best is trial 2 with value: 0.86376973708254.
+[I 2026-09-27 01:33:58,502] Trial 5 finished with value: 0.8630555726985643 and parameters: {'grouped': True, 'strength': 0.5, 'uncertainty': 0}. Best is trial 2 with value: 0.86376973708254.
+[I 2026-09-27 01:33:59,772] Trial 6 finished with value: 0.862981642457056 and parameters: {'grouped': False, 'strength': 1.0, 'uncertainty': 1}. Best is trial 2 with value: 0.86376973708254.
+[I 2026-09-27 01:34:01,019] Trial 7 finished with value: 0.8600634551349484 and parameters: {'grouped': True, 'strength': 1.0, 'uncertainty': 0}. Best is trial 2 with value: 0.86376973708254.
+[I 2026-09-27 01:34:01,573] A new study created in RDB with name: evidence
+[I 2026-09-27 01:34:01,847] Trial 0 finished with value: 1793.1586315108666 and parameters: {'q': 0.0001, 'jump_probability': 0.1}. Best is trial 0 with value: 1793.1586315108666.
+[I 2026-09-27 01:34:02,094] Trial 1 finished with value: 1713.8516908970323 and parameters: {'q': 0.0001, 'jump_probability': 0.0}. Best is trial 0 with value: 1793.1586315108666.
+[I 2026-09-27 01:34:02,340] Trial 2 finished with value: 1802.9905420856426 and parameters: {'q': 0.001, 'jump_probability': 0.02}. Best is trial 2 with value: 1802.9905420856426.
+[I 2026-09-27 01:34:02,581] Trial 3 finished with value: 1465.029639821103 and parameters: {'q': 1e-05, 'jump_probability': 0.0}. Best is trial 2 with value: 1802.9905420856426.
+[I 2026-09-27 01:34:02,831] Trial 4 finished with value: 1737.6993526664708 and parameters: {'q': 0.001, 'jump_probability': 0.1}. Best is trial 2 with value: 1802.9905420856426.
+[I 2026-09-27 01:34:03,077] Trial 5 finished with value: 1753.437815799712 and parameters: {'q': 0.001, 'jump_probability': 0.0}. Best is trial 2 with value: 1802.9905420856426.
+[I 2026-09-27 01:34:03,322] Trial 6 finished with value: 1787.1927571409506 and parameters: {'q': 0.0001, 'jump_probability': 0.02}. Best is trial 2 with value: 1802.9905420856426.
+[I 2026-09-27 01:34:03,568] Trial 7 finished with value: 1755.8574517826344 and parameters: {'q': 1e-05, 'jump_probability': 0.02}. Best is trial 2 with value: 1802.9905420856426.
+[I 2026-09-27 01:34:03,818] Trial 8 finished with value: 1787.3631224649293 and parameters: {'q': 1e-05, 'jump_probability': 0.1}. Best is trial 2 with value: 1802.9905420856426.
+[I 2026-09-27 01:34:04,919] A new study created in RDB with name: evidence
+[I 2026-09-27 01:34:05,219] Trial 0 finished with value: 2011.2371904717897 and parameters: {'q': 0.0001, 'jump_probability': 0.1}. Best is trial 0 with value: 2011.2371904717897.
+[I 2026-09-27 01:34:05,492] Trial 1 finished with value: 1895.4843743189974 and parameters: {'q': 0.0001, 'jump_probability': 0.0}. Best is trial 0 with value: 2011.2371904717897.
+[I 2026-09-27 01:34:05,770] Trial 2 finished with value: 1995.8614094833467 and parameters: {'q': 0.001, 'jump_probability': 0.02}. Best is trial 0 with value: 2011.2371904717897.
+[I 2026-09-27 01:34:06,042] Trial 3 finished with value: 1584.8901686455924 and parameters: {'q': 1e-05, 'jump_probability': 0.0}. Best is trial 0 with value: 2011.2371904717897.
+[I 2026-09-27 01:34:06,319] Trial 4 finished with value: 1953.9931774080492 and parameters: {'q': 0.001, 'jump_probability': 0.1}. Best is trial 0 with value: 2011.2371904717897.
+[I 2026-09-27 01:34:06,594] Trial 5 finished with value: 1935.714133276892 and parameters: {'q': 0.001, 'jump_probability': 0.0}. Best is trial 0 with value: 2011.2371904717897.
+[I 2026-09-27 01:34:06,866] Trial 6 finished with value: 2023.1790806945344 and parameters: {'q': 0.0001, 'jump_probability': 0.02}. Best is trial 6 with value: 2023.1790806945344.
+[I 2026-09-27 01:34:07,140] Trial 7 finished with value: 1959.0959816777076 and parameters: {'q': 1e-05, 'jump_probability': 0.02}. Best is trial 6 with value: 2023.1790806945344.
+[I 2026-09-27 01:34:07,419] Trial 8 finished with value: 2010.8224123599641 and parameters: {'q': 1e-05, 'jump_probability': 0.1}. Best is trial 6 with value: 2023.1790806945344.
+[I 2026-09-27 01:34:08,501] A new study created in RDB with name: evidence
+[I 2026-09-27 01:34:08,864] Trial 0 finished with value: 2652.5608738389446 and parameters: {'q': 0.0001, 'jump_probability': 0.1}. Best is trial 0 with value: 2652.5608738389446.
+[I 2026-09-27 01:34:09,197] Trial 1 finished with value: 2544.2075664262484 and parameters: {'q': 0.0001, 'jump_probability': 0.0}. Best is trial 0 with value: 2652.5608738389446.
+[I 2026-09-27 01:34:09,535] Trial 2 finished with value: 2635.6447998818276 and parameters: {'q': 0.001, 'jump_probability': 0.02}. Best is trial 0 with value: 2652.5608738389446.
+[I 2026-09-27 01:34:09,864] Trial 3 finished with value: 2163.5426946802195 and parameters: {'q': 1e-05, 'jump_probability': 0.0}. Best is trial 0 with value: 2652.5608738389446.
+[I 2026-09-27 01:34:10,202] Trial 4 finished with value: 2553.7152204462764 and parameters: {'q': 0.001, 'jump_probability': 0.1}. Best is trial 0 with value: 2652.5608738389446.
+[I 2026-09-27 01:34:10,541] Trial 5 finished with value: 2554.7474350933744 and parameters: {'q': 0.001, 'jump_probability': 0.0}. Best is trial 0 with value: 2652.5608738389446.
+[I 2026-09-27 01:34:10,879] Trial 6 finished with value: 2678.9887670197268 and parameters: {'q': 0.0001, 'jump_probability': 0.02}. Best is trial 6 with value: 2678.9887670197268.
+[I 2026-09-27 01:34:11,213] Trial 7 finished with value: 2622.8692371717034 and parameters: {'q': 1e-05, 'jump_probability': 0.02}. Best is trial 6 with value: 2678.9887670197268.
+[I 2026-09-27 01:34:11,552] Trial 8 finished with value: 2648.697853304127 and parameters: {'q': 1e-05, 'jump_probability': 0.1}. Best is trial 6 with value: 2678.9887670197268.
+particle {'grouped': False, 'strength': 0.5, 'uncertainty': 0} [0.874279934534142, 0.853259539630938, 0.8935846385414936, 0.878481749994757]

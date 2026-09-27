@@ -1,0 +1,8 @@
+{
+  "attempt": "010_weather_operations_season",
+  "sha256": "306c18ca56dbf9e45d4f23a5d2345a7bc2e67f28d3d1058e8a26cc87edee08e0",
+  "rows": 14640,
+  "source": "operations/operations/selected",
+  "verified_windows": 562,
+  "protected_hashes": 17
+}

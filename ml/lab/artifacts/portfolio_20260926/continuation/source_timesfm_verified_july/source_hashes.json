@@ -1,0 +1,13 @@
+{
+  "portfolio_timesfm.py": "710305e9420024e43819ff2f06145d07295b35bde7c12f7f63b972bc6f199120",
+  "portfolio_chronos.py": "fc6611e617c316abff81db57a523bcdcc622e220289ef584238e8884d20418f2",
+  "test_portfolio_experiment.py": "6c4c3efd211c057b69c8c6e7a2de69d0dbb7e9e06ea9cac92d1d791dadcd8389",
+  "portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+  "job.sbatch": "c829bc3be90836d91224966ad7331e764afe5cb457f4f19905bc42c8e9f67ee2",
+  "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+  "portfolio_factor.py": "ef3eb63f6cc1614f3b6b1691514749d4dd5a369f0900b1f4573bd49a5422d29d",
+  "portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+  "portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+  "portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+  "portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac"
+}

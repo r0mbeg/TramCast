@@ -1,0 +1,8 @@
+{
+  "params": {
+    "representation": "hour_weather",
+    "quantile": 0.25
+  },
+  "value": 0.8374202539035067,
+  "trial": 5
+}

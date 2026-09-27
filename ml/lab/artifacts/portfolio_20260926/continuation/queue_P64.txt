@@ -1,0 +1,1 @@
+2026-09-27T05:25Z: no user jobs, ais11idle; gpu_devel9idle/2down*, QoS MaxJobsPU2/MaxTRESPUgpu4. Live SSH query retained in turn output.

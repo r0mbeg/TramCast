@@ -1,0 +1,8 @@
+[I 2026-09-27 02:43:51,316] A new study created in RDB with name: bayes_direct
+[I 2026-09-27 02:43:54,983] Trial 0 finished with value: 0.8660378505028214 and parameters: {'strength': 0.0, 'uncertainty': 1, 'history_days': 112}. Best is trial 0 with value: 0.8660378505028214.
+[I 2026-09-27 02:43:55,860] Trial 1 finished with value: 0.8680931662189552 and parameters: {'strength': 0.5, 'uncertainty': 1, 'history_days': 112}. Best is trial 1 with value: 0.8680931662189552.
+[I 2026-09-27 02:43:56,728] Trial 2 finished with value: 0.8689219600890854 and parameters: {'strength': 1.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 2 with value: 0.8689219600890854.
+[I 2026-09-27 02:43:57,597] Trial 3 finished with value: 0.8678471487907016 and parameters: {'strength': 1.0, 'uncertainty': 1, 'history_days': 112}. Best is trial 2 with value: 0.8689219600890854.
+[I 2026-09-27 02:43:58,487] Trial 4 finished with value: 0.8688932966793318 and parameters: {'strength': 0.5, 'uncertainty': 1, 'history_days': 224}. Best is trial 2 with value: 0.8689219600890854.
+[I 2026-09-27 02:43:59,369] Trial 5 finished with value: 0.8660378505028214 and parameters: {'strength': 0.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 2 with value: 0.8689219600890854.
+bayes_direct {'strength': 1.0, 'uncertainty': 1, 'history_days': 224} [0.8741521907751141, 0.8636917294030566, 0.8893377981129371, 0.9000760402157779]

@@ -1,0 +1,121 @@
+{
+  "checked_at": "2026-09-27T04:30:48.127945+00:00",
+  "input_code_sha256": {
+    "pilot": 43,
+    "study": 43
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "seed": 42,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-04-30",
+      "rows": 1098
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-06-30",
+      "rows": 2196
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-07-31",
+      "rows": 2745
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-08-31",
+      "rows": 3294
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-04-30",
+      "rows": 1098
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-06-30",
+      "rows": 2196
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-07-31",
+      "rows": 2745
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-08-31",
+      "rows": 3294
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    }
+  ],
+  "raw_forecasts_checked": 16,
+  "past_only_fraction_targets": true,
+  "absolute_daily_loss_identity": true,
+  "network_raw_daily_totals_preserved": true,
+  "fixed_024_hourshares": true,
+  "exact_024_control": true,
+  "seed73_all5_raw_exact": true,
+  "model_reloads_exact_on_zhores": true,
+  "local_model_inference_skipped": "sklearn1.9.1 differs from saved1.8.0; saved transforms audited",
+  "audit_code_sha256": "9d494a2f73bfd6086755dba8fa171453901671ef2935fc5c329b7ee565b81d74",
+  "candidate": "028_nonlinear_route_fractions",
+  "source": "route_fraction/study/route_fraction/selected",
+  "sha256": "1dac3b146ed518db2ec95133efc66d8d5befad559d43ca2b9575d2f51c121c4e",
+  "recipe": "half",
+  "params": {
+    "loss": "absolute_error",
+    "leaves": 15,
+    "iterations": 100,
+    "learning_rate": 0.05,
+    "min_leaf": 50,
+    "l2": 1,
+    "features": 24,
+    "seed": 42,
+    "history_days": 224
+  },
+  "parent_families": [
+    "P41",
+    "P47",
+    "P53",
+    "P57"
+  ],
+  "selection_windows": [
+    "W1",
+    "W2"
+  ],
+  "score_windows": [
+    0.8843684827267543,
+    0.8825076272348537,
+    0.8873646264953693,
+    0.9001155487671015
+  ],
+  "mean": 0.8885890713060197,
+  "worst": 0.8825076272348537,
+  "closed_score": null,
+  "minimum090_each_window_met": false,
+  "replaced": "021 remains archived; its base volume represented by024/025/028"
+}

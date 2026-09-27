@@ -1,0 +1,7 @@
+[I 2026-09-27 06:08:15,304] A new study created in RDB with name: absolute_shape
+[I 2026-09-27 06:08:18,502] Trial 0 finished with value: 0.8841757021471996 and parameters: {'recipe': 'half_15'}. Best is trial 0 with value: 0.8841757021471996.
+[I 2026-09-27 06:08:22,442] Trial 1 finished with value: 0.8844508483989613 and parameters: {'recipe': 'full_31'}. Best is trial 1 with value: 0.8844508483989613.
+[I 2026-09-27 06:08:22,983] Trial 2 finished with value: 0.8846825916167445 and parameters: {'recipe': 'full_15'}. Best is trial 2 with value: 0.8846825916167445.
+[I 2026-09-27 06:08:23,481] Trial 3 finished with value: 0.8814866909017036 and parameters: {'recipe': 'control'}. Best is trial 2 with value: 0.8846825916167445.
+[I 2026-09-27 06:08:24,022] Trial 4 finished with value: 0.8841324692931866 and parameters: {'recipe': 'half_31'}. Best is trial 2 with value: 0.8846825916167445.
+absolute_shape {'recipe': 'full_15'} [0.8876407349437546, 0.8817244482897342, 0.88042564255544, 0.8970805379855085]

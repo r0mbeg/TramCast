@@ -1,0 +1,25 @@
+{
+  "source": "sacct actual top-level allocations",
+  "previous_checkpoint": "accounting_checkpoint_P46.json",
+  "checked_at": "2026-09-27T02:22:28.650424+00:00",
+  "jobs": [
+    {
+      "job_id": 8476997,
+      "elapsed_seconds": 6,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED"
+    },
+    {
+      "job_id": 8476998,
+      "elapsed_seconds": 21,
+      "cpus": 2,
+      "gpus": 0,
+      "state": "COMPLETED"
+    }
+  ],
+  "cumulative_cpu_core_seconds": 10598,
+  "cumulative_gpu_seconds": 1359,
+  "active_jobs": [],
+  "remaining_gpu_hour_budget": 23.6225
+}

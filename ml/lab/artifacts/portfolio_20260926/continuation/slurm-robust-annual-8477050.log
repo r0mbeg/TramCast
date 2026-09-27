@@ -1,0 +1,5 @@
+[I 2026-09-27 10:20:49,441] A new study created in RDB with name: robust_annual
+[I 2026-09-27 10:20:49,934] Trial 0 finished with value: 0.8840879572608873 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.8840879572608873.
+[I 2026-09-27 10:20:50,944] Trial 1 finished with value: 0.883682843434803 and parameters: {'recipe': 'half'}. Best is trial 0 with value: 0.8840879572608873.
+[I 2026-09-27 10:20:51,498] Trial 2 finished with value: 0.883133560029714 and parameters: {'recipe': 'full'}. Best is trial 0 with value: 0.8840879572608873.
+robust_annual {'recipe': 'control'} [0.8845925763271129, 0.8835833381946617, 0.8855484375501503, 0.8995918837339524]

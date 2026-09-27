@@ -1,0 +1,7 @@
+[I 2026-09-27 06:40:04,385] A new study created in RDB with name: nonlinear_errors
+[I 2026-09-27 06:40:05,784] Trial 0 finished with value: 0.8797842805963778 and parameters: {'recipe': 'half_7'}. Best is trial 0 with value: 0.8797842805963778.
+[I 2026-09-27 06:40:07,557] Trial 1 finished with value: 0.872067962176168 and parameters: {'recipe': 'full_15'}. Best is trial 0 with value: 0.8797842805963778.
+[I 2026-09-27 06:40:08,112] Trial 2 finished with value: 0.8714358223691907 and parameters: {'recipe': 'full_7'}. Best is trial 0 with value: 0.8797842805963778.
+[I 2026-09-27 06:40:08,616] Trial 3 finished with value: 0.8830272693231019 and parameters: {'recipe': 'control'}. Best is trial 3 with value: 0.8830272693231019.
+[I 2026-09-27 06:40:09,163] Trial 4 finished with value: 0.8800862020919495 and parameters: {'recipe': 'half_15'}. Best is trial 3 with value: 0.8830272693231019.
+nonlinear_errors {'recipe': 'control'} [0.8847498060861879, 0.881304732560016, 0.888151988611891, 0.8995451489664822]

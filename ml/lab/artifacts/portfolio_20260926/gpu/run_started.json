@@ -1,0 +1,81 @@
+{
+  "spec": {
+    "methods": [
+      "daily",
+      "route_hour",
+      "calendar",
+      "day_shares",
+      "calendar_shares",
+      "recent_shares",
+      "normalized_shared",
+      "coverage",
+      "hourly"
+    ],
+    "windows": [
+      [
+        "2025-04-30",
+        "2025-06-30"
+      ],
+      [
+        "2025-06-30",
+        "2025-08-30"
+      ],
+      [
+        "2025-07-31",
+        "2025-09-30"
+      ],
+      [
+        "2025-08-31",
+        "2025-10-31"
+      ]
+    ],
+    "final": [
+      "2025-10-31",
+      "2025-12-31"
+    ],
+    "quantile": 0.5,
+    "context_length": 512,
+    "batch_size": 32,
+    "seed": 42,
+    "dtype": "float32",
+    "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "cross_learning": "True only for normalized_shared; False otherwise",
+    "family_timeout_seconds": 1800,
+    "training_within_horizon": false
+  },
+  "job_id": "8476938",
+  "partition": "gpu_devel",
+  "node": "vt12.zhores",
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "gpu_total_bytes": 11539054592,
+  "affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_chronos.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--model-path",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/model",
+    "--output",
+    "artifacts/portfolio_20260926/gpu"
+  ],
+  "pretrained_availability": "modern weights, not deployable at historical 2025 cutoff",
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_chronos.py": "620ff3a7a99811b1e850b0e35a41a366ef64c8f8514e6150f098d03247c466e2",
+    "experiments/portfolio_experiment.py": "f02177515c1098e3ad2ff9e4970d63dba000c0d752a0f2729eeb6e3c6777d349",
+    "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+    "experiments/chronos_experiment.py": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5",
+    "experiments/chronos_calendar_experiment.py": "cfd446decbadb90f787e6ddff84557071c01170bcb67364b91981e0dabf2e39b"
+  },
+  "versions": {
+    "torch": "2.6.0+cu124",
+    "chronos-forecasting": "2.3.2",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3"
+  }
+}

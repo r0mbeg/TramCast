@@ -1,0 +1,7 @@
+-r requirements.txt
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.17.1
+scikit-learn==1.6.1
+torch==2.6.0
+tabpfn==2.0.9

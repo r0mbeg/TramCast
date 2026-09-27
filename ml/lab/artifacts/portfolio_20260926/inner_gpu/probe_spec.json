@@ -1,0 +1,25 @@
+{
+  "methods": [
+    "daily"
+  ],
+  "windows": [
+    [
+      "2025-02-28",
+      "2025-04-30"
+    ],
+    [
+      "2025-05-31",
+      "2025-07-31"
+    ]
+  ],
+  "final": null,
+  "quantile": 0.5,
+  "context_length": 512,
+  "batch_size": 32,
+  "seed": 42,
+  "dtype": "float32",
+  "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "cross_learning": "True only for normalized_shared; False otherwise",
+  "family_timeout_seconds": 1800,
+  "training_within_horizon": false
+}

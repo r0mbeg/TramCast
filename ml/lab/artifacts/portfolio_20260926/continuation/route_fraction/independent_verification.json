@@ -1,0 +1,85 @@
+{
+  "checked_at": "2026-09-27T04:30:48.127945+00:00",
+  "input_code_sha256": {
+    "pilot": 43,
+    "study": 43
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "seed": 42,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-04-30",
+      "rows": 1098
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-06-30",
+      "rows": 2196
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-07-31",
+      "rows": 2745
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-08-31",
+      "rows": 3294
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-04-30",
+      "rows": 1098
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-06-30",
+      "rows": 2196
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-07-31",
+      "rows": 2745
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-08-31",
+      "rows": 3294
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    }
+  ],
+  "raw_forecasts_checked": 16,
+  "past_only_fraction_targets": true,
+  "absolute_daily_loss_identity": true,
+  "network_raw_daily_totals_preserved": true,
+  "fixed_024_hourshares": true,
+  "exact_024_control": true,
+  "seed73_all5_raw_exact": true,
+  "model_reloads_exact_on_zhores": true,
+  "local_model_inference_skipped": "sklearn1.9.1 differs from saved1.8.0; saved transforms audited",
+  "audit_code_sha256": "9d494a2f73bfd6086755dba8fa171453901671ef2935fc5c329b7ee565b81d74"
+}

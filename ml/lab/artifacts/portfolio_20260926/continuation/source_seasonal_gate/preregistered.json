@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-09-27T03:56:53.767802+00:00",
+  "phase": "P55",
+  "parent": "P53half15 fixed",
+  "objective": "meanW1/W2",
+  "sampler": "GridSampler",
+  "seed": 42,
+  "space": {
+    "recipe": [
+      "control",
+      "gated"
+    ]
+  },
+  "trials": 2,
+  "timeout_seconds": 1800,
+  "allocation": {
+    "partition": "ais-cpu",
+    "cpu": 1,
+    "ram_mib": 512,
+    "seconds": 120
+  },
+  "support": "atleast2distinct completed targetdates perroute/meteorologicalseason/effectiveweekday, recent224",
+  "targets": "unchangedfrozenhourly_clean",
+  "post_result_hypothesis": true
+}

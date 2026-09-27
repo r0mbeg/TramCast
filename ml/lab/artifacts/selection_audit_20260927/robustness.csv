@@ -1,0 +1,10 @@
+check;omitted;winner;scenario
+old_four;;031;
+old_four;2025-04-30;031;
+old_four;2025-06-30;031;
+old_four;2025-07-31;031;
+old_four;2025-08-31;031;
+old_four;;031;clean
+old_four;;031;raw_labels
+old_four;;031;observed_only
+old_four;;031;past_median_missing

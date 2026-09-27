@@ -1,0 +1,144 @@
+{
+  "checked_at": "2026-09-26T23:01:01.108632+00:00",
+  "source": "Slurm sacct exact top-level allocation rows",
+  "jobs": [
+    {
+      "job_id": 8476937,
+      "elapsed_seconds": 69,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476938,
+      "elapsed_seconds": 29,
+      "cpus": 4,
+      "gpus": 1,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476939,
+      "elapsed_seconds": 10,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476942,
+      "elapsed_seconds": 7,
+      "cpus": 2,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476943,
+      "elapsed_seconds": 21,
+      "cpus": 4,
+      "gpus": 1,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476944,
+      "elapsed_seconds": 29,
+      "cpus": 2,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476945,
+      "elapsed_seconds": 29,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476947,
+      "elapsed_seconds": 106,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476948,
+      "elapsed_seconds": 23,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476949,
+      "elapsed_seconds": 19,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476950,
+      "elapsed_seconds": 64,
+      "cpus": 4,
+      "gpus": 1,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476954,
+      "elapsed_seconds": 42,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476955,
+      "elapsed_seconds": 18,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476956,
+      "elapsed_seconds": 33,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476958,
+      "elapsed_seconds": 19,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476960,
+      "elapsed_seconds": 36,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    },
+    {
+      "job_id": 8476961,
+      "elapsed_seconds": 6,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED",
+      "exit": "0:0"
+    }
+  ],
+  "cpu_core_seconds": 2168,
+  "gpu_seconds": 114
+}

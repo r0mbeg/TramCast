@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-26T23:15:36.825564+00:00",
+  "jobs": [
+    {
+      "job_id": 8476963,
+      "state": "COMPLETED",
+      "exit": "0:0",
+      "elapsed_seconds": 21,
+      "cpus": 4,
+      "gpus": 1
+    },
+    {
+      "job_id": 8476965,
+      "state": "COMPLETED",
+      "exit": "0:0",
+      "elapsed_seconds": 16,
+      "cpus": 2,
+      "gpus": 0
+    }
+  ],
+  "active_job": 8476964,
+  "active_job_included_in_totals": false,
+  "cumulative_completed_gpu_seconds": 135,
+  "cumulative_completed_cpu_core_seconds": 2284
+}

@@ -1,0 +1,212 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+[I 2026-09-27 02:09:09,632] A new study created in RDB with name: finetune_daily
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 3.3259, 'grad_norm': 41.71422576904297, 'learning_rate': 8.7625e-07, 'epoch': 0.125}
+{'loss': 2.9884, 'grad_norm': 30.15389060974121, 'learning_rate': 7.512499999999999e-07, 'epoch': 0.25}
+{'loss': 2.9023, 'grad_norm': 26.23192596435547, 'learning_rate': 6.262499999999999e-07, 'epoch': 0.375}
+{'loss': 2.9408, 'grad_norm': 31.527935028076172, 'learning_rate': 5.0125e-07, 'epoch': 0.5}
+{'loss': 2.866, 'grad_norm': 37.7338752746582, 'learning_rate': 3.7624999999999994e-07, 'epoch': 0.625}
+{'loss': 2.7974, 'grad_norm': 33.575950622558594, 'learning_rate': 2.5125e-07, 'epoch': 0.75}
+{'loss': 2.6957, 'grad_norm': 30.28639030456543, 'learning_rate': 1.2624999999999998e-07, 'epoch': 0.875}
+{'loss': 2.7603, 'grad_norm': 45.43297576904297, 'learning_rate': 1.25e-09, 'epoch': 1.0}
+{'train_runtime': 71.6481, 'train_samples_per_second': 89.326, 'train_steps_per_second': 11.166, 'train_loss': 2.909602699279785, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.7139, 'grad_norm': 30.63136863708496, 'learning_rate': 8.7625e-07, 'epoch': 0.125}
+{'loss': 4.1222, 'grad_norm': 37.64906692504883, 'learning_rate': 7.512499999999999e-07, 'epoch': 0.25}
+{'loss': 3.6787, 'grad_norm': 36.910762786865234, 'learning_rate': 6.262499999999999e-07, 'epoch': 0.375}
+{'loss': 3.4192, 'grad_norm': 55.673641204833984, 'learning_rate': 5.0125e-07, 'epoch': 0.5}
+{'loss': 3.3709, 'grad_norm': 44.44942092895508, 'learning_rate': 3.7624999999999994e-07, 'epoch': 0.625}
+{'loss': 3.1191, 'grad_norm': 44.02091979980469, 'learning_rate': 2.5125e-07, 'epoch': 0.75}
+{'loss': 3.1576, 'grad_norm': 37.85006332397461, 'learning_rate': 1.2624999999999998e-07, 'epoch': 0.875}
+{'loss': 3.2302, 'grad_norm': 31.377208709716797, 'learning_rate': 1.25e-09, 'epoch': 1.0}
+{'train_runtime': 70.1893, 'train_samples_per_second': 91.182, 'train_steps_per_second': 11.398, 'train_loss': 3.6014755630493163, 'epoch': 1.0}
+[I 2026-09-27 02:11:41,139] Trial 0 finished with value: 0.805163563783118 and parameters: {'steps': 800, 'learning_rate': 1e-06}. Best is trial 0 with value: 0.805163563783118.
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 2.932, 'grad_norm': 32.712074279785156, 'learning_rate': 8.762500000000001e-06, 'epoch': 0.125}
+{'loss': 2.4727, 'grad_norm': 44.43360137939453, 'learning_rate': 7.5125000000000005e-06, 'epoch': 0.25}
+{'loss': 2.201, 'grad_norm': 28.486652374267578, 'learning_rate': 6.262500000000001e-06, 'epoch': 0.375}
+{'loss': 2.036, 'grad_norm': 29.04282569885254, 'learning_rate': 5.0125e-06, 'epoch': 0.5}
+{'loss': 1.8726, 'grad_norm': 35.51447677612305, 'learning_rate': 3.7625e-06, 'epoch': 0.625}
+{'loss': 1.7814, 'grad_norm': 30.880908966064453, 'learning_rate': 2.5125e-06, 'epoch': 0.75}
+{'loss': 1.7171, 'grad_norm': 40.54430389404297, 'learning_rate': 1.2625000000000002e-06, 'epoch': 0.875}
+{'loss': 1.6885, 'grad_norm': 28.087690353393555, 'learning_rate': 1.2500000000000001e-08, 'epoch': 1.0}
+{'train_runtime': 66.8548, 'train_samples_per_second': 95.73, 'train_steps_per_second': 11.966, 'train_loss': 2.0876547050476075, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 3.5643, 'grad_norm': 25.751853942871094, 'learning_rate': 8.762500000000001e-06, 'epoch': 0.125}
+{'loss': 2.8013, 'grad_norm': 32.44911193847656, 'learning_rate': 7.5125000000000005e-06, 'epoch': 0.25}
+{'loss': 2.4857, 'grad_norm': 41.490989685058594, 'learning_rate': 6.262500000000001e-06, 'epoch': 0.375}
+{'loss': 2.2572, 'grad_norm': 42.79708480834961, 'learning_rate': 5.0125e-06, 'epoch': 0.5}
+{'loss': 2.1274, 'grad_norm': 26.267663955688477, 'learning_rate': 3.7625e-06, 'epoch': 0.625}
+{'loss': 1.9527, 'grad_norm': 24.16026496887207, 'learning_rate': 2.5125e-06, 'epoch': 0.75}
+{'loss': 1.9422, 'grad_norm': 69.99417877197266, 'learning_rate': 1.2625000000000002e-06, 'epoch': 0.875}
+{'loss': 1.984, 'grad_norm': 27.45192527770996, 'learning_rate': 1.2500000000000001e-08, 'epoch': 1.0}
+{'train_runtime': 64.7937, 'train_samples_per_second': 98.775, 'train_steps_per_second': 12.347, 'train_loss': 2.3893612480163573, 'epoch': 1.0}
+[I 2026-09-27 02:14:02,053] Trial 1 finished with value: 0.7896630208740971 and parameters: {'steps': 800, 'learning_rate': 1e-05}. Best is trial 0 with value: 0.805163563783118.
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 3.3473, 'grad_norm': 46.15793991088867, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 3.0381, 'grad_norm': 26.617237091064453, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.3185, 'train_samples_per_second': 98.048, 'train_steps_per_second': 12.256, 'train_loss': 3.192707824707031, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.7565, 'grad_norm': 31.103530883789062, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.4224, 'grad_norm': 45.366580963134766, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.2991, 'train_samples_per_second': 98.165, 'train_steps_per_second': 12.271, 'train_loss': 4.5894708251953125, 'epoch': 1.0}
+[I 2026-09-27 02:14:43,819] Trial 2 finished with value: 0.8080279670669753 and parameters: {'steps': 200, 'learning_rate': 1e-06}. Best is trial 2 with value: 0.8080279670669753.
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 2.9348, 'grad_norm': 29.807085037231445, 'learning_rate': 5.050000000000001e-06, 'epoch': 0.5}
+{'loss': 2.5678, 'grad_norm': 32.274688720703125, 'learning_rate': 5.0000000000000004e-08, 'epoch': 1.0}
+{'train_runtime': 17.405, 'train_samples_per_second': 91.928, 'train_steps_per_second': 11.491, 'train_loss': 2.751324005126953, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 3.6011, 'grad_norm': 27.696147918701172, 'learning_rate': 5.050000000000001e-06, 'epoch': 0.5}
+{'loss': 2.922, 'grad_norm': 31.441858291625977, 'learning_rate': 5.0000000000000004e-08, 'epoch': 1.0}
+{'train_runtime': 16.6326, 'train_samples_per_second': 96.197, 'train_steps_per_second': 12.025, 'train_loss': 3.2615406799316404, 'epoch': 1.0}
+[I 2026-09-27 02:15:26,980] Trial 3 finished with value: 0.7968218026628453 and parameters: {'steps': 200, 'learning_rate': 1e-05}. Best is trial 2 with value: 0.8080279670669753.
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.689, 'grad_norm': 45.832054138183594, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.3665, 'grad_norm': 39.21506118774414, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.4389, 'train_samples_per_second': 97.33, 'train_steps_per_second': 12.166, 'train_loss': 4.527752075195313, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.6219, 'grad_norm': 48.61925506591797, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.3735, 'grad_norm': 68.94268035888672, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 18.2533, 'train_samples_per_second': 87.655, 'train_steps_per_second': 10.957, 'train_loss': 4.4977336120605464, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.5908, 'grad_norm': 69.39124298095703, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.075, 'grad_norm': 85.05307006835938, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.5809, 'train_samples_per_second': 96.496, 'train_steps_per_second': 12.062, 'train_loss': 4.3329095458984375, 'epoch': 1.0}
+finetune_daily {'steps': 200, 'learning_rate': 1e-06} [0.7981466487946817, 0.817909285339269, 0.8483603356648103, 0.8543794914958825]
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 3.3235, 'grad_norm': 31.669410705566406, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 3.1161, 'grad_norm': 64.49239349365234, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.4304, 'train_samples_per_second': 97.38, 'train_steps_per_second': 12.173, 'train_loss': 3.2198001098632814, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.8259, 'grad_norm': 44.81156921386719, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.4252, 'grad_norm': 44.26274871826172, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 18.1347, 'train_samples_per_second': 88.228, 'train_steps_per_second': 11.029, 'train_loss': 4.625548095703125, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.7255, 'grad_norm': 72.84998321533203, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.3871, 'grad_norm': 47.213722229003906, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.341, 'train_samples_per_second': 97.913, 'train_steps_per_second': 12.239, 'train_loss': 4.55631591796875, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.7901, 'grad_norm': 156.44866943359375, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.358, 'grad_norm': 76.96256256103516, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 17.1557, 'train_samples_per_second': 93.263, 'train_steps_per_second': 11.658, 'train_loss': 4.574022827148437, 'epoch': 1.0}
+[I 2026-09-27 02:17:58,334] A new study created in RDB with name: finetune_daily_weather
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.3965, 'grad_norm': 22.731975555419922, 'learning_rate': 8.7625e-07, 'epoch': 0.125}
+{'loss': 0.3817, 'grad_norm': 5.817998886108398, 'learning_rate': 7.512499999999999e-07, 'epoch': 0.25}
+{'loss': 0.3687, 'grad_norm': 24.570051193237305, 'learning_rate': 6.262499999999999e-07, 'epoch': 0.375}
+{'loss': 0.3792, 'grad_norm': 7.153125762939453, 'learning_rate': 5.0125e-07, 'epoch': 0.5}
+{'loss': 0.3813, 'grad_norm': 10.199912071228027, 'learning_rate': 3.7624999999999994e-07, 'epoch': 0.625}
+{'loss': 0.3844, 'grad_norm': 7.5688886642456055, 'learning_rate': 2.5125e-07, 'epoch': 0.75}
+{'loss': 0.372, 'grad_norm': 13.87236213684082, 'learning_rate': 1.2624999999999998e-07, 'epoch': 0.875}
+{'loss': 0.3772, 'grad_norm': 15.099767684936523, 'learning_rate': 1.25e-09, 'epoch': 1.0}
+{'train_runtime': 65.9526, 'train_samples_per_second': 97.039, 'train_steps_per_second': 12.13, 'train_loss': 0.3801323413848877, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.4773, 'grad_norm': 59.16311264038086, 'learning_rate': 8.7625e-07, 'epoch': 0.125}
+{'loss': 0.4701, 'grad_norm': 10.635419845581055, 'learning_rate': 7.512499999999999e-07, 'epoch': 0.25}
+{'loss': 0.4328, 'grad_norm': 14.311803817749023, 'learning_rate': 6.262499999999999e-07, 'epoch': 0.375}
+{'loss': 0.3911, 'grad_norm': 4.925088405609131, 'learning_rate': 5.0125e-07, 'epoch': 0.5}
+{'loss': 0.3908, 'grad_norm': 16.277006149291992, 'learning_rate': 3.7624999999999994e-07, 'epoch': 0.625}
+{'loss': 0.3844, 'grad_norm': 16.686946868896484, 'learning_rate': 2.5125e-07, 'epoch': 0.75}
+{'loss': 0.4007, 'grad_norm': 9.57493782043457, 'learning_rate': 1.2624999999999998e-07, 'epoch': 0.875}
+{'loss': 0.3986, 'grad_norm': 4.95657205581665, 'learning_rate': 1.25e-09, 'epoch': 1.0}
+{'train_runtime': 67.5302, 'train_samples_per_second': 94.772, 'train_steps_per_second': 11.847, 'train_loss': 0.4182138156890869, 'epoch': 1.0}
+[I 2026-09-27 02:20:21,166] Trial 0 finished with value: 0.790276725436279 and parameters: {'steps': 800, 'learning_rate': 1e-06}. Best is trial 0 with value: 0.790276725436279.
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.3919, 'grad_norm': 6.403015613555908, 'learning_rate': 8.762500000000001e-06, 'epoch': 0.125}
+{'loss': 0.3744, 'grad_norm': 3.0732553005218506, 'learning_rate': 7.5125000000000005e-06, 'epoch': 0.25}
+{'loss': 0.3499, 'grad_norm': 20.40666389465332, 'learning_rate': 6.262500000000001e-06, 'epoch': 0.375}
+{'loss': 0.3537, 'grad_norm': 7.751221656799316, 'learning_rate': 5.0125e-06, 'epoch': 0.5}
+{'loss': 0.3446, 'grad_norm': 7.421507358551025, 'learning_rate': 3.7625e-06, 'epoch': 0.625}
+{'loss': 0.3407, 'grad_norm': 8.952582359313965, 'learning_rate': 2.5125e-06, 'epoch': 0.75}
+{'loss': 0.3226, 'grad_norm': 9.482168197631836, 'learning_rate': 1.2625000000000002e-06, 'epoch': 0.875}
+{'loss': 0.3242, 'grad_norm': 11.079936981201172, 'learning_rate': 1.2500000000000001e-08, 'epoch': 1.0}
+{'train_runtime': 66.5565, 'train_samples_per_second': 96.159, 'train_steps_per_second': 12.02, 'train_loss': 0.35024792194366455, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.4239, 'grad_norm': 23.284114837646484, 'learning_rate': 8.762500000000001e-06, 'epoch': 0.125}
+{'loss': 0.4083, 'grad_norm': 8.911200523376465, 'learning_rate': 7.5125000000000005e-06, 'epoch': 0.25}
+{'loss': 0.3668, 'grad_norm': 4.777965545654297, 'learning_rate': 6.262500000000001e-06, 'epoch': 0.375}
+{'loss': 0.3477, 'grad_norm': 6.832845211029053, 'learning_rate': 5.0125e-06, 'epoch': 0.5}
+{'loss': 0.3406, 'grad_norm': 14.210060119628906, 'learning_rate': 3.7625e-06, 'epoch': 0.625}
+{'loss': 0.3199, 'grad_norm': 8.010527610778809, 'learning_rate': 2.5125e-06, 'epoch': 0.75}
+{'loss': 0.3358, 'grad_norm': 11.005517959594727, 'learning_rate': 1.2625000000000002e-06, 'epoch': 0.875}
+{'loss': 0.3274, 'grad_norm': 4.5828986167907715, 'learning_rate': 1.2500000000000001e-08, 'epoch': 1.0}
+{'train_runtime': 66.412, 'train_samples_per_second': 96.368, 'train_steps_per_second': 12.046, 'train_loss': 0.35879958868026735, 'epoch': 1.0}
+[I 2026-09-27 02:22:43,707] Trial 1 finished with value: 0.7697452683400507 and parameters: {'steps': 800, 'learning_rate': 1e-05}. Best is trial 0 with value: 0.790276725436279.
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.3977, 'grad_norm': 25.471786499023438, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.3855, 'grad_norm': 6.418776988983154, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.7684, 'train_samples_per_second': 95.418, 'train_steps_per_second': 11.927, 'train_loss': 0.391622371673584, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.4801, 'grad_norm': 58.94322967529297, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.4854, 'grad_norm': 11.020163536071777, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.9409, 'train_samples_per_second': 94.446, 'train_steps_per_second': 11.806, 'train_loss': 0.4827716064453125, 'epoch': 1.0}
+[I 2026-09-27 02:23:26,925] Trial 2 finished with value: 0.7998108556943518 and parameters: {'steps': 200, 'learning_rate': 1e-06}. Best is trial 2 with value: 0.7998108556943518.
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.3907, 'grad_norm': 5.297070026397705, 'learning_rate': 5.050000000000001e-06, 'epoch': 0.5}
+{'loss': 0.3704, 'grad_norm': 3.4384584426879883, 'learning_rate': 5.0000000000000004e-08, 'epoch': 1.0}
+{'train_runtime': 17.2628, 'train_samples_per_second': 92.685, 'train_steps_per_second': 11.586, 'train_loss': 0.3805667495727539, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.4245, 'grad_norm': 27.418716430664062, 'learning_rate': 5.050000000000001e-06, 'epoch': 0.5}
+{'loss': 0.4059, 'grad_norm': 9.589129447937012, 'learning_rate': 5.0000000000000004e-08, 'epoch': 1.0}
+{'train_runtime': 16.3181, 'train_samples_per_second': 98.05, 'train_steps_per_second': 12.256, 'train_loss': 0.41516613006591796, 'epoch': 1.0}
+[I 2026-09-27 02:24:10,040] Trial 3 finished with value: 0.7769299387868197 and parameters: {'steps': 200, 'learning_rate': 1e-05}. Best is trial 2 with value: 0.7998108556943518.
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.4929, 'grad_norm': 16.034290313720703, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.4812, 'grad_norm': 16.578828811645508, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 17.0942, 'train_samples_per_second': 93.599, 'train_steps_per_second': 11.7, 'train_loss': 0.48700698852539065, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.5694, 'grad_norm': 24.13440704345703, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.5639, 'grad_norm': 17.866371154785156, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.1988, 'train_samples_per_second': 98.772, 'train_steps_per_second': 12.347, 'train_loss': 0.5666696739196777, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.6211, 'grad_norm': 83.95923614501953, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.5934, 'grad_norm': 18.8291072845459, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 19.0587, 'train_samples_per_second': 83.951, 'train_steps_per_second': 10.494, 'train_loss': 0.6072110176086426, 'epoch': 1.0}
+finetune_daily_weather {'steps': 200, 'learning_rate': 1e-06} [0.8129779333713529, 0.7866437780173507, 0.8099744428711195, 0.8590554031635589]
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.44, 'grad_norm': 15.482929229736328, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.3664, 'grad_norm': 11.0283203125, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.5259, 'train_samples_per_second': 96.817, 'train_steps_per_second': 12.102, 'train_loss': 0.4032145881652832, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.4941, 'grad_norm': 7.090614318847656, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.461, 'grad_norm': 8.541810035705566, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 17.3907, 'train_samples_per_second': 92.003, 'train_steps_per_second': 11.5, 'train_loss': 0.47757028579711913, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.5222, 'grad_norm': 13.1730375289917, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.4744, 'grad_norm': 14.779681205749512, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 17.6346, 'train_samples_per_second': 90.731, 'train_steps_per_second': 11.341, 'train_loss': 0.4983334541320801, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 0.5962, 'grad_norm': 33.959781646728516, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 0.501, 'grad_norm': 22.819000244140625, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.5628, 'train_samples_per_second': 96.602, 'train_steps_per_second': 12.075, 'train_loss': 0.5485905838012696, 'epoch': 1.0}

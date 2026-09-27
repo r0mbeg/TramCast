@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-09-27T02:11:01.117799+00:00",
+  "input_code_hashes": 15,
+  "control_all_five_raw_byte_exact": true,
+  "selected_final_byte_exact": true,
+  "learned_shapes_fixed_daily_totals": 2,
+  "weather_alignment_independently_checked_rows": 8760,
+  "no_new_archive": "selected control duplicates 021"
+}

@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-09-27T03:58:25.033163+00:00",
+  "input_code_sha256": 51,
+  "fits": [
+    {
+      "cutoff": "2025-04-30",
+      "rows": 1098,
+      "supported_days": 279,
+      "total_days": 610
+    },
+    {
+      "cutoff": "2025-06-30",
+      "rows": 2196,
+      "supported_days": 549,
+      "total_days": 610
+    },
+    {
+      "cutoff": "2025-07-31",
+      "rows": 2745,
+      "supported_days": 279,
+      "total_days": 610
+    },
+    {
+      "cutoff": "2025-08-31",
+      "rows": 3294,
+      "supported_days": 0,
+      "total_days": 610
+    },
+    {
+      "cutoff": "2025-10-31",
+      "rows": 3738,
+      "supported_days": 259,
+      "total_days": 610
+    }
+  ],
+  "raw_forecasts_checked": 9,
+  "past_only_distinct_season_route_weekday_support": true,
+  "unsupported_exact_024": true,
+  "fixed_024_hourshares": true,
+  "model_reloads_exact_on_zhores": true,
+  "local_model_inference_skipped": "sklearn1.9.1 differs from saved1.8.0; saved transforms audited",
+  "audit_code_sha256": "0d3470af02655459779be24bdb8cec3fcb9798feebade6247ca28f73c8ad19d8"
+}

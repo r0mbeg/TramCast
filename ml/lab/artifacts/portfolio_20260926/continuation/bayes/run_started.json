@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_bayes.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--root",
+    "artifacts/portfolio_20260926"
+  ],
+  "job_id": "8476948",
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_bayes.py": "f87326018de8a780a0265dc964286d85a9c575d720eb9d6e85de64d0d25228a6",
+    "experiments/portfolio_movement.py": "8b94e331711d025dad1bd70bfa17111d78b2fd0e415a4c331027ec3c2c723f71",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "experiments/portfolio_structure.py": "7ecb0de7f2adac3a1f426d84ebda5c2b78c4509850b06ab57ab295b93179b149"
+  }
+}

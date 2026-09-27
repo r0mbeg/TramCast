@@ -1,0 +1,4 @@
+[I 2026-09-27 09:38:59,777] A new study created in RDB with name: current_bayes
+[I 2026-09-27 09:39:00,784] Trial 0 finished with value: 0.8837914951462928 and parameters: {'recipe': 'posterior'}. Best is trial 0 with value: 0.8837914951462928.
+[I 2026-09-27 09:39:01,306] Trial 1 finished with value: 0.8840879572608873 and parameters: {'recipe': 'control'}. Best is trial 1 with value: 0.8840879572608873.
+current_bayes {'recipe': 'control'} [0.8845925763271129, 0.8835833381946617, 0.8855484375501503, 0.8995918837339524]

@@ -1,0 +1,43 @@
+{
+  "cutoff": "2025-07-31",
+  "rows": 2745,
+  "features": 97,
+  "sigma2": 0.012670371777877327,
+  "precision": 12830.396071646677,
+  "ard_params": {
+    "alpha_1": 1e-06,
+    "alpha_2": 1e-06,
+    "compute_score": true,
+    "copy_X": true,
+    "fit_intercept": false,
+    "lambda_1": 1e-06,
+    "lambda_2": 1e-06,
+    "max_iter": 1000,
+    "threshold_lambda": 10000.0,
+    "tol": 1e-05,
+    "verbose": false
+  },
+  "noise_precision": 142.19069527575496,
+  "iterations": 14,
+  "active_features": 45,
+  "evidence_trace": [
+    5376.9716132895555,
+    5509.6500394425475,
+    5558.983137936129,
+    5578.891789449076,
+    5586.685814851465,
+    5596.537485053221,
+    5596.542512465534,
+    5596.541825052034,
+    5596.541543161581,
+    5596.541401531272,
+    5596.541303678877,
+    5596.541358374842,
+    5596.541293034457,
+    5596.541329977767
+  ],
+  "latest_target_date": "2025-07-31",
+  "uncertainty": "Fixed old Gaussian predictive attenuation; ARD relevance is conditional, not hidden-score confidence.",
+  "fit_seconds": 0.27646395191550255,
+  "peak_rss_kib": 219920
+}

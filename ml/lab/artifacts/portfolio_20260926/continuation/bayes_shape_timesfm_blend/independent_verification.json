@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-09-27T02:32:47.429762+00:00",
+  "input_code_sha256": 14,
+  "raw_forecasts_checked": 15,
+  "fixed_hourly_shares": true,
+  "weighted_dayvolume_verified": true,
+  "exact_024_control": true,
+  "mean": 0.8878591288644666,
+  "worst": 0.8819559393803759,
+  "final_total": 12561064,
+  "sha256": "a4e606d5920155d713e9b3fd100219ae1d67961c3c9fb640f11c8534e7bbcea9",
+  "differences": [
+    {
+      "candidate": "024_bayesian_hourly_share_errors",
+      "relative_l1": 0.023595304969990835,
+      "changed_rows": 10392
+    },
+    {
+      "candidate": "022_verified_bayesian_timesfm_blend",
+      "relative_l1": 0.02670745514989099,
+      "changed_rows": 10660
+    },
+    {
+      "candidate": "021_bayesian_verified_operations",
+      "relative_l1": 0.0330336546514386,
+      "changed_rows": 10700
+    },
+    {
+      "candidate": "023_gaussian_process_errors",
+      "relative_l1": 0.03741181800199041,
+      "changed_rows": 10662
+    }
+  ]
+}

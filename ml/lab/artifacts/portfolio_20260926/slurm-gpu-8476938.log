@@ -1,0 +1,21 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+daily [0.8203502138949132, 0.8309977491418177, 0.8248387341931787, 0.8675967906488993]
+route_hour [0.8155635086813722, 0.8398593194695824, 0.8035150650454861, 0.8461167060613266]
+calendar [0.8266982028109524, 0.8007084218158236, 0.8078308204299262, 0.871213668921953]
+day_shares [0.8198975170706595, 0.8296196572422555, 0.8255547325990392, 0.8694316997293546]
+calendar_shares [0.8284661486843694, 0.798941865583386, 0.8084559525424327, 0.8730798392418254]
+recent_shares [0.8214671262319945, 0.840914101463626, 0.8203398469335862, 0.8412284064756008]
+normalized_shared [0.8068748517027644, 0.8322907993614866, 0.7911146583073175, 0.8579564684884743]
+coverage [0.8203013885477763, 0.8308150705220916, 0.8249382585837819, 0.8675873651495776]
+/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/chronos/chronos2/pipeline.py:607: UserWarning: We recommend keeping prediction length <= 1024. The quality of longer predictions may degrade since the model is not optimized for it. 
+  warnings.warn(msg)
+/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/chronos/chronos2/pipeline.py:607: UserWarning: We recommend keeping prediction length <= 1024. The quality of longer predictions may degrade since the model is not optimized for it. 
+  warnings.warn(msg)
+/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/chronos/chronos2/pipeline.py:607: UserWarning: We recommend keeping prediction length <= 1024. The quality of longer predictions may degrade since the model is not optimized for it. 
+  warnings.warn(msg)
+/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/chronos/chronos2/pipeline.py:607: UserWarning: We recommend keeping prediction length <= 1024. The quality of longer predictions may degrade since the model is not optimized for it. 
+  warnings.warn(msg)
+/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/chronos/chronos2/pipeline.py:607: UserWarning: We recommend keeping prediction length <= 1024. The quality of longer predictions may degrade since the model is not optimized for it. 
+  warnings.warn(msg)
+hourly [0.7985327419482406, 0.8325458296999638, 0.7807431323579068, 0.8330359195568193]

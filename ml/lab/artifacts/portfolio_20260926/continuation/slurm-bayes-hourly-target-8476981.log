@@ -1,0 +1,5 @@
+[I 2026-09-27 03:41:01,477] A new study created in RDB with name: bayes_hourly_target
+[I 2026-09-27 03:41:02,425] Trial 0 finished with value: 0.8796585788876061 and parameters: {'loss_target': 'control', 'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 0 with value: 0.8796585788876061.
+[I 2026-09-27 03:41:13,371] Trial 1 finished with value: 0.8796793354146817 and parameters: {'loss_target': 'hourly', 'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 1 with value: 0.8796793354146817.
+[I 2026-09-27 03:41:14,513] Trial 2 finished with value: 0.877554660180428 and parameters: {'loss_target': 'hourly_weighted', 'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 1 with value: 0.8796793354146817.
+bayes_hourly_target {'loss_target': 'hourly', 'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224} [0.8842115998617974, 0.8751470709675659, 0.888269966118854, 0.8995206426682457]

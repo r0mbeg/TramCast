@@ -1,0 +1,28 @@
+P65 preregistered beforecode/compute: previousgoalturn=P62negativeevidence,
+P63primaryfeasibility/P64actualtabularprior proof and verifiedconditionalforecasts,
+not no-progress. No livejobs. New representation=20hour share-error vectors,
+not original-count NMF(P35)/independenthourBayes(P47)/HGB(P51)/dailyfractions(P64).
+ReuseP47inputs/prepare withcausal monthly61-dayexamples and normaloperation/reliable
+actualdayfilter; last224days, teacherorigin<targetdate≤cutoff. For each complete
+origin×route×date, D=actualhour/actualday−teacherhour/teacherday. Weightedmean
+and covariance use actualday/repeatedroute-date, normalizedmeanweight1. Eigenbasis
+fitted only tothatpast; deterministicsigns. Choose minimumK reaching90%weighted
+variance, cap6 (not tuned toouter score). If totalvariancezero use meanonly.
+TabPFNv2 verifiedcheckpoint/isolateddeps, median,4estimators,seed42,float32/cuda/
+low_memory/memory_savingTrue/n_jobs2, unweightedconditionalregression ofcentered
+PCAcoordinates (native API no sampleweights). X=P61daily30features +20teacher
+hourshares (50features); matchcausal SOURCE/TEACHERS dailyinputs byorigin/route/date,
+no futureboardings infeatures. Future hourlybaseline=original021shape sourceP47,
+raw learned shape=clip(nonnegative,basehourshare+mean+predictedcoordinates×basis),
+normalize withinroute-day, transplant onto029routedayvolumes with029shape fallback
+ifneeded; structuralnight/route5zeros. New=.5learned+.5control029 shape;
+Grid3control/half(.5new+.5control)/new, GridSampler42,meanW1/W2,3trialstotal,
+1800swholefamily includingresumes/pilot/seed. Selected4+final; ifcontrolwins,
+bestnewalso4+final. Fixedchosennewrecipe seed73repeat4+final, no seedselection.
+Existing44MBcheckpoint/deps reused; no downloads/environmentchanges/rawtransfer.
+PilotOct31/repeatmedian predictions ononegpu_devel2CPU2GiB/5min initially (P64
+peakhost1.277GiB; PCAadds smallmatrices), studycostallocation afterpilot. Ifhostneeds
+morememory, measureandjustifybeforeincrease; samefamilybudgetnotreset.
+Code/dataSHA/source/log/versions/basis/variance/targetmatrices/predictions/scores/
+raw/seed/Optuna/accounting/audit retained. Minimalrank/zero/truthpoison/volumecheck.
+Window/metric/targets unchanged; retrospectiveexternalweather/ops sameasparents.

@@ -1,0 +1,10 @@
+Loading weights from local directory
+[I 2026-09-27 07:08:52,048] A new study created in RDB with name: tirex
+[I 2026-09-27 07:08:52,536] Trial 0 finished with value: 0.8830272693231019 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.8830272693231019.
+[I 2026-09-27 07:08:55,285] Trial 1 finished with value: 0.8501564163549482 and parameters: {'recipe': 'normal_daily_2'}. Best is trial 0 with value: 0.8830272693231019.
+[I 2026-09-27 07:08:57,625] Trial 2 finished with value: 0.8658211091198513 and parameters: {'recipe': 'normal_ratio_4'}. Best is trial 0 with value: 0.8830272693231019.
+[I 2026-09-27 07:08:58,433] Trial 3 finished with value: 0.8239927482375162 and parameters: {'recipe': 'normal_daily_4'}. Best is trial 0 with value: 0.8830272693231019.
+[I 2026-09-27 07:08:59,290] Trial 4 finished with value: 0.8760837289905555 and parameters: {'recipe': 'normal_ratio_2'}. Best is trial 0 with value: 0.8830272693231019.
+[I 2026-09-27 07:09:00,141] Trial 5 finished with value: 0.7737914510160351 and parameters: {'recipe': 'normal_daily_6'}. Best is trial 0 with value: 0.8830272693231019.
+[I 2026-09-27 07:09:01,002] Trial 6 finished with value: 0.8312817738157787 and parameters: {'recipe': 'normal_ratio_6'}. Best is trial 0 with value: 0.8830272693231019.
+tirex {'recipe': 'control'} [0.8847498060861879, 0.881304732560016, 0.888151988611891, 0.8995451489664822]

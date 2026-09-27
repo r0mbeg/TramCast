@@ -1,0 +1,62 @@
+{
+  "job_id": "8477041",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_current_bayes.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/current_bayes/study"
+  ],
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_current_bayes.py": "20233397fa6708925e0b881f8963a41d334cfa96aa52c531e7cfeb6a71cfcb48",
+    "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+    "artifacts/calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "experiments/portfolio_bayes.py": "f87326018de8a780a0265dc964286d85a9c575d720eb9d6e85de64d0d25228a6",
+    "experiments/portfolio_structure.py": "7ecb0de7f2adac3a1f426d84ebda5c2b78c4509850b06ab57ab295b93179b149",
+    "experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+    "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+    "experiments/portfolio_experiment.py": "29454837d2de34550a15a001d1d5dafc4c3c4564fe7a2fdd257c7a95121889fa",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "experiments/calendar_experiment.py": "9b5fec4f0121139ce65cfb0a828f950426d200a80cae3fdadd14bc00626bcf36",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-07-31.csv": "c2e9bbe5570de89ee5ec2dceb3468f174c4e53752cc737fdc312be6f9d7369ff",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-06-30.csv": "036c019d73f9f15a1539c4fb4700c9e71998fba255e89b0b0837e74502ea1532",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-04-30.csv": "63066dff331204c64ea37162bb98c375af317b94e785965a8a3dc572eb7ee01a",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-08-31.csv": "8fc2496c1545a98472fce285cf573d47c8eff49e598fb11d8135033b793aafd3",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-10-31.csv": "9ddb408217e42c91ff7c0f0e96ff01e378366e553f24417b4bba9286c0a553c3",
+    "artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selected/raw_2025-07-31.csv": "25833ca2f7035ce139446c6a2c034f9a6e9c6146c5522a080af8d4655c5e9bf7",
+    "artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selected/raw_2025-06-30.csv": "c2d8b778ab8adeb4bec7ed7784e037e64a6c5a95285e8ea4e67bc455b4540c7c",
+    "artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selected/raw_2025-04-30.csv": "74491eaed328fc963134b472a73993141ed9840e5d101eb73e601ef42261386b",
+    "artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selected/raw_2025-08-31.csv": "b806ff5f7e4e99937c40269c301284b4cf5073f1b075885a62d7dce8faff39c8",
+    "artifacts/portfolio_20260926/continuation/school_fraction/study/school_fraction/selected/raw_2025-10-31.csv": "12b7aea42d080f4ad2f3205fec6c61d63c1d341373f787e56ee423067b2a9a94",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-07-31.csv": "7330145ce324eaf4e21d5906ef152c11d7ba1413bd40e7568028db95fec8b782",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-04-30.csv": "9e0ba0c20b8af33617bd0ea9db1d505775f6f861002c3c3fb10200d4696ef161",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-08-31.csv": "1ba752faa390a96cd84694693ceaf4275a44e8705f8f111b2f3724e954d7b075",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-06-30.csv": "81f78e4c8592abf802e4b5dfd5cbe1e252c49ba039979ee46c31edede0f3180d",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected/raw_2025-10-31.csv": "0b6c816eeb0e0fa5586f0ce0802ccf39105cbbf76c99b1987575b6e18c3fe3e3",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-07-31.csv": "5ab4becb352b30812d135cef66908012ed79ee82ddedbb576a3bcc069ae7a026",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-04-30.csv": "60f2da3c42120a6b523e433fdd191ba99966d123bd2bed0677f79917f737dba0",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-08-31.csv": "197f2c3bdf6259ac87daf97cea018188011dbf951d6aa08fae79746253520bf5",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-06-30.csv": "fef27d6bb056d2cdef0b19d8eca21dedabd02383c9133603b15f6bbe9a995104",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-10-31.csv": "33df602d404fd4f0058ce3a59723470610ed4714303a594e4efee80c34c3b597"
+  },
+  "interface_aliases": {
+    "ridge": "030",
+    "chronos": "029",
+    "movement": "025",
+    "regime": "024"
+  },
+  "old_fixed_recipe_runs": 1,
+  "previous_P17_allocation_seconds": 23,
+  "additional_allocation_total_limit_seconds": 120,
+  "cumulative_limit_seconds": 143,
+  "grid_points": 165,
+  "posterior_deterministic": true
+}

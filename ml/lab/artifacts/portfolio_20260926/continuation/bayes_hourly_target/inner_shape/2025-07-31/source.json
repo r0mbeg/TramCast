@@ -1,0 +1,11 @@
+{
+  "origin": "2025-07-31",
+  "end": "2025-09-30",
+  "params": {
+    "leaves": 63,
+    "weather": true,
+    "mix": 0.5
+  },
+  "fit_latest_date": "2025-07-31",
+  "sha256": "719e5d453e573ec21dc00f6a957b8cd80b337b4d14e2308598706ce4917f5feb"
+}

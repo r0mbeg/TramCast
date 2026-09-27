@@ -1,0 +1,53 @@
+{
+  "checked_at": "2026-09-27T03:45:10.715205+00:00",
+  "input_code_sha256": {
+    "pilot": 50,
+    "study": 50
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "cutoff": "2025-10-31",
+      "leaves": 15,
+      "rows": 3738,
+      "origins": 8
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-04-30",
+      "leaves": 15,
+      "rows": 1098,
+      "origins": 2
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-06-30",
+      "leaves": 15,
+      "rows": 2196,
+      "origins": 4
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-04-30",
+      "leaves": 7,
+      "rows": 1098,
+      "origins": 2
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-06-30",
+      "leaves": 7,
+      "rows": 2196,
+      "origins": 4
+    }
+  ],
+  "raw_forecasts_checked": 15,
+  "past_targets_teachers_verified": true,
+  "absolute_daily_loss_identity": true,
+  "exact_024_control": true,
+  "fixed_024_hourshares": true,
+  "model_reloads_exact_on_zhores": true,
+  "local_model_inference_skipped": "sklearn1.9.1 differs from saved1.8.0; saved transforms audited",
+  "decision": "control won W1/W2; no duplicate archive",
+  "audit_code_sha256": "4a83f6f06b4207166577cbd442dfcd6e319083b6907cd76be3352099599a39c6"
+}

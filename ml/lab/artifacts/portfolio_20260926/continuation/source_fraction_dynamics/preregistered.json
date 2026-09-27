@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-09-27T04:39:09.216030+00:00",
+  "phase": "P59",
+  "objective": "meanW1/W2",
+  "sampler": "GridSampler",
+  "seed": 42,
+  "trials": 4,
+  "timeout": 1800,
+  "recipes": [
+    "parent025",
+    "parent028",
+    "network",
+    "relative"
+  ],
+  "allocation": {
+    "cpu": 1,
+    "ram_mib": 512,
+    "seconds": 120
+  },
+  "parameters": "fixedlearnedP48/P58; no newweights/model",
+  "post_result_combination": true
+}

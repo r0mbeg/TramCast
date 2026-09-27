@@ -1,0 +1,13 @@
+{
+  "experiments/portfolio_timesfm_errors.py": "fc993b58b966173d28ed0c9d7d31f1dd0eb7587897d5f879b3fd3e9ed9b5d11e",
+  "experiments/portfolio_bayes_direct.py": "d44a4cbba427aef24bd420f7dea24015bb2c01593b393ecf3145bec4d113a207",
+  "experiments/portfolio_bayes_volume.py": "16660b3df05e23d288d75e9766dfd2b2fe5e3b768ce73300b57961652339a5c0",
+  "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+  "experiments/portfolio_experiment.py": "29454837d2de34550a15a001d1d5dafc4c3c4564fe7a2fdd257c7a95121889fa",
+  "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+  "experiments/portfolio_timesfm.py": "b10e9bceef8cb52676c5533d4f5ab8adc2ad494db4e8454ea4e755c106885c1b",
+  "experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+  "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+  "tests/test_portfolio_experiment.py": "b1788974301c9339f864dc9239a00dd5614bcbd04e35d27ee45337f399cd091c",
+  "jobs/zhores_portfolio_timesfm_errors.sbatch": "5cb89a483ce725d9722c522d4512e0897b5d0c0fe40963fe9d8f3fadc302dc54"
+}

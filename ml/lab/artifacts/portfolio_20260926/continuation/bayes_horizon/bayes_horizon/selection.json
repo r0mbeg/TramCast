@@ -1,0 +1,20 @@
+{
+  "trial": 7,
+  "value": 0.8721115807990706,
+  "params": {
+    "route_specific": true,
+    "strength": 1.0,
+    "uncertainty": 0
+  },
+  "selection_windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "total_trials": 8
+}

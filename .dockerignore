@@ -7,7 +7,9 @@ dataset/
 *.pdf
 **/.venv*
 **/__pycache__
-ml/artifacts/
-ml/analysis/
-ml/model/
-ml/hf-cache/
+
+# The research lab is not part of the serving image build context.
+ml/lab/
+
+ml/models/
+ml/cache/

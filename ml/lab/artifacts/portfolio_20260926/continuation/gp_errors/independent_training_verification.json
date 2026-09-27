@@ -1,0 +1,13 @@
+{
+  "code_input_hashes_checked": 31,
+  "weekly_training_targets_checked": 10,
+  "target_cutoffs_checked": [
+    "2025-04-30",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31",
+    "2025-10-31"
+  ],
+  "final_rows": 14640,
+  "sha256": "e0432a12a572a90fdccd21339cbdcfa3e868b0e941067dfaf1996458ed1fba91"
+}

@@ -1,0 +1,7 @@
+[I 2026-09-27 03:30:15,197] A new study created in RDB with name: timesfm_blend
+[I 2026-09-27 03:30:15,690] Trial 0 finished with value: 0.879699885120087 and parameters: {'base': 'annual', 'base_weight': 0.25}. Best is trial 0 with value: 0.879699885120087.
+[I 2026-09-27 03:30:16,213] Trial 1 finished with value: 0.8796585788876061 and parameters: {'base': 'annual', 'base_weight': 1.0}. Best is trial 0 with value: 0.879699885120087.
+[I 2026-09-27 03:30:16,723] Trial 2 finished with value: 0.8810522531573988 and parameters: {'base': 'annual', 'base_weight': 0.5}. Best is trial 2 with value: 0.8810522531573988.
+[I 2026-09-27 03:30:17,232] Trial 3 finished with value: 0.877064924806972 and parameters: {'base': 'annual', 'base_weight': 0.0}. Best is trial 2 with value: 0.8810522531573988.
+[I 2026-09-27 03:30:17,754] Trial 4 finished with value: 0.8810521968446371 and parameters: {'base': 'annual', 'base_weight': 0.75}. Best is trial 2 with value: 0.8810522531573988.
+timesfm_blend {'base': 'annual', 'base_weight': 0.5} [0.8846679390742922, 0.8774365672405054, 0.8701599377946322, 0.8954320181541401]

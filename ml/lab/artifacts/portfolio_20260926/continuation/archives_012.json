@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-09-26T23:12:44.108707+00:00",
+  "archive": {
+    "rank": 1,
+    "attempt": "012_bayesian_direct_blend",
+    "candidate": "continuation/direct_blend/direct_blend/selected",
+    "rows": 14640,
+    "sha256": "a82c1b76c19b4f5037e973e7ea05ffeb6c6170b5c2ac0f7b78332c3dce52cda5"
+  }
+}

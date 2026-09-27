@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-09-27T04:10:41.466244+00:00",
+  "input_code_sha256": {
+    "pilot_started": 19,
+    "run_started": 19
+  },
+  "quantile_caches_checked": 8,
+  "raw_forecasts_checked": 24,
+  "causal_input_future_poison_exact": true,
+  "fixed_024_hourshares": true,
+  "exact_024_control": true,
+  "operations_transform": "fixed P49 teacher_daily",
+  "deterministic_pilot_repeat_exact": true,
+  "model_weights_sha256": "b8c3f5a036c63272ce4b91c00187e26922a394cb6cb49d4e16db070ad0422314",
+  "model_weight_checksum": "checked by download and both GPU jobs on Zhores; weights not copied locally",
+  "audit_code_sha256": "f13949a488ee8d9cbfa78791eb9d078286d7c7d0c37d7a6d2f4cabeeb2ae2d63"
+}

@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-09-27T01:52:20.551874+00:00",
+  "attempt": "023_gaussian_process_errors",
+  "rows": 14640,
+  "sha256": "e0432a12a572a90fdccd21339cbdcfa3e868b0e941067dfaf1996458ed1fba91",
+  "comparisons": [
+    {
+      "other": "022_verified_bayesian_timesfm_blend",
+      "relative_l1": 0.027805908473696198,
+      "changed_rows": 10324
+    },
+    {
+      "other": "021_bayesian_verified_operations",
+      "relative_l1": 0.026259700254469834,
+      "changed_rows": 10313
+    },
+    {
+      "other": "004_ridge_movement",
+      "relative_l1": 0.05110872547867004,
+      "changed_rows": 10753
+    },
+    {
+      "other": "005_movement_chronos",
+      "relative_l1": 0.07875952400883146,
+      "changed_rows": 10800
+    },
+    {
+      "other": "006_ridge_chronos",
+      "relative_l1": 0.06865993082481973,
+      "changed_rows": 10813
+    },
+    {
+      "other": "009_chronos_volume_ridge_shape",
+      "relative_l1": 0.11278461605894326,
+      "changed_rows": 10884
+    }
+  ]
+}

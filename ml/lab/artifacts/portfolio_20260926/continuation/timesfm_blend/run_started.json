@@ -1,0 +1,31 @@
+{
+  "job_id": "8476979",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_direct_blend.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/timesfm_blend",
+    "--timesfm"
+  ],
+  "components": {
+    "annual": "artifacts/portfolio_20260926/continuation/bayes_annual/bayes_annual/selected",
+    "direct": "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_direct_blend.py": "f87476410fc6f173d56036dad4fd6a276d1bf7f48e8f5fec18d90e247357e352",
+    "experiments/portfolio_combine.py": "ef271e459d4332eb800a80770a57f866299b4686b477074c811ba2df7bf2242e",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "artifacts/portfolio_20260926/continuation/bayes_annual/bayes_annual/selected/raw_2025-07-31.csv": "5f56a742378bdf170d1b8d690fc59503ea85548402a0568ca8530ed5d2e6bae4",
+    "artifacts/portfolio_20260926/continuation/bayes_annual/bayes_annual/selected/raw_2025-04-30.csv": "1bd8aa834a4eb2dc634e7b619abf41c6a82466e1d4edbc37278ce6b3a148be33",
+    "artifacts/portfolio_20260926/continuation/bayes_annual/bayes_annual/selected/raw_2025-08-31.csv": "b75f2bea753c5f16ebb190b09e29510885752af695ce9bb3f15cb6d4e48ffa95",
+    "artifacts/portfolio_20260926/continuation/bayes_annual/bayes_annual/selected/raw_2025-06-30.csv": "211cc637d5e62c1f02539e2117f3d318d83b3fe90aea03bd3aabaa10a93de95f",
+    "artifacts/portfolio_20260926/continuation/bayes_annual/bayes_annual/selected/raw_2025-10-31.csv": "1958f86ed41087146bf83368ab91b9af658e9fdc440779282b60c063065eaacf",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-07-31.csv": "9af0274c045debf58fc598bdaf05008395e068c429d7c3c575b31251f12b9815",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-06-30.csv": "f262c2b8a998c945e7f2131c5bdba17abebdb8d8156becb63109f8f56dd1817a",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-04-30.csv": "d91dd608c39b107361c3861b761b8c7d4e0fa6590525bf48f2dd17faaa048d70",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-08-31.csv": "46343b8183bbe3ccf838b95113c37ad7ec6481119c0c998f310a718df78c37f2",
+    "artifacts/portfolio_20260926/continuation/timesfm/timesfm/selected/raw_2025-10-31.csv": "5f4140e824b1fed333ed46faf3da849f309bf7fa3e7c2cae7ba17f8ec115e7d3"
+  }
+}

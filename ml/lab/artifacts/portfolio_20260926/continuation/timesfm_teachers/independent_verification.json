@@ -1,0 +1,75 @@
+{
+  "checked_at": "2026-09-27T03:27:08.643288+00:00",
+  "input_code_sha256": {
+    "pilot_started.json": 56,
+    "run_started.json": 56
+  },
+  "origins": [
+    {
+      "origin": "2025-01-31",
+      "end": "2025-04-02",
+      "rows": 610,
+      "input_days": 31,
+      "reused_P49": false
+    },
+    {
+      "origin": "2025-02-28",
+      "end": "2025-04-30",
+      "rows": 610,
+      "input_days": 59,
+      "reused_P49": false
+    },
+    {
+      "origin": "2025-03-31",
+      "end": "2025-05-31",
+      "rows": 610,
+      "input_days": 90,
+      "reused_P49": false
+    },
+    {
+      "origin": "2025-04-30",
+      "end": "2025-06-30",
+      "rows": 610,
+      "input_days": 120,
+      "reused_P49": true
+    },
+    {
+      "origin": "2025-05-31",
+      "end": "2025-07-31",
+      "rows": 610,
+      "input_days": 151,
+      "reused_P49": false
+    },
+    {
+      "origin": "2025-06-30",
+      "end": "2025-08-30",
+      "rows": 610,
+      "input_days": 181,
+      "reused_P49": true
+    },
+    {
+      "origin": "2025-07-31",
+      "end": "2025-09-30",
+      "rows": 610,
+      "input_days": 212,
+      "reused_P49": true
+    },
+    {
+      "origin": "2025-08-31",
+      "end": "2025-10-31",
+      "rows": 610,
+      "input_days": 243,
+      "reused_P49": true
+    },
+    {
+      "origin": "2025-10-31",
+      "end": "2025-12-31",
+      "rows": 610,
+      "input_days": 304,
+      "reused_P49": true
+    }
+  ],
+  "existing_P49_dayvolumes_equal": true,
+  "all_teacher_inputs_restoration_verified": true,
+  "daily_quantile3_operation_transform_verified": true
+}
