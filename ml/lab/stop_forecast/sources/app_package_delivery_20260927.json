@@ -1,0 +1,11 @@
+{
+  "package_version": "E20260927-v1-88f891a83f8f266f",
+  "archive": "ml/lab/stop_forecast/releases/route12-entropy-v1.zip",
+  "archive_sha256": "10ff7534d5ba8cc2dd43470af2a0d1235e077b21fe989783129bfd271ddcae3e",
+  "bytes": 2137231,
+  "archive_entries": 10,
+  "package_manifest_sha256": "e7f0bed7b94aeb7116df8c4cf3ff02656010987c7aec2c9756be78ce2b9cecc9",
+  "documentation_sha256": "eb075409321ede91856a83f95a183dba82808f71993248de0e6e68287503b2f7",
+  "verification_sha256": "f5e4a507057ac4727428e61a42525a7f15038900122012ffba2d05c2fde9cc2b",
+  "published": false
+}

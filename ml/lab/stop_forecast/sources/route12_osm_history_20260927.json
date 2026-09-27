@@ -1,0 +1,95 @@
+{
+  "version": "route12-osm-history-20260927-v1",
+  "snapshots": [
+    {
+      "file": "dataset/external/route12_osm_history_20260927/discovery.json",
+      "sha256": "636135a83334ec4441f8204b900cfb63d0762dd046a252e8cf8904b3fb792131",
+      "bytes": 31833,
+      "requested_osm_date": "2025-09-15T00:00:00Z",
+      "purpose": "discovery",
+      "url": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+      "method": "HTTP POST form data with curl --data-urlencode; out body",
+      "query_file": "ml/lab/stop_forecast/sources/route12_osm_queries/discovery.overpassql",
+      "query_sha256": "d337607c1aae96a86d1f95f578545a9b3e2c9c312f6a6e2f8dd4df6c11d6dd37",
+      "download_completed_at_utc": "2026-09-27T13:42:21.505739+00:00",
+      "server_database_updated_at": "2026-09-27T13:40:36Z",
+      "license": "ODbL 1.0",
+      "attribution": "© OpenStreetMap contributors"
+    },
+    {
+      "file": "dataset/external/route12_osm_history_20260927/start.json",
+      "sha256": "41effb58d76ee2aa837d7f67aa42d0b4aa08293f75eb0f029db48263d570f5f3",
+      "bytes": 81732,
+      "requested_osm_date": "2025-09-15T00:00:00Z",
+      "purpose": "geometry",
+      "url": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+      "method": "HTTP POST form data with curl --data-urlencode; out body",
+      "query_file": "ml/lab/stop_forecast/sources/route12_osm_queries/start.overpassql",
+      "query_sha256": "953f8db59822f4f793ea44b89be29d6318f22a170330059a8dfb2e3d34fc73b4",
+      "download_completed_at_utc": "2026-09-27T13:43:58.552390+00:00",
+      "server_database_updated_at": "2026-09-27T13:42:35Z",
+      "license": "ODbL 1.0",
+      "attribution": "© OpenStreetMap contributors"
+    },
+    {
+      "file": "dataset/external/route12_osm_history_20260927/end.json",
+      "sha256": "41effb58d76ee2aa837d7f67aa42d0b4aa08293f75eb0f029db48263d570f5f3",
+      "bytes": 81732,
+      "requested_osm_date": "2025-09-22T00:00:00Z",
+      "purpose": "geometry",
+      "url": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+      "method": "HTTP POST form data with curl --data-urlencode; out body",
+      "query_file": "ml/lab/stop_forecast/sources/route12_osm_queries/end.overpassql",
+      "query_sha256": "d1d0547e9835f97d391c46dc2ceff44361137a06a252c1dccb24413d0fa078b0",
+      "download_completed_at_utc": "2026-09-27T13:44:43.700921+00:00",
+      "server_database_updated_at": "2026-09-27T13:42:35Z",
+      "license": "ODbL 1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  ],
+  "limitations": [
+    "Historical date follows Overpass date semantics; database timestamp is current server replication time, not requested data date.",
+    "Boundary equality does not prove that no temporary changes occurred inside the week.",
+    "OSM editing time is not service validity; weekend diversion and actual stop visits are not verified.",
+    "No vehicle, trip, device, event or actual arrival links."
+  ],
+  "failed_requests": [
+    {
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "result": "HTTP 406 after network-enabled retry"
+    },
+    {
+      "endpoint": "https://overpass.kumi.systems/api/interpreter",
+      "result": "45-second timeout"
+    },
+    {
+      "endpoint": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+      "purpose": "recursive ways and nodes",
+      "result": "HTTP 504"
+    },
+    {
+      "endpoint": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+      "purpose": "independent filter control at 2020-01-01; two attempts",
+      "result": "HTTP 504, then 45-second timeout; control unavailable"
+    }
+  ],
+  "official_evidence": [
+    {
+      "url": "https://transport.mos.ru/mostrans/all_news/124737",
+      "published": "2025-06-02",
+      "retrieval": "web search indexed text; direct open failed",
+      "announced_start": "2025-06-07",
+      "day_type": "weekends",
+      "route12_endpoint": "МЦД Новогиреево",
+      "end_date": null,
+      "actual_september_applicability_verified": false
+    },
+    {
+      "url": "https://transport.mos.ru/transport/schedule/route/141501939",
+      "retrieval": "URL found in OSM tags; web open failed",
+      "historical_schedule_obtained": false
+    }
+  ],
+  "method_reference": "https://dev.overpass-api.de/overpass-doc/en/analysis/museum.html",
+  "verified_stop_labels": 0
+}

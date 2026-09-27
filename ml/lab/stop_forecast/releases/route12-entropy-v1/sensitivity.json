@@ -1,0 +1,36 @@
+{
+  "interpretation": "sensitivity_to_assumptions_not_accuracy_or_confidence_interval",
+  "comparisons": [
+    {
+      "comparison": "unregularized",
+      "mean_total_variation": 0.3435652555865558,
+      "max_total_variation": 0.5177064740121695
+    },
+    {
+      "comparison": "stronger_regularization",
+      "mean_total_variation": 0.17512730463579834,
+      "max_total_variation": 0.3124596447309086
+    },
+    {
+      "comparison": "centre_prior",
+      "mean_total_variation": 0.09517438270994326,
+      "max_total_variation": 0.10341176164208826
+    },
+    {
+      "comparison": "uniform_control",
+      "mean_total_variation": 0.19381961420347532,
+      "max_total_variation": 0.3362862783720355
+    }
+  ],
+  "maximum_occurrence_share": 0.09663369835709024,
+  "direction_share_range": {
+    "0": [
+      0.5099945095771062,
+      0.5167122329958319
+    ],
+    "1": [
+      0.483287767004168,
+      0.49000549042289354
+    ]
+  }
+}

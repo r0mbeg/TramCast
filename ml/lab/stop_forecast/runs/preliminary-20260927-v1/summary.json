@@ -1,0 +1,27 @@
+{
+  "version": "D20260927-v1",
+  "cutoff": "2025-10-31",
+  "routes": [
+    1,
+    7,
+    11,
+    12
+  ],
+  "stop_occurrences": 315,
+  "route_hours": 29184,
+  "metro_quarter_rows": 5533,
+  "metro_period_from": "2021-03-31",
+  "metro_period_to": "2025-09-30",
+  "explicit_metro_name_occurrences": 49,
+  "unique_metro_candidates": 32,
+  "ambiguous_metro_candidates": 17,
+  "candidate_link_rows": 66,
+  "confirmed_stop_labels": 0,
+  "historical_network_verified": false,
+  "strict_asof_metro_availability_verified": false,
+  "counter_status_counts": {
+    "observed_unknown_completeness": 24204,
+    "structural_zero": 4864,
+    "missing": 116
+  }
+}

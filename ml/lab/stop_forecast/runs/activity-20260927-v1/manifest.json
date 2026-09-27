@@ -1,0 +1,26 @@
+{
+  "version": "A20260927-v1",
+  "inputs": {
+    "ml/lab/stop_forecast/runs/device-signal-20260927-v1/device_hour_scores.csv": "d673139f2dc5e01ccb983c8ae4e6ac1815927fd9af25f55e21ff8079d1ac06b6",
+    "ml/lab/stop_forecast/runs/device-signal-20260927-v1/binned_counts.npz": "0ca16d51c3501c506c1ca19bbe6783fe01f519245dadcf225d87caecad558d2d",
+    "ml/lab/stop_forecast/runs/device-signal-20260927-v1/summary.json": "fe1f1d0343e722c222784a69daa86c7b98f899175d31998ed176f0f4810a5ed3",
+    "ml/lab/stop_forecast/runs/device-signal-20260927-v1/manifest.json": "abb750501edfdd0ce95ac86789960f97e2d53510730c57a4fd6024f399ee3903",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/device_hour_scores.csv": "5b49bfe190b4ea86c552a0608814f6d25dbeaf67127361ca33506eed14cbaa26",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/binned_counts.npz": "d778e5341fc95e84dc8a9d889b4135a0bfbddb3085b79243baf897f50816214f",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/summary.json": "c226232dd21f16c2030f41cccadfb2215417af131cac133a7c02077648a9eb19",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/manifest.json": "a15ec5c8e581331e78bc5fefa7ab28c55f4aa6cbb550c2fa8edd45c67d500989",
+    "ml/lab/stop_forecast/activity_experiment.py": "029cef1b727fddc2fd02058ee13040450aeb7af84bc11eb5f1da55dbae52f547",
+    "ml/lab/stop_forecast/activity_model.py": "984be72a18f5114446e74c791e17625526d6805a240dbfaf02f7e3a03bfdbaf3",
+    "ml/lab/stop_forecast/ACTIVITY_PROTOCOL.md": "49f942b45ce3bc2b5a6faf3e6c982c1e0529eec0b1d94dd6b208927fc0ac8978",
+    "ml/lab/stop_forecast/duration_model.py": "998ecad2f1f215d7e69573e459af728efa67bfacf9256662ca3e7e5831450053",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9"
+  },
+  "outputs": {
+    "summary.json": "8ec0a686dae1fc8ad66bc190aa8c3b86c62cdc6848b6184b6cedc6c0104598a0",
+    "holdout_scores.csv": "0f2d7c0c544b67a6438cbafe3a09bcf7ac2b0f7d033c231955e4d14c1a3b1289",
+    "parameters.json": "5508007fd00634bb32d7a87a0e4238e05acd6551ffaab264baaafcd1cbdc0bcc",
+    "validation_scores.csv": "a6c3f94bf621d209babef45e85a546619f5efa02bfcb5ddf34587c74b88bb20b",
+    "selection.json": "093ae51d4b9ca6ee6db277905281329571627018689192e819ca2494090ad4c4",
+    "high_activity_probabilities.npz": "e95b60c9c88f31a52fa08db6941a9b0aafbb5f492b202e3f5a01cf6708b7e88a"
+  }
+}

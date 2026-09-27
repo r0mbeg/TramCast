@@ -1,0 +1,21 @@
+{
+  "version": "Q20260927-v1",
+  "inputs": {
+    "dataset/test.csv": "d58523f79b0d47d72eafe0da9a0c72fb8b472bf4b74e68a4e9f789bd6656557a",
+    "ml/lab/stop_forecast/runs/20260927-v2/route_hour_balance.csv": "a053de834a33bdb1fe10f2262a6b71fe362c9355e16105935b727d1f22f249c2",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/occurrences.csv": "1bf08fa7a871d90d92f2f6ae945a097ed5d7b104d170402218baf59836a60cfd",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/spatial_features.npy": "b79552d61044d35c1fa14cdd85ca4a6c5bd04446bc213710791fd046daa6938e",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/results.json": "72c0ba464f80105b4be8ab2565fecae089a4a93a7da0e8ffd0b35e4ef9c3c240",
+    "ml/lab/stop_forecast/runs/access-20260927-v1/stop_features.csv": "19ebafd53772f36e14efbdb6c1e0df05acd39ba356ad48b82b5b1528bf5887a9",
+    "ml/lab/stop_forecast/runs/proximity-20260927-v1/results.json": "fd5d812a4b6b216e5b59801fa5ee2bc20d4b48ac764ba6ebba6b596694ecf00f",
+    "ml/lab/stop_forecast/sequence_feasibility.py": "ab80174d85b587a5629d6c599c4305f4e40814bc187fa135e090176f79e26531",
+    "ml/lab/stop_forecast/bayes_experiment.py": "1a306036fe9764ab061cb83eb22ed1a4be378ece3cd2d0255d2390ab361bf0ed",
+    "ml/lab/stop_forecast/metro_experiment.py": "db23a88c0c8f424aa3ce958d432397b6625c366858d079afa1c0ec7f7c88f944",
+    "ml/lab/stop_forecast/proximity_experiment.py": "9f1a8cad06ef2a4a53adc01f35f1526ae58fc740c94795ab6d3f4b15bd44e213",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9"
+  },
+  "outputs": {
+    "aggregate_rank.json": "9620215322648f926e819d74a23ae145c2c415788c6ceaf93bebd7cf03b2c5a7",
+    "sequence_quality.json": "9913f8345dba2350f80db1f1f717eb98ebb48bc902b3e07fbe40fa5bea86d3a5"
+  }
+}

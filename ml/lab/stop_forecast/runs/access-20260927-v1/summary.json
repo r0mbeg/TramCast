@@ -1,0 +1,17 @@
+{
+  "version": "G20260927-v1",
+  "stop_occurrences": 315,
+  "entrance_records": 1020,
+  "candidate_pairs_within_800m": 1260,
+  "confirmed_stop_labels": 0,
+  "occurrences_with_candidates": {
+    "300": 90,
+    "500": 147,
+    "800": 229
+  },
+  "explicit_named_occurrences": 49,
+  "named_station_present_in_snapshot": 47,
+  "named_station_more_than_800m": 0,
+  "historical_validity_verified": false,
+  "walking_access_verified": false
+}

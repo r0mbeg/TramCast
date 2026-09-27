@@ -1,0 +1,28 @@
+{
+  "version": "H20260927-v1",
+  "historical_occurrences": 91,
+  "catalog_occurrences": 97,
+  "counts_by_direction": {
+    "0": 46,
+    "1": 45
+  },
+  "osm_stop_roles": {
+    "stop": 87,
+    "stop_entry_only": 2,
+    "stop_exit_only": 2
+  },
+  "unchanged_between_boundary_snapshots": true,
+  "stability_between_boundaries_proven": false,
+  "actual_service_verified": false,
+  "snapshot_dates": [
+    "2025-09-15T00:00:00Z",
+    "2025-09-22T00:00:00Z"
+  ],
+  "pairs_within_100m": 85,
+  "catalog_positions_without_candidate": 12,
+  "catalog_positions_with_multiple_candidates": 0,
+  "historical_positions_without_candidate": 6,
+  "verified_stop_assignments": 0,
+  "stop_accuracy": null,
+  "forecast_artifact": null
+}

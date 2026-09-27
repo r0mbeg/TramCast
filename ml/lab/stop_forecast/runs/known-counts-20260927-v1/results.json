@@ -1,0 +1,495 @@
+{
+  "version": "K20260927-v1",
+  "selected_model": "daytype_030",
+  "selection_cutoff": "2025-04-30",
+  "evaluation_status": "previously_seen_historical_windows",
+  "target": "registered_successful_validations_per_quarter_hour",
+  "stop_accuracy": null,
+  "metrics": [
+    {
+      "cutoff": "2025-04-30",
+      "model": "uniform_030",
+      "quarter": {
+        "rows": 4754,
+        "wape": 0.14894754557112377,
+        "mae": 56.31636516617585,
+        "total": 1797465.0,
+        "bias": 15688.0
+      },
+      "observed_quarters": {
+        "rows": 4757,
+        "wape": 0.14895261132294643,
+        "mae": 56.28442295564432,
+        "total": 1797518.0,
+        "bias": 15673.0
+      },
+      "hour": {
+        "rows": 1219,
+        "wape": 0.09915631180579317,
+        "mae": 146.21000820344545,
+        "total": 1797465.0,
+        "bias": 15688.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4754,
+        "wape": 0.1080833284653665,
+        "mae": 40.86579722339083,
+        "total": 1797465.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-04-30",
+      "model": "historical_030",
+      "quarter": {
+        "rows": 4754,
+        "wape": 0.12922866370137945,
+        "mae": 48.86074884307951,
+        "total": 1797465.0,
+        "bias": 15688.0
+      },
+      "observed_quarters": {
+        "rows": 4757,
+        "wape": 0.1292293039624638,
+        "mae": 48.83161656506201,
+        "total": 1797518.0,
+        "bias": 15680.0
+      },
+      "hour": {
+        "rows": 1219,
+        "wape": 0.09915631180579317,
+        "mae": 146.21000820344545,
+        "total": 1797465.0,
+        "bias": 15688.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4754,
+        "wape": 0.08239381573493781,
+        "mae": 31.15271350441733,
+        "total": 1797465.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-04-30",
+      "model": "daytype_030",
+      "quarter": {
+        "rows": 4754,
+        "wape": 0.12806925308698638,
+        "mae": 48.422381152713506,
+        "total": 1797465.0,
+        "bias": 15688.0
+      },
+      "observed_quarters": {
+        "rows": 4757,
+        "wape": 0.12806992753340996,
+        "mae": 48.39352533109103,
+        "total": 1797518.0,
+        "bias": 15680.0
+      },
+      "hour": {
+        "rows": 1219,
+        "wape": 0.09915631180579317,
+        "mae": 146.21000820344545,
+        "total": 1797465.0,
+        "bias": 15688.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4754,
+        "wape": 0.08070143229492646,
+        "mae": 30.51283129995793,
+        "total": 1797465.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-04-30",
+      "model": "bayes_030",
+      "quarter": {
+        "rows": 4754,
+        "wape": 0.12865118375044854,
+        "mae": 48.64240639461506,
+        "total": 1797465.0,
+        "bias": 15688.0
+      },
+      "observed_quarters": {
+        "rows": 4757,
+        "wape": 0.12865184103858765,
+        "mae": 48.61341181416859,
+        "total": 1797518.0,
+        "bias": 15680.0
+      },
+      "hour": {
+        "rows": 1219,
+        "wape": 0.09915631180579317,
+        "mae": 146.21000820344545,
+        "total": 1797465.0,
+        "bias": 15688.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4754,
+        "wape": 0.08181856114027256,
+        "mae": 30.935212452671436,
+        "total": 1797465.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-04-30",
+      "model": "direct_calendar",
+      "quarter": {
+        "rows": 4754,
+        "wape": 0.20542374955840587,
+        "mae": 77.66975178796802,
+        "total": 1797465.0,
+        "bias": 210564.0
+      },
+      "observed_quarters": {
+        "rows": 4757,
+        "wape": 0.20542436849032944,
+        "mae": 77.62329199075047,
+        "total": 1797518.0,
+        "bias": 210552.0
+      },
+      "hour": {
+        "rows": 1219,
+        "wape": 0.1786404742234202,
+        "mae": 263.4126333059885,
+        "total": 1797465.0,
+        "bias": 210564.0
+      }
+    },
+    {
+      "cutoff": "2025-06-30",
+      "model": "uniform_030",
+      "quarter": {
+        "rows": 4750,
+        "wape": 0.14897586746087801,
+        "mae": 53.77473684210526,
+        "total": 1714573.0,
+        "bias": 38336.0
+      },
+      "observed_quarters": {
+        "rows": 4756,
+        "wape": 0.14899885752010128,
+        "mae": 53.71888141295206,
+        "total": 1714691.0,
+        "bias": 38319.0
+      },
+      "hour": {
+        "rows": 1218,
+        "wape": 0.09242651085722217,
+        "mae": 130.10837438423644,
+        "total": 1714573.0,
+        "bias": 38336.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4750,
+        "wape": 0.11211887741146047,
+        "mae": 40.47073684210526,
+        "total": 1714573.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-06-30",
+      "model": "historical_030",
+      "quarter": {
+        "rows": 4750,
+        "wape": 0.1260243804142489,
+        "mae": 45.49010526315789,
+        "total": 1714573.0,
+        "bias": 38336.0
+      },
+      "observed_quarters": {
+        "rows": 4756,
+        "wape": 0.12603961880012202,
+        "mae": 45.44133725820017,
+        "total": 1714691.0,
+        "bias": 38337.0
+      },
+      "hour": {
+        "rows": 1218,
+        "wape": 0.09242651085722217,
+        "mae": 130.10837438423644,
+        "total": 1714573.0,
+        "bias": 38336.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4750,
+        "wape": 0.08506141179174057,
+        "mae": 30.704,
+        "total": 1714573.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-06-30",
+      "model": "daytype_030",
+      "quarter": {
+        "rows": 4750,
+        "wape": 0.12433999602233325,
+        "mae": 44.8821052631579,
+        "total": 1714573.0,
+        "bias": 38336.0
+      },
+      "observed_quarters": {
+        "rows": 4756,
+        "wape": 0.12435360073622595,
+        "mae": 44.83347350714887,
+        "total": 1714691.0,
+        "bias": 38338.0
+      },
+      "hour": {
+        "rows": 1218,
+        "wape": 0.09242651085722217,
+        "mae": 130.10837438423644,
+        "total": 1714573.0,
+        "bias": 38336.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4750,
+        "wape": 0.082547666386908,
+        "mae": 29.79663157894737,
+        "total": 1714573.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-06-30",
+      "model": "bayes_030",
+      "quarter": {
+        "rows": 4750,
+        "wape": 0.12536999007916258,
+        "mae": 45.253894736842106,
+        "total": 1714573.0,
+        "bias": 38336.0
+      },
+      "observed_quarters": {
+        "rows": 4756,
+        "wape": 0.1253835239118885,
+        "mae": 45.20479394449117,
+        "total": 1714691.0,
+        "bias": 38338.0
+      },
+      "hour": {
+        "rows": 1218,
+        "wape": 0.09242651085722217,
+        "mae": 130.10837438423644,
+        "total": 1714573.0,
+        "bias": 38336.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4750,
+        "wape": 0.08383894998929763,
+        "mae": 30.262736842105262,
+        "total": 1714573.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-06-30",
+      "model": "direct_calendar",
+      "quarter": {
+        "rows": 4750,
+        "wape": 0.16053034778921632,
+        "mae": 57.945473684210526,
+        "total": 1714573.0,
+        "bias": 132869.0
+      },
+      "observed_quarters": {
+        "rows": 4756,
+        "wape": 0.16053971240299272,
+        "mae": 57.87973086627418,
+        "total": 1714691.0,
+        "bias": 132864.0
+      },
+      "hour": {
+        "rows": 1218,
+        "wape": 0.1351829289274939,
+        "mae": 190.29638752052546,
+        "total": 1714573.0,
+        "bias": 132869.0
+      }
+    },
+    {
+      "cutoff": "2025-08-31",
+      "model": "uniform_030",
+      "quarter": {
+        "rows": 4746,
+        "wape": 0.1505053741810856,
+        "mae": 62.743362831858406,
+        "total": 1978534.0,
+        "bias": 79698.0
+      },
+      "observed_quarters": {
+        "rows": 4755,
+        "wape": 0.15051966331174493,
+        "mae": 62.63533123028391,
+        "total": 1978685.0,
+        "bias": 79675.0
+      },
+      "hour": {
+        "rows": 1217,
+        "wape": 0.0929455849634123,
+        "mae": 151.10599835661463,
+        "total": 1978534.0,
+        "bias": 79698.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4746,
+        "wape": 0.11631339163239045,
+        "mae": 48.48925410872314,
+        "total": 1978534.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-08-31",
+      "model": "historical_030",
+      "quarter": {
+        "rows": 4746,
+        "wape": 0.13210488169523496,
+        "mae": 55.072482090181204,
+        "total": 1978534.0,
+        "bias": 79698.0
+      },
+      "observed_quarters": {
+        "rows": 4755,
+        "wape": 0.1321145103945297,
+        "mae": 54.97644584647739,
+        "total": 1978685.0,
+        "bias": 79703.0
+      },
+      "hour": {
+        "rows": 1217,
+        "wape": 0.0929455849634123,
+        "mae": 151.10599835661463,
+        "total": 1978534.0,
+        "bias": 79698.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4746,
+        "wape": 0.09129486781627205,
+        "mae": 38.05941845764855,
+        "total": 1978534.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-08-31",
+      "model": "daytype_030",
+      "quarter": {
+        "rows": 4746,
+        "wape": 0.13013372527335895,
+        "mae": 54.250737463126846,
+        "total": 1978534.0,
+        "bias": 79698.0
+      },
+      "observed_quarters": {
+        "rows": 4755,
+        "wape": 0.13014451517042885,
+        "mae": 54.15667718191378,
+        "total": 1978685.0,
+        "bias": 79705.0
+      },
+      "hour": {
+        "rows": 1217,
+        "wape": 0.0929455849634123,
+        "mae": 151.10599835661463,
+        "total": 1978534.0,
+        "bias": 79698.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4746,
+        "wape": 0.08897294663624684,
+        "mae": 37.091445427728615,
+        "total": 1978534.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-08-31",
+      "model": "bayes_030",
+      "quarter": {
+        "rows": 4746,
+        "wape": 0.13109908649535465,
+        "mae": 54.65318162663296,
+        "total": 1978534.0,
+        "bias": 79698.0
+      },
+      "observed_quarters": {
+        "rows": 4755,
+        "wape": 0.13111030810866814,
+        "mae": 54.55856992639327,
+        "total": 1978685.0,
+        "bias": 79708.0
+      },
+      "hour": {
+        "rows": 1217,
+        "wape": 0.0929455849634123,
+        "mae": 151.10599835661463,
+        "total": 1978534.0,
+        "bias": 79698.0
+      },
+      "oracle_distribution_only": {
+        "rows": 4746,
+        "wape": 0.08996560079331464,
+        "mae": 37.50526759376317,
+        "total": 1978534.0,
+        "bias": 0.0
+      }
+    },
+    {
+      "cutoff": "2025-08-31",
+      "model": "direct_calendar",
+      "quarter": {
+        "rows": 4746,
+        "wape": 0.1818624294553442,
+        "mae": 75.81563421828909,
+        "total": 1978534.0,
+        "bias": -257887.0
+      },
+      "observed_quarters": {
+        "rows": 4755,
+        "wape": 0.1818743256253522,
+        "mae": 75.68286014721346,
+        "total": 1978685.0,
+        "bias": -257850.0
+      },
+      "hour": {
+        "rows": 1217,
+        "wape": 0.16155143151444454,
+        "mae": 262.6417419884963,
+        "total": 1978534.0,
+        "bias": -257887.0
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "cutoff": "2025-04-30",
+      "working_quarters": 4758,
+      "observed_quarters": 4757,
+      "complete_hour_quarters": 4754,
+      "complete_hours": 1219,
+      "scored_event_fraction": 0.9999705148988772
+    },
+    {
+      "cutoff": "2025-06-30",
+      "working_quarters": 4758,
+      "observed_quarters": 4756,
+      "complete_hour_quarters": 4750,
+      "complete_hours": 1218,
+      "scored_event_fraction": 0.9999311829361676
+    },
+    {
+      "cutoff": "2025-08-31",
+      "working_quarters": 4758,
+      "observed_quarters": 4755,
+      "complete_hour_quarters": 4746,
+      "complete_hours": 1217,
+      "scored_event_fraction": 0.9999236866909084
+    }
+  ]
+}

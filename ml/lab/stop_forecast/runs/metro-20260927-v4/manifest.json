@@ -1,0 +1,30 @@
+{
+  "version": "M20260927-v4",
+  "inputs": {
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/manifest.json": "82e9228e4c25c600ae81f2ddde040857491a6cb84889de4fdcc2b291181d5bde",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/results.json": "72c0ba464f80105b4be8ab2565fecae089a4a93a7da0e8ffd0b35e4ef9c3c240",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/occurrences.csv": "1bf08fa7a871d90d92f2f6ae945a097ed5d7b104d170402218baf59836a60cfd",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/spatial_features.npy": "b79552d61044d35c1fa14cdd85ca4a6c5bd04446bc213710791fd046daa6938e",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/route_predictions_2025-04-30.csv": "df75cc0c609a147290de1ae3e65f351f0c4660c92099654f974f216f69695ce2",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/route_predictions_2025-06-30.csv": "f6edb6f5deaf4f16d5b7f344cb32952799011dac2535ab53a0b494646ca671aa",
+    "ml/lab/stop_forecast/runs/bayes-20260927-v4/route_predictions_2025-08-31.csv": "2a5077478596eb2e0642c3608516ae3c378d67e8cc7ff8db1bb70245143d1fed",
+    "dataset/external/stop_history_20260927/metro_passenger_traffic.csv": "2565f6701584bdc4af8a8f6cd96c62d46c3eb622e2a3e23d5c1a0ee54984a509",
+    "ml/lab/stop_forecast/sources/historical_manifest_20260927.json": "94840e7c8dedc7cc36953731ca5b6f665f1dbaa9a4998701c5d8cf0ce1112596",
+    "ml/lab/artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "ml/lab/stop_forecast/metro_experiment.py": "db23a88c0c8f424aa3ce958d432397b6625c366858d079afa1c0ec7f7c88f944",
+    "ml/lab/stop_forecast/METRO_PROTOCOL.md": "eac455f0198f12540511b10dc47e57cdf1885857ad37e069abe1a3c167d8c0f9",
+    "ml/lab/stop_forecast/bayes_experiment.py": "1a306036fe9764ab061cb83eb22ed1a4be378ece3cd2d0255d2390ab361bf0ed",
+    "ml/lab/stop_forecast/build_preliminary.py": "8e6bbf37b1c11c6f63965f83a742c4575306217442660856a7cddd1fb45e6bd3",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9"
+  },
+  "outputs": {
+    "features_2025-10-31.csv": "0ab7153a810b53ad5be2baac38e0ccd5d8c9815815c191dee22b29c371d979e6",
+    "predictions_2025-04-30.csv": "87b17226f0d8677fd56c6141426c00104aef8471864be1a7094f13ee8ca1a35d",
+    "features_2025-06-30.csv": "48de3006f2046e4830ef0f6434416c8d22cc798bb9761a2448cfedaf55893c78",
+    "predictions_2025-08-31.csv": "ea5d34a73f4268c75862f73b2e9f6d0733f73a5d952610611aba16bb6b05caf0",
+    "results.json": "e7c6f593d598980d1f678eb25abe135fb607fe1b3c85768fd2fba6168d9a2d6b",
+    "predictions_2025-06-30.csv": "f99d1092bcd1ebf17cbe08603b7692edfd569c218717d8e5c2d0f581c38b0f46",
+    "features_2025-08-31.csv": "48de3006f2046e4830ef0f6434416c8d22cc798bb9761a2448cfedaf55893c78",
+    "features_2025-04-30.csv": "34ceef2f03d8ca6e1d43255c92206e948780893f4904accd2b7dc295609f57bb"
+  }
+}

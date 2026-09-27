@@ -1,0 +1,35 @@
+{
+  "version": "B20260927-v4",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.18.1"
+  },
+  "inputs": {
+    "ml/lab/artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "dataset/spravochniki/Хакатон_справочники_трамвай_10_маршрутов.xlsx": "c6890032eee2aaa9ed1e252b1fe5c10c37a28c7bb5c1720a01a1409b1ff2bb71",
+    "ml/lab/stop_forecast/bayes_experiment.py": "1a306036fe9764ab061cb83eb22ed1a4be378ece3cd2d0255d2390ab361bf0ed",
+    "ml/lab/stop_forecast/BAYES_PROTOCOL.md": "100f0955a9d533bcdea2f93de9aa312d693189ae5fefefd27e3c898d34d74d69",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/artifacts/methodology_20260927/data/audit_data.py": "6aa329276d48d180b1d25b1d8f0f1e19e275d69d958479e906334044ce8aaf69",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-04-30.csv": "63066dff331204c64ea37162bb98c375af317b94e785965a8a3dc572eb7ee01a",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-06-30.csv": "036c019d73f9f15a1539c4fb4700c9e71998fba255e89b0b0837e74502ea1532",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-08-31.csv": "8fc2496c1545a98472fce285cf573d47c8eff49e598fb11d8135033b793aafd3",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-10-31.csv": "9ddb408217e42c91ff7c0f0e96ff01e378366e553f24417b4bba9286c0a553c3"
+  },
+  "outputs": {
+    "occurrences.csv": "1bf08fa7a871d90d92f2f6ae945a097ed5d7b104d170402218baf59836a60cfd",
+    "profile_2025-04-30.csv": "5bcf93a2e6a8188ee981c2eb0be94f9f9d52d51c55a69ca3fdba75e60337e300",
+    "profile_2025-06-30.csv": "2b9cfd66e12ff28798ba23cb6f9cc605d9a1315122fbe0763e8a0eaeb97207ef",
+    "profile_2025-08-31.csv": "18634f696ccc1700a14e88720c65089602c4a306681366654434a90e9a62d284",
+    "profile_2025-10-31.csv": "f25794bfdc6b14c41343d52920c85fdafe75d4a31a23b0cda2ac66851df7a630",
+    "results.json": "72c0ba464f80105b4be8ab2565fecae089a4a93a7da0e8ffd0b35e4ef9c3c240",
+    "route12_scenario.csv.gz": "e0fd3a87d6165dd474f3dd8d64311a7104c8743978590f002165eefeed2162bb",
+    "route_predictions_2025-04-30.csv": "df75cc0c609a147290de1ae3e65f351f0c4660c92099654f974f216f69695ce2",
+    "route_predictions_2025-06-30.csv": "f6edb6f5deaf4f16d5b7f344cb32952799011dac2535ab53a0b494646ca671aa",
+    "route_predictions_2025-08-31.csv": "2a5077478596eb2e0642c3608516ae3c378d67e8cc7ff8db1bb70245143d1fed",
+    "scenario_profiles.csv.gz": "24a1209c79043333d42969033d56844465de149cb57de225bd0f2b6d658d1f30",
+    "spatial_features.npy": "b79552d61044d35c1fa14cdd85ca4a6c5bd04446bc213710791fd046daa6938e"
+  }
+}

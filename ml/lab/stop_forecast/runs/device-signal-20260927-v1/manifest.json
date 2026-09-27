@@ -1,0 +1,17 @@
+{
+  "version": "V20260927-v1",
+  "inputs": {
+    "ml/lab/stop_forecast/runs/sequence-20260927-v1/sequence_quality.json": "9913f8345dba2350f80db1f1f717eb98ebb48bc902b3e07fbe40fa5bea86d3a5",
+    "ml/lab/stop_forecast/runs/sequence-20260927-v1/manifest.json": "1c6cbb96cb6c183855bb79f7f1d052bb7e4d25ff95741eb8c2f32376c0699812",
+    "ml/lab/stop_forecast/device_signal.py": "6b1346f857dbfd048f9e7159803bcfbc014cfc7d0d8e400ce96b12e004b41be1",
+    "ml/lab/stop_forecast/DEVICE_SIGNAL_PROTOCOL.md": "7b5bf4db689d9fd6ebe56b93574b36a744cd29fe0cc40cab5dfdd91e6b243f82",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/stop_forecast/duration_model.py": "998ecad2f1f215d7e69573e459af728efa67bfacf9256662ca3e7e5831450053",
+    "dataset/test.csv": "d58523f79b0d47d72eafe0da9a0c72fb8b472bf4b74e68a4e9f789bd6656557a"
+  },
+  "outputs": {
+    "summary.json": "fe1f1d0343e722c222784a69daa86c7b98f899175d31998ed176f0f4810a5ed3",
+    "binned_counts.npz": "0ca16d51c3501c506c1ca19bbe6783fe01f519245dadcf225d87caecad558d2d",
+    "device_hour_scores.csv": "d673139f2dc5e01ccb983c8ae4e6ac1815927fd9af25f55e21ff8079d1ac06b6"
+  }
+}

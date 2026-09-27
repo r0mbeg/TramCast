@@ -1,0 +1,10 @@
+{
+  "manifest_sha256": "f32f7ef88d1d599c3ad0e796588f31989b2eae4de905a01829e622cc7518aa12",
+  "verifier_sha256": "6a939e733aaee62394a0d77cbc0aff742a9b56520312df88b6b176fa394eeab5",
+  "input_and_output_hashes": "passed",
+  "hourly_balance": "passed_7296_hours",
+  "forecast_grid": "passed_5856_rows",
+  "frozen_selection": "passed",
+  "independent_profile_replay": "passed",
+  "metrics_recomputed": "passed"
+}

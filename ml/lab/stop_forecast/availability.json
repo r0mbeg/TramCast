@@ -1,0 +1,181 @@
+{
+  "schema_version": "stop-forecast-availability-v1",
+  "status": "blocked",
+  "created_at": "2026-09-27T11:17:20.121263+00:00",
+  "target": "successful_validations_by_route_direction_pattern_stop_occurrence_calendar_hour",
+  "pilot_candidate": 12,
+  "pilot_ready": false,
+  "forecast_artifact": null,
+  "model_version": null,
+  "dataset_version": null,
+  "forecast_from": "2025-11-01T00:00:00+03:00",
+  "forecast_to": "2026-01-01T00:00:00+03:00",
+  "timezone": "Europe/Moscow",
+  "cleaned_successful_events": 59545140,
+  "verified_stop_linked_events": 0,
+  "verified_linkage_coverage": 0,
+  "independent_stop_labels": 0,
+  "linkage_accuracy": null,
+  "stop_metrics": null,
+  "route_metrics": null,
+  "route_metrics_note": "Audit fields above remain unavailable for verified stop forecasting; separate aggregate-only scenario route evaluation is linked in scenario_research.",
+  "occupancy_available": false,
+  "missing_inputs": [
+    "historical_actual_stop_visits_or_AVL_2025",
+    "time_valid_device_vehicle_links",
+    "historical_route_variants_and_stop_occurrences",
+    "independent_linkage_truth",
+    "registration_completeness_evidence"
+  ],
+  "models": [
+    {
+      "method": "uniform_shares",
+      "status": "not_run_missing_stop_truth",
+      "WAPE": null,
+      "MAE": null
+    },
+    {
+      "method": "historical_stop_shares",
+      "status": "not_run_missing_stop_truth",
+      "WAPE": null,
+      "MAE": null
+    },
+    {
+      "method": "hour_daytype_shares",
+      "status": "not_run_missing_stop_truth",
+      "WAPE": null,
+      "MAE": null
+    },
+    {
+      "method": "direct_seasonal_stop_mean",
+      "status": "not_run_missing_stop_truth",
+      "WAPE": null,
+      "MAE": null
+    },
+    {
+      "method": "shrunk_hour_daytype_shares",
+      "status": "not_run_missing_stop_truth",
+      "WAPE": null,
+      "MAE": null
+    }
+  ],
+  "audit_run": "runs/20260927-v2/run.json",
+  "audit_run_sha256": "ea50408c920c0afbbbcb8886a9bc65fe2fbdf497741fb82355c14a556573d27b",
+  "protocol": "PROTOCOL.md",
+  "proposed_schema": "SCHEMA.md",
+  "sources": "sources/manifest.json",
+  "report": "REPORT.md",
+  "updated_at": "2026-09-27T11:51:36.964198+00:00",
+  "scenario_research": {
+    "status": "completed_unvalidated",
+    "model_version": "B20260927-v4",
+    "results": "runs/bayes-20260927-v4/results.json",
+    "report": "BAYES_REPORT.md",
+    "forecast_artifact": "runs/bayes-20260927-v4/route12_scenario.csv.gz",
+    "verified_stop_accuracy": false
+  },
+  "fractional_split_research": {
+    "report": "SHARES_REPORT.md",
+    "supervised_status": "implemented_not_fitted_missing_real_stop_labels",
+    "joint_panel_status": "not_implemented",
+    "scenario_version": "F20260927-v2",
+    "scenario_results": "runs/shares-20260927-v2/results.json",
+    "stop_metrics": null
+  },
+  "preliminary_dataset": {
+    "version": "D20260927-v1",
+    "report": "PRELIMINARY_DATASET.md",
+    "manifest": "runs/preliminary-20260927-v1/manifest.json",
+    "kind": "covariates_and_route_observations",
+    "confirmed_stop_labels": 0
+  },
+  "activity_model_research": {
+    "version": "A20260927-v1",
+    "report": "ACTIVITY_REPORT.md",
+    "manifest": "runs/activity-20260927-v1/manifest.json",
+    "status": "map_activity_durations_fitted_fresh_temporal_holdout_positive",
+    "moscow_stop_assignments": false,
+    "stop_metrics": null
+  },
+  "device_signal_research": {
+    "version": "V20260927-v1",
+    "report": "DEVICE_SIGNAL_REPORT.md",
+    "manifest": "runs/device-signal-20260927-v1/manifest.json",
+    "status": "conditional_duration_inference_implemented_device_signal_detected",
+    "moscow_stop_assignments": false,
+    "stop_metrics": null
+  },
+  "sequence_model_research": {
+    "version": "R20260927-v1",
+    "report": "sources/SEQUENCE_MODEL.md",
+    "diagnostics": "runs/sequence-20260927-v1/manifest.json",
+    "status": "designed_input_feasibility_checked_not_fitted",
+    "stop_metrics": null
+  },
+  "metro_proximity_dataset": {
+    "version": "G20260927-v1",
+    "report": "METRO_ACCESS.md",
+    "manifest": "runs/access-20260927-v1/manifest.json",
+    "confirmed_stop_labels": 0
+  },
+  "metro_proximity_experiment": {
+    "version": "P20260927-v1",
+    "report": "PROXIMITY_REPORT.md",
+    "results": "runs/proximity-20260927-v1/results.json",
+    "selected": "base",
+    "stop_metrics": null
+  },
+  "metro_covariate_experiment": {
+    "version": "M20260927-v4",
+    "report": "METRO_REPORT.md",
+    "results": "runs/metro-20260927-v4/results.json",
+    "selected": "base",
+    "stop_metrics": null
+  },
+  "catalog_alignment_research": {
+    "version": "C20260927-v1",
+    "report": "CATALOG_ALIGNMENT_REPORT.md",
+    "manifest": "runs/catalog-alignment-20260927-v1/manifest.json",
+    "status": "conditional_alignment_ambiguous_historical_network_unverified",
+    "accepted_stop_assignments": 0,
+    "stop_metrics": null
+  },
+  "historical_geometry_research": {
+    "version": "H20260927-v1",
+    "report": "HISTORICAL_GEOMETRY_REPORT.md",
+    "manifest": "runs/historical-geometry-20260927-v1/manifest.json",
+    "historical_osm_occurrences": 91,
+    "actual_service_verified": false,
+    "confirmed_stop_labels": 0
+  },
+  "prospective_collection": {
+    "version": "L20260927-v1",
+    "report": "COLLECTION_PROTOCOL.md",
+    "evidence": "sources/live_capture_20260927.json",
+    "status": "eta_capture_only_control_bus_stop",
+    "route12_rows": 0,
+    "successful_validation_labels": 0,
+    "historical_2025_coverage": false
+  },
+  "modern_pilot": {
+    "version": "N20260927-v1",
+    "report": "MODERN_PILOT.md",
+    "results": "sources/modern_pilot_results_20260927.json",
+    "user_authorized_new_period": true,
+    "status": "route12_source_checked_schedule_eta_only",
+    "successful_validation_labels": 0
+  },
+  "application_estimate": {
+    "status": "ready_local_scenario_unvalidated",
+    "package_version": "E20260927-v1-88f891a83f8f266f",
+    "package": "releases/route12-entropy-v1",
+    "schema_and_handoff": "APP_PACKAGE.md",
+    "route": 12,
+    "occurrences": 97,
+    "rows": 142008,
+    "integrated_into_app": false,
+    "published": false,
+    "stop_metrics": null,
+    "note": "Top-level blocked status refers to verified stop forecasting; this is the separately approved scenario feature."
+  }
+}

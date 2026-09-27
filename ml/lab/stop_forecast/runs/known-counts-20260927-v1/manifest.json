@@ -1,0 +1,28 @@
+{
+  "version": "K20260927-v1",
+  "inputs": {
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-04-30.csv": "63066dff331204c64ea37162bb98c375af317b94e785965a8a3dc572eb7ee01a",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-06-30.csv": "036c019d73f9f15a1539c4fb4700c9e71998fba255e89b0b0837e74502ea1532",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-08-31.csv": "8fc2496c1545a98472fce285cf573d47c8eff49e598fb11d8135033b793aafd3",
+    "ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-10-31.csv": "9ddb408217e42c91ff7c0f0e96ff01e378366e553f24417b4bba9286c0a553c3",
+    "ml/lab/stop_forecast/known_counts.py": "32b02c44b34e5e5c1b3b16fd9aeb7063e1a9d7ddda01f530f1b204de5bb04ef5",
+    "ml/lab/stop_forecast/KNOWN_COUNTS_PROTOCOL.md": "bc6dc96b761db442f19963dc0540ef704c011a83b6ef7e787d0b24de4e96e61f",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/pipeline.py": "97f5bf60891d68c93ee6477ceca33df4788d8d6cb924b460b698877af4fb0c7b",
+    "dataset/derived/known_counts_20260927_v1/manifest.json": "cf88e53fb9fac22b21c1bd47de62848f7a8cb456e560a68045b28ee179090158",
+    "dataset/derived/known_counts_20260927_v1/observations.csv": "8c7f10e788d5900bfab70c8fd2d50ecc395d09dccb666b1427324a6a660a7b71"
+  },
+  "outputs": {
+    "breakdown.json": "0344c80b65c907a84c78a0799e0a8b50619210f032d798ffbf710c4dc2227a9c",
+    "forecast.csv": "d0ea3a30a29a21f21bb5c0ba59a9e60865ce7bd21fb844edb9bda95ea9d99909",
+    "predictions_2025-04-30.csv": "3f92a77d4033d3128c2d63331328f88b7584ac7c26d240510f2b1ac3aa4720f3",
+    "predictions_2025-06-30.csv": "3625c428d9ce0bf651878436d79c9647c99e3494c34dcc7cc9b816f29f6c7e0d",
+    "predictions_2025-08-31.csv": "31a364623a4899f0e88e4d662131bda4dfb7259e6140cb285461048ee83d537e",
+    "predictions_2025-10-31.csv": "6b28e0271bd2593cd0d62674ea41328dc5eb907a90a21fdc1ff9954294a2bffe",
+    "profiles_2025-04-30.json": "1b3c96e609fa17ad5cfaaa8793f239a3d503c82ddc0433b6342410a83421c2f9",
+    "profiles_2025-06-30.json": "5ffe6fa28c49f12340df7aedfc0f26c2c490f58867c1286e4bf8b49ebd10b804",
+    "profiles_2025-08-31.json": "1847ae725e8faf40edfa1cd05d9b3748f913b26b1837da315849ff34c4c2794b",
+    "profiles_2025-10-31.json": "f2f9cc147557ad838af14122e010bd4e63d3cdc465ed9bb53922bf5ce3171428",
+    "results.json": "9c050e958462dc1c710788fa801a4ad8aa91e08d3da3ea60ffe54340247591b9"
+  }
+}

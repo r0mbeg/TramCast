@@ -1,0 +1,20 @@
+{
+  "version": "VH20260927-v1",
+  "period": [
+    "2025-09-15",
+    "2025-09-21"
+  ],
+  "pilot_clean_successes": 223195,
+  "used_events": 169368,
+  "held_events": 30276,
+  "hours": 1392,
+  "vehicle_days": 136,
+  "exclusions": {
+    "invalid_keys": 390,
+    "conflicting_device_day": 390,
+    "multiple_route_vehicle_day": 19312,
+    "partial_hour5": 1524,
+    "insufficient_device_hour_events": 32211
+  },
+  "stop_labels": 0
+}

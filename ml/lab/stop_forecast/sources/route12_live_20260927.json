@@ -1,0 +1,22 @@
+{
+  "version": "N20260927-v1",
+  "snapshots": [
+    {
+      "file": "dataset/external/route12_live_20260927/suggest.json",
+      "sha256": "9da0c1675e5b8b87823ad924a29de15538a6374351029268755f148e8b582407",
+      "url": "https://api.moscowapp.mos.ru/v8.2/suggest?query=12&types=Route",
+      "method": "HTTPS GET; Accept application/json; no authentication",
+      "received_at_utc": "2026-09-27T14:47:16.687844+00:00"
+    },
+    {
+      "file": "dataset/external/route12_live_20260927/route.json",
+      "sha256": "b9ad824df7b1a8f94295f5569d13d8875eef8b44bea2f586d1003a47624686e6",
+      "url": "https://api.moscowapp.mos.ru/v8.2/route_v3/d567ee1a-2e25-4255-8035-9254d8a19ed4",
+      "method": "HTTPS GET; Accept application/json; no authentication",
+      "received_at_utc": "2026-09-27T14:47:32.028920+00:00"
+    }
+  ],
+  "discovery_reference": "https://github.com/ZhuravlevX/RailwaysTimetableTelegram/blob/e990405a3b085fb21180f8bd3f29ac7484669ea4/backend/src/routes/mostrans/suggest.rs",
+  "license": "API data redistribution not established; local research",
+  "scope": "current geometry and notices, not actual service or boarding labels"
+}

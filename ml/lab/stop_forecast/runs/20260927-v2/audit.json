@@ -1,0 +1,253 @@
+{
+  "status": "blocked_missing_stop_evidence",
+  "files": {
+    "train.csv": {
+      "rows": 49051926,
+      "outside_period": 0,
+      "unsuccessful_in_period": 2138693,
+      "successful_in_period": 46913233,
+      "removed_nonworking": 99046,
+      "removed_route5_working": 0,
+      "empty_fields": {
+        "tran_no": 0,
+        "device_no": 0,
+        "tran_date_time": 0,
+        "begin_date_time": 4794872,
+        "input_date_time": 0,
+        "crd_hashcode": 0,
+        "validation_result": 0,
+        "tran_type_id": 0,
+        "place_id": 155,
+        "good_type": 49,
+        "pass_route": 22516456,
+        "ngpt_route": 0,
+        "bus_exit_no": 32,
+        "garage_number": 383141
+      },
+      "headers": [
+        "tran_no",
+        "device_no",
+        "tran_date_time",
+        "begin_date_time",
+        "input_date_time",
+        "crd_hashcode",
+        "validation_result",
+        "tran_type_id",
+        "place_id",
+        "good_type",
+        "pass_route",
+        "ngpt_route",
+        "bus_exit_no",
+        "garage_number"
+      ],
+      "bytes": 8160068959,
+      "sha256": "e4157ed76a617c8a0ab5674eb7de3b3503489f21307ba68893dd0de04317360f"
+    },
+    "test.csv": {
+      "rows": 13391571,
+      "outside_period": 615,
+      "unsuccessful_in_period": 636998,
+      "successful_in_period": 12753958,
+      "removed_nonworking": 23005,
+      "removed_route5_working": 0,
+      "empty_fields": {
+        "tran_no": 0,
+        "device_no": 0,
+        "tran_date_time": 0,
+        "begin_date_time": 1346639,
+        "input_date_time": 0,
+        "crd_hashcode": 0,
+        "validation_result": 0,
+        "tran_type_id": 0,
+        "place_id": 0,
+        "good_type": 23,
+        "pass_route": 6037285,
+        "ngpt_route": 0,
+        "bus_exit_no": 26,
+        "garage_number": 48309
+      },
+      "headers": [
+        "tran_no",
+        "device_no",
+        "tran_date_time",
+        "begin_date_time",
+        "input_date_time",
+        "crd_hashcode",
+        "validation_result",
+        "tran_type_id",
+        "place_id",
+        "good_type",
+        "pass_route",
+        "ngpt_route",
+        "bus_exit_no",
+        "garage_number"
+      ],
+      "bytes": 2231502820,
+      "sha256": "d58523f79b0d47d72eafe0da9a0c72fb8b472bf4b74e68a4e9f789bd6656557a"
+    }
+  },
+  "field_quality": {
+    "eligible_successes": 59545140,
+    "device_no_missing_or_sentinel_eligible": 0,
+    "garage_number_missing_or_sentinel_eligible": 413034,
+    "bus_exit_no_missing_or_sentinel_eligible": 58,
+    "place_id_missing_or_sentinel_eligible": 155,
+    "begin_invalid": 6141432,
+    "begin_equals_event": 736682,
+    "begin_after_event": 15090993,
+    "begin_more_than_24h_before_event": 661574
+  },
+  "distinct_nonempty_keys": {
+    "device_no": 3080,
+    "garage_number": 490,
+    "bus_exit_no": 69,
+    "place_id": 6
+  },
+  "device_to_vehicle_whole_period": {
+    "keys": 3045,
+    "keys_with_multiple_values": 1912,
+    "maximum_values": 7
+  },
+  "device_day_to_vehicle_sample": {
+    "keys": 9725,
+    "keys_with_multiple_values": 4,
+    "maximum_values": 2
+  },
+  "route_exit_day_to_vehicle_sample": {
+    "keys": 1798,
+    "keys_with_multiple_values": 459,
+    "maximum_values": 4
+  },
+  "sample_dates": [
+    "2025-01-15",
+    "2025-02-15",
+    "2025-03-15",
+    "2025-04-15",
+    "2025-05-15",
+    "2025-06-15",
+    "2025-07-15",
+    "2025-08-15",
+    "2025-09-15",
+    "2025-10-15"
+  ],
+  "coverage": [
+    {
+      "route": 1,
+      "eligible_successes": 5110564,
+      "working_hours": 6080,
+      "event_present_hours": 5969,
+      "event_presence": 0.9817434210526316,
+      "workbook_geography": true,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 5,
+      "eligible_successes": 0,
+      "working_hours": 6080,
+      "event_present_hours": 1,
+      "event_presence": 0.0001644736842105263,
+      "workbook_geography": true,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": null,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 7,
+      "eligible_successes": 6469908,
+      "working_hours": 6080,
+      "event_present_hours": 6078,
+      "event_presence": 0.999671052631579,
+      "workbook_geography": true,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 11,
+      "eligible_successes": 8931872,
+      "working_hours": 6080,
+      "event_present_hours": 6078,
+      "event_presence": 0.999671052631579,
+      "workbook_geography": true,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 12,
+      "eligible_successes": 9314637,
+      "working_hours": 6080,
+      "event_present_hours": 6079,
+      "event_presence": 0.9998355263157894,
+      "workbook_geography": true,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 17,
+      "eligible_successes": 14068918,
+      "working_hours": 6080,
+      "event_present_hours": 6075,
+      "event_presence": 0.9991776315789473,
+      "workbook_geography": false,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 25,
+      "eligible_successes": 1988035,
+      "working_hours": 6080,
+      "event_present_hours": 5859,
+      "event_presence": 0.9636513157894737,
+      "workbook_geography": false,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 26,
+      "eligible_successes": 4871551,
+      "working_hours": 6080,
+      "event_present_hours": 6078,
+      "event_presence": 0.999671052631579,
+      "workbook_geography": false,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 28,
+      "eligible_successes": 2768377,
+      "working_hours": 6080,
+      "event_present_hours": 5853,
+      "event_presence": 0.9626644736842105,
+      "workbook_geography": false,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    },
+    {
+      "route": 50,
+      "eligible_successes": 6021278,
+      "working_hours": 6080,
+      "event_present_hours": 5921,
+      "event_presence": 0.9738486842105263,
+      "workbook_geography": false,
+      "verified_stop_matches": 0,
+      "stop_match_fraction": 0.0,
+      "independent_stop_labels": 0
+    }
+  ],
+  "pilot_candidate": 12,
+  "independently_verified_stop_accuracy": null,
+  "complete_counter_fraction": null,
+  "reconciled_hourly_keys": 72960,
+  "clean_total": 59545140,
+  "assigned_total": 0,
+  "unassigned_total": 59545140,
+  "note": "0 is verified linkage coverage for these inputs, not a measured failure rate of an AVL matcher"
+}

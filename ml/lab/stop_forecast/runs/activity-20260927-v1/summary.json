@@ -1,0 +1,247 @@
+{
+  "version": "A20260927-v1",
+  "selected": "hsmm",
+  "validation": {
+    "fast": {
+      "nats_per_event": 0.04412624448906459,
+      "cluster_bootstrap_95": [
+        0.016805955529836443,
+        0.06986821762941973
+      ],
+      "positive_hour_fraction": 0.6145833333333334
+    },
+    "slow": {
+      "nats_per_event": 0.7002545547366896,
+      "cluster_bootstrap_95": [
+        0.6553244206598078,
+        0.7473344440273142
+      ],
+      "positive_hour_fraction": 0.9479166666666666
+    },
+    "uniform": {
+      "nats_per_event": 0.961309178601752,
+      "cluster_bootstrap_95": [
+        0.9011004816868224,
+        1.0172156818230529
+      ],
+      "positive_hour_fraction": 0.9791666666666666
+    }
+  },
+  "holdout": {
+    "fast": {
+      "nats_per_event": 0.07552688489283763,
+      "cluster_bootstrap_95": [
+        0.06390865780503052,
+        0.08618658908027596
+      ],
+      "positive_hour_fraction": 0.6587643678160919
+    },
+    "slow": {
+      "nats_per_event": 0.6885641801584891,
+      "cluster_bootstrap_95": [
+        0.6680640130109944,
+        0.7100691532771732
+      ],
+      "positive_hour_fraction": 0.9755747126436781
+    },
+    "uniform": {
+      "nats_per_event": 0.9192421067168386,
+      "cluster_bootstrap_95": [
+        0.8979105250075917,
+        0.9426909983665012
+      ],
+      "positive_hour_fraction": 0.9849137931034483
+    }
+  },
+  "holdout_per_day": {
+    "2025-09-15": {
+      "fast": {
+        "nats_per_event": 0.06787185271184246,
+        "cluster_bootstrap_95": [
+          0.04398639596866127,
+          0.08656727801620517
+        ],
+        "positive_hour_fraction": 0.657258064516129
+      },
+      "slow": {
+        "nats_per_event": 0.710953667684818,
+        "cluster_bootstrap_95": [
+          0.6645628929201165,
+          0.7530790806235113
+        ],
+        "positive_hour_fraction": 0.9959677419354839
+      },
+      "uniform": {
+        "nats_per_event": 0.9562110114254492,
+        "cluster_bootstrap_95": [
+          0.9111361466523837,
+          0.9977277304714683
+        ],
+        "positive_hour_fraction": 1.0
+      }
+    },
+    "2025-09-16": {
+      "fast": {
+        "nats_per_event": 0.08200379729507584,
+        "cluster_bootstrap_95": [
+          0.053492614012508405,
+          0.11156302881209884
+        ],
+        "positive_hour_fraction": 0.6582914572864321
+      },
+      "slow": {
+        "nats_per_event": 0.6696144503249555,
+        "cluster_bootstrap_95": [
+          0.5940923471216186,
+          0.7344366998946628
+        ],
+        "positive_hour_fraction": 0.9748743718592965
+      },
+      "uniform": {
+        "nats_per_event": 0.898620303115627,
+        "cluster_bootstrap_95": [
+          0.8230878420391253,
+          0.9593427523758281
+        ],
+        "positive_hour_fraction": 0.9849246231155779
+      }
+    },
+    "2025-09-17": {
+      "fast": {
+        "nats_per_event": 0.11037439834940181,
+        "cluster_bootstrap_95": [
+          0.08561207744639775,
+          0.13537837200170927
+        ],
+        "positive_hour_fraction": 0.7477064220183486
+      },
+      "slow": {
+        "nats_per_event": 0.7360097820598128,
+        "cluster_bootstrap_95": [
+          0.6787222505416045,
+          0.7947542015287521
+        ],
+        "positive_hour_fraction": 0.981651376146789
+      },
+      "uniform": {
+        "nats_per_event": 0.9566232108204865,
+        "cluster_bootstrap_95": [
+          0.9006832772014919,
+          1.0221882771872712
+        ],
+        "positive_hour_fraction": 0.9862385321100917
+      }
+    },
+    "2025-09-18": {
+      "fast": {
+        "nats_per_event": 0.09165889311945215,
+        "cluster_bootstrap_95": [
+          0.07386553088820094,
+          0.10954138729360519
+        ],
+        "positive_hour_fraction": 0.6781115879828327
+      },
+      "slow": {
+        "nats_per_event": 0.7179492096336303,
+        "cluster_bootstrap_95": [
+          0.6727568833974412,
+          0.7635900859144861
+        ],
+        "positive_hour_fraction": 0.9656652360515021
+      },
+      "uniform": {
+        "nats_per_event": 0.944667071109243,
+        "cluster_bootstrap_95": [
+          0.9013658860679543,
+          0.995965186603795
+        ],
+        "positive_hour_fraction": 0.9699570815450643
+      }
+    },
+    "2025-09-19": {
+      "fast": {
+        "nats_per_event": 0.042147597817185974,
+        "cluster_bootstrap_95": [
+          0.008534325489535144,
+          0.07011440435216192
+        ],
+        "positive_hour_fraction": 0.5915492957746479
+      },
+      "slow": {
+        "nats_per_event": 0.6729953975910411,
+        "cluster_bootstrap_95": [
+          0.6142654076124848,
+          0.7272010740242468
+        ],
+        "positive_hour_fraction": 0.9671361502347418
+      },
+      "uniform": {
+        "nats_per_event": 0.9116951524562232,
+        "cluster_bootstrap_95": [
+          0.8490564283765957,
+          0.9706699756704404
+        ],
+        "positive_hour_fraction": 0.9812206572769953
+      }
+    },
+    "2025-09-20": {
+      "fast": {
+        "nats_per_event": 0.047857270273741453,
+        "cluster_bootstrap_95": [
+          0.00023197389705040025,
+          0.08845799353249605
+        ],
+        "positive_hour_fraction": 0.5736434108527132
+      },
+      "slow": {
+        "nats_per_event": 0.5767145394722174,
+        "cluster_bootstrap_95": [
+          0.5352565811725679,
+          0.6205361957589953
+        ],
+        "positive_hour_fraction": 0.9457364341085271
+      },
+      "uniform": {
+        "nats_per_event": 0.794730652381308,
+        "cluster_bootstrap_95": [
+          0.7445840346667576,
+          0.8546566596197571
+        ],
+        "positive_hour_fraction": 0.9767441860465116
+      }
+    },
+    "2025-09-21": {
+      "fast": {
+        "nats_per_event": 0.06102255722501419,
+        "cluster_bootstrap_95": [
+          0.01951789536481001,
+          0.10177074921153506
+        ],
+        "positive_hour_fraction": 0.6710526315789473
+      },
+      "slow": {
+        "nats_per_event": 0.6503654381657564,
+        "cluster_bootstrap_95": [
+          0.601965563057173,
+          0.698786178584008
+        ],
+        "positive_hour_fraction": 0.9868421052631579
+      },
+      "uniform": {
+        "nats_per_event": 0.879267017915691,
+        "cluster_bootstrap_95": [
+          0.8123438099468354,
+          0.9384495440848523
+        ],
+        "positive_hour_fraction": 0.993421052631579
+      }
+    }
+  },
+  "holdout_hours": 1392,
+  "holdout_vehicle_days": 136,
+  "holdout_held_events": 30276,
+  "holdout_reference_events": 139092,
+  "stop_accuracy": null,
+  "stop_visits_verified": 0,
+  "status": "learned_activity_regimes_not_geographic_stop_model"
+}

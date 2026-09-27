@@ -1,0 +1,51 @@
+{
+  "version": "G20260927-v1",
+  "stop_occurrences": 315,
+  "entrance_records": 1020,
+  "candidate_pairs_within_800m": 1260,
+  "confirmed_stop_labels": 0,
+  "occurrences_with_candidates": {
+    "300": 90,
+    "500": 147,
+    "800": 229
+  },
+  "explicit_named_occurrences": 49,
+  "named_station_present_in_snapshot": 47,
+  "named_station_more_than_800m": 0,
+  "historical_validity_verified": false,
+  "walking_access_verified": false,
+  "source": {
+    "original": "https://data.mos.ru/opendata/624",
+    "mirror": "https://data.apicrafter.ru/packages/datamos-metro",
+    "download": "https://data.apicrafter.ru/packages/datamos-metro/build/datamos-7704786030-metro-2021-10-23-7-35/get",
+    "retrieved_date": "2026-09-27",
+    "snapshot_date": "2021-10-23",
+    "original_modified": "27.09.2021",
+    "original_version": "5.2",
+    "licenses_in_archive": [
+      {
+        "name": "rusgov-copyright",
+        "path": "https://data.gov.ru/information-usage",
+        "title": "Типовые условия доступа к открытым данным органов власти в РФ"
+      }
+    ],
+    "mirror_page_license": "CC-BY-SA (version unspecified)",
+    "license_discrepancy": "Mirror page and archive differ; retained locally, not published"
+  },
+  "decoder": "pymongo==4.16.0",
+  "distance": "great-circle metres, mean Earth radius 6371008.8",
+  "inputs": {
+    "dataset/external/stop_history_20260927/metro_entrances_20211023.zip": "3b998e85764885662fa62b1e6c1f4b05cc2cf70dbf20279b3ce414fbc612931b",
+    "ml/lab/stop_forecast/runs/preliminary-20260927-v1/stop_features.csv": "a1f9be04b3cf0e309bbc5475cbe7e27de90e11663793b3af95a7c2e77b86082f",
+    "ml/lab/stop_forecast/runs/preliminary-20260927-v1/manifest.json": "25b5587b543c171737daebb43e81e43458ee3aa215d73eb2fca0c6237219d2ff",
+    "ml/lab/stop_forecast/build_metro_access.py": "e747ef72b75b1b4b4d055ac850ecb23fca912963d66b50e536b4b65b233706a5",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/stop_forecast/build_preliminary.py": "8e6bbf37b1c11c6f63965f83a742c4575306217442660856a7cddd1fb45e6bd3"
+  },
+  "outputs": {
+    "summary.json": "8dcd650b88a260f6cf9f195c85a5ee7cdfa5d904d8e55ddd3e98f5a9fb082a8a",
+    "stop_features.csv": "19ebafd53772f36e14efbdb6c1e0df05acd39ba356ad48b82b5b1528bf5887a9",
+    "candidate_links.csv": "89ced63ffaaac6e05a8af11a68e0dd8db44b2348de7db3a7474f2fc9a22caaaa",
+    "entrances.csv": "cb89a14fa75a20c47ca9a6cba8c3dc8caa342e3218fb656216caee4e4009878b"
+  }
+}
