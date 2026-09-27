@@ -41,6 +41,11 @@ class ForecastServiceStub:
                 request_serializer=tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictRequest.SerializeToString,
                 response_deserializer=tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictResponse.FromString,
                 _registered_method=True)
+        self.PredictStops = channel.unary_unary(
+                '/tramcast.forecast.v1.ForecastService/PredictStops',
+                request_serializer=tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictRequest.SerializeToString,
+                response_deserializer=tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictStopsResponse.FromString,
+                _registered_method=True)
 
 
 class ForecastServiceServicer:
@@ -58,6 +63,14 @@ class ForecastServiceServicer:
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def PredictStops(self, request, context):
+        """Scenario allocation of the SAME route forecast path used by Predict.
+        Existing Predict messages and behavior are unchanged. No training here.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ForecastServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -65,6 +78,11 @@ def add_ForecastServiceServicer_to_server(servicer, server):
                     servicer.Predict,
                     request_deserializer=tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictRequest.FromString,
                     response_serializer=tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictResponse.SerializeToString,
+            ),
+            'PredictStops': grpc.unary_unary_rpc_method_handler(
+                    servicer.PredictStops,
+                    request_deserializer=tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictRequest.FromString,
+                    response_serializer=tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictStopsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -96,6 +114,33 @@ class ForecastService:
             '/tramcast.forecast.v1.ForecastService/Predict',
             tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictRequest.SerializeToString,
             tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def PredictStops(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/tramcast.forecast.v1.ForecastService/PredictStops',
+            tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictRequest.SerializeToString,
+            tramcast_dot_forecast_dot_v1_dot_forecast__pb2.PredictStopsResponse.FromString,
             options,
             channel_credentials,
             insecure,

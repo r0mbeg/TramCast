@@ -47,7 +47,10 @@ def check():
                     patch("sys.argv", ["service.py", "--describe"]), \
                     patch("service.logging.basicConfig"), redirect_stdout(output):
                 main()
-            assert json.loads(output.getvalue()) == refreshed.metadata
+            described = json.loads(output.getvalue())
+            stops = described.pop('stop_forecast')
+            assert described == refreshed.metadata
+            assert stops['available'] and stops['route_model_version'] == refreshed.metadata['model_version']
             try:
                 original.refresh(new_path)
             except FileExistsError:

@@ -14,6 +14,10 @@ service ForecastService {
   // The caller sets a deadline. The server must observe cancellation while
   // computing. Retried calls may repeat inference; publication is fenced by Go.
   rpc Predict(PredictRequest) returns (PredictResponse);
+
+  // Scenario allocation of the SAME route forecast path used by Predict.
+  // Existing Predict messages and behavior are unchanged. No training here.
+  rpc PredictStops(PredictRequest) returns (PredictStopsResponse);
 }
 
 // Required fields and cross-field constraints are validated by the application.
@@ -59,4 +63,56 @@ message PredictionPoint {
   // reading the value. Python rejects non-finite model output, clamps negatives
   // to zero, rounds half-up once, and verifies the int64 range before returning.
   optional int64 boardings = 2;
+}
+
+message PredictStopsResponse {
+  // Composite route + allocation identities; these are NOT Predict's IDs.
+  string model_version = 1;
+  string dataset_version = 2;
+  string route_model_version = 3;
+  string route_dataset_version = 4;
+  string allocation_model_version = 5;
+  string allocation_dataset_version = 6;
+  string network_version = 7;
+  // One ordered catalog for this route, both directions together. Source IDs
+  // are strings, never internal PostgreSQL IDs. Repeated stops stay distinct.
+  repeated StopOccurrence occurrences = 8;
+  // Exact requested hourly grid, ascending. Each vector aligns with occurrences.
+  repeated StopPredictionHour hours = 9;
+  // Always scenario_estimate_unvalidated in the current implementation.
+  string estimate_status = 10;
+  string geography_status = 11;
+  string allocation_package_version = 12;
+}
+
+message StopOccurrence {
+  string occurrence_id = 1;
+  string source_route_id = 2;
+  string pattern_key = 3;
+  int32 direction_id = 4;
+  int32 stop_sequence = 5;
+  string source_stop_id = 6;
+  string stop_name = 7;
+  // Required presence; false for snapshot OSM exit-only positions.
+  optional bool boarding_allowed = 8;
+  // assumed_unverified for workbook; stop/stop_entry_only/stop_exit_only for OSM.
+  string boarding_role = 9;
+}
+
+message StopPredictionHour {
+  google.protobuf.Timestamp hour_start = 1;
+  // Required presence, same integer total as Predict for the same route/versions.
+  optional int64 route_boardings = 2;
+  // Nonnegative integers, exactly occurrences.size elements (including zeros).
+  // Sum equals route_boardings. Missing app mappings stay unassigned; no renormalization.
+  repeated int64 estimated_boardings = 3 [packed = true];
+  StopHourStatus status = 4;
+}
+
+enum StopHourStatus {
+  STOP_HOUR_STATUS_UNSPECIFIED = 0;
+  STOP_HOUR_STATUS_SCENARIO = 1;
+  STOP_HOUR_STATUS_NONWORKING_ZERO = 2;
+  // Takes precedence over nonworking hours. Absence of history is not an observed zero.
+  STOP_HOUR_STATUS_ROUTE5_FALLBACK = 3;
 }
