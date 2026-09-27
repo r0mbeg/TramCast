@@ -60,6 +60,8 @@ Thumbs.db
 
 # Local PostgreSQL data
 /out/pgdata/
+# Raw load test output of scripts/perf.sh
+/out/perf/
 
 
 # ML
