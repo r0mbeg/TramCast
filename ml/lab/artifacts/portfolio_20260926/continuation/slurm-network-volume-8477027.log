@@ -1,0 +1,7 @@
+[I 2026-09-27 08:07:20,385] A new study created in RDB with name: network_volume
+[I 2026-09-27 08:07:21,266] Trial 0 finished with value: 0.881868139895476 and parameters: {'recipe': 'bayes_half'}. Best is trial 0 with value: 0.881868139895476.
+[I 2026-09-27 08:07:22,506] Trial 1 finished with value: 0.8663089690876593 and parameters: {'recipe': 'absolute_full'}. Best is trial 0 with value: 0.881868139895476.
+[I 2026-09-27 08:07:23,035] Trial 2 finished with value: 0.8795141691095606 and parameters: {'recipe': 'bayes_full'}. Best is trial 0 with value: 0.881868139895476.
+[I 2026-09-27 08:07:23,544] Trial 3 finished with value: 0.883516081309472 and parameters: {'recipe': 'control'}. Best is trial 3 with value: 0.883516081309472.
+[I 2026-09-27 08:07:24,093] Trial 4 finished with value: 0.8766218639895054 and parameters: {'recipe': 'absolute_half'}. Best is trial 3 with value: 0.883516081309472.
+network_volume {'recipe': 'control'} [0.8843676154914588, 0.8826645471274852, 0.8874140388685599, 0.9005729211216879]

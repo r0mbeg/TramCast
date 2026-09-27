@@ -1,0 +1,43 @@
+{
+  "id": "P68",
+  "parent": "P17",
+  "models": [
+    "030",
+    "029",
+    "025",
+    "024"
+  ],
+  "teacher_origins": [
+    "2025-04-30",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31"
+  ],
+  "availability": "origin+61days<=cutoff",
+  "fallback": "exact030 if none",
+  "prior": "Dirichlet(2,2,2,2)",
+  "grid_points": 165,
+  "likelihood_temperature": 0.15,
+  "common_shrinkage": 0.25,
+  "min_local_days": 7,
+  "repeat_handling": "average route-date blocks",
+  "sampler": "GridSampler",
+  "additional_trials": 2,
+  "space": {
+    "recipe": [
+      "control",
+      "posterior"
+    ]
+  },
+  "seed": 42,
+  "objective": "mean W1/W2",
+  "previous_P17_fixed_recipe_runs": 1,
+  "previous_P17_allocation_seconds": 23,
+  "previous_P17_CPU_coreseconds": 92,
+  "P68_additional_allocation_limit_seconds": 120,
+  "P17_P68_cumulative_allocation_limit_seconds": 143,
+  "original_family_allocation_limit_seconds": 1800,
+  "conditional_quality_not_hidden_score_confidence": true,
+  "random_inference": false,
+  "no_new_raw_transfer": true
+}

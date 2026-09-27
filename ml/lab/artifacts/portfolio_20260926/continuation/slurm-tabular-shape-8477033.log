@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tabular_shape.py", line 164, in <module>
+    parser.add_argument('--pilot',action='store_true');run(parser.parse_args())
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tabular_shape.py", line 146, in run
+    if args.pilot:forecast(history,*FINAL,'new',out,model_path,repeat=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tabular_shape.py", line 126, in forecast
+    learned=fit(history,cutoff,end,folder,model_path,seed,repeat)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tabular_shape.py", line 77, in fit
+    pd.testing.assert_frame_equal(profile.reset_index()[['route','date']],future[['route','date']])
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/pandas/_testing/asserters.py", line 1240, in assert_frame_equal
+    assert_index_equal(
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/pandas/_testing/asserters.py", line 339, in assert_index_equal
+    assert_attr_equal("names", left, right, obj=obj)
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/pandas/_testing/asserters.py", line 421, in assert_attr_equal
+    raise_assert_detail(obj, msg, left_attr, right_attr)
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/lib/python3.12/site-packages/pandas/_testing/asserters.py", line 614, in raise_assert_detail
+    raise AssertionError(msg)
+AssertionError: DataFrame.columns are different
+
+Attribute "names" are different
+[left]:  ['hour']
+[right]: [None]
+srun: error: vt12: task 0: Exited with exit code 1

@@ -1,0 +1,21 @@
+{
+  "cutoff": "2025-10-31",
+  "target": "actual",
+  "seed": 42,
+  "rows": 3559,
+  "features": 51,
+  "origins": 8,
+  "earliest_target_date": "2025-03-22",
+  "latest_target_date": "2025-10-31",
+  "model_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+  "target_formula": "(actual volume minus causal teacher volume)/10000",
+  "sample_weight_used": false,
+  "n_estimators": 4,
+  "output_type": "median",
+  "repeated_prediction_exact": null,
+  "teacher_final_shape_family_mismatch": true,
+  "fit_seconds": 9.342876756563783,
+  "peak_gpu_bytes": 669763072,
+  "peak_gpu_reserved_bytes": 901775360,
+  "peak_rss_kib": 1344704
+}

@@ -1,0 +1,55 @@
+{
+  "job_id": "8477018",
+  "config": {
+    "backend": "torch",
+    "compile": false,
+    "dtype": "float32",
+    "batch_size": 9,
+    "prediction_length": 61,
+    "resample_strategy": null,
+    "seed": 42,
+    "july_verified": true
+  },
+  "revision": "63c740922493f5fbe60b277609ec62babfba2762",
+  "weights_sha256": "b8c3f5a036c63272ce4b91c00187e26922a394cb6cb49d4e16db070ad0422314",
+  "wheel_sha256": "e470b2e1a4ad2fe6ab95012da6b92ffa20f69ff3a5d44b5b37ba3cd86ff2b2e0",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tirex.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--model-path",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/model-tirex",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/tirex"
+  ],
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "pretrained_availability": "modern checkpoint, not available at historical2025cutoffs",
+  "versions": {
+    "torch": "2.6.0+cu124",
+    "tirex-ts": "1.4.2",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_tirex.py": "b3e483a7016e2662f6fba53cd4088b11d7779f580c428456559cff88c2fd972c",
+    "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+    "experiments/portfolio_timesfm.py": "b10e9bceef8cb52676c5533d4f5ab8adc2ad494db4e8454ea4e755c106885c1b",
+    "experiments/portfolio_timesfm_errors.py": "fc993b58b966173d28ed0c9d7d31f1dd0eb7587897d5f879b3fd3e9ed9b5d11e",
+    "experiments/portfolio_factor.py": "ef3eb63f6cc1614f3b6b1691514749d4dd5a369f0900b1f4573bd49a5422d29d",
+    "experiments/portfolio_chronos.py": "fc6611e617c316abff81db57a523bcdcc622e220289ef584238e8884d20418f2",
+    "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+    "experiments/portfolio_experiment.py": "29454837d2de34550a15a001d1d5dafc4c3c4564fe7a2fdd257c7a95121889fa",
+    "experiments/portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac",
+    "experiments/portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-07-31.csv": "5ab4becb352b30812d135cef66908012ed79ee82ddedbb576a3bcc069ae7a026",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-04-30.csv": "60f2da3c42120a6b523e433fdd191ba99966d123bd2bed0677f79917f737dba0",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-08-31.csv": "197f2c3bdf6259ac87daf97cea018188011dbf951d6aa08fae79746253520bf5",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-06-30.csv": "fef27d6bb056d2cdef0b19d8eca21dedabd02383c9133603b15f6bbe9a995104",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-10-31.csv": "33df602d404fd4f0058ce3a59723470610ed4714303a594e4efee80c34c3b597",
+    "artifacts/portfolio_20260926/continuation/operations/operations/selection.json": "fd8954e578acdcceca981e674f93a701a1591ce626f8890e2d8fcef8b1844ccc",
+    "artifacts/portfolio_20260926/continuation/august_operations/august_operations/selection.json": "893e7aabbe1fc68a07af399d9e463ae8abb0d91f2359a0353c507b496847957c"
+  }
+}

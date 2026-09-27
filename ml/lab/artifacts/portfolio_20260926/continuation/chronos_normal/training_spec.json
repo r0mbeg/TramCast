@@ -1,0 +1,32 @@
+{
+  "sampler": "grid",
+  "space": {
+    "steps": [
+      0,
+      200
+    ],
+    "learning_rate": [
+      1e-06
+    ]
+  },
+  "trials": 2,
+  "representations": [
+    "normal_daily",
+    "normal_joint_weather"
+  ],
+  "context_length": 512,
+  "prediction_length": 61,
+  "min_past": 28,
+  "batch_size": 16,
+  "dtype": "float32",
+  "quantile": 0.5,
+  "finetune_mode": "full",
+  "seeds": [
+    42,
+    73
+  ],
+  "total_gpu_allocation_limit_seconds": 1800,
+  "per_study_timeout": 1800,
+  "adaptation": "fresh copy of pretrained model at each cutoff",
+  "regime": "retrospective exogenous ERA5; current weights; targets only through cutoff"
+}

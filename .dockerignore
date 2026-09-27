@@ -12,3 +12,11 @@ frontend/dist/
 **/*.xls
 *.zip
 *.pdf
+**/.venv*
+**/__pycache__
+
+# The research lab is not part of the serving image build context.
+ml/lab/
+
+ml/models/
+ml/cache/

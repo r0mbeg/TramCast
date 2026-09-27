@@ -1,0 +1,10 @@
+6f31dd9a7ae4c7ce705ba769cab72136229ed2983958dcc69777d6bb9a9de9cd  artifacts/results/2025-06-30/finetuned-ckpt/adapter_config.json
+9603390d36fb4df2ee9b119e80f51ee2460ca16c25c44645f8c226d14f0b92f4  artifacts/results/2025-06-30/finetuned-ckpt/adapter_model.safetensors
+6f31dd9a7ae4c7ce705ba769cab72136229ed2983958dcc69777d6bb9a9de9cd  artifacts/results/2025-08-31/finetuned-ckpt/adapter_config.json
+7b02bdd710b1e345ca7d8913ca35fe5798adc7537b4972a63980abd2db40542d  artifacts/results/2025-08-31/finetuned-ckpt/adapter_model.safetensors
+JobID|State|ExitCode|Elapsed|AllocTRES
+8476933|COMPLETED|0:0|00:01:10|billing=4,cpu=4,gres/gpu=1,mem=16G,node=1
+8476933.batch|COMPLETED|0:0|00:01:10|cpu=4,gres/gpu=1,mem=16G,node=1
+8476933.extern|COMPLETED|0:0|00:01:10|billing=4,cpu=4,gres/gpu=1,mem=16G,node=1
+8476933.0|COMPLETED|0:0|00:01:10|cpu=4,gres/gpu=1,mem=16G,node=1
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)

@@ -1,0 +1,62 @@
+{
+  "2025-04-30": {
+    "rows": 1098,
+    "days": 89,
+    "weighted_mean": -2.508743663634873e-17,
+    "weighted_sd": 0.11438320649632526,
+    "kurtosis": 10.242217581545903,
+    "skewness": -1.1980594612108408,
+    "beyond_3_sigma": 0.024344569288389514,
+    "tail_squared_error_fraction": 0.42777318619918503,
+    "clipped_target_fraction": 0.008114856429463172,
+    "missing_hour_fraction": 0.010486891385767798
+  },
+  "2025-06-30": {
+    "rows": 2196,
+    "days": 150,
+    "weighted_mean": -5.723816482511918e-17,
+    "weighted_sd": 0.1102491302872423,
+    "kurtosis": 9.603589011852332,
+    "skewness": -1.0524208346475203,
+    "beyond_3_sigma": 0.01814814814814815,
+    "tail_squared_error_fraction": 0.34453692320940577,
+    "clipped_target_fraction": 0.004691358024691359,
+    "missing_hour_fraction": 0.01033333333333334
+  },
+  "2025-07-31": {
+    "rows": 2745,
+    "days": 181,
+    "weighted_mean": -7.306071715151429e-17,
+    "weighted_sd": 0.1103460689706465,
+    "kurtosis": 9.345174029731554,
+    "skewness": -0.9201250099040991,
+    "beyond_3_sigma": 0.018313894004501736,
+    "tail_squared_error_fraction": 0.33489017913153735,
+    "clipped_target_fraction": 0.0038878657663188048,
+    "missing_hour_fraction": 0.010374462860650713
+  },
+  "2025-08-31": {
+    "rows": 3294,
+    "days": 211,
+    "weighted_mean": -2.499901871141216e-16,
+    "weighted_sd": 0.1134281965940532,
+    "kurtosis": 8.364480917411175,
+    "skewness": -0.6810646411114067,
+    "beyond_3_sigma": 0.019220642443391257,
+    "tail_squared_error_fraction": 0.3213709896153597,
+    "clipped_target_fraction": 0.003335088643145515,
+    "missing_hour_fraction": 0.010268562401263831
+  },
+  "2025-10-31": {
+    "rows": 3738,
+    "days": 224,
+    "weighted_mean": 3.06810132855162e-16,
+    "weighted_sd": 0.11222748320559542,
+    "kurtosis": 8.319906753291141,
+    "skewness": -0.7801722419962118,
+    "beyond_3_sigma": 0.018416666666666665,
+    "tail_squared_error_fraction": 0.3162757380511936,
+    "clipped_target_fraction": 0.0031666666666666666,
+    "missing_hour_fraction": 0.010225000000000008
+  }
+}

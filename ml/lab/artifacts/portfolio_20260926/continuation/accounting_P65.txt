@@ -1,0 +1,21 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+JobID|State|ElapsedRaw|AllocCPUS|AllocTRES|MaxRSS
+8477033|FAILED|10|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|
+8477033.batch|FAILED|10|2|cpu=2,gres/gpu=1,mem=2G,node=1|1320K
+8477033.extern|COMPLETED|10|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|940K
+8477033.0|FAILED|10|2|cpu=2,gres/gpu=1,mem=2G,node=1|3508K
+8477034|COMPLETED|103|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|
+8477034.batch|COMPLETED|103|2|cpu=2,gres/gpu=1,mem=2G,node=1|8340K
+8477034.extern|COMPLETED|103|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|940K
+8477034.0|COMPLETED|103|2|cpu=2,gres/gpu=1,mem=2G,node=1|1302152K
+8477035|COMPLETED|329|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|
+8477035.batch|COMPLETED|329|2|cpu=2,gres/gpu=1,mem=2G,node=1|8340K
+8477035.extern|COMPLETED|329|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|940K
+8477035.0|COMPLETED|329|2|cpu=2,gres/gpu=1,mem=2G,node=1|1326504K
+{
+  "job_id": "8477035",
+  "elapsed_seconds": 324.51379537023604,
+  "peak_rss_kib": 1351724
+}JOBID PARTITION NAME STATE TIME CPUS MIN_MEMORY TRES_PER_NODE

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "rows": 176640,
+  "configurations": 12,
+  "primary_mean_scores": {
+    "cov0_shares0": 0.8492959503839502,
+    "cov0_shares1": 0.8495327907473347,
+    "cov1_shares0": 0.8367170907805884,
+    "cov1_shares1": 0.8368000137826493
+  },
+  "checks": [
+    "local code/history/calendar SHA256",
+    "unchanged truth and complete grid",
+    "nonnegative integers and forced zeros",
+    "independent metric recomputation",
+    "exact control reproduction",
+    "exact local hourly reconstruction with original float32 daily dtype"
+  ]
+}

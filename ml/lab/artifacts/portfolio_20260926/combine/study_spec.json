@@ -1,0 +1,78 @@
+{
+  "space": {
+    "pair": [
+      "ridge_chronos",
+      "chronos_hour",
+      "ridge_adaptive",
+      "ridge_median"
+    ],
+    "weight": [
+      0.25,
+      0.5,
+      0.75
+    ]
+  },
+  "sampler": "GridSampler",
+  "seed": 42,
+  "trials": 12,
+  "timeout": 1800,
+  "objective": "mean global WAPE-score on both development windows",
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "pruning": false,
+  "components": {
+    "ridge_chronos": [
+      "ridge",
+      "chronos"
+    ],
+    "chronos_hour": [
+      "chronos",
+      "hour"
+    ],
+    "ridge_adaptive": [
+      "ridge",
+      "adaptive"
+    ],
+    "ridge_median": [
+      "ridge",
+      "median"
+    ]
+  },
+  "fixed_hybrids": [
+    "ridge_volume_chronos_shape",
+    "chronos_volume_ridge_shape",
+    "median_three",
+    "movement_half_chronos"
+  ],
+  "route_rule": "three weights, one completed earlier 61-day window, 50% shrinkage",
+  "inner": {
+    "2025-04-30": [
+      "2025-02-28",
+      "2025-04-30"
+    ],
+    "2025-06-30": [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    "2025-07-31": [
+      "2025-05-31",
+      "2025-07-31"
+    ],
+    "2025-08-31": [
+      "2025-06-30",
+      "2025-08-30"
+    ],
+    "2025-10-31": [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  }
+}

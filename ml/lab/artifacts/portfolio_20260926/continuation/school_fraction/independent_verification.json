@@ -1,0 +1,87 @@
+{
+  "checked_at": "2026-09-27T04:56:47.201878+00:00",
+  "input_code_sha256": {
+    "pilot": 54,
+    "study": 54
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "seed": 42,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-04-30",
+      "rows": 1098
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-06-30",
+      "rows": 2196
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-07-31",
+      "rows": 2745
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-08-31",
+      "rows": 3294
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-04-30",
+      "rows": 1098
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-06-30",
+      "rows": 2196
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-07-31",
+      "rows": 2745
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-08-31",
+      "rows": 3294
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "cutoff": "2025-10-31",
+      "rows": 3738
+    }
+  ],
+  "raw_forecasts_checked": 16,
+  "past_only_fraction_targets": true,
+  "public_calendar_matrix_independently_reconstructed": true,
+  "calendar_published_before_origin": true,
+  "absolute_daily_loss_identity": true,
+  "network_raw_daily_totals_preserved": true,
+  "fixed_024_hourshares": true,
+  "exact_028_control": true,
+  "seed73_all5_raw_exact": true,
+  "model_reloads_exact_on_zhores": true,
+  "local_model_inference_skipped": "sklearn1.9.1 differs from saved1.8.0; saved transforms audited",
+  "audit_code_sha256": "c6ba19484fcdc3ae546c49beab45f7dcdb2c3d7a790469eaf03b4da817efa529"
+}

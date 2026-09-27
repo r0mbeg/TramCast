@@ -1,0 +1,5 @@
+[I 2026-09-27 05:19:46,427] A new study created in RDB with name: bayes_shape
+[I 2026-09-27 05:19:46,922] Trial 0 finished with value: 0.8814866909017036 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.8814866909017036.
+[I 2026-09-27 05:19:51,711] Trial 1 finished with value: 0.8830272693231019 and parameters: {'recipe': 'half'}. Best is trial 1 with value: 0.8830272693231019.
+[I 2026-09-27 05:19:52,242] Trial 2 finished with value: 0.8820247399919674 and parameters: {'recipe': 'full'}. Best is trial 1 with value: 0.8830272693231019.
+bayes_shape {'recipe': 'half'} [0.8847498060861879, 0.881304732560016, 0.888151988611891, 0.8995451489664822]

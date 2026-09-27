@@ -1,0 +1,14 @@
+{
+  "pilot_job.sbatch": "eb14dd245c70d05ddba496c1773b4b8e9c5bfb36b9782357b77cabecd1e8adf9",
+  "study_job.sbatch": "e06b5ca98ee1c19190bb460503977e63dd64fb1cddfcf9d656d54a959a3d6379",
+  "portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+  "test_portfolio_experiment.py": "e5ec851ed8b4f43699049c6c96dc67f49ea3e7a3a451206e0ac74bac70f74c7b",
+  "calendar_experiment.py": "9b5fec4f0121139ce65cfb0a828f950426d200a80cae3fdadd14bc00626bcf36",
+  "portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+  "portfolio_bayes_shape.py": "dee54533f8d75f89f618dbd97ee25b89be9485d148396aee760703dd3416dec6",
+  "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+  "portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+  "portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+  "portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+  "portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac"
+}

@@ -1,0 +1,9 @@
+{
+  "cutoff": "2025-04-30",
+  "representation": "daily_weather",
+  "params": {
+    "steps": 200,
+    "learning_rate": 1e-05
+  },
+  "seed": 42
+}

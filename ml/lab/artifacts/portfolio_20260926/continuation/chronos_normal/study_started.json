@@ -1,0 +1,43 @@
+{
+  "job_id": "8476968",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_finetune.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--model-path",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/model",
+    "--weather",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/chronos_normal",
+    "--normal"
+  ],
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "versions": {
+    "chronos-forecasting": "2.3.2",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "accelerate": "1.15.0",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_finetune.py": "1720968da17443ea7914c4623d673254b88315d41cee8b9a990b07a7f9e99679",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "experiments/portfolio_chronos.py": "fc6611e617c316abff81db57a523bcdcc622e220289ef584238e8884d20418f2",
+    "experiments/portfolio_chronos_weather.py": "9e3842882e65c231f3c4997da468222fc0b22f8a5e8fb862d1153aa8299bd762",
+    "experiments/chronos_experiment.py": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5",
+    "experiments/chronos_calendar_experiment.py": "cfd446decbadb90f787e6ddff84557071c01170bcb67364b91981e0dabf2e39b",
+    "experiments/portfolio_operations.py": "64f5714ce980c776dc64091a661364d70191c43459105fd1b3f9290d6ce08374",
+    "experiments/portfolio_movement.py": "8b94e331711d025dad1bd70bfa17111d78b2fd0e415a4c331027ec3c2c723f71",
+    "experiments/portfolio_combine.py": "ef271e459d4332eb800a80770a57f866299b4686b477074c811ba2df7bf2242e",
+    "artifacts/portfolio_20260926/continuation/operations/operations/selection.json": "fd8954e578acdcceca981e674f93a701a1591ce626f8890e2d8fcef8b1844ccc",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-07-31.csv": "830bbc90e3e9fc58c6f1ff84a603c5355b9db4f81c277476c291197142c87528",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-06-30.csv": "0d92a933ad75d1469011be0a72a92a6981d34199b7381da38c67111037e2a37f",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-04-30.csv": "448eae6e06b12e4edbd3995e733ace3530cea5702cf28f36a4889018a1e3a203",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-08-31.csv": "e983d68dae7ccebd46713e4859b1150b1f9806ecbfb0750fb7cb46e254122241",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-10-31.csv": "d08e3f873d2a283f753dcc707634b5ee6c805b16bdaabcc489e7b7e7bb5c7518"
+  }
+}

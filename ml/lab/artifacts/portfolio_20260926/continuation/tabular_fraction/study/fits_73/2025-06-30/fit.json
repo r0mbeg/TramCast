@@ -1,0 +1,20 @@
+{
+  "cutoff": "2025-06-30",
+  "rows": 2196,
+  "features": 30,
+  "seed": 73,
+  "earliest_target_date": "2025-02-01",
+  "latest_target_date": "2025-06-30",
+  "origins": 4,
+  "n_estimators": 4,
+  "output_type": "median",
+  "sample_weight_used": false,
+  "repeated_prediction_exact": null,
+  "model_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+  "target": "actual network fraction minus base network fraction; unweighted conditional prior",
+  "device": "NVIDIA GeForce RTX 2080 Ti",
+  "fit_seconds": 2.6998101426288486,
+  "peak_gpu_bytes": 293722624,
+  "peak_gpu_reserved_bytes": 375390208,
+  "peak_rss_kib": 1338648
+}

@@ -1,0 +1,40 @@
+"""P41: replay Bayesian calibration with the official August 11 restoration date."""
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import os
+from pathlib import Path
+
+from experiments.portfolio_bayes_direct import forecast
+from experiments.portfolio_bayes_volume import ROOT
+from experiments.portfolio_experiment import load_history, run_study, write_json
+from experiments.portfolio_weather_volume import WEATHER_PATH
+
+
+def run(args):
+    if os.environ.get("SLURM_JOB_PARTITION")!="ais-cpu":
+        raise RuntimeError("Expected ais-cpu")
+    cpus=int(os.environ["SLURM_CPUS_PER_TASK"])
+    if not 1<=cpus<=4 or len(os.sched_getaffinity(0))>cpus:
+        raise RuntimeError("Unexpected allocation")
+    if datetime.now(timezone.utc)>=datetime.fromisoformat("2026-09-27T15:40:40+00:00"):
+        raise RuntimeError("Research reserve reached")
+    out=Path(args.output);out.mkdir(parents=True,exist_ok=True)
+    paths=[Path(args.history),Path(__file__),Path(WEATHER_PATH),ROOT/"external/july_restoration_sources.json"]
+    paths += [Path("experiments")/f"portfolio_{n}.py" for n in
+        ["experiment","bayes_direct","bayes_volume","direct_daily","operations","movement","ridge","structure","combine","windows","weather_volume"]]
+    paths += [ROOT/f"{n}/{n}/selection.json" for n in ["operations","direct_daily","bayes_volume"]]
+    paths += list((ROOT/"conditional_shape/conditional_shape/selected").glob("raw_*.csv"))
+    write_json(out/"run_started.json",dict(job_id=os.environ["SLURM_JOB_ID"],command=os.sys.argv,
+        source_regime="permitted retrospective official operations; restoration August11 vs estimated August7",
+        sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}))
+    history=load_history(args.history)
+    run_study(history,out,"verified_july",lambda c,e,p:forecast(history,c,e,p,out),dict(sampler="grid",
+        space={"july_verified":[False,True],"season":["route"],"strength":[1.],"uncertainty":[1],"history_days":[224]},trials=2))
+    write_json(out/"completed.json",dict(job_id=os.environ["SLURM_JOB_ID"]))
+
+
+if __name__=="__main__":
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--history",required=True);parser.add_argument("--output",required=True)
+    run(parser.parse_args())

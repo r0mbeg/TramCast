@@ -1,0 +1,42 @@
+[I 2026-09-27 03:02:12,465] A new study created in RDB with name: factor
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+[I 2026-09-27 03:02:13,366] Trial 0 finished with value: 0.8633434136047347 and parameters: {'rank': 6, 'alpha': 1, 'mode': 'rain'}. Best is trial 0 with value: 0.8633434136047347.
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+[I 2026-09-27 03:02:14,264] Trial 1 finished with value: 0.8448303273323309 and parameters: {'rank': 6, 'alpha': 10, 'mode': 'rain'}. Best is trial 0 with value: 0.8633434136047347.
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+[I 2026-09-27 03:02:15,141] Trial 2 finished with value: 0.8623063004709248 and parameters: {'rank': 3, 'alpha': 1, 'mode': 'rain'}. Best is trial 0 with value: 0.8633434136047347.
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+[I 2026-09-27 03:02:16,033] Trial 3 finished with value: 0.8308383514982147 and parameters: {'rank': 6, 'alpha': 10, 'mode': 'climate'}. Best is trial 0 with value: 0.8633434136047347.
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+[I 2026-09-27 03:02:16,910] Trial 4 finished with value: 0.8433640452811207 and parameters: {'rank': 3, 'alpha': 1, 'mode': 'climate'}. Best is trial 0 with value: 0.8633434136047347.
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+[I 2026-09-27 03:02:17,777] Trial 5 finished with value: 0.8454892907825956 and parameters: {'rank': 3, 'alpha': 10, 'mode': 'rain'}. Best is trial 0 with value: 0.8633434136047347.
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+[I 2026-09-27 03:02:18,661] Trial 6 finished with value: 0.8449716113001973 and parameters: {'rank': 6, 'alpha': 1, 'mode': 'climate'}. Best is trial 0 with value: 0.8633434136047347.
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+[I 2026-09-27 03:02:19,525] Trial 7 finished with value: 0.8327309623872138 and parameters: {'rank': 3, 'alpha': 10, 'mode': 'climate'}. Best is trial 0 with value: 0.8633434136047347.
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+factor {'rank': 6, 'alpha': 1, 'mode': 'rain'} [0.8787381310177457, 0.8479486961917237, 0.8914574577395212, 0.9034787240167457]
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(
+/trinity/home/m.persiyanov/miniconda3/envs/py312/lib/python3.12/site-packages/sklearn/decomposition/_nmf.py:1720: ConvergenceWarning: Maximum number of iterations 500 reached. Increase it to improve convergence.
+  warnings.warn(

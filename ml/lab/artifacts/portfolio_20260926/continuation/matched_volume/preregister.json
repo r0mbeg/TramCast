@@ -1,0 +1,40 @@
+{
+  "id": "P67",
+  "parents": [
+    "P65",
+    "P66"
+  ],
+  "hypothesis": "Error learning from the same fixed 030 forecaster",
+  "status": "preregistered",
+  "teacher_origins": [
+    "2025-04-30",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31"
+  ],
+  "availability": "origin + 61 days <= cutoff",
+  "fallback": "exact 030 when no completed teacher",
+  "target": "(actual_day - exact030_teacher_day)/10000",
+  "inherited": "P66 51 features/native unweighted median, 4 estimators, clip 0.5-2, actual_half strength 0.5",
+  "sampler": "GridSampler",
+  "seed": 42,
+  "additional_trials": 2,
+  "space": {
+    "recipe": [
+      "control",
+      "matched"
+    ]
+  },
+  "objective": "mean W1/W2",
+  "old_trials": 5,
+  "total_trials": 7,
+  "old_gpu_seconds": 135,
+  "additional_gpu_limit_seconds": 300,
+  "cumulative_gpu_limit_seconds": 435,
+  "family_limit_seconds": 1800,
+  "family_started_at": 1790489139.482144,
+  "seed_check": 73,
+  "selected_all_four_and_final": true,
+  "no_independent_test": true,
+  "no_new_raw_transfer": true
+}

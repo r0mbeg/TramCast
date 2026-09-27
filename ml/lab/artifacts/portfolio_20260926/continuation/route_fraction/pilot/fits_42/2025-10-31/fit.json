@@ -1,0 +1,15 @@
+{
+  "cutoff": "2025-10-31",
+  "rows": 3738,
+  "features": 24,
+  "seed": 42,
+  "earliest_target_date": "2025-03-22",
+  "latest_target_date": "2025-10-31",
+  "origins": 8,
+  "iterations": 100,
+  "model_sha256": "189a6568a5004a1328bca5c51cf07b314ffd636129d64c09257a647581eada4b",
+  "model_reload_exact": true,
+  "loss": "absolute route fraction error, actual network volume/repeat weights; daily L1 surrogate",
+  "fit_seconds": 0.6420318447053432,
+  "peak_rss_kib": 180136
+}

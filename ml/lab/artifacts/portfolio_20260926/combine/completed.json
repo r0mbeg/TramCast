@@ -1,0 +1,9 @@
+{
+  "job_id": "8476944",
+  "trials": 12,
+  "best_development_params": {
+    "pair": "ridge_chronos",
+    "weight": 0.75
+  },
+  "best_development_value": 0.8352580474109805
+}

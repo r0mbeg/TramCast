@@ -1,0 +1,42 @@
+{
+  "recorded_at": "2026-09-27T05:05:41.116036+00:00",
+  "phase": "P62",
+  "objective": "meanW1/W2",
+  "sampler": "GridSampler",
+  "seed": 42,
+  "trials": 5,
+  "timeout": 1800,
+  "recipes": [
+    "control",
+    "bayes_half",
+    "bayes_full",
+    "absolute_half",
+    "absolute_full"
+  ],
+  "allocation": {
+    "cpu": 1,
+    "ram_mib": 512,
+    "seconds": 120
+  },
+  "absolute_model": {
+    "features": 28,
+    "leaves": 7,
+    "iterations": 100,
+    "learning_rate": 0.05,
+    "min_leaf": 20,
+    "l2": 1,
+    "history_days": 224
+  },
+  "bayes_model": {
+    "features": 34,
+    "strength": 1,
+    "uncertainty": 1,
+    "volume_weight": true,
+    "history_days": 224,
+    "predictive_variance": true
+  },
+  "control": "exact029",
+  "new_volume": "aggregated operations forecast \u00d7 factor; preserve029within-day shares",
+  "best_new_if_control_wins": "4windows+final",
+  "seed73": "fixedrecipe if chosennewmodel HGB; no tuning"
+}

@@ -1,0 +1,6 @@
+{
+  "attempt": "018_timesfm_bayesian_blend",
+  "sha256": "7edb630c9815bd595d33eac29bbea49d44f0363ddae15a10bdc83de60834d2f1",
+  "rows": 14640,
+  "verification": "independent frozen scorer; raw/integer/forcedzeros exact"
+}

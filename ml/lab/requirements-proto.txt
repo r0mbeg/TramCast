@@ -1,0 +1,2 @@
+-r requirements-service.txt
+grpcio-tools==1.84.0

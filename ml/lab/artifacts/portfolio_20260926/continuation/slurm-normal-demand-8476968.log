@@ -1,0 +1,30 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+[I 2026-09-27 02:39:52,394] A new study created in RDB with name: finetune_normal_daily
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 3.1479, 'grad_norm': 23.91596221923828, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 2.8886, 'grad_norm': 16.80832290649414, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 18.2203, 'train_samples_per_second': 175.628, 'train_steps_per_second': 10.977, 'train_loss': 3.018240966796875, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 4.5707, 'grad_norm': 26.278228759765625, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.1379, 'grad_norm': 35.85286331176758, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 16.7527, 'train_samples_per_second': 191.014, 'train_steps_per_second': 11.938, 'train_loss': 4.354293212890625, 'epoch': 1.0}
+[I 2026-09-27 02:40:37,325] Trial 0 finished with value: 0.8249929445991954 and parameters: {'steps': 200, 'learning_rate': 1e-06}. Best is trial 0 with value: 0.8249929445991954.
+[I 2026-09-27 02:40:38,565] Trial 1 finished with value: 0.8425529306648469 and parameters: {'steps': 0, 'learning_rate': 1e-06}. Best is trial 1 with value: 0.8425529306648469.
+finetune_normal_daily {'steps': 0, 'learning_rate': 1e-06} [0.8113582847334674, 0.8737475765962266, 0.8640623634873872, 0.8807462262067997]
+[I 2026-09-27 02:40:40,746] A new study created in RDB with name: finetune_normal_joint_weather
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 1.7452, 'grad_norm': 12.84257984161377, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 1.6343, 'grad_norm': 10.404632568359375, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 17.3353, 'train_samples_per_second': 184.595, 'train_steps_per_second': 11.537, 'train_loss': 1.6897506713867188, 'epoch': 1.0}
+[RANK 0] Detected kernel version 5.4.270, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 1.94, 'grad_norm': 16.587203979492188, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 1.7795, 'grad_norm': 10.766961097717285, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 17.0703, 'train_samples_per_second': 187.46, 'train_steps_per_second': 11.716, 'train_loss': 1.8597517395019532, 'epoch': 1.0}
+[I 2026-09-27 02:41:24,989] Trial 0 finished with value: 0.8333855992365607 and parameters: {'steps': 200, 'learning_rate': 1e-06}. Best is trial 0 with value: 0.8333855992365607.
+[I 2026-09-27 02:41:26,244] Trial 1 finished with value: 0.8577199816343555 and parameters: {'steps': 0, 'learning_rate': 1e-06}. Best is trial 1 with value: 0.8577199816343555.
+finetune_normal_joint_weather {'steps': 0, 'learning_rate': 1e-06} [0.8480171011862392, 0.8674228620824719, 0.8565147765296999, 0.8867746970271425]

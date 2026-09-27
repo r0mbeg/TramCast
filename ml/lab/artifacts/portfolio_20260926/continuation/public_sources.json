@@ -1,0 +1,31 @@
+{
+  "retrieved_at": "2026-09-26T21:40:29.439805+00:00",
+  "repositories": [
+    {
+      "repository": "https://github.com/asastyy/moscow_transport",
+      "commit": "4899aafc5031709c400dabd28009de1c9ca8b7a9",
+      "files": {
+        "README_ML.md": "eb1226b075d7c9785df9eb9eb5739bf9d7645ca8256f9b89f7453b09a135303a",
+        "experiments.csv": "79b4f2be7073db961fa05ce4261d2e01e4801412071af83a1bbd895121aeffce",
+        "v3.0 (0.89577)/src/features.py": "81f6f3e484182017040a2887cde2b4c86896c95f449f07e2e3d613bd13b386d6",
+        "v3.0 (0.89577)/src/validate.py": "74640c4260324d27b2c4b2f0c13412785d554ffa173676c9a5e1509b357b491d"
+      },
+      "execution": "source read only; no foreign code or pickle executed",
+      "license": "No license file found at repository root; independently implement ideas."
+    },
+    {
+      "repository": "https://github.com/EhimenNathan/tramcast-moscow",
+      "commit": "2547767e749cde9b09de3718be29d10109147d40",
+      "files": {
+        "README.md": "c7181491a8d9eab5d418d644d25cc0bdc196d2efec7c73b50c082ee41abff37d",
+        "ml/engine.py": "35350c3eb130f18462054d7fe0a717293f3cc41fb6fde3b697e0a684de9a9a7c",
+        "ml/bayes_level.py": "ce4ac8e9d2a57928a4a56f907a597c33d05a5969a6ba5b9df805985b3f9f3974",
+        "ml/backtest.py": "f614b947055de5ac10dcc5c65687bf7d6ad268b71eec55809bcf9f569d920e1c",
+        "ml/horizon_eval.py": "d0484f09a7ed5d40b5a82d9167f97a61a929df1bde0bdfdf7b98d74b4bf04a92",
+        "config/model.json": "1bfb7ebe9c135e9e7f2e1f863d0a8a282ae7e5e3a0afb1893e4e1c7c52063a2b"
+      },
+      "execution": "source read only; no foreign code or pickle executed",
+      "license": "No license file found at repository root; independently implement ideas."
+    }
+  ]
+}

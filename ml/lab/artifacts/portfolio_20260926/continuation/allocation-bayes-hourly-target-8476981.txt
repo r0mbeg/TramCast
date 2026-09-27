@@ -1,0 +1,29 @@
+JobId=8476981 JobName=tram-portfolio-bayes-hourly-target
+   UserId=m.persiyanov(2364) GroupId=m.persiyanov(2364) MCS_label=N/A
+   Priority=1016 Nice=0 Account=lmfcoptt QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:30:00 TimeMin=N/A
+   SubmitTime=2026-09-27T03:40:57 EligibleTime=2026-09-27T03:40:57
+   AccrueTime=2026-09-27T03:40:57
+   StartTime=2026-09-27T03:40:58 EndTime=2026-09-27T04:10:58 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-09-27T03:40:58 Scheduler=Main
+   Partition=ais-cpu AllocNode:Sid=an01:2318196
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=cn55
+   BatchHost=cn55
+   NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=4,mem=4G,node=1,billing=4
+   AllocTRES=cpu=4,mem=4G,node=1,billing=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=4 MinMemoryNode=4G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/jobs/zhores_portfolio_bayes_hourly_target.sbatch
+   WorkDir=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926
+   StdErr=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/artifacts/portfolio_20260926/continuation/slurm-bayes-hourly-target-8476981.log
+   StdIn=/dev/null
+   StdOut=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/artifacts/portfolio_20260926/continuation/slurm-bayes-hourly-target-8476981.log
+   TresPerTask=cpu=4
+   
+

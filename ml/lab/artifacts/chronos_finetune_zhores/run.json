@@ -1,0 +1,67 @@
+{
+  "model": "amazon/chronos-2",
+  "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "fit": {
+    "prediction_length": 62,
+    "finetune_mode": "full",
+    "context_length": 512,
+    "learning_rate": 1e-06,
+    "num_steps": 200,
+    "batch_size": 8,
+    "min_past": 56,
+    "seed": 42,
+    "data_seed": 42,
+    "bf16": false,
+    "tf32": false,
+    "optim": "adamw_torch",
+    "logging_steps": 50,
+    "disable_tqdm": true,
+    "report_to": "none"
+  },
+  "windows": [
+    [
+      "2025-06-30",
+      "2025-08-31"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  ],
+  "selection": "fixed 200-step final checkpoint; validation windows never passed to fit",
+  "features": "nine daily totals; no covariates; unchanged historical weekday/hour shares",
+  "inference": {
+    "quantile": 0.5,
+    "context_length": 512,
+    "batch_size": 32,
+    "cross_learning": false,
+    "dtype": "float32"
+  },
+  "history_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "code_sha256": "776a8edd233595f8f40756f57214e44b96bcecdf52bb866789f56f8155d86d91",
+  "adapter_sha256": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5",
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "job_id": "8476932",
+  "partition": "gpu_devel",
+  "python": "3.12.13",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "torch": "2.6.0+cu124",
+    "chronos-forecasting": "2.3.2",
+    "transformers": "4.57.6",
+    "accelerate": "1.15.0"
+  },
+  "missing_policy": "absent counts = 0; validation unchanged",
+  "postprocessing": "floor(max(0,p)+0.5); route5 and hours1-4 forced0",
+  "pretrained_availability": "modern weights; input history restricted by historical cutoff",
+  "status": "complete",
+  "seconds": 45.29117822833359,
+  "peak_rss_bytes": 1795158016
+}

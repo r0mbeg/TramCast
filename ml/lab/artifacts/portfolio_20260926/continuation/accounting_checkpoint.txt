@@ -1,0 +1,14 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+JobID|State|ElapsedRaw|AllocCPUS|AllocTRES|ExitCode
+8476945|COMPLETED|29|4|billing=4,cpu=4,mem=4G,node=1|0:0
+8476947|COMPLETED|106|4|billing=4,cpu=4,mem=4G,node=1|0:0
+8476948|COMPLETED|23|4|billing=4,cpu=4,mem=4G,node=1|0:0
+8476949|COMPLETED|19|4|billing=4,cpu=4,mem=4G,node=1|0:0
+8476950|COMPLETED|64|4|billing=4,cpu=4,gres/gpu=1,mem=8G,node=1|0:0
+8476954|COMPLETED|42|4|billing=4,cpu=4,mem=4G,node=1|0:0
+8476955|COMPLETED|18|4|billing=4,cpu=4,mem=4G,node=1|0:0
+8476956|COMPLETED|33|4|billing=4,cpu=4,mem=4G,node=1|0:0
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+

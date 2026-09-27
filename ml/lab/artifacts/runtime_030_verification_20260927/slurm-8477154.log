@@ -1,0 +1,30 @@
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+{
+  "seconds": 50.81182448938489,
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "total_bytes": 11539054592,
+  "allocator_limit_bytes": 6442450944,
+  "peak_allocated_bytes": 661869568,
+  "peak_reserved_bytes": 887095296,
+  "max_rss_kib": 1330212,
+  "sha256": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e",
+  "versions": {
+    "torch": "2.6.0+cu124",
+    "tabpfn": "2.0.9",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.17.1"
+  }
+}

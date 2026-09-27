@@ -1,0 +1,11 @@
+[I 2026-09-27 03:24:41,096] A new study created in RDB with name: timesfm
+[I 2026-09-27 03:24:42,773] Trial 0 finished with value: 0.80438784714282 and parameters: {'representation': 'normal_daily', 'quantile_index': 7}. Best is trial 0 with value: 0.80438784714282.
+[I 2026-09-27 03:24:43,662] Trial 1 finished with value: 0.8522057827157403 and parameters: {'representation': 'normal_daily', 'quantile_index': 3}. Best is trial 1 with value: 0.8522057827157403.
+[I 2026-09-27 03:24:44,904] Trial 2 finished with value: 0.8514891407425198 and parameters: {'representation': 'normal_ratio', 'quantile_index': 5}. Best is trial 1 with value: 0.8522057827157403.
+[I 2026-09-27 03:24:45,730] Trial 3 finished with value: 0.8343982828393597 and parameters: {'representation': 'daily', 'quantile_index': 3}. Best is trial 1 with value: 0.8522057827157403.
+[I 2026-09-27 03:24:46,621] Trial 4 finished with value: 0.815693114417492 and parameters: {'representation': 'normal_ratio', 'quantile_index': 7}. Best is trial 1 with value: 0.8522057827157403.
+[I 2026-09-27 03:24:47,512] Trial 5 finished with value: 0.877064924806972 and parameters: {'representation': 'normal_ratio', 'quantile_index': 3}. Best is trial 5 with value: 0.877064924806972.
+[I 2026-09-27 03:24:48,363] Trial 6 finished with value: 0.8393130656141836 and parameters: {'representation': 'normal_daily', 'quantile_index': 5}. Best is trial 5 with value: 0.877064924806972.
+[I 2026-09-27 03:24:49,023] Trial 7 finished with value: 0.8223836132545868 and parameters: {'representation': 'daily', 'quantile_index': 5}. Best is trial 5 with value: 0.877064924806972.
+[I 2026-09-27 03:24:49,674] Trial 8 finished with value: 0.7868842956873692 and parameters: {'representation': 'daily', 'quantile_index': 7}. Best is trial 5 with value: 0.877064924806972.
+timesfm {'representation': 'normal_ratio', 'quantile_index': 3} [0.8814360132985329, 0.8726938363154111, 0.8376211466766506, 0.8599452488453567]

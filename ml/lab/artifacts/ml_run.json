@@ -1,0 +1,69 @@
+{
+  "model": "HistGradientBoostingRegressor",
+  "parameters": {
+    "loss": "absolute_error",
+    "max_iter": 150,
+    "learning_rate": 0.08,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 50,
+    "l2_regularization": 1.0,
+    "categorical_features": [
+      "route",
+      "weekday"
+    ],
+    "early_stopping": false,
+    "random_state": 42
+  },
+  "features": [
+    "route",
+    "hour",
+    "weekday",
+    "month",
+    "day_of_year",
+    "horizon",
+    "origin_day_of_year",
+    "mean_all",
+    "mean_28",
+    "median_28"
+  ],
+  "folds": [
+    {
+      "cutoff": "2025-06-30",
+      "end": "2025-08-31",
+      "training_rows": 44640,
+      "origins": [
+        "2025-01-31",
+        "2025-02-28",
+        "2025-03-28",
+        "2025-04-25"
+      ],
+      "seconds": 3.5184979159384966,
+      "artifact": "model_2025-06-30.pkl"
+    },
+    {
+      "cutoff": "2025-08-31",
+      "end": "2025-10-31",
+      "training_rows": 66960,
+      "origins": [
+        "2025-01-31",
+        "2025-02-28",
+        "2025-03-28",
+        "2025-04-25",
+        "2025-05-23",
+        "2025-06-20"
+      ],
+      "seconds": 3.622292290907353,
+      "artifact": "model_2025-08-31.pkl"
+    }
+  ],
+  "seconds": 7.2256567920558155,
+  "threads": 4,
+  "peak_rss_bytes": 250462208,
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "sklearn": "1.9.1",
+  "input_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "missing_policy": "same zero-filled grid as baseline; no imputation",
+  "rounding": "floor(max(0, prediction)+0.5); route5 and hours1-4 forced zero"
+}

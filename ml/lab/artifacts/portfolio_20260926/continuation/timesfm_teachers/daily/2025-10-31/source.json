@@ -1,0 +1,10 @@
+{
+  "origin": "2025-10-31",
+  "end": "2025-12-31",
+  "fit_latest_date": "2025-10-31",
+  "quantile_index": 3,
+  "july_verified": true,
+  "model_sha256": "2f776efe6245e42b24bc4153ffdf61810140210e4bd3b01fb21f7aa779ab6ce8",
+  "quantile_cache_sha256": "20eb4be5134f3579e1b21f99b66d35916838b146b131e928d9126b81f92a759e",
+  "sha256": "5129a3df7bed92536a97e5b90687bf962ba4df37a7a4349a2aeff98c6fbb6dbb"
+}

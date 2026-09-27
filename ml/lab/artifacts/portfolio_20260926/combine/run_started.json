@@ -1,0 +1,22 @@
+{
+  "job_id": "8476944",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_combine.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--root",
+    "artifacts/portfolio_20260926"
+  ],
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "optuna": "4.5.0",
+    "scikit-learn": "1.8.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_combine.py": "ef271e459d4332eb800a80770a57f866299b4686b477074c811ba2df7bf2242e",
+    "experiments/portfolio_experiment.py": "02101b915caa97634d96fccf5d25a1585958ff9d66b91748c4b90b8790f7875f",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad"
+  }
+}

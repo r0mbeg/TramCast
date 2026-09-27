@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-27T03:30:56.842186+00:00",
+  "input_code_sha256": 51,
+  "fits": [
+    {
+      "cutoff": "2025-04-30",
+      "training_rows": 1098,
+      "feature_count": 107,
+      "posterior_factor_max_error": 7.771561172376096e-16
+    },
+    {
+      "cutoff": "2025-06-30",
+      "training_rows": 2196,
+      "feature_count": 107,
+      "posterior_factor_max_error": 1.2212453270876722e-15
+    }
+  ],
+  "raw_forecasts_checked": 9,
+  "exact_024_control": true,
+  "past_targets_teachers_verified": true,
+  "posterior_predictive_variance_factors_reconstructed": true,
+  "fixed_024_hourshares": true,
+  "decision": "control won W1/W2; no duplicate archive",
+  "audit_code_sha256": "1345051c4dcebb1ca5e222438630e88eafc97afff936177d9d47a54f8b76759a"
+}

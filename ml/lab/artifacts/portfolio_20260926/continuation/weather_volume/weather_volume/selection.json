@@ -1,0 +1,20 @@
+{
+  "trial": 0,
+  "value": 0.8485175753897789,
+  "params": {
+    "alpha": 1,
+    "mode": "rain",
+    "residual_strength": 0
+  },
+  "selection_windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "total_trials": 18
+}

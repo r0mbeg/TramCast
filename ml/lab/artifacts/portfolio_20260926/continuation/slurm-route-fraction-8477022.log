@@ -1,0 +1,5 @@
+[I 2026-09-27 07:27:55,259] A new study created in RDB with name: route_fraction
+[I 2026-09-27 07:27:55,753] Trial 0 finished with value: 0.8830272693231019 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.8830272693231019.
+[I 2026-09-27 07:27:57,528] Trial 1 finished with value: 0.883438054980804 and parameters: {'recipe': 'half'}. Best is trial 1 with value: 0.883438054980804.
+[I 2026-09-27 07:27:58,067] Trial 2 finished with value: 0.8826871975636652 and parameters: {'recipe': 'full'}. Best is trial 1 with value: 0.883438054980804.
+route_fraction {'recipe': 'half'} [0.8843684827267543, 0.8825076272348537, 0.8873646264953693, 0.9001155487671015]

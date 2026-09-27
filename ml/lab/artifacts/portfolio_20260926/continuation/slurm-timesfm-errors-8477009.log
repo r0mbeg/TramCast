@@ -1,0 +1,4 @@
+[I 2026-09-27 06:26:09,390] A new study created in RDB with name: timesfm_errors
+[I 2026-09-27 06:26:10,356] Trial 0 finished with value: 0.8827692775914734 and parameters: {'augmented': True}. Best is trial 0 with value: 0.8827692775914734.
+[I 2026-09-27 06:26:10,849] Trial 1 finished with value: 0.8830272693231019 and parameters: {'augmented': False}. Best is trial 1 with value: 0.8830272693231019.
+timesfm_errors {'augmented': False} [0.8847498060861879, 0.881304732560016, 0.888151988611891, 0.8995451489664822]

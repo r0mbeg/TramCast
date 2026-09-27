@@ -1,0 +1,4 @@
+[I 2026-09-27 05:43:00,554] A new study created in RDB with name: timesfm_verified_july
+[I 2026-09-27 05:43:01,453] Trial 0 finished with value: 0.8807267211573688 and parameters: {'july_verified': True}. Best is trial 0 with value: 0.8807267211573688.
+[I 2026-09-27 05:43:02,091] Trial 1 finished with value: 0.8787582146104853 and parameters: {'july_verified': False}. Best is trial 0 with value: 0.8807267211573688.
+timesfm_verified_july {'july_verified': True} [0.882844663589022, 0.8786087787257157, 0.8400302841001566, 0.8626111727826768]

@@ -1,0 +1,4 @@
+# Keep the research evidence alongside its forecasts despite the root blanket rules.
+!*.json
+!*.txt
+!*.log

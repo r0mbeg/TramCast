@@ -1,0 +1,26 @@
+{
+  "phase": "P61",
+  "recorded_at": "2026-09-27T04:53:28.491285+00:00",
+  "objective": "meanW1/W2",
+  "sampler": "GridSampler",
+  "seed": 42,
+  "trials": 3,
+  "timeout": 1800,
+  "recipes": [
+    "control",
+    "half",
+    "new"
+  ],
+  "allocation": {
+    "cpu": 1,
+    "ram_mib": 512,
+    "seconds": 120
+  },
+  "features": 30,
+  "new_calendar_features": 6,
+  "model_parameters": "P58unchanged; fixedhalf024allocation",
+  "control": "exact028",
+  "seed73": "same selectedrecipe only ifnoncontrolselected",
+  "calendar": "primarycompositeproxy; sourceknown_at<=forecastorigin",
+  "passenger_calendar_coverage": "unknown"
+}

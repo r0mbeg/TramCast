@@ -1,0 +1,11 @@
+{
+  "candidate": "024_bayesian_hourly_share_errors",
+  "source": "continuation/bayes_shape/study/bayes_shape/selected/submission.csv",
+  "sha256": "d6c2cfc3ce7f6613ec2131f265d13b5bcc93f0bb73b702fbfdd130c9d1c7f505",
+  "mean": 0.8884379190561442,
+  "worst": 0.881304732560016,
+  "selection": "Grid3 meanW1/W2 half; ranking tied mean prefers worst",
+  "replaces": "009 in recommended seven; archive preserved",
+  "difference_to_021": 0.026731814269828565,
+  "difference_to_022": 0.037441352522067234
+}

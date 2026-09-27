@@ -1,0 +1,10 @@
+[I 2026-09-27 00:03:32,419] A new study created in RDB with name: ridge
+[I 2026-09-27 00:03:33,115] Trial 0 finished with value: 0.8327701627580084 and parameters: {'correction_days': 14, 'shape_mix': 0.8, 'route_season': False}. Best is trial 0 with value: 0.8327701627580084.
+[I 2026-09-27 00:03:33,803] Trial 1 finished with value: 0.8243173490218991 and parameters: {'correction_days': 28, 'shape_mix': 0.8, 'route_season': False}. Best is trial 0 with value: 0.8327701627580084.
+[I 2026-09-27 00:03:34,479] Trial 2 finished with value: 0.8337133829702259 and parameters: {'correction_days': 14, 'shape_mix': 0.5, 'route_season': False}. Best is trial 2 with value: 0.8337133829702259.
+[I 2026-09-27 00:03:35,166] Trial 3 finished with value: 0.8243019127258829 and parameters: {'correction_days': 28, 'shape_mix': 0.8, 'route_season': True}. Best is trial 2 with value: 0.8337133829702259.
+[I 2026-09-27 00:03:35,848] Trial 4 finished with value: 0.8336994145428492 and parameters: {'correction_days': 14, 'shape_mix': 0.5, 'route_season': True}. Best is trial 2 with value: 0.8337133829702259.
+[I 2026-09-27 00:03:36,531] Trial 5 finished with value: 0.8252161247904889 and parameters: {'correction_days': 28, 'shape_mix': 0.5, 'route_season': False}. Best is trial 2 with value: 0.8337133829702259.
+[I 2026-09-27 00:03:37,217] Trial 6 finished with value: 0.8327590353667083 and parameters: {'correction_days': 14, 'shape_mix': 0.8, 'route_season': True}. Best is trial 2 with value: 0.8337133829702259.
+[I 2026-09-27 00:03:37,904] Trial 7 finished with value: 0.8252042871401697 and parameters: {'correction_days': 28, 'shape_mix': 0.5, 'route_season': True}. Best is trial 2 with value: 0.8337133829702259.
+ridge {'correction_days': 14, 'shape_mix': 0.5, 'route_season': False} [0.8374245158398792, 0.8300022501005727, 0.832801997274361, 0.8609280142413012]

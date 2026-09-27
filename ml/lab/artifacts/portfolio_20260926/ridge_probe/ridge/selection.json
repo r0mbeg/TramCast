@@ -1,0 +1,20 @@
+{
+  "trial": 2,
+  "value": 0.8337133829702259,
+  "params": {
+    "correction_days": 14,
+    "shape_mix": 0.5,
+    "route_season": false
+  },
+  "selection_windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "total_trials": 8
+}

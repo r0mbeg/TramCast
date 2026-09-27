@@ -1,0 +1,14 @@
+{
+  "all_selected_raw_exact_021": true,
+  "final_bytes_exact_021": true,
+  "input_code_hashes_checked": 41,
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  },
+  "no_duplicate_archive": true,
+  "runtime_source_exception": "portfolio_combine.py exact actual version saved separately"
+}

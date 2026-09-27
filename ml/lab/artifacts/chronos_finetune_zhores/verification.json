@@ -1,0 +1,48 @@
+{
+  "verified_rows": 59040,
+  "verified_groups": 4,
+  "hashes_verified": true,
+  "checks": "full keys, local facts, WAPE, integer nonnegative, forced zeros",
+  "mean_scores": {
+    "chronos_daily_finetuned": 0.835230426514638,
+    "chronos_daily_zero_shot": 0.849295989656864
+  },
+  "rows": [
+    {
+      "method": "chronos_daily_finetuned",
+      "cutoff": "2025-06-30",
+      "end": "2025-08-31",
+      "wape_score": 0.8199407893223262,
+      "absolute_error": 1925313.0,
+      "actual_total": 10692666.0,
+      "bias": 822607.0
+    },
+    {
+      "method": "chronos_daily_finetuned",
+      "cutoff": "2025-08-31",
+      "end": "2025-10-31",
+      "wape_score": 0.8505200637069499,
+      "absolute_error": 1903092.0,
+      "actual_total": 12731421.0,
+      "bias": -1139096.0
+    },
+    {
+      "method": "chronos_daily_zero_shot",
+      "cutoff": "2025-06-30",
+      "end": "2025-08-31",
+      "wape_score": 0.8309951886648288,
+      "absolute_error": 1807112.0,
+      "actual_total": 10692666.0,
+      "bias": 482888.0
+    },
+    {
+      "method": "chronos_daily_zero_shot",
+      "cutoff": "2025-08-31",
+      "end": "2025-10-31",
+      "wape_score": 0.8675967906488993,
+      "absolute_error": 1685681.0,
+      "actual_total": 12731421.0,
+      "bias": -737403.0
+    }
+  ]
+}

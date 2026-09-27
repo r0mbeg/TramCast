@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-09-27T03:03:40.842435+00:00",
+  "job_id": 8477002,
+  "input_code_sha256": 14,
+  "raw_forecasts_checked": 15,
+  "weighted_dayvolume_verified": true,
+  "fixed_024_hourshares": true,
+  "exact_024_and_026_endpoints": true,
+  "mean": 0.8840119578663123,
+  "worst": 0.8715215329064979,
+  "decision": "rejected: weaker mean and worst than 025; no new archive"
+}

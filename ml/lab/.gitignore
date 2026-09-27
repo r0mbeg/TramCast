@@ -1,0 +1,66 @@
+# Preserve files already tracked before the lab move.
+# Other previously ignored local results remain local.
+!/artifacts/boost_comparison/run.json
+!/artifacts/boost_comparison/verification.json
+!/artifacts/boost_environment.txt
+!/artifacts/calendar_run.json
+!/artifacts/calendar_sources.json
+!/artifacts/chronos_calendar_zhores/accounting.txt
+!/artifacts/chronos_calendar_zhores/environment-freeze.txt
+!/artifacts/chronos_calendar_zhores/run.json
+!/artifacts/chronos_calendar_zhores/slurm-8476914.log
+!/artifacts/chronos_calendar_zhores/slurm-allocation.txt
+!/artifacts/chronos_calendar_zhores/verification.json
+!/artifacts/chronos_finetune_zhores/accounting-and-checkpoints.txt
+!/artifacts/chronos_finetune_zhores/run.json
+!/artifacts/chronos_finetune_zhores/slurm-8476932.log
+!/artifacts/chronos_finetune_zhores/slurm-allocation.txt
+!/artifacts/chronos_finetune_zhores/verification.json
+!/artifacts/chronos_lora_zhores/accounting-and-checkpoints.txt
+!/artifacts/chronos_lora_zhores/run.json
+!/artifacts/chronos_lora_zhores/slurm-8476933.log
+!/artifacts/chronos_lora_zhores/slurm-allocation.txt
+!/artifacts/chronos_lora_zhores/verification.json
+!/artifacts/chronos_submission/run.json
+!/artifacts/chronos_submission/slurm-8476931.log
+!/artifacts/chronos_submission/slurm-allocation.txt
+!/artifacts/chronos_weather_zhores/run.json
+!/artifacts/chronos_weather_zhores/slurm-8476934.log
+!/artifacts/chronos_weather_zhores/slurm-allocation.txt
+!/artifacts/chronos_weather_zhores/verification.json
+!/artifacts/chronos_zhores/accounting.txt
+!/artifacts/chronos_zhores/environment-freeze.txt
+!/artifacts/chronos_zhores/run.json
+!/artifacts/chronos_zhores/slurm-8476909.log
+!/artifacts/chronos_zhores/slurm-8476911.log
+!/artifacts/chronos_zhores/slurm-allocation.txt
+!/artifacts/chronos_zhores/verification.json
+!/artifacts/colleague_review/audit.json
+!/artifacts/evaluate_run.json
+!/artifacts/ml_no_calendar_run.json
+!/artifacts/ml_residual_no_january_run.json
+!/artifacts/ml_residual_run.json
+!/artifacts/ml_run.json
+!/artifacts/preparation_audit.json
+!/artifacts/prepare_run.json
+!/artifacts/repeat-week_run.json
+!/artifacts/submission_median/submission_run.json
+!/artifacts/submission_run.json
+!/artifacts/weather_climatology/era5_moscow_2020_2024.json
+!/artifacts/weather_climatology/source.json
+!/ИИ-прогноз загрузки трамвайных маршрутов.pdf
+
+# Bulky generated outputs stay local; research source and Markdown reports remain reviewable.
+/artifacts/portfolio_20260926/**/*.csv
+/artifacts/portfolio_20260926/**/*.npz
+/artifacts/portfolio_20260926/**/*.npy
+/artifacts/portfolio_20260926/**/*.pkl
+/artifacts/portfolio_20260926/github/
+/artifacts/portfolio_20260926/continuation/external/
+/artifacts/methodology_20260927/route/**/*.csv
+/artifacts/selection_audit_20260927/replay_cache/
+
+# Compact evidence for the service's real GPU verification.
+!/artifacts/runtime_030_verification_20260927/*.json
+!/artifacts/runtime_030_verification_20260927/*.txt
+!/artifacts/runtime_030_verification_20260927/*.log

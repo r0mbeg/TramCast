@@ -1,0 +1,32 @@
+[I 2026-09-27 00:44:44,466] A new study created in RDB with name: regime
+[I 2026-09-27 00:44:45,051] Trial 0 finished with value: 0.8389943802741024 and parameters: {'occurrences': 32, 'statistic': 'mean', 'regime': True}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:45,815] Trial 1 finished with value: 0.8041971244464636 and parameters: {'occurrences': 32, 'statistic': 'trimmed', 'regime': False}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:46,386] Trial 2 finished with value: 0.8132454641665969 and parameters: {'occurrences': 4, 'statistic': 'mean', 'regime': False}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:46,967] Trial 3 finished with value: 0.8040591540026252 and parameters: {'occurrences': 32, 'statistic': 'mean', 'regime': False}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:47,719] Trial 4 finished with value: 0.8060809102827465 and parameters: {'occurrences': 12, 'statistic': 'trimmed', 'regime': False}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:48,295] Trial 5 finished with value: 0.8160209670110422 and parameters: {'occurrences': 4, 'statistic': 'mean', 'regime': True}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:49,039] Trial 6 finished with value: 0.8132454641665969 and parameters: {'occurrences': 4, 'statistic': 'trimmed', 'regime': False}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:49,791] Trial 7 finished with value: 0.8385075595340926 and parameters: {'occurrences': 32, 'statistic': 'trimmed', 'regime': True}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:50,385] Trial 8 finished with value: 0.8045182172595395 and parameters: {'occurrences': 12, 'statistic': 'mean', 'regime': False}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:51,136] Trial 9 finished with value: 0.8357177936737465 and parameters: {'occurrences': 12, 'statistic': 'trimmed', 'regime': True}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:51,882] Trial 10 finished with value: 0.8160209670110422 and parameters: {'occurrences': 4, 'statistic': 'trimmed', 'regime': True}. Best is trial 0 with value: 0.8389943802741024.
+[I 2026-09-27 00:44:52,455] Trial 11 finished with value: 0.8356650639746579 and parameters: {'occurrences': 12, 'statistic': 'mean', 'regime': True}. Best is trial 0 with value: 0.8389943802741024.
+regime {'occurrences': 32, 'statistic': 'mean', 'regime': True} [0.8701035027980479, 0.807885257750157, 0.8766087335014053, 0.8858619945094895]
+[I 2026-09-27 00:44:53,698] A new study created in RDB with name: structure
+[I 2026-09-27 00:44:54,628] Trial 0 finished with value: 0.8213741749602101 and parameters: {'days': 28, 'half_life': 7, 'shape_weeks': 4, 'regime': False}. Best is trial 0 with value: 0.8213741749602101.
+[I 2026-09-27 00:44:55,592] Trial 1 finished with value: 0.8188828670831269 and parameters: {'days': 28, 'half_life': 7, 'shape_weeks': 12, 'regime': False}. Best is trial 0 with value: 0.8213741749602101.
+[I 2026-09-27 00:44:56,546] Trial 2 finished with value: 0.8081448074851998 and parameters: {'days': 28, 'half_life': 21, 'shape_weeks': 12, 'regime': False}. Best is trial 0 with value: 0.8213741749602101.
+[I 2026-09-27 00:44:57,491] Trial 3 finished with value: 0.8331800180751889 and parameters: {'days': 56, 'half_life': 21, 'shape_weeks': 4, 'regime': True}. Best is trial 3 with value: 0.8331800180751889.
+[I 2026-09-27 00:44:58,445] Trial 4 finished with value: 0.8192030310662823 and parameters: {'days': 56, 'half_life': 21, 'shape_weeks': 12, 'regime': False}. Best is trial 3 with value: 0.8331800180751889.
+[I 2026-09-27 00:44:59,396] Trial 5 finished with value: 0.8352093463892885 and parameters: {'days': 56, 'half_life': 7, 'shape_weeks': 12, 'regime': True}. Best is trial 5 with value: 0.8352093463892885.
+[I 2026-09-27 00:45:00,348] Trial 6 finished with value: 0.8366946104635796 and parameters: {'days': 56, 'half_life': 7, 'shape_weeks': 4, 'regime': False}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:01,310] Trial 7 finished with value: 0.8344222373442629 and parameters: {'days': 56, 'half_life': 7, 'shape_weeks': 12, 'regime': False}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:02,252] Trial 8 finished with value: 0.8223082602715992 and parameters: {'days': 28, 'half_life': 7, 'shape_weeks': 4, 'regime': True}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:03,200] Trial 9 finished with value: 0.8318009899902039 and parameters: {'days': 56, 'half_life': 21, 'shape_weeks': 12, 'regime': True}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:04,149] Trial 10 finished with value: 0.8104696802879714 and parameters: {'days': 28, 'half_life': 21, 'shape_weeks': 4, 'regime': False}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:05,095] Trial 11 finished with value: 0.8157953861853082 and parameters: {'days': 28, 'half_life': 21, 'shape_weeks': 12, 'regime': True}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:06,043] Trial 12 finished with value: 0.8366510952610061 and parameters: {'days': 56, 'half_life': 7, 'shape_weeks': 4, 'regime': True}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:06,994] Trial 13 finished with value: 0.8212401378078134 and parameters: {'days': 56, 'half_life': 21, 'shape_weeks': 4, 'regime': False}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:07,954] Trial 14 finished with value: 0.8205928393470386 and parameters: {'days': 28, 'half_life': 7, 'shape_weeks': 12, 'regime': True}. Best is trial 6 with value: 0.8366946104635796.
+[I 2026-09-27 00:45:08,906] Trial 15 finished with value: 0.8174438556488397 and parameters: {'days': 28, 'half_life': 21, 'shape_weeks': 4, 'regime': True}. Best is trial 6 with value: 0.8366946104635796.
+structure {'days': 56, 'half_life': 7, 'shape_weeks': 4, 'regime': False} [0.8538161301602234, 0.8195730907669359, 0.7989731496662303, 0.8070678049213831]

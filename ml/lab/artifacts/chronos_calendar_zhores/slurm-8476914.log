@@ -1,0 +1,19 @@
+Sat Sep 26 18:00:43 UTC 2026
+Chronos adapter checks passed: cutoff isolation, grid, shares, control, zeros, rounding.
+Calendar checks passed: dates, profiles, fallback, cutoff, rounding, grid and zeros.
+Calendar Chronos checks passed: known future inputs, cutoff, conservation, fallback, grid and zeros.
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"method": "cov0_shares0", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.0561106912791729, "wape_score": 0.8309951886648288, "absolute_error": 1807112.0, "actual_total": 10692666.0, "bias": 482888.0, "primary": true}
+{"method": "cov0_shares1", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.07781985402107239, "wape_score": 0.8296338817653146, "absolute_error": 1821668.0, "actual_total": 10692666.0, "bias": 482836.0, "primary": true}
+{"method": "cov1_shares0", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.03065555915236473, "wape_score": 0.8022205126392239, "absolute_error": 2114790.0, "actual_total": 10692666.0, "bias": 1175338.0, "primary": true}
+{"method": "cov1_shares1", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.07247701659798622, "wape_score": 0.8005201883234733, "absolute_error": 2132971.0, "actual_total": 10692666.0, "bias": 1175363.0, "primary": true}
+{"method": "cov0_shares0", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.04521122947335243, "wape_score": 0.8675967121030717, "absolute_error": 1685682.0, "actual_total": 12731421.0, "bias": -737404.0, "primary": true}
+{"method": "cov0_shares1", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.07537081092596054, "wape_score": 0.8694316997293546, "absolute_error": 1662320.0, "actual_total": 12731421.0, "bias": -737440.0, "primary": true}
+{"method": "cov1_shares0", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.031646352261304855, "wape_score": 0.871213668921953, "absolute_error": 1639633.0, "actual_total": 12731421.0, "bias": -619849.0, "primary": true}
+{"method": "cov1_shares1", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.07503121346235275, "wape_score": 0.8730798392418254, "absolute_error": 1615874.0, "actual_total": 12731421.0, "bias": -619876.0, "primary": true}
+{"method": "cov0_shares0", "cutoff": "2025-04-30", "end": "2025-06-30", "seconds": 0.029248248785734177, "wape_score": 0.8203502138949132, "absolute_error": 2071523.0, "actual_total": 11530896.0, "bias": 1340059.0, "primary": false}
+{"method": "cov0_shares1", "cutoff": "2025-04-30", "end": "2025-06-30", "seconds": 0.06769075989723206, "wape_score": 0.8198975170706595, "absolute_error": 2076743.0, "actual_total": 11530896.0, "bias": 1340055.0, "primary": false}
+{"method": "cov1_shares0", "cutoff": "2025-04-30", "end": "2025-06-30", "seconds": 0.029165875166654587, "wape_score": 0.826698289534482, "absolute_error": 1998324.0, "actual_total": 11530896.0, "bias": 745976.0, "primary": false}
+{"method": "cov1_shares1", "cutoff": "2025-04-30", "end": "2025-06-30", "seconds": 0.06758075207471848, "wape_score": 0.828466408854958, "absolute_error": 1977936.0, "actual_total": 11530896.0, "bias": 745956.0, "primary": false}
+Sat Sep 26 18:01:07 UTC 2026

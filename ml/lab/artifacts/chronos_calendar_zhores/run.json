@@ -1,0 +1,129 @@
+{
+  "model": "amazon/chronos-2",
+  "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "primary_windows": [
+    [
+      "2025-06-30",
+      "2025-08-31"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  ],
+  "diagnostic_window": [
+    "2025-04-30",
+    "2025-06-30"
+  ],
+  "parameters": {
+    "seed": 42,
+    "batch_size": 32,
+    "context_length": 512,
+    "quantile": 0.5,
+    "cross_learning": false,
+    "dtype": "float32",
+    "covariates": [
+      "weekday_sin",
+      "weekday_cos",
+      "is_holiday",
+      "is_workday"
+    ],
+    "share_min_days": 3
+  },
+  "sources": {
+    "coverage": [
+      "2025-01-01",
+      "2025-12-31"
+    ],
+    "known_at": "2024-10-04",
+    "retrieved_at": "2026-09-26",
+    "scope": "Russian federal five-day working-week calendar; demand feature, not tram operating schedule",
+    "acquisition": "Manual extraction of dates from official sources via web search/open; government document and news text retrieved through search index because direct open failed. No raw page snapshot retained.",
+    "sources": [
+      {
+        "id": "holidays",
+        "url": "https://mintrud.gov.ru/labour/relationship/351",
+        "published_at": "2019-05-31",
+        "title": "Количество нерабочих праздничных дней установлено 112 статьей Трудового кодекса",
+        "used": "Annual federal holiday dates only; the article's proposed 2020 transfers are not used"
+      },
+      {
+        "id": "transfers",
+        "url": "https://government.ru/docs/all/155500/",
+        "published_at": "2024-10-04",
+        "title": "Постановление Правительства РФ от 04.10.2024 № 1335",
+        "corroborating_url": "https://government.ru/news/52895/"
+      }
+    ],
+    "holidays": [
+      "2025-01-01",
+      "2025-01-02",
+      "2025-01-03",
+      "2025-01-04",
+      "2025-01-05",
+      "2025-01-06",
+      "2025-01-07",
+      "2025-01-08",
+      "2025-02-23",
+      "2025-03-08",
+      "2025-05-01",
+      "2025-05-09",
+      "2025-06-12",
+      "2025-11-04"
+    ],
+    "transfers": {
+      "2025-01-04": "2025-05-02",
+      "2025-01-05": "2025-12-31",
+      "2025-02-23": "2025-05-08",
+      "2025-03-08": "2025-06-13",
+      "2025-11-01": "2025-11-03"
+    },
+    "working_weekends": [
+      "2025-11-01"
+    ],
+    "excluded": [
+      "school holidays",
+      "regional holidays",
+      "shortened working-day adjustments",
+      "weather",
+      "transport schedules"
+    ]
+  },
+  "sha256": {
+    "hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "chronos_calendar_experiment.py": "241b41743443cb8e1d4b36d9396f53c96edda6a464e9f9cefc97c433f3c6e2d9",
+    "chronos_experiment.py": "5dec9a38696392c5ed7842dbe0008aa88fa7602a349de94ae4e624d56a5ccfd1",
+    "calendar_experiment.py": "dd5ea342368d434232bc40f66f96afb43056d61d838e63c2a48f53db70dbd023",
+    "pipeline.py": "9924011d2bb5c05555c6fbeaf04d67b7bdbac372cc257ea8362606cd85599c06"
+  },
+  "job_id": "8476914",
+  "reservation": "HPC-2966",
+  "node": "gn28.zhores",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "cpu_affinity": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "seconds": 6.398771710693836,
+  "model_load_seconds": 0.4178313724696636,
+  "peak_rss_bytes": 1277104128,
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "torch": "2.6.0+cu124",
+    "chronos-forecasting": "2.3.2",
+    "transformers": "4.57.6",
+    "accelerate": "1.15.0"
+  },
+  "python": "3.12.13",
+  "control_exactly_matches_previous": true,
+  "limitations": "modern pretrained weights; reused validation; no historical deployment claim",
+  "postprocessing": "floor(max(0,p)+0.5); route5 and hours1-4 forced0; missing counts remain0"
+}

@@ -1,0 +1,8 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+8477041|COMPLETED|17|1|billing=1,cpu=1,mem=1G,node=1|
+8477041.batch|COMPLETED|17|1|cpu=1,mem=1G,node=1|1340K
+8477041.extern|COMPLETED|17|1|billing=1,cpu=1,mem=1G,node=1|956K
+8477041.0|COMPLETED|16|1|cpu=1,mem=1G,node=1|1136K
+JOBID PARTITION NAME STATE TIME TIME_LIMIT NODELIST(REASON)

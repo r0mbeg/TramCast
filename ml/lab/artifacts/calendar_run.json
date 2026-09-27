@@ -1,0 +1,103 @@
+{
+  "command": "python calendar_experiment.py",
+  "windows": [
+    [
+      "2025-06-30",
+      "2025-08-31"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  ],
+  "features": [
+    "route",
+    "day_type",
+    "hour"
+  ],
+  "fallback_features": [
+    "route",
+    "is_workday",
+    "hour"
+  ],
+  "parameters": {
+    "statistic": "mean",
+    "weeks": 0,
+    "min_days": 3,
+    "update_within_horizon": false
+  },
+  "sources": {
+    "coverage": [
+      "2025-01-01",
+      "2025-12-31"
+    ],
+    "known_at": "2024-10-04",
+    "retrieved_at": "2026-09-26",
+    "scope": "Russian federal five-day working-week calendar; demand feature, not tram operating schedule",
+    "acquisition": "Manual extraction of dates from official sources via web search/open; government document and news text retrieved through search index because direct open failed. No raw page snapshot retained.",
+    "sources": [
+      {
+        "id": "holidays",
+        "url": "https://mintrud.gov.ru/labour/relationship/351",
+        "published_at": "2019-05-31",
+        "title": "Количество нерабочих праздничных дней установлено 112 статьей Трудового кодекса",
+        "used": "Annual federal holiday dates only; the article's proposed 2020 transfers are not used"
+      },
+      {
+        "id": "transfers",
+        "url": "https://government.ru/docs/all/155500/",
+        "published_at": "2024-10-04",
+        "title": "Постановление Правительства РФ от 04.10.2024 № 1335",
+        "corroborating_url": "https://government.ru/news/52895/"
+      }
+    ],
+    "holidays": [
+      "2025-01-01",
+      "2025-01-02",
+      "2025-01-03",
+      "2025-01-04",
+      "2025-01-05",
+      "2025-01-06",
+      "2025-01-07",
+      "2025-01-08",
+      "2025-02-23",
+      "2025-03-08",
+      "2025-05-01",
+      "2025-05-09",
+      "2025-06-12",
+      "2025-11-04"
+    ],
+    "transfers": {
+      "2025-01-04": "2025-05-02",
+      "2025-01-05": "2025-12-31",
+      "2025-02-23": "2025-05-08",
+      "2025-03-08": "2025-06-13",
+      "2025-11-01": "2025-11-03"
+    },
+    "working_weekends": [
+      "2025-11-01"
+    ],
+    "excluded": [
+      "school holidays",
+      "regional holidays",
+      "shortened working-day adjustments",
+      "weather",
+      "transport schedules"
+    ]
+  },
+  "seed": null,
+  "missing_policy": "absent counts = 0; observation masks retained; validation unchanged",
+  "postprocessing": "floor(max(0,p)+0.5); route5 and hours1-4 forced0",
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "sha256": {
+    "hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "calendar_2025.csv": "0fd02fa32e54727958e0d70d42bc34820fbb95e4e9a9b0a8bc6ec56307f1011e",
+    "calendar_experiment.py": "dd5ea342368d434232bc40f66f96afb43056d61d838e63c2a48f53db70dbd023",
+    "pipeline.py": "9924011d2bb5c05555c6fbeaf04d67b7bdbac372cc257ea8362606cd85599c06"
+  },
+  "seconds": 5.277075500111096,
+  "peak_rss_bytes": 144195584
+}

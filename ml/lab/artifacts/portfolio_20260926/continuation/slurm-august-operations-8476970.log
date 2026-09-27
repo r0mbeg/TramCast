@@ -1,0 +1,6 @@
+[I 2026-09-27 02:49:12,441] A new study created in RDB with name: august_operations
+[I 2026-09-27 02:49:13,670] Trial 0 finished with value: 0.8661884492596293 and parameters: {'august7': 0.6}. Best is trial 0 with value: 0.8661884492596293.
+[I 2026-09-27 02:49:14,872] Trial 1 finished with value: 0.8660150040071521 and parameters: {'august7': 1.0}. Best is trial 0 with value: 0.8661884492596293.
+[I 2026-09-27 02:49:16,064] Trial 2 finished with value: 0.8660150040071521 and parameters: {'august7': 'control'}. Best is trial 0 with value: 0.8661884492596293.
+[I 2026-09-27 02:49:17,266] Trial 3 finished with value: 0.8665228392058466 and parameters: {'august7': 0.8}. Best is trial 3 with value: 0.8665228392058466.
+august_operations {'august7': 0.8} [0.8801593562200196, 0.8528863221916737, 0.8909963047415851, 0.9033468455720692]

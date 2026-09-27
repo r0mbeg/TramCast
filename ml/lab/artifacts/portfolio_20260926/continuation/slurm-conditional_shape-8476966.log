@@ -1,0 +1,10 @@
+[I 2026-09-27 02:19:30,389] A new study created in RDB with name: conditional_shape
+[I 2026-09-27 02:19:33,889] Trial 0 finished with value: 0.867219237033761 and parameters: {'leaves': 31, 'weather': True, 'mix': 0.5}. Best is trial 0 with value: 0.867219237033761.
+[I 2026-09-27 02:19:39,552] Trial 1 finished with value: 0.8678052876665202 and parameters: {'leaves': 63, 'weather': True, 'mix': 0.5}. Best is trial 1 with value: 0.8678052876665202.
+[I 2026-09-27 02:19:42,973] Trial 2 finished with value: 0.867092985703293 and parameters: {'leaves': 31, 'weather': False, 'mix': 0.5}. Best is trial 1 with value: 0.8678052876665202.
+[I 2026-09-27 02:19:48,612] Trial 3 finished with value: 0.866197483033806 and parameters: {'leaves': 63, 'weather': True, 'mix': 1.0}. Best is trial 1 with value: 0.8678052876665202.
+[I 2026-09-27 02:19:52,045] Trial 4 finished with value: 0.8655319392107299 and parameters: {'leaves': 31, 'weather': False, 'mix': 1.0}. Best is trial 1 with value: 0.8678052876665202.
+[I 2026-09-27 02:19:57,598] Trial 5 finished with value: 0.8673136856162338 and parameters: {'leaves': 63, 'weather': False, 'mix': 0.5}. Best is trial 1 with value: 0.8678052876665202.
+[I 2026-09-27 02:20:01,096] Trial 6 finished with value: 0.8656825039397116 and parameters: {'leaves': 31, 'weather': True, 'mix': 1.0}. Best is trial 1 with value: 0.8678052876665202.
+[I 2026-09-27 02:20:06,645] Trial 7 finished with value: 0.8653340816384597 and parameters: {'leaves': 63, 'weather': False, 'mix': 1.0}. Best is trial 1 with value: 0.8678052876665202.
+conditional_shape {'leaves': 63, 'weather': True, 'mix': 0.5} [0.8709320593993737, 0.8646785159336667, 0.8916876406886143, 0.9013501320865911]

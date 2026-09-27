@@ -1,0 +1,31 @@
+{
+  "cutoff": "2025-10-31",
+  "target": "count",
+  "seed": 42,
+  "rows": 4452,
+  "features": 21,
+  "origins": 9,
+  "earliest_target_date": "2025-02-01",
+  "latest_target_date": "2025-10-31",
+  "model_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+  "categorical_features": [
+    0,
+    1
+  ],
+  "n_estimators": 4,
+  "output_type": "median",
+  "sample_weight_used": false,
+  "operation_params": {
+    "july7": 0.45,
+    "july50": 1.25,
+    "route_season": false,
+    "shape": "season",
+    "august7": 0.8,
+    "july_verified": true
+  },
+  "repeated_prediction_exact": null,
+  "fit_seconds": 5.87530723772943,
+  "peak_gpu_bytes": 365675008,
+  "peak_gpu_reserved_bytes": 465567744,
+  "peak_rss_kib": 1355524
+}

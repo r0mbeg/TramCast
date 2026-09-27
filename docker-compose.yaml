@@ -30,6 +30,26 @@ x-app: &app
     CATALOG_OSM_FILE: /app/data/osm/tram_routes.json
 
 services:
+  ml:
+    profiles: [ml]
+    build:
+      context: .
+      dockerfile: ml/Dockerfile
+      target: inference
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - ./ml/models:/app/ml/models:ro
+      - ml-cache:/app/ml/cache
+    expose:
+      - "50051"
+    restart: unless-stopped
+
   postgres:
     image: postgres:18.1-bookworm
     container_name: tramcast-postgres
@@ -105,3 +125,6 @@ services:
     # Keep this longer than HTTP_SHUTDOWN_TIMEOUT so Go can drain requests.
     stop_grace_period: 30s
     restart: unless-stopped
+
+volumes:
+  ml-cache:

@@ -1,0 +1,29 @@
+{
+  "sampler": "grid",
+  "space": {
+    "recipe": [
+      "control",
+      "posterior"
+    ]
+  },
+  "trials": 2,
+  "allocation_subbudget_seconds": 120,
+  "previous_family_seconds": 23,
+  "cumulative_family_allocation_seconds": 143,
+  "family": "current_bayes",
+  "timeout": 1800,
+  "seed": 42,
+  "objective": "mean WAPE-score of both development windows",
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "pruning": false,
+  "n_jobs": 1
+}

@@ -1,0 +1,96 @@
+{
+  "checked_at": "2026-09-27T07:42:34.654834+00:00",
+  "input_code_sha256": {
+    "pilot": 26,
+    "study": 26
+  },
+  "parents": 50,
+  "fits": [
+    {
+      "cutoff": "2025-10-31",
+      "seed": 42,
+      "rank": 12,
+      "variance_retained": 0.9192169947152479,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-04-30",
+      "seed": 42,
+      "rank": 12,
+      "variance_retained": 0.9115304231572292,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-06-30",
+      "seed": 42,
+      "rank": 12,
+      "variance_retained": 0.9145072786075777,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-07-31",
+      "seed": 42,
+      "rank": 12,
+      "variance_retained": 0.9156442465718532,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-08-31",
+      "seed": 42,
+      "rank": 12,
+      "variance_retained": 0.9117922232417964,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-10-31",
+      "seed": 42,
+      "rank": 12,
+      "variance_retained": 0.9192169947152479,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-04-30",
+      "seed": 73,
+      "rank": 12,
+      "variance_retained": 0.9115304231572292,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-06-30",
+      "seed": 73,
+      "rank": 12,
+      "variance_retained": 0.9145072786075777,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-07-31",
+      "seed": 73,
+      "rank": 12,
+      "variance_retained": 0.9156442465718532,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-08-31",
+      "seed": 73,
+      "rank": 12,
+      "variance_retained": 0.9117922232417964,
+      "reused_components": 6
+    },
+    {
+      "cutoff": "2025-10-31",
+      "seed": 73,
+      "rank": 12,
+      "variance_retained": 0.9192169947152479,
+      "reused_components": 6
+    }
+  ],
+  "raw_forecasts_checked": 16,
+  "prior_causal_audit_replayed": true,
+  "prior_audit_code_sha256": "dc97b0ca11a95b5d31f227fbb4e8e99eb05d9ee12ea433a092ca64d3d22df56d",
+  "past_only_minimum_rank90": true,
+  "exact_first_modes_reused": true,
+  "pilot_and_fresh_study_exact": true,
+  "fixed029_daily_volumes": true,
+  "zeros": true,
+  "audit_code_sha256": "8755614bca6822c493361907d3319d5261a1299fbdbb3e4d46efc56b7c8eb487"
+}

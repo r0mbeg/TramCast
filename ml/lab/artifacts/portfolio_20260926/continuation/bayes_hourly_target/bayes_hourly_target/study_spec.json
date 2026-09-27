@@ -1,0 +1,39 @@
+{
+  "sampler": "grid",
+  "space": {
+    "loss_target": [
+      "control",
+      "hourly",
+      "hourly_weighted"
+    ],
+    "season": [
+      "route"
+    ],
+    "strength": [
+      1.0
+    ],
+    "uncertainty": [
+      1
+    ],
+    "history_days": [
+      224
+    ]
+  },
+  "trials": 3,
+  "family": "bayes_hourly_target",
+  "timeout": 1800,
+  "seed": 42,
+  "objective": "mean WAPE-score of both development windows",
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "pruning": false,
+  "n_jobs": 1
+}

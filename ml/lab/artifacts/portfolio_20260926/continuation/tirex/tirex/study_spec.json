@@ -1,0 +1,31 @@
+{
+  "sampler": "grid",
+  "space": {
+    "recipe": [
+      "control",
+      "normal_daily_2",
+      "normal_daily_4",
+      "normal_daily_6",
+      "normal_ratio_2",
+      "normal_ratio_4",
+      "normal_ratio_6"
+    ]
+  },
+  "trials": 7,
+  "family": "tirex",
+  "timeout": 1800,
+  "seed": 42,
+  "objective": "mean WAPE-score of both development windows",
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "pruning": false,
+  "n_jobs": 1
+}

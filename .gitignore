@@ -78,3 +78,25 @@ Thumbs.db
 # Docs
 *.pdf
 
+
+# Python and local ML inputs
+__pycache__/
+*.pyc
+.venv*/
+ml/.venv*/
+ml/lab/model/
+ml/lab/hf-cache/
+ml/lab/artifacts/*.pkl
+ml/lab/artifacts/boost_comparison/*.pkl
+# Serving dependencies and published bundle metadata
+!ml/runtime/requirements*.txt
+!ml/bundles/002/forecast_bundle.json
+!ml/bundles/030/forecast_bundle.json
+!ml/lab/requirements*.txt
+!ml/lab/forecast_bundle.json
+
+# Inference weights and disposable persistent cache
+/ml/models/
+/ml/cache/
+!ml/recipes/tabpfn-030/recipe.json
+!ml/recipes/tabpfn-030/LICENSE.txt

@@ -1,0 +1,6 @@
+{
+  "attempt": "019_bayesian_hourly_target",
+  "sha256": "90e0c6dd17d7407ff19e22f72bfa78cbbb143ecafa2cd2d67732d15c785d71b0",
+  "relative_l1_to015": 0.0027646314605688583,
+  "status": "close alternative, not in final seven: tie/worst prefers015"
+}

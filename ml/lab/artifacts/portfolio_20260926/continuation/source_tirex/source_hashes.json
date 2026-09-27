@@ -1,0 +1,16 @@
+{
+  "experiments/portfolio_tirex.py": "b3e483a7016e2662f6fba53cd4088b11d7779f580c428456559cff88c2fd972c",
+  "experiments/portfolio_timesfm.py": "b10e9bceef8cb52676c5533d4f5ab8adc2ad494db4e8454ea4e755c106885c1b",
+  "experiments/portfolio_timesfm_errors.py": "fc993b58b966173d28ed0c9d7d31f1dd0eb7587897d5f879b3fd3e9ed9b5d11e",
+  "experiments/portfolio_factor.py": "ef3eb63f6cc1614f3b6b1691514749d4dd5a369f0900b1f4573bd49a5422d29d",
+  "experiments/portfolio_chronos.py": "fc6611e617c316abff81db57a523bcdcc622e220289ef584238e8884d20418f2",
+  "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+  "experiments/portfolio_experiment.py": "29454837d2de34550a15a001d1d5dafc4c3c4564fe7a2fdd257c7a95121889fa",
+  "experiments/portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac",
+  "experiments/portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+  "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+  "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+  "tests/test_portfolio_tirex.py": "e938fff7749cecb6ed914770e4e61939484802b429ccfac4f1f2564c7dfdd646",
+  "jobs/zhores_portfolio_tirex.sbatch": "6feaf330f673577c3ecd4b0685abac761e97e5424f5455d455d625ba46f1b150",
+  "jobs/zhores_portfolio_tirex_download.sbatch": "a07596b3951550bf9341ac976895af04b2770b37d6b35f97933b23cefc171966"
+}

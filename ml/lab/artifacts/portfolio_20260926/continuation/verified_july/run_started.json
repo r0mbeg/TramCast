@@ -1,0 +1,36 @@
+{
+  "job_id": "8476985",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_verified_july.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/verified_july"
+  ],
+  "source_regime": "permitted retrospective official operations; restoration August11 vs estimated August7",
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_verified_july.py": "e6c3e4d70de70626e1468a75a0ee2741ab7503867cc36cd1d8e42411816b1f8f",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "artifacts/portfolio_20260926/continuation/external/july_restoration_sources.json": "8d3e541204084feef5c239841c57b97944b934f825a011058eb9c82b96928ee5",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "experiments/portfolio_bayes_direct.py": "0ba8788c3d7ad9706db6453b6e488c748a1b4748264234f82bb9ca9ac5f8da40",
+    "experiments/portfolio_bayes_volume.py": "7df672ec51d67bb44be879dfaeb2459e78c5215e6d38a2fa8590dc94125c544d",
+    "experiments/portfolio_direct_daily.py": "4af1a39b69ad5660a5e08a271c189f6b6ba66167bd1b50db8a3db6cce1f16818",
+    "experiments/portfolio_operations.py": "13b2fa98d82c1935284d6cf2a28e762d75b4a05bfa7a5b6e601e7946a02121bc",
+    "experiments/portfolio_movement.py": "f7fce7ef4b3cae8a9b483416f7e1e6861bcfc72eaed62c57114bfe33a67f568e",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "experiments/portfolio_structure.py": "7ecb0de7f2adac3a1f426d84ebda5c2b78c4509850b06ab57ab295b93179b149",
+    "experiments/portfolio_combine.py": "ef271e459d4332eb800a80770a57f866299b4686b477074c811ba2df7bf2242e",
+    "experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+    "experiments/portfolio_weather_volume.py": "b042e46c2fba0e893b6fbb37d61ce249aefa33653cb3e56dae647472501640cd",
+    "artifacts/portfolio_20260926/continuation/operations/operations/selection.json": "fd8954e578acdcceca981e674f93a701a1591ce626f8890e2d8fcef8b1844ccc",
+    "artifacts/portfolio_20260926/continuation/direct_daily/direct_daily/selection.json": "8d91f738dce9e583941d9fce1905e43c915e05d51e67b88905ec79f3bc4b0140",
+    "artifacts/portfolio_20260926/continuation/bayes_volume/bayes_volume/selection.json": "8cf666536aec4838eb894e1e5f11b92daecd326b11f6d2540dd7e051b1bebed5",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-07-31.csv": "830bbc90e3e9fc58c6f1ff84a603c5355b9db4f81c277476c291197142c87528",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-06-30.csv": "0d92a933ad75d1469011be0a72a92a6981d34199b7381da38c67111037e2a37f",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-04-30.csv": "448eae6e06b12e4edbd3995e733ace3530cea5702cf28f36a4889018a1e3a203",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-08-31.csv": "e983d68dae7ccebd46713e4859b1150b1f9806ecbfb0750fb7cb46e254122241",
+    "artifacts/portfolio_20260926/continuation/conditional_shape/conditional_shape/selected/raw_2025-10-31.csv": "d08e3f873d2a283f753dcc707634b5ee6c805b16bdaabcc489e7b7e7bb5c7518"
+  }
+}

@@ -1,0 +1,29 @@
+[I 2026-09-27 09:27:55,067] A new study created in RDB with name: matched_volume
+[I 2026-09-27 09:27:55,121] Using an existing study with name 'matched_volume' instead of creating a new one.
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+[I 2026-09-27 09:28:04,792] Trial 0 finished with value: 0.8856509059078344 and parameters: {'recipe': 'matched'}. Best is trial 0 with value: 0.8856509059078344.
+[I 2026-09-27 09:28:05,409] Trial 1 finished with value: 0.8840879572608873 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.8856509059078344.
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/sklearn/preprocessing/_encoders.py:246: UserWarning: Found unknown categories in columns [5, 6] during transform. These unknown categories will be encoded as all zeros
+  warnings.warn(
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/sklearn/preprocessing/_encoders.py:246: UserWarning: Found unknown categories in columns [5, 6] during transform. These unknown categories will be encoded as all zeros
+  warnings.warn(
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+matched_volume {'recipe': 'matched'} [0.8845925763271129, 0.886709235488556, 0.8790923830345722, 0.8964549990138572]
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/sklearn/preprocessing/_encoders.py:246: UserWarning: Found unknown categories in columns [5, 6] during transform. These unknown categories will be encoded as all zeros
+  warnings.warn(
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/sklearn/preprocessing/_encoders.py:246: UserWarning: Found unknown categories in columns [5, 6] during transform. These unknown categories will be encoded as all zeros
+  warnings.warn(
+/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/tabpfn_deps/tabpfn/model/loading.py:651: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(path, map_location="cpu", weights_only=None)

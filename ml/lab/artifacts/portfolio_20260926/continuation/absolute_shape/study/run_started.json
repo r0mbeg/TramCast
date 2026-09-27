@@ -1,0 +1,52 @@
+{
+  "job_id": "8477004",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_absolute_shape.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/absolute_shape"
+  ],
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_absolute_shape.py": "8c9031633ac74abf56aded8be64ff5dc0fbfc691fc16569f0d1ded5d5629b26a",
+    "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+    "experiments/calendar_experiment.py": "9b5fec4f0121139ce65cfb0a828f950426d200a80cae3fdadd14bc00626bcf36",
+    "artifacts/calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "experiments/portfolio_bayes_shape.py": "dee54533f8d75f89f618dbd97ee25b89be9485d148396aee760703dd3416dec6",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+    "experiments/portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac",
+    "experiments/portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-07-31.csv": "12d1174735112530bd92a6576d8ce4cb7987200e12dab33d03766e8bfc683a27",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-06-30.csv": "d2701c9d5f5aec9fddb1cfa7835a2c2d57cab3d7a178677584803964042139ae",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-04-30.csv": "6f4cb9be9e86c24ad0c1655a548cb8af8ae8dceb262a72401e42361c49d1f484",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-08-31.csv": "eceb560b837ce3c3038669a5abf4449ed6fe1a699ff9e266c2783a02bdc17777",
+    "artifacts/portfolio_20260926/continuation/verified_july/verified_july/selected/raw_2025-10-31.csv": "9cde757749a06fcdb913158f69a4c1c4b47893f59b3fef7656f305f0aef0926e",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-08-31/raw_2025-08-31.csv": "45652c4d699d0d51fb947269a005e8037fd8e357ab17630792b9386a44634149",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-07-31/raw_2025-07-31.csv": "719e5d453e573ec21dc00f6a957b8cd80b337b4d14e2308598706ce4917f5feb",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-05-31/raw_2025-05-31.csv": "a6a76bf6695c378e5cc3a0acace794bf5fed832d9123cd8ed49d220a475af4ff",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-02-28/raw_2025-02-28.csv": "cf498bd63ef4d5e21d6a9cb2d651b409f965af22e81c363dc7ecdc0e34429ff2",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-04-30/raw_2025-04-30.csv": "edd754ffbf43bf59024e6ad6c3c08feea3c661e391f4181e668ec824492f1222",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-06-30/raw_2025-06-30.csv": "e699b7c67e2f7bbe06bf2cc68981e881e3c2bba8bfaa80bf53c4fdfe52eb3cf9",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-03-31/raw_2025-03-31.csv": "b6676252cfb2fa7509bd580f35697123d2ceb5b3755b0c34b9b82b5ba05aa8e0",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-01-31/raw_2025-01-31.csv": "1d663709d5aef6b2d927a59707c2717f94079f305057816fab47aac2654562ff",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-08-31/source.json": "bdf438a070a189c0e25d026595e143051ff0668d355fba570a33a0fee33d6440",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-07-31/source.json": "14fe8bfe4a262372ba6c288cddf9e995b9c5f2675d1b28a288d32b239763d3b3",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-05-31/source.json": "1c8f414032a2c78e8b6cc116d62cb423be22c800c0843a3c70c750c2623b8525",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-02-28/source.json": "c1e0fe533dc92696fe59c2d4db9a15e2924438129f6f3257e4642edfe1acd303",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-04-30/source.json": "6c964fc482a1bec2f018e9301a49442f4eebc83df7a2e8c69bac6c9d34cbebf6",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-06-30/source.json": "590f9d4e132b4985d9ec07323dda7b4c51197ca7c61a286c18066883574ca90a",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-03-31/source.json": "5e5357d0050167d44cf0a8defb67fa3fbd309c1a74ec125d764f9e0e2c342f63",
+    "artifacts/portfolio_20260926/continuation/bayes_hourly_target/inner_shape/2025-01-31/source.json": "34dd0b8198afa1bca1756b53c6c2fab4274e4c98a4ca340f4c39668199fe8ba9"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "sha256_files": {
+    "pilot": 43,
+    "study": 43
+  },
+  "verified_fits": [
+    "artifacts/portfolio_20260926/continuation/ard_annual/pilot/fits/2025-10-31",
+    "artifacts/portfolio_20260926/continuation/ard_annual/study/fits/2025-04-30",
+    "artifacts/portfolio_20260926/continuation/ard_annual/study/fits/2025-06-30",
+    "artifacts/portfolio_20260926/continuation/ard_annual/study/fits/2025-07-31",
+    "artifacts/portfolio_20260926/continuation/ard_annual/study/fits/2025-08-31",
+    "artifacts/portfolio_20260926/continuation/ard_annual/study/fits/2025-10-31",
+    "artifacts/portfolio_20260926/continuation/ard_annual/pilot/repeat"
+  ],
+  "raw_forecasts": 22,
+  "checks": "Causal completed teachers, fixed targets, inverse repeat weights, saved scaler/X, native ARD Gaussian posterior covariance and normal equations, relevance pruning, frozen old attenuation, route fraction component replacement, network totals, fixed hourly shares, mixes and zeros.",
+  "audit_code_sha256": "592b7b3a7e1e3038e86bbd677337726340228e0312f453e992b811212d7f9c2c"
+}

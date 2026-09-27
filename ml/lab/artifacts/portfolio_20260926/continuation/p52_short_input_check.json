@@ -1,0 +1,21 @@
+{
+  "existing_P49_inputs_restoration_exact": [
+    "2025-04-30",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31",
+    "2025-10-31"
+  ],
+  "short_input_shape": [
+    9,
+    31
+  ],
+  "short_restoration_shape": [
+    9,
+    61
+  ],
+  "fallback_group": "route1/Sunday/hour0",
+  "fallback_cells": 4,
+  "fallback_median": 7.0,
+  "benchmark_targets_unchanged": true
+}

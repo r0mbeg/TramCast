@@ -1,0 +1,5 @@
+[I 2026-09-27 02:55:57,518] A new study created in RDB with name: bayes_annual
+[I 2026-09-27 02:55:58,415] Trial 0 finished with value: 0.8689219600890854 and parameters: {'season': 'control', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 0 with value: 0.8689219600890854.
+[I 2026-09-27 02:55:59,323] Trial 1 finished with value: 0.8764534147562741 and parameters: {'season': 'shared', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 1 with value: 0.8764534147562741.
+[I 2026-09-27 02:56:00,236] Trial 2 finished with value: 0.8796585788876061 and parameters: {'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 2 with value: 0.8796585788876061.
+bayes_annual {'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224} [0.8832977940309236, 0.8760193637442886, 0.8878550770951087, 0.8997697114878221]

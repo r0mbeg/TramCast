@@ -1,0 +1,30 @@
+{
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=55.7558&longitude=37.6173&start_date=2024-12-31&end_date=2026-01-01&hourly=temperature_2m,precipitation,wind_speed_10m&timezone=Europe%2FMoscow&models=era5",
+  "documentation": "https://open-meteo.com/en/docs/historical-weather-api",
+  "retrieved_at": "2026-09-27T02:06:51.955381+00:00",
+  "sha256": "76c7b02ca1bd503914ab19737101c0f184b7823d3a863607195affd843eb9df2",
+  "availability": "retrospective ERA5 retrieved 2026; not a historical 61-day weather forecast",
+  "requested_coordinates": {
+    "latitude": 55.7558,
+    "longitude": 37.6173
+  },
+  "returned_coordinates": {
+    "latitude": 55.75,
+    "longitude": 37.5,
+    "elevation": 140.0
+  },
+  "timezone": "Europe/Moscow",
+  "utc_offset_seconds": 10800,
+  "hourly_units": {
+    "time": "iso8601",
+    "temperature_2m": "°C",
+    "precipitation": "mm",
+    "wind_speed_10m": "km/h"
+  },
+  "coverage": [
+    "2024-12-31T00:00",
+    "2026-01-01T23:00"
+  ],
+  "raw_rows": 8808,
+  "alignment": "precipitation[h+1] for [h,h+1); temperature/wind mean at h,h+1; prior3 precipitation from previous buckets"
+}

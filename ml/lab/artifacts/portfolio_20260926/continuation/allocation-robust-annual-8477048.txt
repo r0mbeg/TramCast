@@ -1,0 +1,29 @@
+JobId=8477048 JobName=tram-portfolio-robust-annual
+   UserId=m.persiyanov(2364) GroupId=m.persiyanov(2364) MCS_label=N/A
+   Priority=1004 Nice=0 Account=lmfcoptt QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:01:00 TimeMin=N/A
+   SubmitTime=2026-09-27T10:19:20 EligibleTime=2026-09-27T10:19:20
+   AccrueTime=2026-09-27T10:19:20
+   StartTime=2026-09-27T10:19:21 EndTime=2026-09-27T10:20:21 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-09-27T10:19:21 Scheduler=Main
+   Partition=ais-cpu AllocNode:Sid=an01:4019562
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=cn58
+   BatchHost=cn58
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=1,mem=1G,node=1,billing=1
+   AllocTRES=cpu=1,mem=1G,node=1,billing=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=1G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/jobs/zhores_portfolio_robust_annual.sbatch
+   WorkDir=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926
+   StdErr=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/artifacts/portfolio_20260926/continuation/slurm-robust-annual-8477048.log
+   StdIn=/dev/null
+   StdOut=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/artifacts/portfolio_20260926/continuation/slurm-robust-annual-8477048.log
+   TresPerTask=cpu=1
+   
+

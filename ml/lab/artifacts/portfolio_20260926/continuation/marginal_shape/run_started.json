@@ -1,0 +1,29 @@
+{
+  "job_id": "8476967",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_conditional_shape.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/marginal_shape",
+    "--weather",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv",
+    "--marginal"
+  ],
+  "daily_volume_source": "artifacts/portfolio_20260926/continuation/direct_blend/direct_blend/selected",
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_conditional_shape.py": "a9ba25b410f6d8d240d03845689c40fe909d4c0e7186ff823b85929c98ae9b58",
+    "experiments/portfolio_operations.py": "64f5714ce980c776dc64091a661364d70191c43459105fd1b3f9290d6ce08374",
+    "experiments/portfolio_movement.py": "8b94e331711d025dad1bd70bfa17111d78b2fd0e415a4c331027ec3c2c723f71",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "experiments/portfolio_combine.py": "ef271e459d4332eb800a80770a57f866299b4686b477074c811ba2df7bf2242e",
+    "artifacts/portfolio_20260926/continuation/direct_blend/direct_blend/selected/raw_2025-07-31.csv": "8b1b4a6131aec28eec6c59a5c717922224a9fe3075cc9d0914472c12a3f7f25e",
+    "artifacts/portfolio_20260926/continuation/direct_blend/direct_blend/selected/raw_2025-04-30.csv": "2207e2283aeb731afa748a7b80f9cb4b33611c63e223441d5e7f450978f5d4cd",
+    "artifacts/portfolio_20260926/continuation/direct_blend/direct_blend/selected/raw_2025-08-31.csv": "db7928acca850289de9b4fa3d1a2d86b57ed4c667b4a217ec921bb60e243ca0a",
+    "artifacts/portfolio_20260926/continuation/direct_blend/direct_blend/selected/raw_2025-06-30.csv": "da29cc3a8662ba842f4fa66b4217e7321cd4f9841eac59d4bbbe2f802ebafbb8",
+    "artifacts/portfolio_20260926/continuation/direct_blend/direct_blend/selected/raw_2025-10-31.csv": "4340b22c9197ed4969224a26ceb125d1c519f83a91d6a1806427c012df93de91"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "experiments/portfolio_absolute_shape.py": "8c9031633ac74abf56aded8be64ff5dc0fbfc691fc16569f0d1ded5d5629b26a",
+  "experiments/portfolio_bayes_shape.py": "dee54533f8d75f89f618dbd97ee25b89be9485d148396aee760703dd3416dec6",
+  "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+  "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+  "experiments/portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac",
+  "experiments/portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+  "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+  "experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+  "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+  "tests/test_portfolio_experiment.py": "bd00331833c5e998f532274fc9a475d2884bc708844cec21c2ed7e87b29cf2a8",
+  "jobs/zhores_portfolio_absolute_shape.sbatch": "ac7323e1fa5d300bf6a2bec7fb1d8e59abc35a89e627c7b0642435afccf86b72"
+}

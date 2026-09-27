@@ -7,12 +7,14 @@ PROTOC ?= protoc
 GO ?= go
 NPM ?= npm
 ENV_FILE ?= ../.env
+PYTHON ?= python3
 
 .PHONY: help app-build app-up app-down app-logs \
 	env-up env-down env-port-forward env-port-close ps logs \
 	migrate-up migrate-status migrate-down migrate-create migrate-validate \
 	sqlc-compile sqlc-generate proto-generate-go \
 	tidy-backend tidy-backend-check run-backend \
+	proto-generate-python prepare-ml-model run-ml test-ml test-ml-service \
 	import-catalog import-catalog-dry-run \
 	frontend-install frontend-dev frontend-build frontend-test
 
@@ -39,6 +41,12 @@ help:
 	@echo   make tidy-backend           Sync backend go.mod and go.sum with imports
 	@echo   make tidy-backend-check     Show required go.mod and go.sum changes without writing
 	@echo   make run-backend            Run the Go backend with the root .env file
+	@echo   make proto-generate-python  Generate Python messages and gRPC interfaces
+	@echo   make prepare-ml-model       Download and verify the pinned TabPFN checkpoint
+	@echo   make run-ml                 Serve recipe 030 with persistent inference cache
+	@echo   make test-ml-service        Check the real gRPC service without ML dependencies
+	@echo   make test-ml                Run serving and client checks
+
 	@echo   make import-catalog         Import the workbook from CATALOG_FILE and the OSM snapshot from CATALOG_OSM_FILE
 	@echo   make import-catalog-dry-run Check the workbook and OSM snapshot and roll the import back
 	@echo   make frontend-install       Install frontend dependencies from package-lock.json
@@ -109,6 +117,21 @@ tidy-backend-check:
 
 run-backend:
 	@$(GO) -C backend run ./cmd/tramcast -env-file "$(ENV_FILE)"
+
+proto-generate-python:
+	@mkdir -p ml/runtime/generated
+	@$(PYTHON) -m grpc_tools.protoc --proto_path=proto --python_out=ml/runtime/generated --pyi_out=ml/runtime/generated --grpc_python_out=ml/runtime/generated proto/tramcast/forecast/v1/forecast.proto
+
+prepare-ml-model:
+	@cd ml/runtime && PYTHONPATH=generated $(PYTHON) recipe.py
+
+run-ml:
+	@cd ml/runtime && PYTHONPATH=generated $(PYTHON) service.py
+
+test-ml-service:
+	@cd ml/runtime && PYTHONPATH=generated $(PYTHON) -m tests
+
+test-ml: test-ml-service
 
 # The workbook path comes from CATALOG_FILE in the env file: a Cyrillic path
 # passed through make is mangled in PowerShell.

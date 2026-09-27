@@ -1,0 +1,141 @@
+{
+  "checked_at": "2026-09-27T06:13:25.439758+00:00",
+  "input_code_sha256": {
+    "pilot": 71,
+    "study": 71
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-10-31",
+      "rows": 3559
+    },
+    {
+      "phase": "pilot",
+      "seed": 42,
+      "target": "optimal",
+      "cutoff": "2025-10-31",
+      "rows": 3559
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-04-30",
+      "rows": 1090
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-06-30",
+      "rows": 2180
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-07-31",
+      "rows": 2685
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-08-31",
+      "rows": 3165
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "actual",
+      "cutoff": "2025-10-31",
+      "rows": 3559
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-04-30",
+      "rows": 1090
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-06-30",
+      "rows": 2180
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-07-31",
+      "rows": 2685
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-08-31",
+      "rows": 3165
+    },
+    {
+      "phase": "study",
+      "seed": 73,
+      "target": "actual",
+      "cutoff": "2025-10-31",
+      "rows": 3559
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "optimal",
+      "cutoff": "2025-04-30",
+      "rows": 1090
+    },
+    {
+      "phase": "study",
+      "seed": 42,
+      "target": "optimal",
+      "cutoff": "2025-06-30",
+      "rows": 2180
+    }
+  ],
+  "raw_forecasts_checked": 25,
+  "paired_data_matches_independently_audited_P65": true,
+  "optimal_hourly_L1_targets_verified_by_convex_subgradient": true,
+  "absolute_passenger_targets_reconstructed": true,
+  "future_truth_free": true,
+  "native_model_unweighted": true,
+  "teacher_final_model_mismatch_documented": true,
+  "source_profiles_features_and_zero_days_checked": true,
+  "predicted_errors_clip_factor_and_hourshares_checked": true,
+  "exact_030_control": true,
+  "pilot_repeat_and_selected_freshfit_exact": true,
+  "seed73_raw_differences": [
+    {
+      "cutoff": "2025-07-31",
+      "relative_l1": 0.01146274232693774
+    },
+    {
+      "cutoff": "2025-10-31",
+      "relative_l1": 0.0046129689503147595
+    },
+    {
+      "cutoff": "2025-04-30",
+      "relative_l1": 0.00590395006436039
+    },
+    {
+      "cutoff": "2025-08-31",
+      "relative_l1": 0.012620861123947318
+    },
+    {
+      "cutoff": "2025-06-30",
+      "relative_l1": 0.008757465902289355
+    }
+  ],
+  "audit_code_sha256": "ab11476f19b900197ab6d21460458a1c5552db98f2ab65e68922684af73d23fc"
+}

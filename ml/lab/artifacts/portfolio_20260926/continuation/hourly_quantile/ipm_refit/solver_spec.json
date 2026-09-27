@@ -1,0 +1,10 @@
+{
+  "alpha": 0.01,
+  "solver": "highs-ipm",
+  "new_trials": 0,
+  "selection_trial": 1,
+  "original_deadline": 1790471922.293008,
+  "per_fit_time_limit": 120,
+  "maximum_extra_fits": 5,
+  "reason": "same convex LP, original highs timed out on selected W3"
+}

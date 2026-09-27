@@ -1,0 +1,15 @@
+{
+  "experiments/portfolio_timesfm.py": "b10e9bceef8cb52676c5533d4f5ab8adc2ad494db4e8454ea4e755c106885c1b",
+  "experiments/portfolio_factor.py": "ef3eb63f6cc1614f3b6b1691514749d4dd5a369f0900b1f4573bd49a5422d29d",
+  "experiments/portfolio_chronos.py": "fc6611e617c316abff81db57a523bcdcc622e220289ef584238e8884d20418f2",
+  "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+  "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+  "experiments/portfolio_operations.py": "8a542918c755d5a35fae32d0cda0dfe855370575e4ea03255f024fca4b3c08ac",
+  "experiments/portfolio_movement.py": "71a85ef633e743d7b9888e2d1c9b66fbb1b5b151cfa6dc083641c46f51336d92",
+  "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+  "experiments/portfolio_windows.py": "74868cf1b472a278182022e51cbf3e1938a8ea2224e8ce104b3eb7ab37915028",
+  "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+  "experiments/calendar_experiment.py": "9b5fec4f0121139ce65cfb0a828f950426d200a80cae3fdadd14bc00626bcf36",
+  "tests/test_portfolio_experiment.py": "d104e6c24ddbb62b6658990660e3cb816efe94aa219c69049c5c58015b50586a",
+  "jobs/zhores_portfolio_timesfm_teachers.sbatch": "d2c0f62439f941df55330f6202bc54f8e93e37391359ea26b9118d5eda9a47a3"
+}

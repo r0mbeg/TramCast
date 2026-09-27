@@ -1,0 +1,30 @@
+{
+  "timezone": "Europe/Moscow",
+  "route_numbers": [
+    1,
+    5,
+    7,
+    11,
+    12,
+    17,
+    25,
+    26,
+    28,
+    50
+  ],
+  "history_end": "2025-11-01T00:00:00+03:00",
+  "forecast_from": "2025-11-01T00:00:00+03:00",
+  "forecast_to": "2026-01-01T00:00:00+03:00",
+  "model_version": "tabpfn030-zhores8477154-replay",
+  "dataset_version": "prepared-844b17f7f0a0d34e203758ba3c1158ef820ae416c8c09b21fc4cd4c5c4c1898e",
+  "prediction_file": "forecast.csv",
+  "prediction_sha256": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e",
+  "serving_mode": "Replay of verified GPU calculation 8477154; no local inference",
+  "provenance": {
+    "job_id": "8477154",
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "recipe": "tabpfn-profile-030",
+    "weights_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+    "notice": "Integration replay has its own model ID; never register it as a live GPU recipe version."
+  }
+}

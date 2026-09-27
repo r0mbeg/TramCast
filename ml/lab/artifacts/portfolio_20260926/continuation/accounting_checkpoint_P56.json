@@ -1,0 +1,32 @@
+{
+  "source": "sacct actual top-level allocations",
+  "previous_checkpoint": "accounting_checkpoint_P55.json",
+  "checked_at": "2026-09-27T04:13:39.599167+00:00",
+  "jobs": [
+    {
+      "job_id": 8477016,
+      "elapsed_seconds": 8,
+      "cpus": 1,
+      "gpus": 0,
+      "state": "COMPLETED"
+    },
+    {
+      "job_id": 8477017,
+      "elapsed_seconds": 11,
+      "cpus": 2,
+      "gpus": 1,
+      "state": "COMPLETED"
+    },
+    {
+      "job_id": 8477018,
+      "elapsed_seconds": 23,
+      "cpus": 1,
+      "gpus": 1,
+      "state": "COMPLETED"
+    }
+  ],
+  "cumulative_cpu_core_seconds": 10931,
+  "cumulative_gpu_seconds": 1478,
+  "active_jobs": [],
+  "remaining_gpu_hour_budget": 23.589444444444446
+}

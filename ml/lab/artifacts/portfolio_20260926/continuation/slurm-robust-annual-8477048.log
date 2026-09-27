@@ -1,0 +1,2 @@
+jobs/zhores_portfolio_robust_annual.sbatch: line 22: args[@]: unbound variable
+srun: error: cn58: task 0: Exited with exit code 1

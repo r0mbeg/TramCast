@@ -1,0 +1,60 @@
+{
+  "source": "sacct top-level actual allocation, including failed jobs",
+  "previous_checkpoint": "accounting_checkpoint_P35.json",
+  "checked_at": "2026-09-27T00:31:59.048621+00:00",
+  "jobs": [
+    {
+      "job_id": 8476973,
+      "elapsed_seconds": 45,
+      "cpus": 2,
+      "gpus": 0,
+      "state": "COMPLETED"
+    },
+    {
+      "job_id": 8476974,
+      "elapsed_seconds": 16,
+      "cpus": 4,
+      "gpus": 1,
+      "state": "COMPLETED"
+    },
+    {
+      "job_id": 8476975,
+      "elapsed_seconds": 0,
+      "cpus": 4,
+      "gpus": 1,
+      "state": "FAILED"
+    },
+    {
+      "job_id": 8476976,
+      "elapsed_seconds": 28,
+      "cpus": 4,
+      "gpus": 1,
+      "state": "COMPLETED"
+    },
+    {
+      "job_id": 8476977,
+      "elapsed_seconds": 14,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "FAILED"
+    },
+    {
+      "job_id": 8476978,
+      "elapsed_seconds": 8,
+      "cpus": 4,
+      "gpus": 0,
+      "state": "COMPLETED"
+    },
+    {
+      "job_id": 8476979,
+      "elapsed_seconds": 7,
+      "cpus": 2,
+      "gpus": 0,
+      "state": "COMPLETED"
+    }
+  ],
+  "cumulative_cpu_core_seconds": 7896,
+  "cumulative_gpu_seconds": 1359,
+  "active_jobs": [],
+  "remaining_gpu_hour_budget": 23.6225
+}

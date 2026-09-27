@@ -1,0 +1,29 @@
+{
+  "cutoff": "2025-06-30",
+  "end": "2025-08-30",
+  "representation": "normal_ratio",
+  "shape": [
+    9,
+    61,
+    10
+  ],
+  "history_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "model_sha256": "2f776efe6245e42b24bc4153ffdf61810140210e4bd3b01fb21f7aa779ab6ce8",
+  "input_sha256": "4b9750f5b3102e8c00abb9b735dae810e608d516f667b20878a8b62ed3f2a04d",
+  "config": {
+    "max_context": 512,
+    "max_horizon": 128,
+    "normalize_inputs": true,
+    "window_size": 0,
+    "per_core_batch_size": 8,
+    "use_continuous_quantile_head": true,
+    "force_flip_invariance": true,
+    "infer_is_positive": true,
+    "fix_quantile_crossing": true,
+    "return_backcast": false
+  },
+  "wheel_sha256": "c7bde94beb1651e1251cdf1e9d09cf6f015e0218d038a4a836a170dc70b08071",
+  "july_verified": true,
+  "reused_original_quantiles": true,
+  "sha256": "a5117ac7d029a2a5ff1afd690903ca28ecd233ebf528db633dfedfe040924e17"
+}

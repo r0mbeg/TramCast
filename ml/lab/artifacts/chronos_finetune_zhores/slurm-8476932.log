@@ -1,0 +1,27 @@
+Chronos adapter checks passed: cutoff isolation, grid, shares, control, zeros, rounding.
+Fine-tune checks passed: cutoff isolation, no route 5, daily shape, fixed parameters, no validation in fit.
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"method": "chronos_daily_zero_shot", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.7036133473739028, "wape_score": 0.8309951886648288, "absolute_error": 1807112.0, "actual_total": 10692666.0, "bias": 482888.0, "fit_seconds": 0, "peak_gpu_allocated_bytes": 493028352}
+[RANK 0] Detected kernel version 5.4.278, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 5.3892, 'grad_norm': 43.040157318115234, 'learning_rate': 7.55e-07, 'epoch': 0.25}
+{'loss': 5.0448, 'grad_norm': 42.52009963989258, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.7913, 'grad_norm': 35.113895416259766, 'learning_rate': 2.55e-07, 'epoch': 0.75}
+{'loss': 4.7007, 'grad_norm': 39.849884033203125, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 18.4585, 'train_samples_per_second': 86.681, 'train_steps_per_second': 10.835, 'train_loss': 4.981488265991211, 'epoch': 1.0}
+{"method": "chronos_daily_finetuned", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 21.512362183071673, "wape_score": 0.8199407893223262, "absolute_error": 1925313.0, "actual_total": 10692666.0, "bias": 822607.0, "fit_seconds": 21.435355119407177, "peak_gpu_allocated_bytes": 2887531008}
+{"method": "chronos_daily_zero_shot", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.07995932456105947, "wape_score": 0.8675967906488993, "absolute_error": 1685681.0, "actual_total": 12731421.0, "bias": -737403.0, "fit_seconds": 0, "peak_gpu_allocated_bytes": 504389120}
+[RANK 0] Detected kernel version 5.4.278, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 5.2424, 'grad_norm': 60.26384735107422, 'learning_rate': 7.55e-07, 'epoch': 0.25}
+{'loss': 4.8191, 'grad_norm': 51.534385681152344, 'learning_rate': 5.049999999999999e-07, 'epoch': 0.5}
+{'loss': 4.694, 'grad_norm': 31.54983901977539, 'learning_rate': 2.55e-07, 'epoch': 0.75}
+{'loss': 4.5454, 'grad_norm': 59.70198440551758, 'learning_rate': 5e-09, 'epoch': 1.0}
+{'train_runtime': 18.1014, 'train_samples_per_second': 88.391, 'train_steps_per_second': 11.049, 'train_loss': 4.825229187011718, 'epoch': 1.0}
+{"method": "chronos_daily_finetuned", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 21.072210658341646, "wape_score": 0.8505200637069499, "absolute_error": 1903092.0, "actual_total": 12731421.0, "bias": -1139096.0, "fit_seconds": 20.997606714256108, "peak_gpu_allocated_bytes": 2887596544}
+                 method     cutoff        end   seconds  wape_score  absolute_error  actual_total       bias  fit_seconds  peak_gpu_allocated_bytes
+chronos_daily_zero_shot 2025-06-30 2025-08-31  0.703613    0.830995       1807112.0    10692666.0   482888.0     0.000000                 493028352
+chronos_daily_finetuned 2025-06-30 2025-08-31 21.512362    0.819941       1925313.0    10692666.0   822607.0    21.435355                2887531008
+chronos_daily_zero_shot 2025-08-31 2025-10-31  0.079959    0.867597       1685681.0    12731421.0  -737403.0     0.000000                 504389120
+chronos_daily_finetuned 2025-08-31 2025-10-31 21.072211    0.850520       1903092.0    12731421.0 -1139096.0    20.997607                2887596544

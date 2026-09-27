@@ -1,0 +1,23 @@
+{
+  "cutoff": "2025-10-31",
+  "seed": 73,
+  "rows": 3559,
+  "hourly_rows": 71180,
+  "features": 50,
+  "rank": 6,
+  "variance_retained": 0.7075746373892354,
+  "earliest_target_date": "2025-03-22",
+  "latest_target_date": "2025-10-31",
+  "origins": 8,
+  "n_estimators": 4,
+  "output_type": "median",
+  "coordinate_sample_weights": false,
+  "basis_weights": "actualday / repeated route-date",
+  "model_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+  "repeated_prediction_exact": null,
+  "device": "NVIDIA GeForce RTX 2080 Ti",
+  "fit_seconds": 47.621225885115564,
+  "peak_gpu_bytes": 661869568,
+  "peak_gpu_reserved_bytes": 887095296,
+  "peak_rss_kib": 1351724
+}

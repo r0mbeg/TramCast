@@ -1,0 +1,5 @@
+[I 2026-09-27 04:28:18,497] A new study created in RDB with name: uncertainty_components
+[I 2026-09-27 04:28:19,312] Trial 0 finished with value: 0.8814866909017036 and parameters: {'july_verified': True, 'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224, 'uncertainty_component': 'predictive'}. Best is trial 0 with value: 0.8814866909017036.
+[I 2026-09-27 04:28:20,068] Trial 1 finished with value: 0.8798800590717429 and parameters: {'july_verified': True, 'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224, 'uncertainty_component': 'epistemic'}. Best is trial 0 with value: 0.8814866909017036.
+[I 2026-09-27 04:28:20,813] Trial 2 finished with value: 0.8730650593762403 and parameters: {'july_verified': True, 'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224, 'uncertainty_component': 'none'}. Best is trial 0 with value: 0.8814866909017036.
+uncertainty_components {'july_verified': True, 'season': 'route', 'strength': 1.0, 'uncertainty': 1, 'history_days': 224, 'uncertainty_component': 'predictive'} [0.8832977940309236, 0.8796755877724838, 0.8906199836055868, 0.9000758831241226]

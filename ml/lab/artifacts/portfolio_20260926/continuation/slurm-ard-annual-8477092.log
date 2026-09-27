@@ -1,0 +1,5 @@
+[I 2026-09-27 11:02:18,432] A new study created in RDB with name: ard_annual
+[I 2026-09-27 11:02:18,909] Trial 0 finished with value: 0.8843784198264895 and parameters: {'recipe': 'control'}. Best is trial 0 with value: 0.8843784198264895.
+[I 2026-09-27 11:02:19,941] Trial 1 finished with value: 0.8849797423378756 and parameters: {'recipe': 'half'}. Best is trial 1 with value: 0.8849797423378756.
+[I 2026-09-27 11:02:20,485] Trial 2 finished with value: 0.8832601115562243 and parameters: {'recipe': 'full'}. Best is trial 1 with value: 0.8849797423378756.
+ard_annual {'recipe': 'half'} [0.882378524617688, 0.8875809600580632, 0.8825066468387495, 0.8996504789214024]

@@ -1,0 +1,8 @@
+[I 2026-09-27 04:44:37,239] A new study created in RDB with name: gp_errors
+[I 2026-09-27 04:44:38,269] Trial 0 finished with value: 0.875922638434459 and parameters: {'kernel': 'rbf', 'uncertainty': 0}. Best is trial 0 with value: 0.875922638434459.
+[I 2026-09-27 04:44:38,971] Trial 1 finished with value: 0.8738843257121781 and parameters: {'kernel': 'rbf', 'uncertainty': 1}. Best is trial 0 with value: 0.875922638434459.
+[I 2026-09-27 04:44:39,995] Trial 2 finished with value: 0.8734885743541496 and parameters: {'kernel': 'matern25', 'uncertainty': 1}. Best is trial 0 with value: 0.875922638434459.
+[I 2026-09-27 04:44:41,075] Trial 3 finished with value: 0.8718694188570002 and parameters: {'kernel': 'matern15', 'uncertainty': 0}. Best is trial 0 with value: 0.875922638434459.
+[I 2026-09-27 04:44:41,765] Trial 4 finished with value: 0.8739124333990936 and parameters: {'kernel': 'matern25', 'uncertainty': 0}. Best is trial 0 with value: 0.875922638434459.
+[I 2026-09-27 04:44:42,458] Trial 5 finished with value: 0.8719954171495519 and parameters: {'kernel': 'matern15', 'uncertainty': 1}. Best is trial 0 with value: 0.875922638434459.
+gp_errors {'kernel': 'rbf', 'uncertainty': 0} [0.8776526993218914, 0.8741925775470267, 0.8865405330571837, 0.8999528803579742]

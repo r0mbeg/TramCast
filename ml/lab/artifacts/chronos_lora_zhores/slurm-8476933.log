@@ -1,0 +1,27 @@
+Chronos adapter checks passed: cutoff isolation, grid, shares, control, zeros, rounding.
+Fine-tune checks passed: cutoff isolation, no route 5, daily shape, fixed parameters, no validation in fit.
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"method": "chronos_daily_zero_shot", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 0.6816132757812738, "wape_score": 0.8309951886648288, "absolute_error": 1807112.0, "actual_total": 10692666.0, "bias": 482888.0, "fit_seconds": 0, "peak_gpu_allocated_bytes": 493028352, "trainable_parameters": 0, "total_parameters": 119477664}
+[RANK 0] Detected kernel version 5.4.278, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 5.7053, 'grad_norm': 3.683755874633789, 'learning_rate': 7.5500000000000006e-06, 'epoch': 0.25}
+{'loss': 5.6841, 'grad_norm': 5.098637580871582, 'learning_rate': 5.050000000000001e-06, 'epoch': 0.5}
+{'loss': 5.6069, 'grad_norm': 7.171304225921631, 'learning_rate': 2.55e-06, 'epoch': 0.75}
+{'loss': 5.6301, 'grad_norm': 9.460156440734863, 'learning_rate': 5.0000000000000004e-08, 'epoch': 1.0}
+{'train_runtime': 22.4506, 'train_samples_per_second': 71.268, 'train_steps_per_second': 8.908, 'train_loss': 5.6565910339355465, 'epoch': 1.0}
+{"method": "chronos_daily_lora", "cutoff": "2025-06-30", "end": "2025-08-31", "seconds": 25.29878047760576, "wape_score": 0.8319651993244715, "absolute_error": 1796740.0, "actual_total": 10692666.0, "bias": 547350.0, "fit_seconds": 25.20773598086089, "peak_gpu_allocated_bytes": 1083645440, "trainable_parameters": 1206912, "total_parameters": 120684576}
+{"method": "chronos_daily_zero_shot", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 0.07689619529992342, "wape_score": 0.8675967906488993, "absolute_error": 1685681.0, "actual_total": 12731421.0, "bias": -737403.0, "fit_seconds": 0, "peak_gpu_allocated_bytes": 504389120, "trainable_parameters": 0, "total_parameters": 119477664}
+[RANK 0] Detected kernel version 5.4.278, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+{'loss': 5.691, 'grad_norm': 5.655653953552246, 'learning_rate': 7.5500000000000006e-06, 'epoch': 0.25}
+{'loss': 5.5336, 'grad_norm': 5.641482353210449, 'learning_rate': 5.050000000000001e-06, 'epoch': 0.5}
+{'loss': 5.4443, 'grad_norm': 5.274369716644287, 'learning_rate': 2.55e-06, 'epoch': 0.75}
+{'loss': 5.2687, 'grad_norm': 4.661690711975098, 'learning_rate': 5.0000000000000004e-08, 'epoch': 1.0}
+{'train_runtime': 22.2749, 'train_samples_per_second': 71.83, 'train_steps_per_second': 8.979, 'train_loss': 5.4844091796875, 'epoch': 1.0}
+{"method": "chronos_daily_lora", "cutoff": "2025-08-31", "end": "2025-10-31", "seconds": 25.053717696107924, "wape_score": 0.8632946785751567, "absolute_error": 1740453.0, "actual_total": 12731421.0, "bias": -847585.0, "fit_seconds": 24.954591708257794, "peak_gpu_allocated_bytes": 1104841728, "trainable_parameters": 1206912, "total_parameters": 120684576}
+                 method     cutoff        end   seconds  wape_score  absolute_error  actual_total      bias  fit_seconds  peak_gpu_allocated_bytes  trainable_parameters  total_parameters
+chronos_daily_zero_shot 2025-06-30 2025-08-31  0.681613    0.830995       1807112.0    10692666.0  482888.0     0.000000                 493028352                     0         119477664
+     chronos_daily_lora 2025-06-30 2025-08-31 25.298780    0.831965       1796740.0    10692666.0  547350.0    25.207736                1083645440               1206912         120684576
+chronos_daily_zero_shot 2025-08-31 2025-10-31  0.076896    0.867597       1685681.0    12731421.0 -737403.0     0.000000                 504389120                     0         119477664
+     chronos_daily_lora 2025-08-31 2025-10-31 25.053718    0.863295       1740453.0    12731421.0 -847585.0    24.954592                1104841728               1206912         120684576

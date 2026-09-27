@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-09-27T04:46:55.165452+00:00",
+  "input_code_sha256": 21,
+  "raw_forecasts_checked": 13,
+  "exact_parent_controls": true,
+  "relative_composition_reconstructed": true,
+  "network_raw_daily_totals_preserved": true,
+  "fixed_parent_hourshares": true,
+  "structural_zeros": true,
+  "audit_code_sha256": "811d3ed08a491f67da1c3435b3881ae2bb1052f93a4e723c91e90361b3bc4203"
+}

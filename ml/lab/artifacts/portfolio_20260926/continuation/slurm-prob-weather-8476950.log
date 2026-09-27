@@ -1,0 +1,15 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+[I 2026-09-27 01:09:03,492] A new study created in RDB with name: weather_quantiles
+[I 2026-09-27 01:09:04,837] Trial 0 finished with value: 0.7834715323660938 and parameters: {'representation': 'daily_weather', 'quantile': 0.75}. Best is trial 0 with value: 0.7834715323660938.
+[I 2026-09-27 01:09:05,570] Trial 1 finished with value: 0.82772148240452 and parameters: {'representation': 'daily_weather', 'quantile': 0.25}. Best is trial 1 with value: 0.82772148240452.
+[I 2026-09-27 01:09:14,979] Trial 2 finished with value: 0.8212947535959212 and parameters: {'representation': 'hour_weather', 'quantile': 0.5}. Best is trial 1 with value: 0.82772148240452.
+[I 2026-09-27 01:09:15,519] Trial 3 finished with value: 0.8311020056156637 and parameters: {'representation': 'daily', 'quantile': 0.25}. Best is trial 3 with value: 0.8311020056156637.
+[I 2026-09-27 01:09:24,746] Trial 4 finished with value: 0.762621427721613 and parameters: {'representation': 'hour_weather', 'quantile': 0.75}. Best is trial 3 with value: 0.8311020056156637.
+[I 2026-09-27 01:09:34,005] Trial 5 finished with value: 0.8374202539035067 and parameters: {'representation': 'hour_weather', 'quantile': 0.25}. Best is trial 5 with value: 0.8374202539035067.
+[I 2026-09-27 01:09:34,681] Trial 6 finished with value: 0.817462529807665 and parameters: {'representation': 'daily_weather', 'quantile': 0.5}. Best is trial 5 with value: 0.8374202539035067.
+[I 2026-09-27 01:09:35,222] Trial 7 finished with value: 0.8256739815183655 and parameters: {'representation': 'daily', 'quantile': 0.5}. Best is trial 5 with value: 0.8374202539035067.
+[I 2026-09-27 01:09:35,815] Trial 8 finished with value: 0.7935516435804486 and parameters: {'representation': 'daily', 'quantile': 0.75}. Best is trial 5 with value: 0.8374202539035067.
+daily [0.8295364904860819, 0.8326675207452454, 0.7884813723661347, 0.827687577058366]
+daily_weather [0.8266884030521132, 0.828754561756927, 0.7710532347919429, 0.8356689327923411]
+hour_weather [0.8336611482750343, 0.8411793595319791, 0.7425632847876444, 0.8091582235792847]

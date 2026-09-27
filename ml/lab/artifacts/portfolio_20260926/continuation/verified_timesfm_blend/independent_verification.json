@@ -1,0 +1,146 @@
+{
+  "checked_windows": 14,
+  "endpoints_exact": true,
+  "windows": [
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_003",
+      "cutoff": "2025-04-30",
+      "wape_score": 0.8814360132985329,
+      "absolute_error": 1367149,
+      "actual_total": 11530896,
+      "bias": 440677,
+      "bias_fraction": 0.03821706483173554
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_003",
+      "cutoff": "2025-06-30",
+      "wape_score": 0.8726938363154111,
+      "absolute_error": 1344293,
+      "actual_total": 10559528,
+      "bias": 458911,
+      "bias_fraction": 0.0434594235651442
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_004",
+      "cutoff": "2025-04-30",
+      "wape_score": 0.8846063653683114,
+      "absolute_error": 1330592,
+      "actual_total": 11530896,
+      "bias": 423936,
+      "bias_fraction": 0.03676522622353024
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_004",
+      "cutoff": "2025-06-30",
+      "wape_score": 0.8807129447452575,
+      "absolute_error": 1259615,
+      "actual_total": 10559528,
+      "bias": 317219,
+      "bias_fraction": 0.03004102077289818
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_002",
+      "cutoff": "2025-04-30",
+      "wape_score": 0.8846679390742922,
+      "absolute_error": 1329882,
+      "actual_total": 11530896,
+      "bias": 429508,
+      "bias_fraction": 0.037248449730185755
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_002",
+      "cutoff": "2025-06-30",
+      "wape_score": 0.8796809857410294,
+      "absolute_error": 1270512,
+      "actual_total": 10559528,
+      "bias": 364388,
+      "bias_fraction": 0.03450798179615604
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_000",
+      "cutoff": "2025-04-30",
+      "wape_score": 0.883599071572582,
+      "absolute_error": 1342207,
+      "actual_total": 11530896,
+      "bias": 435095,
+      "bias_fraction": 0.03773297408978452
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_000",
+      "cutoff": "2025-06-30",
+      "wape_score": 0.8769483825413409,
+      "absolute_error": 1299367,
+      "actual_total": 10559528,
+      "bias": 411641,
+      "bias_fraction": 0.038982897720428414
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_001",
+      "cutoff": "2025-04-30",
+      "wape_score": 0.8832977940309236,
+      "absolute_error": 1345681,
+      "actual_total": 11530896,
+      "bias": 418387,
+      "bias_fraction": 0.0362839973580544
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/trial_001",
+      "cutoff": "2025-06-30",
+      "wape_score": 0.8796755877724838,
+      "absolute_error": 1270569,
+      "actual_total": 10559528,
+      "bias": 270039,
+      "bias_fraction": 0.025573018036412234
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/selected",
+      "cutoff": "2025-04-30",
+      "wape_score": 0.8846063653683114,
+      "absolute_error": 1330592,
+      "actual_total": 11530896,
+      "bias": 423936,
+      "bias_fraction": 0.03676522622353024
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/selected",
+      "cutoff": "2025-06-30",
+      "wape_score": 0.8807129447452575,
+      "absolute_error": 1259615,
+      "actual_total": 10559528,
+      "bias": 317219,
+      "bias_fraction": 0.03004102077289818
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/selected",
+      "cutoff": "2025-07-31",
+      "wape_score": 0.8841857929719513,
+      "absolute_error": 1324264,
+      "actual_total": 11434383,
+      "bias": -623800,
+      "bias_fraction": -0.054554758223508866
+    },
+    {
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/selected",
+      "cutoff": "2025-08-31",
+      "wape_score": 0.90159810126458,
+      "absolute_error": 1252796,
+      "actual_total": 12731421,
+      "bias": -332232,
+      "bias_fraction": -0.026095437422107085
+    }
+  ],
+  "final_rows": 14640,
+  "comparisons": [
+    {
+      "other": "021_bayesian_verified_operations",
+      "relative_l1": 0.02359630479850084,
+      "changed_rows": 10418
+    },
+    {
+      "other": "018_timesfm_bayesian_blend",
+      "relative_l1": 0.024758656254118622,
+      "changed_rows": 10427
+    }
+  ],
+  "sha256": "88bfdfe5c116b4bae7867feca2377e2dd4303ff2d7d9b4b75ce30dad90f0104d"
+}

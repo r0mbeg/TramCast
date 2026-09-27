@@ -77,22 +77,30 @@ make proto-generate-go
 protoc --proto_path=proto --go_out=backend --go_opt=module=github.com/r0mbeg/TramCast/backend --go-grpc_out=backend --go-grpc_opt=module=github.com/r0mbeg/TramCast/backend proto/tramcast/forecast/v1/forecast.proto
 ```
 
-Результат в `backend/internal/gen/tramcast/forecast/v1/`: сообщения `forecast.pb.go` и gRPC-интерфейсы `forecast_grpc.pb.go`. Рабочий Go-клиент использует `NewForecastServiceClient`; преобразование и валидация остаются в `internal/features/forecasts/predictor/grpc`.
+Результат в `backend/internal/gen/tramcast/forecast/v1/`: сообщения `forecast.pb.go` и gRPC-интерфейсы `forecast_grpc.pb.go`. Будущий Go-клиент использует `NewForecastServiceClient`; преобразование и валидация остаются в `internal/features/forecasts/predictor/grpc`.
 
 Runtime-зависимости `google.golang.org/protobuf` и `google.golang.org/grpc` закреплены в `backend/go.mod`. Сгенерированный код хранится в репозитории; при изменении `.proto` его нужно обновить той же командой. Версии генераторов указаны в заголовках сгенерированных файлов. [Пути генерации Go](https://protobuf.dev/reference/go/go-generated/#compiler-invocation).
 
 ### Python
 
-В окружении ML-приложения нужен `grpcio-tools` и совместимые runtime-зависимости `grpcio` и `protobuf`. Создайте каталог вывода `ml/generated`: в PowerShell — `New-Item -ItemType Directory -Force ml/generated`, в Linux/macOS — `mkdir -p ml/generated`.
+В окружении ML-приложения нужен `grpcio-tools` и совместимые runtime-зависимости `grpcio` и `protobuf`. Создайте каталог вывода `ml/runtime/generated`: в PowerShell — `New-Item -ItemType Directory -Force ml/runtime/generated`, в Linux/macOS — `mkdir -p ml/runtime/generated`.
 
 ```text
-python -m grpc_tools.protoc --proto_path=proto --python_out=ml/generated --pyi_out=ml/generated --grpc_python_out=ml/generated proto/tramcast/forecast/v1/forecast.proto
+python -m grpc_tools.protoc --proto_path=proto --python_out=ml/runtime/generated --pyi_out=ml/runtime/generated --grpc_python_out=ml/runtime/generated proto/tramcast/forecast/v1/forecast.proto
 ```
 
-Результат в `ml/generated/tramcast/forecast/v1/`: `forecast_pb2.py`, `forecast_pb2.pyi`, `forecast_pb2_grpc.py`. Реализация наследует `ForecastServiceServicer` и регистрируется через `add_ForecastServiceServicer_to_server`. [Генерация Python gRPC](https://grpc.io/docs/languages/python/basics/#generating-client-and-server-code).
+Результат в `ml/runtime/generated/tramcast/forecast/v1/`: `forecast_pb2.py`, `forecast_pb2.pyi`, `forecast_pb2_grpc.py`. Реализация наследует `ForecastServiceServicer` и регистрируется через `add_ForecastServiceServicer_to_server`. [Генерация Python gRPC](https://grpc.io/docs/languages/python/basics/#generating-client-and-server-code).
 
-Каталог `ml/generated` должен входить в путь импорта Python. Для локального запуска из корня в PowerShell установите `$env:PYTHONPATH = (Resolve-Path ml/generated).Path`, в Linux/macOS — `export PYTHONPATH="$PWD/ml/generated"`. После этого импорт доступен как `from tramcast.forecast.v1 import forecast_pb2, forecast_pb2_grpc`. При упаковке ML-приложения этот namespace-пакет нужно включить в его сборку.
+Каталог `ml/runtime/generated` должен входить в путь импорта Python. Для локального запуска из корня в PowerShell установите `$env:PYTHONPATH = (Resolve-Path ml/runtime/generated).Path`, в Linux/macOS — `export PYTHONPATH="$PWD/ml/runtime/generated"`. После этого импорт доступен как `from tramcast.forecast.v1 import forecast_pb2, forecast_pb2_grpc`. При упаковке ML-приложения этот namespace-пакет нужно включить в его сборку.
 
 ## Изменения контракта
 
 Номера существующих полей не меняются и не используются повторно. При удалении поля резервируются его номер и имя через `reserved`. Новые поля не должны становиться обязательными для существующих клиентов; несовместимые изменения получают новый пакет `tramcast.forecast.v2`.
+
+## Текущая Python-реализация
+
+[ml/runtime/service.py](../ml/runtime/service.py) реализует контракт в двух режимах: основной рецепт 030 с реальным TabPFN inference и постоянным кэшем либо явный контрольный `--bundle` с готовым Chronos 002. Сервис закреплён за одним рецептом; `--describe` выдаёт фактические model/dataset ID для Go. `--refresh` создаёт новый конфиг для ручного пересчёта, не изменяя текущий процесс или прежние результаты. Кэш опубликованных прогнозов остаётся в PostgreSQL; локальный SQLite в Python предотвращает повторный дорогой расчёт.
+
+Подробности сроков, подготовки входов, отмены и совместного использования версий — [интеграция ML](../ml/docs/INTEGRATION.md). Сгенерированный Python-код обновляется через `make proto-generate-python` после установки `ml/runtime/requirements-proto.txt`. API сообщений не изменён.
+
+Для начала интеграции без GPU есть самостоятельный replay проверенного результата 030 с отдельным ID модели. [Инструкция запуска ML](../ml/docs/HANDOFF.md) содержит команды Docker, проверочный запрос и получение метаданных версии.

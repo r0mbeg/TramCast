@@ -1,0 +1,20 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+JobID|State|ElapsedRaw|AllocCPUS|AllocTRES|MaxRSS
+8477029|FAILED|7|1|billing=1,cpu=1,mem=1G,node=1|
+8477029.batch|FAILED|7|1|cpu=1,mem=1G,node=1|1340K
+8477029.extern|COMPLETED|7|1|billing=1,cpu=1,mem=1G,node=1|956K
+8477029.0|FAILED|7|1|cpu=1,mem=1G,node=1|1136K
+8477030|COMPLETED|7|1|billing=1,cpu=1,mem=1G,node=1|
+8477030.batch|COMPLETED|7|1|cpu=1,mem=1G,node=1|1340K
+8477030.extern|COMPLETED|7|1|billing=1,cpu=1,mem=1G,node=1|956K
+8477030.0|COMPLETED|7|1|cpu=1,mem=1G,node=1|1136K
+8477031|COMPLETED|22|2|billing=2,cpu=2,gres/gpu=1,mem=16G,node=1|
+8477031.batch|COMPLETED|22|2|cpu=2,gres/gpu=1,mem=16G,node=1|1320K
+8477031.extern|COMPLETED|22|2|billing=2,cpu=2,gres/gpu=1,mem=16G,node=1|940K
+8477031.0|COMPLETED|22|2|cpu=2,gres/gpu=1,mem=16G,node=1|1128K
+8477032|COMPLETED|53|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|
+8477032.batch|COMPLETED|53|2|cpu=2,gres/gpu=1,mem=2G,node=1|8340K
+8477032.extern|COMPLETED|53|2|billing=2,cpu=2,gres/gpu=1,mem=2G,node=1|940K
+8477032.0|COMPLETED|53|2|cpu=2,gres/gpu=1,mem=2G,node=1|1318492K

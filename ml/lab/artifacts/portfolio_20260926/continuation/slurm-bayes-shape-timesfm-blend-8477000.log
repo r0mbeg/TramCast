@@ -1,0 +1,7 @@
+[I 2026-09-27 05:30:36,574] A new study created in RDB with name: bayes_shape_timesfm_blend
+[I 2026-09-27 05:30:37,130] Trial 0 finished with value: 0.8820429753791388 and parameters: {'base': 'annual', 'base_weight': 0.25}. Best is trial 0 with value: 0.8820429753791388.
+[I 2026-09-27 05:30:37,680] Trial 1 finished with value: 0.8830272693231019 and parameters: {'base': 'annual', 'base_weight': 1.0}. Best is trial 1 with value: 0.8830272693231019.
+[I 2026-09-27 05:30:38,245] Trial 2 finished with value: 0.8838944771516106 and parameters: {'base': 'annual', 'base_weight': 0.5}. Best is trial 2 with value: 0.8838944771516106.
+[I 2026-09-27 05:30:38,808] Trial 3 finished with value: 0.8787582146104853 and parameters: {'base': 'annual', 'base_weight': 0.0}. Best is trial 2 with value: 0.8838944771516106.
+[I 2026-09-27 05:30:39,371] Trial 4 finished with value: 0.8842959110913488 and parameters: {'base': 'annual', 'base_weight': 0.75}. Best is trial 4 with value: 0.8842959110913488.
+bayes_shape_timesfm_blend {'base': 'annual', 'base_weight': 0.75} [0.8861503910884289, 0.8824414310942686, 0.8819559393803759, 0.9008887538947931]

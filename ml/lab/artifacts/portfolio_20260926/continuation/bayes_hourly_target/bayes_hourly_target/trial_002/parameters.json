@@ -1,0 +1,7 @@
+{
+  "loss_target": "hourly_weighted",
+  "season": "route",
+  "strength": 1.0,
+  "uncertainty": 1,
+  "history_days": 224
+}

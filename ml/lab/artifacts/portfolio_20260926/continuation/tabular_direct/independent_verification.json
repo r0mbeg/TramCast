@@ -1,0 +1,156 @@
+{
+  "checked_at": "2026-09-27T07:00:05.053139+00:00",
+  "input_code_sha256": {
+    "pilot": 27,
+    "study": 27
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "cutoff": "2025-10-31",
+      "target": "count",
+      "seed": 42,
+      "rows": 4452,
+      "origins": 9
+    },
+    {
+      "phase": "pilot",
+      "cutoff": "2025-10-31",
+      "target": "ratio",
+      "seed": 42,
+      "rows": 4452,
+      "origins": 9
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-04-30",
+      "target": "count",
+      "seed": 42,
+      "rows": 1352,
+      "origins": 3
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-06-30",
+      "target": "count",
+      "seed": 42,
+      "rows": 2450,
+      "origins": 5
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-07-31",
+      "target": "count",
+      "seed": 42,
+      "rows": 2920,
+      "origins": 6
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-08-31",
+      "target": "count",
+      "seed": 42,
+      "rows": 3418,
+      "origins": 7
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-10-31",
+      "target": "count",
+      "seed": 42,
+      "rows": 4452,
+      "origins": 9
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-04-30",
+      "target": "count",
+      "seed": 73,
+      "rows": 1352,
+      "origins": 3
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-06-30",
+      "target": "count",
+      "seed": 73,
+      "rows": 2450,
+      "origins": 5
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-07-31",
+      "target": "count",
+      "seed": 73,
+      "rows": 2920,
+      "origins": 6
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-08-31",
+      "target": "count",
+      "seed": 73,
+      "rows": 3418,
+      "origins": 7
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-10-31",
+      "target": "count",
+      "seed": 73,
+      "rows": 4452,
+      "origins": 9
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-04-30",
+      "target": "ratio",
+      "seed": 42,
+      "rows": 1352,
+      "origins": 3
+    },
+    {
+      "phase": "study",
+      "cutoff": "2025-06-30",
+      "target": "ratio",
+      "seed": 42,
+      "rows": 2450,
+      "origins": 5
+    }
+  ],
+  "raw_forecasts_checked": 25,
+  "independent_monthly_context_reference_ratios_weather_checked": true,
+  "targets_before_outer_cutoff": true,
+  "calendar_publication_and_21features_checked": true,
+  "future_target_free": true,
+  "derived_float32_count_fields_decoded_natively": true,
+  "native_unweighted_direct_targets": true,
+  "operations_history_only_reconstructed": true,
+  "fixed030_shape_and_inactive_zeros": true,
+  "raw_replay_and_fixed_recipes_checked": true,
+  "pilot_repeat_and_study_freshfit_exact": true,
+  "seed73_raw_differences": [
+    {
+      "cutoff": "2025-07-31",
+      "relative_L1": 0.01627533151939078
+    },
+    {
+      "cutoff": "2025-10-31",
+      "relative_L1": 0.011608503990630376
+    },
+    {
+      "cutoff": "2025-04-30",
+      "relative_L1": 0.014041594627692477
+    },
+    {
+      "cutoff": "2025-08-31",
+      "relative_L1": 0.010748478164357757
+    },
+    {
+      "cutoff": "2025-06-30",
+      "relative_L1": 0.013070244285599204
+    }
+  ],
+  "old_tabular_budget_and_trials_retained": true,
+  "audit_code_sha256": "14c6e608f44d9ea6974117e03a7659ed0415ddbe261c09bb31bdd1d73930319e"
+}

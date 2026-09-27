@@ -1,0 +1,8 @@
+{
+  "params": {
+    "representation": "daily_weather",
+    "quantile": 0.25
+  },
+  "value": 0.82772148240452,
+  "trial": 1
+}

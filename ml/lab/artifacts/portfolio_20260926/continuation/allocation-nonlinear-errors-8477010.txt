@@ -1,0 +1,29 @@
+JobId=8477010 JobName=tram-portfolio-nonlinear-errors
+   UserId=m.persiyanov(2364) GroupId=m.persiyanov(2364) MCS_label=N/A
+   Priority=1008 Nice=0 Account=lmfcoptt QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:02:00 TimeMin=N/A
+   SubmitTime=2026-09-27T06:38:57 EligibleTime=2026-09-27T06:38:57
+   AccrueTime=2026-09-27T06:38:57
+   StartTime=2026-09-27T06:38:58 EndTime=2026-09-27T06:40:58 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-09-27T06:38:58 Scheduler=Main
+   Partition=ais-cpu AllocNode:Sid=an01:3087802
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=cn55
+   BatchHost=cn55
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=2 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=2,mem=1G,node=1,billing=2
+   AllocTRES=cpu=2,mem=1G,node=1,billing=2
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=2 MinMemoryNode=1G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/jobs/zhores_portfolio_nonlinear_errors.sbatch
+   WorkDir=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926
+   StdErr=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/artifacts/portfolio_20260926/continuation/slurm-nonlinear-errors-8477010.log
+   StdIn=/dev/null
+   StdOut=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/artifacts/portfolio_20260926/continuation/slurm-nonlinear-errors-8477010.log
+   TresPerTask=cpu=2
+   
+

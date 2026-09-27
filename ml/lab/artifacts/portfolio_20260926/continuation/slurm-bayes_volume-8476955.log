@@ -1,0 +1,14 @@
+[I 2026-09-27 01:24:30,366] A new study created in RDB with name: bayes_volume
+[I 2026-09-27 01:24:34,223] Trial 0 finished with value: 0.8551798435468632 and parameters: {'strength': 1.0, 'uncertainty': 0, 'history_days': 224}. Best is trial 0 with value: 0.8551798435468632.
+[I 2026-09-27 01:24:34,865] Trial 1 finished with value: 0.8647845825672134 and parameters: {'strength': 0.5, 'uncertainty': 1, 'history_days': 224}. Best is trial 1 with value: 0.8647845825672134.
+[I 2026-09-27 01:24:35,492] Trial 2 finished with value: 0.863843741123256 and parameters: {'strength': 0.5, 'uncertainty': 0, 'history_days': 0}. Best is trial 1 with value: 0.8647845825672134.
+[I 2026-09-27 01:24:36,121] Trial 3 finished with value: 0.863843741123256 and parameters: {'strength': 0.5, 'uncertainty': 0, 'history_days': 224}. Best is trial 1 with value: 0.8647845825672134.
+[I 2026-09-27 01:24:36,749] Trial 4 finished with value: 0.8640291510744422 and parameters: {'strength': 0.5, 'uncertainty': 1, 'history_days': 112}. Best is trial 1 with value: 0.8647845825672134.
+[I 2026-09-27 01:24:37,376] Trial 5 finished with value: 0.8551798435468632 and parameters: {'strength': 1.0, 'uncertainty': 0, 'history_days': 0}. Best is trial 1 with value: 0.8647845825672134.
+[I 2026-09-27 01:24:38,008] Trial 6 finished with value: 0.8647845825672134 and parameters: {'strength': 0.5, 'uncertainty': 1, 'history_days': 0}. Best is trial 1 with value: 0.8647845825672134.
+[I 2026-09-27 01:24:38,637] Trial 7 finished with value: 0.8648098388051131 and parameters: {'strength': 1.0, 'uncertainty': 1, 'history_days': 224}. Best is trial 7 with value: 0.8648098388051131.
+[I 2026-09-27 01:24:39,271] Trial 8 finished with value: 0.8620288399269147 and parameters: {'strength': 0.5, 'uncertainty': 0, 'history_days': 112}. Best is trial 7 with value: 0.8648098388051131.
+[I 2026-09-27 01:24:39,910] Trial 9 finished with value: 0.8633830704874383 and parameters: {'strength': 1.0, 'uncertainty': 1, 'history_days': 112}. Best is trial 7 with value: 0.8648098388051131.
+[I 2026-09-27 01:24:40,544] Trial 10 finished with value: 0.8648098388051131 and parameters: {'strength': 1.0, 'uncertainty': 1, 'history_days': 0}. Best is trial 7 with value: 0.8648098388051131.
+[I 2026-09-27 01:24:41,194] Trial 11 finished with value: 0.8513642847453712 and parameters: {'strength': 1.0, 'uncertainty': 0, 'history_days': 112}. Best is trial 7 with value: 0.8648098388051131.
+bayes_volume {'strength': 1.0, 'uncertainty': 1, 'history_days': 224} [0.8722117518014212, 0.8574079258088051, 0.8876803409506223, 0.9039540833658709]

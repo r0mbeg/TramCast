@@ -1,0 +1,11 @@
+{
+  "rows": 206640,
+  "configurations": 7,
+  "windows": 2,
+  "keys_match": true,
+  "facts_match": true,
+  "integer_nonnegative": true,
+  "forced_zeros": true,
+  "metrics_recomputed": true,
+  "code_and_history_hashes_match": true
+}

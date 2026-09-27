@@ -1,0 +1,14 @@
+{
+  "title": "Robust Statistical Modeling Using the t Distribution",
+  "authors": [
+    "Kenneth L. Lange",
+    "Roderick J. A. Little",
+    "Jeremy M. G. Taylor"
+  ],
+  "year": 1989,
+  "doi": "10.1080/01621459.1989.10478852",
+  "primary_url": "https://www.tandfonline.com/doi/abs/10.1080/01621459.1989.10478852",
+  "author_archive": "https://escholarship.org/uc/item/27s1d3h7",
+  "retrieval": "Publisher search abstract retrieved; full publisher page 403, author archive JS robot challenge. No downloaded full text.",
+  "use": "General robust t-regression motivation. Exact fixed-scale/prior MAP objective and stationarity independently audited, no exact full Student-t posterior claim."
+}

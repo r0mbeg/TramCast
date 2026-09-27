@@ -1,0 +1,32 @@
+{
+  "model": "median_all",
+  "features": [
+    "route",
+    "weekday",
+    "hour"
+  ],
+  "weeks": 0,
+  "selection": "best cleaned September\u2013October WAPE-score among tried models",
+  "validation": {
+    "wape_score": 0.8794502200500636,
+    "absolute_error": 1534770.0,
+    "actual_total": 12731421.0,
+    "bias": -423890.0
+  },
+  "history_start": "2025-01-01",
+  "cutoff": "2025-10-31",
+  "forecast_start": "2025-11-01",
+  "forecast_end": "2025-12-31",
+  "seed": null,
+  "missing_policy": "absent counts = 0; no imputation",
+  "postprocessing": "floor(max(0, x) + 0.5); route 5 and hours 1\u20134 forced to 0",
+  "history_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "submission_sha256": "26c254501cc7ed0b680ed3611924bf39f640ccae5f9850648a6c067662ed88db",
+  "rows": 14640,
+  "prediction_total": 12298275,
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "seconds": 0.16469504206907004,
+  "peak_rss_bytes": 125059072
+}

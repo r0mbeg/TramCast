@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-09-27T07:50:12.628624+00:00",
+  "purpose": "Explore next route-specific hypothesis during GPU wait; no additional model/job started.",
+  "operation_search_queries": 11,
+  "scope": "Queries around Moscow tram25/26/28 May-June2025 and May11route26 restoration; first3queries malformed site-prefix, no negative conclusion drawn from them.",
+  "known_primary": "https://transport.mos.ru/mostrans/all_news/124402",
+  "result": "Known May11route26 detour confirmed; end date still not established. Other indexed snippets include other cities and 2024 archives; no additional verified complete operation interval, no factors introduced.",
+  "chronos_primary": "https://github.com/amazon-science/chronos-forecasting",
+  "chronos_result": "Known-covariate/multivariate capability already tested in P19/P31; no repeat justified.",
+  "ard_primary": "https://scikit-learn.org/1.8/modules/generated/sklearn.linear_model.ARDRegression.html",
+  "ard_result": "Native ARD estimates per-coefficient Gaussian precision and noise precision by evidence maximization. Potential next annual-error shrinkage test, not run.",
+  "old_costs_retained": true
+}

@@ -1,0 +1,10 @@
+[I 2026-09-27 01:56:33,413] A new study created in RDB with name: direct_daily
+[I 2026-09-27 01:56:37,434] Trial 0 finished with value: 0.8570397304591106 and parameters: {'leaves': 15, 'l2': 1, 'max_iter': 200}. Best is trial 0 with value: 0.8570397304591106.
+[I 2026-09-27 01:56:40,178] Trial 1 finished with value: 0.8492063296647483 and parameters: {'leaves': 15, 'l2': 10, 'max_iter': 200}. Best is trial 0 with value: 0.8570397304591106.
+[I 2026-09-27 01:56:42,087] Trial 2 finished with value: 0.8553978394464914 and parameters: {'leaves': 15, 'l2': 1, 'max_iter': 100}. Best is trial 0 with value: 0.8570397304591106.
+[I 2026-09-27 01:56:46,271] Trial 3 finished with value: 0.8547020758436137 and parameters: {'leaves': 31, 'l2': 10, 'max_iter': 200}. Best is trial 0 with value: 0.8570397304591106.
+[I 2026-09-27 01:56:48,898] Trial 4 finished with value: 0.8532849727409066 and parameters: {'leaves': 31, 'l2': 1, 'max_iter': 100}. Best is trial 0 with value: 0.8570397304591106.
+[I 2026-09-27 01:56:50,824] Trial 5 finished with value: 0.8476955812477516 and parameters: {'leaves': 15, 'l2': 10, 'max_iter': 100}. Best is trial 0 with value: 0.8570397304591106.
+[I 2026-09-27 01:56:55,014] Trial 6 finished with value: 0.8541771463298015 and parameters: {'leaves': 31, 'l2': 1, 'max_iter': 200}. Best is trial 0 with value: 0.8570397304591106.
+[I 2026-09-27 01:56:57,641] Trial 7 finished with value: 0.8528624683260408 and parameters: {'leaves': 31, 'l2': 10, 'max_iter': 100}. Best is trial 0 with value: 0.8570397304591106.
+direct_daily {'leaves': 15, 'l2': 1, 'max_iter': 200} [0.8516750996626802, 0.862404361255541, 0.8375051806468263, 0.869990003472511]

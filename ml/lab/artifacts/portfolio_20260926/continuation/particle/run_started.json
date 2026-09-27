@@ -1,0 +1,40 @@
+{
+  "job_id": "8476956",
+  "partition": "ais-cpu",
+  "node": "cn63.zhores",
+  "affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/particle",
+    "--families",
+    "particle"
+  ],
+  "history_sha256": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+  "code_sha256": {
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py": "f158550248988338bb4f7edc000a0a6b20e8edf2b4b131b826a76a955da77ce1",
+    "pipeline.py": "6e7decfda0f59f1431936854e26d93da9064a9064db2d5f469bc2464450a5430",
+    "experiments/chronos_experiment.py": "442abf1b0e7823656bfe767ee7145df1983102eaf50f6e6c69f47644dda02eb5",
+    "experiments/portfolio_weather_volume.py": "1edfa40e777de8e5323e9e726e6ca35c06cdc16cac76167cf55637594e386eab",
+    "experiments/portfolio_ridge.py": "013b88ce5fafd86c4356980e1eb223ae204054b93594760e05735130f2331bad",
+    "artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "experiments/portfolio_operations.py": "7977612474099dcfcb10eb0082f3e276365b11cb682b2136d95d54f6b170cb02",
+    "experiments/portfolio_movement.py": "8b94e331711d025dad1bd70bfa17111d78b2fd0e415a4c331027ec3c2c723f71",
+    "experiments/portfolio_structure.py": "7ecb0de7f2adac3a1f426d84ebda5c2b78c4509850b06ab57ab295b93179b149",
+    "experiments/portfolio_particle.py": "c5e7218c2fb67bf04a7243a00f6e0922c03e82afa98ff29546c37c458360ad3b",
+    "artifacts/portfolio_20260926/continuation/operations/operations/selection.json": "fd8954e578acdcceca981e674f93a701a1591ce626f8890e2d8fcef8b1844ccc"
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  }
+}

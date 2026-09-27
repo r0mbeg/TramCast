@@ -1,0 +1,7 @@
+tirex_package/tirex_ts-1.4.2-py3-none-any.whl: OK
+Processing ./tirex_package/tirex_ts-1.4.2-py3-none-any.whl
+Installing collected packages: tirex-ts
+Successfully installed tirex-ts-1.4.2
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: /beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/bin/python -m pip install --upgrade pip

@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-09-27T01:22:18.860872+00:00",
+  "archives": [
+    {
+      "attempt": "020_hourly_quantile",
+      "candidate": "continuation/hourly_quantile/ipm_refit",
+      "rows": 14640,
+      "sha256": "cf8c6d36999a12a385b9f3fffa486dad476d0d296508effeeceacc5c9c82154c"
+    },
+    {
+      "attempt": "021_bayesian_verified_operations",
+      "candidate": "continuation/verified_july/verified_july/selected",
+      "rows": 14640,
+      "sha256": "aa88d13509b1c1ca141df86c47cb13be68ae5fbdcd2eca308e49e0c3c61dfe98"
+    },
+    {
+      "attempt": "022_verified_bayesian_timesfm_blend",
+      "candidate": "continuation/verified_timesfm_blend/verified_timesfm_blend/selected",
+      "rows": 14640,
+      "sha256": "88bfdfe5c116b4bae7867feca2377e2dd4303ff2d7d9b4b75ce30dad90f0104d"
+    }
+  ]
+}

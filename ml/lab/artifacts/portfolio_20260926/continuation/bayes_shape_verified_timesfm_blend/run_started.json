@@ -1,0 +1,41 @@
+{
+  "job_id": "8477002",
+  "command": [
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_direct_blend.py",
+    "--history",
+    "artifacts/hourly_clean.csv",
+    "--output",
+    "artifacts/portfolio_20260926/continuation/bayes_shape_verified_timesfm_blend",
+    "--timesfm",
+    "--bayes-shape",
+    "--verified-timesfm"
+  ],
+  "components": {
+    "annual": "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected",
+    "direct": "artifacts/portfolio_20260926/continuation/timesfm_verified_july/timesfm_verified_july/selected"
+  },
+  "hourly_shares": "fixed 024",
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "optuna": "4.5.0"
+  },
+  "sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_direct_blend.py": "d1c2f2bce41a5b29475c22f9c6329c05b4ce48a91c60938388e935335a7c1d6e",
+    "experiments/portfolio_combine.py": "c684ebce8a089ee5834670b2341b2f6455734efd3052407c9768325e83dac152",
+    "experiments/portfolio_experiment.py": "dbeec1fdc488cba0488411399da0e50f1935d5986ba727174d9ca6656eb298b5",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-07-31.csv": "5ab4becb352b30812d135cef66908012ed79ee82ddedbb576a3bcc069ae7a026",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-04-30.csv": "60f2da3c42120a6b523e433fdd191ba99966d123bd2bed0677f79917f737dba0",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-08-31.csv": "197f2c3bdf6259ac87daf97cea018188011dbf951d6aa08fae79746253520bf5",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-06-30.csv": "fef27d6bb056d2cdef0b19d8eca21dedabd02383c9133603b15f6bbe9a995104",
+    "artifacts/portfolio_20260926/continuation/bayes_shape/study/bayes_shape/selected/raw_2025-10-31.csv": "33df602d404fd4f0058ce3a59723470610ed4714303a594e4efee80c34c3b597",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/timesfm_verified_july/selected/raw_2025-07-31.csv": "e8d8921e59ba79a08e85b1ddefaea9206ec876a0e36193226d95a22d159e24b0",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/timesfm_verified_july/selected/raw_2025-06-30.csv": "9fdf2547bdfe50e30182feb30d9c35b91cd371aa14d3ba3b24333ea9c9be5c39",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/timesfm_verified_july/selected/raw_2025-04-30.csv": "79517146f6eb488f607dc0004bbc8b62f87edc2855dde0ea081fa5cea8579912",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/timesfm_verified_july/selected/raw_2025-08-31.csv": "c78d11035bf3160b951043edf7885563b89121379d2c8c11590a8a348827c2a4",
+    "artifacts/portfolio_20260926/continuation/timesfm_verified_july/timesfm_verified_july/selected/raw_2025-10-31.csv": "b98a99ae501bf39e95ebee71d33d9ef4d590e8ae4a041d4df0f040d0987c2d93"
+  }
+}

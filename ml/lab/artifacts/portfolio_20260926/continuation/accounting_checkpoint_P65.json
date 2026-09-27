@@ -1,0 +1,32 @@
+{
+  "source": "sacct actual top-level allocations including failed pilot",
+  "previous_checkpoint": "accounting_checkpoint_P64.json",
+  "checked_at": "2026-09-27T05:55:56.649974+00:00",
+  "jobs": [
+    {
+      "job_id": 8477033,
+      "elapsed_seconds": 10,
+      "cpus": 2,
+      "gpus": 1,
+      "state": "FAILED"
+    },
+    {
+      "job_id": 8477034,
+      "elapsed_seconds": 103,
+      "cpus": 2,
+      "gpus": 1,
+      "state": "COMPLETED"
+    },
+    {
+      "job_id": 8477035,
+      "elapsed_seconds": 329,
+      "cpus": 2,
+      "gpus": 1,
+      "state": "COMPLETED"
+    }
+  ],
+  "cumulative_cpu_core_seconds": 12051,
+  "cumulative_gpu_seconds": 1995,
+  "active_jobs": [],
+  "remaining_gpu_hour_budget": 23.445833333333333
+}

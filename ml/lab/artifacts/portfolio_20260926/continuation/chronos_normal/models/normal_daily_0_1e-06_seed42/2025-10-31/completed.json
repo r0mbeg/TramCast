@@ -1,0 +1,14 @@
+{
+  "fit": {
+    "cutoff": "2025-10-31",
+    "representation": "normal_daily",
+    "params": {
+      "steps": 0,
+      "learning_rate": 1e-06
+    },
+    "seed": 42
+  },
+  "checkpoints": {},
+  "last_target_date": "2025-10-31",
+  "mode": "zero_shot"
+}

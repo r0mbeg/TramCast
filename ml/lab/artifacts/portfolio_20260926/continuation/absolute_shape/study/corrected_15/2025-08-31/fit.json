@@ -1,0 +1,14 @@
+{
+  "rows": 63300,
+  "features": 12,
+  "leaves": 15,
+  "earliest_target_date": "2025-02-01",
+  "latest_target_date": "2025-08-30",
+  "origin_count": 6,
+  "iterations": 100,
+  "model_sha256": "e1dd39ee51be2f96f732fb347aa34d2cb70dd7e0c2eceb366cc54e0c8531b869",
+  "model_reload_exact": true,
+  "fit_seconds": 1.7958815731108189,
+  "peak_rss_kib": 261008,
+  "loss": "absolute share error weighted by actual day volume / repeated targets; projected shape surrogate"
+}

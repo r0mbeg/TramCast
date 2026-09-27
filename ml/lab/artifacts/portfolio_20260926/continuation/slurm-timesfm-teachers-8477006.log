@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_timesfm.py", line 287, in <module>
+    (download if args.download else run)(args)
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_timesfm.py", line 203, in run
+    q, restoration = quantiles(cutoff, end, "normal_ratio", july_verified=True)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_timesfm.py", line 150, in quantiles
+    matrix, restoration=series_inputs(data,cutoff,end,representation,july_verified=july_verified)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_timesfm.py", line 55, in series_inputs
+    matrix, _, _ = factor_inputs(history, cutoff, july_verified=july_verified)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_factor.py", line 38, in factor_inputs
+    filled = impute_history(filled, cutoff)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/experiments/portfolio_experiment.py", line 101, in impute_history
+    raise ValueError("Cannot impute absent cells from the available history")
+ValueError: Cannot impute absent cells from the available history
+srun: error: vt12: task 0: Exited with exit code 1

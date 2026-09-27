@@ -1,0 +1,56 @@
+{
+  "id": "P69",
+  "parents": [
+    "P25",
+    "P37",
+    "P64",
+    "P65",
+    "P66",
+    "P67"
+  ],
+  "new_mechanism": "direct normal-day count using causal origin contexts and tabular prior",
+  "origins": "monthly Jan31 to cutoff-1; observed target day 1-61 truncated at outer cutoff",
+  "features": "P25 FEATURES except categorical season + 6 P61 calendar features =21",
+  "categorical_indices": [
+    0,
+    1
+  ],
+  "targets": [
+    "count=boardings/10000",
+    "ratio=boardings/reference"
+  ],
+  "native_unweighted": true,
+  "n_estimators": 4,
+  "output_type": "median",
+  "seed": 42,
+  "sampler": "GridSampler",
+  "space": {
+    "recipe": [
+      "control",
+      "count_half",
+      "count_full",
+      "ratio_half",
+      "ratio_full"
+    ]
+  },
+  "additional_trials": 5,
+  "old_tabpfn_trials": 13,
+  "total_tabpfn_trials": 18,
+  "old_tabpfn_gpu_seconds": 711,
+  "new_gpu_limit_seconds": 480,
+  "cumulative_gpu_limit_seconds": 1191,
+  "previous_HGB_direct_trials": 8,
+  "previous_Bayesian_direct_trials": 8,
+  "study_time_after_pilot": true,
+  "pilot_seconds": 120,
+  "study_max_seconds": 360,
+  "objective": "mean W1/W2",
+  "selected_all_four_and_final": true,
+  "best_new_if_control": true,
+  "seed_check": 73,
+  "shape": "fixed030",
+  "operations": "existing priors with verifiedJuly + fixed August7prior0.8, history only calibration",
+  "clipping": "nonnegative direct normal volume; no upper bound",
+  "new_weights_download": false,
+  "no_raw_transfer": true
+}

@@ -1,0 +1,77 @@
+{
+  "checked_at": "2026-09-27T02:47:21.956270+00:00",
+  "input_code_sha256": 42,
+  "quantile_checks": [
+    {
+      "cutoff": "2025-04-30",
+      "reused": true,
+      "input_shape": [
+        9,
+        120
+      ]
+    },
+    {
+      "cutoff": "2025-06-30",
+      "reused": true,
+      "input_shape": [
+        9,
+        181
+      ]
+    },
+    {
+      "cutoff": "2025-07-31",
+      "reused": true,
+      "input_shape": [
+        9,
+        212
+      ]
+    },
+    {
+      "cutoff": "2025-08-31",
+      "reused": false,
+      "input_shape": [
+        9,
+        243
+      ]
+    },
+    {
+      "cutoff": "2025-10-31",
+      "reused": false,
+      "input_shape": [
+        9,
+        304
+      ]
+    }
+  ],
+  "fixed_024_shares": true,
+  "control_matches_P48_endpoint0": true,
+  "mean": 0.8660237247993928,
+  "worst": 0.8400302841001566,
+  "control_mean": 0.8634221844986817,
+  "control_worst": 0.8365358235770133,
+  "score_changes": [
+    0.0,
+    0.003937013093767039,
+    0.0034944605231432835,
+    0.0029746875859341104
+  ],
+  "final_total": 11740106,
+  "sha256": "5b6716b78a5ebb979e2424776f28765064561bc274e44091cbfe9b55a8a07667",
+  "differences": [
+    {
+      "candidate": "025_timesfm_volume_bayesian_shape",
+      "relative_l1": 0.07686230745268643,
+      "changed_rows": 10657
+    },
+    {
+      "candidate": "024_bayesian_hourly_share_errors",
+      "relative_l1": 0.09969619851340479,
+      "changed_rows": 10693
+    },
+    {
+      "candidate": "006_ridge_chronos",
+      "relative_l1": 0.0851628106250056,
+      "changed_rows": 10890
+    }
+  ]
+}

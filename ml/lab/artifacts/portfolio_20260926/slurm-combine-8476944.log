@@ -1,0 +1,13 @@
+[I 2026-09-27 00:14:48,488] A new study created in RDB with name: small_ensembles
+[I 2026-09-27 00:14:49,209] Trial 0 finished with value: 0.8107216870229406 and parameters: {'pair': 'ridge_median', 'weight': 0.5}. Best is trial 0 with value: 0.8107216870229406.
+[I 2026-09-27 00:14:49,866] Trial 1 finished with value: 0.795934383571398 and parameters: {'pair': 'ridge_median', 'weight': 0.25}. Best is trial 0 with value: 0.8107216870229406.
+[I 2026-09-27 00:14:50,514] Trial 2 finished with value: 0.831116023184004 and parameters: {'pair': 'ridge_chronos', 'weight': 0.25}. Best is trial 2 with value: 0.831116023184004.
+[I 2026-09-27 00:14:51,169] Trial 3 finished with value: 0.8328310305320106 and parameters: {'pair': 'ridge_adaptive', 'weight': 0.75}. Best is trial 3 with value: 0.8328310305320106.
+[I 2026-09-27 00:14:51,815] Trial 4 finished with value: 0.8299746475695228 and parameters: {'pair': 'chronos_hour', 'weight': 0.75}. Best is trial 3 with value: 0.8328310305320106.
+[I 2026-09-27 00:14:52,464] Trial 5 finished with value: 0.8352580474109805 and parameters: {'pair': 'ridge_chronos', 'weight': 0.75}. Best is trial 5 with value: 0.8352580474109805.
+[I 2026-09-27 00:14:53,113] Trial 6 finished with value: 0.8343535999651743 and parameters: {'pair': 'ridge_chronos', 'weight': 0.5}. Best is trial 5 with value: 0.8352580474109805.
+[I 2026-09-27 00:14:53,752] Trial 7 finished with value: 0.823549393733852 and parameters: {'pair': 'ridge_median', 'weight': 0.75}. Best is trial 5 with value: 0.8352580474109805.
+[I 2026-09-27 00:14:54,396] Trial 8 finished with value: 0.8317849226065477 and parameters: {'pair': 'chronos_hour', 'weight': 0.5}. Best is trial 5 with value: 0.8352580474109805.
+[I 2026-09-27 00:14:55,045] Trial 9 finished with value: 0.8294666742181769 and parameters: {'pair': 'ridge_adaptive', 'weight': 0.5}. Best is trial 5 with value: 0.8352580474109805.
+[I 2026-09-27 00:14:55,697] Trial 10 finished with value: 0.8309204539521861 and parameters: {'pair': 'chronos_hour', 'weight': 0.25}. Best is trial 5 with value: 0.8352580474109805.
+[I 2026-09-27 00:14:56,377] Trial 11 finished with value: 0.8238915704670374 and parameters: {'pair': 'ridge_adaptive', 'weight': 0.25}. Best is trial 5 with value: 0.8352580474109805.

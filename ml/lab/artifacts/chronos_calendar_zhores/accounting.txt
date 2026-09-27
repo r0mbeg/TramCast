@@ -1,0 +1,5 @@
+JobID|State|ExitCode|Elapsed|AllocCPUS|ReqMem|MaxRSS|TotalCPU|AllocTRES
+8476914|COMPLETED|0:0|00:00:24|8|32G||00:19.732|billing=8,cpu=8,gres/gpu=1,mem=32G,node=1
+8476914.batch|COMPLETED|0:0|00:00:24|8||1340K|00:00.013|cpu=8,gres/gpu=1,mem=32G,node=1
+8476914.extern|COMPLETED|0:0|00:00:24|8||964K|00:00:00|billing=8,cpu=8,gres/gpu=1,mem=32G,node=1
+8476914.0|COMPLETED|0:0|00:00:24|8||3532K|00:19.717|cpu=8,gres/gpu=1,mem=32G,node=1

@@ -1,0 +1,6 @@
+[I 2026-09-27 07:39:15,757] A new study created in RDB with name: fraction_dynamics
+[I 2026-09-27 07:39:16,348] Trial 0 finished with value: 0.883438054980804 and parameters: {'recipe': 'parent028'}. Best is trial 0 with value: 0.883438054980804.
+[I 2026-09-27 07:39:16,940] Trial 1 finished with value: 0.8844150760510958 and parameters: {'recipe': 'relative'}. Best is trial 1 with value: 0.8844150760510958.
+[I 2026-09-27 07:39:17,539] Trial 2 finished with value: 0.8842959110913488 and parameters: {'recipe': 'parent025'}. Best is trial 1 with value: 0.8844150760510958.
+[I 2026-09-27 07:39:18,146] Trial 3 finished with value: 0.882657228756551 and parameters: {'recipe': 'network'}. Best is trial 1 with value: 0.8844150760510958.
+fraction_dynamics {'recipe': 'relative'} [0.8856658667288301, 0.8831642853733614, 0.880185489676181, 0.9011214851822118]

@@ -1,0 +1,69 @@
+Portfolio checks passed: 61 days, all CPU paths, cutoff isolation, training-only imputation, half-up.
+[I 2026-09-26 23:53:45,468] A new study created in RDB with name: seasonal
+[I 2026-09-26 23:53:45,952] Trial 0 finished with value: 0.7958294646269434 and parameters: {'weeks': 4, 'statistic': 'mean'}. Best is trial 0 with value: 0.7958294646269434.
+[I 2026-09-26 23:53:46,443] Trial 1 finished with value: 0.7910775221030804 and parameters: {'weeks': 4, 'statistic': 'median'}. Best is trial 0 with value: 0.7958294646269434.
+[I 2026-09-26 23:53:46,941] Trial 2 finished with value: 0.8028075397789204 and parameters: {'weeks': 0, 'statistic': 'mean'}. Best is trial 2 with value: 0.8028075397789204.
+[I 2026-09-26 23:53:47,432] Trial 3 finished with value: 0.7843687104846898 and parameters: {'weeks': 12, 'statistic': 'median'}. Best is trial 2 with value: 0.8028075397789204.
+[I 2026-09-26 23:53:47,928] Trial 4 finished with value: 0.7987821540056269 and parameters: {'weeks': 8, 'statistic': 'mean'}. Best is trial 2 with value: 0.8028075397789204.
+[I 2026-09-26 23:53:48,418] Trial 5 finished with value: 0.7797686744249013 and parameters: {'weeks': 0, 'statistic': 'median'}. Best is trial 2 with value: 0.8028075397789204.
+[I 2026-09-26 23:53:48,923] Trial 6 finished with value: 0.7938912982829672 and parameters: {'weeks': 12, 'statistic': 'mean'}. Best is trial 2 with value: 0.8028075397789204.
+[I 2026-09-26 23:53:49,413] Trial 7 finished with value: 0.793290842207966 and parameters: {'weeks': 8, 'statistic': 'median'}. Best is trial 2 with value: 0.8028075397789204.
+seasonal {'weeks': 0, 'statistic': 'mean'} [0.826938513711337, 0.7786765658465038, 0.8491962355992448, 0.8624291035541123]
+[I 2026-09-26 23:53:50,558] A new study created in RDB with name: adaptive
+[I 2026-09-26 23:53:51,056] Trial 0 finished with value: 0.8160123285976748 and parameters: {'half_life': 51, 'trend': 0.9507143064099162, 'damping': 49}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:51,587] Trial 1 finished with value: 0.8009617104594483 and parameters: {'half_life': 73, 'trend': 0.15601864044243652, 'damping': 21}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:52,108] Trial 2 finished with value: 0.8130562141837228 and parameters: {'half_life': 19, 'trend': 0.8661761457749352, 'damping': 42}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:52,626] Trial 3 finished with value: 0.7988846675405092 and parameters: {'half_life': 84, 'trend': 0.020584494295802447, 'damping': 60}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:53,146] Trial 4 finished with value: 0.8023693491265858 and parameters: {'half_life': 96, 'trend': 0.21233911067827616, 'damping': 22}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:53,671] Trial 5 finished with value: 0.8054843399930349 and parameters: {'half_life': 32, 'trend': 0.3042422429595377, 'damping': 39}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:54,201] Trial 6 finished with value: 0.8050428847620068 and parameters: {'half_life': 56, 'trend': 0.2912291401980419, 'damping': 43}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:54,719] Trial 7 finished with value: 0.805105141725283 and parameters: {'half_life': 27, 'trend': 0.29214464853521815, 'damping': 31}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:55,243] Trial 8 finished with value: 0.8109897114333919 and parameters: {'half_life': 59, 'trend': 0.7851759613930136, 'damping': 23}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:55,766] Trial 9 finished with value: 0.8064424346994308 and parameters: {'half_life': 64, 'trend': 0.5924145688620425, 'damping': 16}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:56,293] Trial 10 finished with value: 0.8128693891121626 and parameters: {'half_life': 42, 'trend': 0.6843060681479877, 'damping': 55}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:56,821] Trial 11 finished with value: 0.8123315110628309 and parameters: {'half_life': 14, 'trend': 0.9900675403074437, 'damping': 49}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:57,355] Trial 12 finished with value: 0.8126836098376069 and parameters: {'half_life': 15, 'trend': 0.9857380354329476, 'damping': 46}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:57,884] Trial 13 finished with value: 0.8147213296957425 and parameters: {'half_life': 109, 'trend': 0.8306736420228251, 'damping': 33}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:58,413] Trial 14 finished with value: 0.809627639699538 and parameters: {'half_life': 108, 'trend': 0.5146537794990087, 'damping': 34}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:58,940] Trial 15 finished with value: 0.8125064863454217 and parameters: {'half_life': 45, 'trend': 0.79040824033456, 'damping': 32}. Best is trial 0 with value: 0.8160123285976748.
+[I 2026-09-26 23:53:59,467] Trial 16 finished with value: 0.8161307953109369 and parameters: {'half_life': 78, 'trend': 0.8525001204904845, 'damping': 52}. Best is trial 16 with value: 0.8161307953109369.
+[I 2026-09-26 23:53:59,999] Trial 17 finished with value: 0.813502447548899 and parameters: {'half_life': 82, 'trend': 0.6661758266048147, 'damping': 52}. Best is trial 16 with value: 0.8161307953109369.
+[I 2026-09-26 23:54:00,535] Trial 18 finished with value: 0.8156872587834316 and parameters: {'half_life': 48, 'trend': 0.8877795425395274, 'damping': 61}. Best is trial 16 with value: 0.8161307953109369.
+[I 2026-09-26 23:54:01,077] Trial 19 finished with value: 0.8091014465626241 and parameters: {'half_life': 68, 'trend': 0.4490902212862073, 'damping': 52}. Best is trial 16 with value: 0.8161307953109369.
+adaptive {'half_life': 78, 'trend': 0.8525001204904845, 'damping': 52} [0.8151957141925484, 0.8170658764293253, 0.8140881759864087, 0.8594568508888364]
+[I 2026-09-26 23:54:02,245] A new study created in RDB with name: daily
+[I 2026-09-26 23:54:02,746] Trial 0 finished with value: 0.7916078094685923 and parameters: {'weeks': 4, 'statistic': 'mean'}. Best is trial 0 with value: 0.7916078094685923.
+[I 2026-09-26 23:54:03,280] Trial 1 finished with value: 0.7849699335490774 and parameters: {'weeks': 4, 'statistic': 'median'}. Best is trial 0 with value: 0.7916078094685923.
+[I 2026-09-26 23:54:03,807] Trial 2 finished with value: 0.8028072556753127 and parameters: {'weeks': 0, 'statistic': 'mean'}. Best is trial 2 with value: 0.8028072556753127.
+[I 2026-09-26 23:54:04,336] Trial 3 finished with value: 0.776805035631841 and parameters: {'weeks': 12, 'statistic': 'median'}. Best is trial 2 with value: 0.8028072556753127.
+[I 2026-09-26 23:54:04,863] Trial 4 finished with value: 0.7939667878193066 and parameters: {'weeks': 8, 'statistic': 'mean'}. Best is trial 2 with value: 0.8028072556753127.
+[I 2026-09-26 23:54:05,391] Trial 5 finished with value: 0.7784610067817291 and parameters: {'weeks': 0, 'statistic': 'median'}. Best is trial 2 with value: 0.8028072556753127.
+[I 2026-09-26 23:54:05,928] Trial 6 finished with value: 0.7904339954167328 and parameters: {'weeks': 12, 'statistic': 'mean'}. Best is trial 2 with value: 0.8028072556753127.
+[I 2026-09-26 23:54:06,465] Trial 7 finished with value: 0.7852527141343979 and parameters: {'weeks': 8, 'statistic': 'median'}. Best is trial 2 with value: 0.8028072556753127.
+daily {'weeks': 0, 'statistic': 'mean'} [0.826938513711337, 0.7786765658465038, 0.8491968477879392, 0.8624285537333185]
+[I 2026-09-26 23:54:07,615] A new study created in RDB with name: pooled
+[I 2026-09-26 23:54:08,114] Trial 0 finished with value: 0.8049210370160383 and parameters: {'days': 28, 'shared': 0.25}. Best is trial 0 with value: 0.8049210370160383.
+[I 2026-09-26 23:54:08,649] Trial 1 finished with value: 0.8053260816233703 and parameters: {'days': 28, 'shared': 0.5}. Best is trial 1 with value: 0.8053260816233703.
+[I 2026-09-26 23:54:09,177] Trial 2 finished with value: 0.7796766969555996 and parameters: {'days': 56, 'shared': 0.75}. Best is trial 1 with value: 0.8053260816233703.
+[I 2026-09-26 23:54:09,703] Trial 3 finished with value: 0.8053007309224398 and parameters: {'days': 28, 'shared': 0.75}. Best is trial 1 with value: 0.8053260816233703.
+[I 2026-09-26 23:54:10,237] Trial 4 finished with value: 0.7807480842769535 and parameters: {'days': 56, 'shared': 0.5}. Best is trial 1 with value: 0.8053260816233703.
+[I 2026-09-26 23:54:10,762] Trial 5 finished with value: 0.7817102444087904 and parameters: {'days': 56, 'shared': 0.25}. Best is trial 1 with value: 0.8053260816233703.
+pooled {'days': 28, 'shared': 0.5} [0.7976785151821679, 0.8129736480645726, 0.8185921356666118, 0.8039430948045784]
+[I 2026-09-26 23:54:11,918] A new study created in RDB with name: direct
+[I 2026-09-26 23:54:13,410] Trial 0 finished with value: 0.8107915072031386 and parameters: {'days': 112, 'half_life': 78, 'leaves': 7, 'l2': 8.795585311974417}. Best is trial 0 with value: 0.8107915072031386.
+[I 2026-09-26 23:54:14,934] Trial 1 finished with value: 0.810530424008636 and parameters: {'days': 112, 'half_life': 110, 'leaves': 7, 'l2': 2.650640588680904}. Best is trial 0 with value: 0.8107915072031386.
+[I 2026-09-26 23:54:16,448] Trial 2 finished with value: 0.8128293130870095 and parameters: {'days': 112, 'half_life': 52, 'leaves': 7, 'l2': 4.297256589643226}. Best is trial 2 with value: 0.8128293130870095.
+[I 2026-09-26 23:54:19,595] Trial 3 finished with value: 0.8220280383177178 and parameters: {'days': 112, 'half_life': 71, 'leaves': 31, 'l2': 2.5347171131856236}. Best is trial 3 with value: 0.8220280383177178.
+[I 2026-09-26 23:54:22,914] Trial 4 finished with value: 0.8231179010040963 and parameters: {'days': 224, 'half_life': 96, 'leaves': 31, 'l2': 4.961372443656412}. Best is trial 4 with value: 0.8231179010040963.
+[I 2026-09-26 23:54:24,984] Trial 5 finished with value: 0.8248562833881714 and parameters: {'days': 112, 'half_life': 105, 'leaves': 15, 'l2': 5.680612190600297}. Best is trial 5 with value: 0.8248562833881714.
+[I 2026-09-26 23:54:26,628] Trial 6 finished with value: 0.8085122320379776 and parameters: {'days': 224, 'half_life': 93, 'leaves': 7, 'l2': 9.296868115208051}. Best is trial 5 with value: 0.8248562833881714.
+[I 2026-09-26 23:54:29,777] Trial 7 finished with value: 0.8249307167291858 and parameters: {'days': 112, 'half_life': 55, 'leaves': 31, 'l2': 4.210779940242304}. Best is trial 7 with value: 0.8249307167291858.
+[I 2026-09-26 23:54:31,848] Trial 8 finished with value: 0.8215744122683096 and parameters: {'days': 112, 'half_life': 96, 'leaves': 15, 'l2': 2.7884411338075514}. Best is trial 7 with value: 0.8249307167291858.
+[I 2026-09-26 23:54:33,358] Trial 9 finished with value: 0.8121450457917407 and parameters: {'days': 112, 'half_life': 89, 'leaves': 7, 'l2': 2.0428215357261674}. Best is trial 7 with value: 0.8249307167291858.
+[I 2026-09-26 23:54:36,294] Trial 10 finished with value: 0.8222349633838785 and parameters: {'days': 56, 'half_life': 28, 'leaves': 31, 'l2': 7.041419783359455}. Best is trial 7 with value: 0.8249307167291858.
+[I 2026-09-26 23:54:38,170] Trial 11 finished with value: 0.8207003471279198 and parameters: {'days': 56, 'half_life': 52, 'leaves': 15, 'l2': 6.567287091380177}. Best is trial 7 with value: 0.8249307167291858.
+direct {'days': 112, 'half_life': 55, 'leaves': 31, 'l2': 4.210779940242304} [0.8022304598012158, 0.8476309736571559, 0.7890041815111493, 0.8298025805603317]
+mean_all [0.826938513711337, 0.7786765658465038, 0.8491962355992448, 0.8624291035541123]
+median_all [0.8142317821615944, 0.745305566688208, 0.8410686435813808, 0.8794502200500636]
+calendar [0.8719076991068171, 0.7380148052072024, 0.8404465724123462, 0.8775582081528841]
+coverage [0.8269336571936821, 0.7786207868381996, 0.8491395644172492, 0.8623784414952581]

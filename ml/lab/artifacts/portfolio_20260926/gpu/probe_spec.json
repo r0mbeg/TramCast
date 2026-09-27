@@ -1,0 +1,44 @@
+{
+  "methods": [
+    "daily",
+    "route_hour",
+    "calendar",
+    "day_shares",
+    "calendar_shares",
+    "recent_shares",
+    "normalized_shared",
+    "coverage",
+    "hourly"
+  ],
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ],
+    [
+      "2025-07-31",
+      "2025-09-30"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  ],
+  "final": [
+    "2025-10-31",
+    "2025-12-31"
+  ],
+  "quantile": 0.5,
+  "context_length": 512,
+  "batch_size": 32,
+  "seed": 42,
+  "dtype": "float32",
+  "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "cross_learning": "True only for normalized_shared; False otherwise",
+  "family_timeout_seconds": 1800,
+  "training_within_horizon": false
+}

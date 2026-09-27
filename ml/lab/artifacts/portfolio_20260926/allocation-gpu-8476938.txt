@@ -1,0 +1,30 @@
+JobId=8476938 JobName=tram-portfolio-gpu
+   UserId=m.persiyanov(2364) GroupId=m.persiyanov(2364) MCS_label=N/A
+   Priority=3283 Nice=0 Account=lmfcoptt QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:30:00 TimeMin=N/A
+   SubmitTime=2026-09-26T23:56:04 EligibleTime=2026-09-26T23:56:04
+   AccrueTime=2026-09-26T23:56:04
+   StartTime=2026-09-26T23:56:05 EndTime=2026-09-27T00:26:05 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-09-26T23:56:05 Scheduler=Main
+   Partition=gpu_devel AllocNode:Sid=an01:1346706
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=vt12
+   BatchHost=vt12
+   NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=4,mem=8G,node=1,billing=4,gres/gpu=1
+   AllocTRES=cpu=4,mem=8G,node=1,billing=4,gres/gpu=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=4 MinMemoryNode=8G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/jobs/zhores_portfolio_gpu.sbatch
+   WorkDir=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926
+   StdErr=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/artifacts/portfolio_20260926/slurm-gpu-8476938.log
+   StdIn=/dev/null
+   StdOut=/beegfs/home/m.persiyanov/codex_runs/tram-portfolio-20260926/artifacts/portfolio_20260926/slurm-gpu-8476938.log
+   TresPerNode=gres/gpu:1
+   TresPerTask=cpu=4
+   
+

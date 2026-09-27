@@ -1,0 +1,19 @@
+{
+  "checks": "Exact saved filtered tables vs independent verified tables and current archive/rank mapping",
+  "window_rows": 28,
+  "route_rows": 280,
+  "current_candidates": {
+    "continuation/adaptive_shape/study/adaptive_shape/selected": 1,
+    "continuation/school_fraction/study/school_fraction/selected": 2,
+    "continuation/bayes_shape_timesfm_blend/bayes_shape_timesfm_blend/selected": 3,
+    "continuation/bayes_shape/study/bayes_shape/selected": 4,
+    "continuation/gp_errors/gp_errors/selected": 5,
+    "continuation/timesfm_verified_july/timesfm_verified_july/selected": 6,
+    "combine/movement_half_chronos": 7
+  },
+  "files_sha256": {
+    "finalist_window_metrics.csv": "c2f9de1c032746944d3299994d80d17ac1f2e8a4aa3aa5c7677d9108d6ffe7a6",
+    "finalist_routes.csv": "3374912b0882eb11ff86d3c6a27302f92a22646f7ff9e7e383a36b4768332c1b",
+    "verification.json": "b75214bc539c4cf628ecf36aa7a155ca60787d967b4014fb4ce51a28c7ee0bb2"
+  }
+}

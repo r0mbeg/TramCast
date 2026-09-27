@@ -1,0 +1,3 @@
+method;cutoff;route;date;hour;prediction_old;prediction_new
+chronos_route_hour;2025-06-30;11;2025-07-09;9;2161;2162
+chronos_daily_total;2025-08-31;11;2025-09-21;11;1411;1412

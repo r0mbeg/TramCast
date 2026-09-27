@@ -1,0 +1,24 @@
+{
+  "space": {
+    "q": [
+      1e-05,
+      0.0001,
+      0.001
+    ],
+    "jump_probability": [
+      0.0,
+      0.02,
+      0.1
+    ]
+  },
+  "trials": 9,
+  "timeout": 300,
+  "seed": 42,
+  "sampler": "GridSampler",
+  "objective": "pooled past marginal log likelihood",
+  "trial_particles": 512,
+  "final_particles": 1024,
+  "cutoff": "2025-04-30",
+  "grouped": false,
+  "latest_observation": "2025-04-30"
+}

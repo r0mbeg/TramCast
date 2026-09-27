@@ -1,0 +1,8 @@
+tabpfn_package/tabpfn-2.0.9-py3-none-any.whl: OK
+Processing ./tabpfn_package/scikit_learn-1.6.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Processing ./tabpfn_package/tabpfn-2.0.9-py3-none-any.whl
+Installing collected packages: tabpfn, scikit-learn
+Successfully installed scikit-learn-1.6.1 tabpfn-2.0.9
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: /beegfs/home/m.persiyanov/codex_runs/tram-chronos-20260926/.venv/bin/python -m pip install --upgrade pip

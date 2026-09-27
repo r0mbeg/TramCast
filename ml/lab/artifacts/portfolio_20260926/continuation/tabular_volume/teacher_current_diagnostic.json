@@ -1,0 +1,15 @@
+{
+  "rows": 2053,
+  "origins": 4,
+  "target_period": [
+    "2025-05-01",
+    "2025-10-31"
+  ],
+  "teacher_current_relative_l1": 0.04061345419820545,
+  "teacher_bias_fraction": 0.041018315000868874,
+  "current_bias_fraction": 0.008796580522984487,
+  "teacher_daily_abs": 3498992.2172601465,
+  "current_daily_abs": 3226478.353770976,
+  "opposite_residual_sign_fraction": 0.1729176814417925,
+  "interpretation": "Descriptive paired past diagnostic; different forecasters are verified, not causal proof of P66 failure or hidden gain. No policy chosen from this table."
+}

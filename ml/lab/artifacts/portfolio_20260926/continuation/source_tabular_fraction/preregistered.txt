@@ -1,0 +1,24 @@
+| P64 TabPFN v2 route-fraction errors /P61+P63 | Pretrained tabular prior may improve small season/calendar groups relative to weighted HGB; same completed past targets and fixed network/hourly forecast | CPU setup5min/1CPU1GiB; GPU pilot5min/2CPU16GiB/1GPU; whole GPU family≤1800s | запланировано |
+
+P64 preregistered beforecode/compute: tabpfn2.0.9/scikit-learn1.6.1 isolated
+no-deps, baseenvironment unchanged; explicit pinned public44MBv2checkpoint
+SHA2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736,
+rev4972a65a1b30806315c6f92499959ffbfc69a673. No authentication/cloudservice.
+Built with PriorLabs-TabPFN; licensecopy retained. Modernpretraining isresearchprior,
+not asserted available at2025historical origins. SameP61prepare/30features/224days,
+completedmonthly61dayforecasts only, actualnetworkfraction−operationsbasefraction
+as target. NativeTabPFNhasnosample_weight: unweighted conditionalprior, unlikeP61
+weightedabsoluteHGB; weights stillsaved forcomparison, not usedinfit.
+Median prediction, n_estimators4,random_state42,categoricalindices[0,1,2],
+float32,cuda,fit_mode low_memory,memory_saving_modeTrue,n_jobs2. No parametergrid
+inside model. Nonnegativeshare, forcedroute5/zero-base zeros, normalizeddaily024
+networkvolume/fixed024within-routehourshares. New=.5TabPFNallocation+.5old024;
+Grid3control029/half(.5new+.5control029)/new, GridSampler42, meanW1/W2,
+3trialstotal/1800swholefamilyincludingresumes. Selected4+final; ifcontrolwins,
+bestnewalso4+final. Fixedchosennewrecipe seed73 repeat4+final, no seedselection.
+PilotfinalOct31seed42fit/predict/repeat forreproducibility/GPUhostmemory measurement;
+studyallocation basedpilot, totalGPU≤1800s includespilot andseedrepeat.
+Weights/download/isolateddeps CPUonlyais, GPUonegpu_devel; no logincompute.
+Smallcheckfuturetruthguard/targets/networkzeros; hashes/source/runmetadata/raw/scores
+retained. Current029archive/protected17 untouched. Previousgoalturnprogress=P61,
+currentP62verifiednegative/P63sourceproof, no known unavoidableblockingcondition.

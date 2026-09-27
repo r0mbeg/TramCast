@@ -1,0 +1,35 @@
+{
+  "sampler": "grid",
+  "space": {
+    "occurrences": [
+      4,
+      12,
+      32
+    ],
+    "statistic": [
+      "mean",
+      "trimmed"
+    ],
+    "regime": [
+      false,
+      true
+    ]
+  },
+  "trials": 12,
+  "family": "regime",
+  "timeout": 1800,
+  "seed": 42,
+  "objective": "mean WAPE-score of both development windows",
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ]
+  ],
+  "pruning": false,
+  "n_jobs": 1
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "attempt": "011_bayesian_volume_operations",
+    "source": "bayes_volume/bayes_volume/selected",
+    "mean": 0.8803135254816798,
+    "worst": 0.8574079258088051,
+    "scores": [
+      0.8722117518014212,
+      0.8574079258088051,
+      0.8876803409506223,
+      0.9039540833658708
+    ],
+    "sha256": "e962dbcb7e3401019696dd88927dfce53f2c189e4ec69d254c3af38809da7f3d"
+  },
+  {
+    "attempt": "010_weather_operations_season",
+    "source": "operations/operations/selected",
+    "mean": 0.8800640627564056,
+    "worst": 0.8482660399214813,
+    "scores": [
+      0.87785554565751,
+      0.8482660399214813,
+      0.8889675988638828,
+      0.9051670665827484
+    ],
+    "sha256": "306c18ca56dbf9e45d4f23a5d2345a7bc2e67f28d3d1058e8a26cc87edee08e0"
+  }
+]

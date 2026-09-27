@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-09-27T05:10:32.752931+00:00",
+  "input_code_sha256": {
+    "pilot": 48,
+    "study": 48
+  },
+  "fits": [
+    {
+      "phase": "pilot",
+      "model": "absolute",
+      "cutoff": "2025-10-31",
+      "rows": 418
+    },
+    {
+      "phase": "pilot",
+      "model": "bayes",
+      "cutoff": "2025-10-31",
+      "rows": 418
+    },
+    {
+      "phase": "study",
+      "model": "absolute",
+      "cutoff": "2025-04-30",
+      "rows": 122
+    },
+    {
+      "phase": "study",
+      "model": "absolute",
+      "cutoff": "2025-06-30",
+      "rows": 244
+    },
+    {
+      "phase": "study",
+      "model": "bayes",
+      "cutoff": "2025-04-30",
+      "rows": 122
+    },
+    {
+      "phase": "study",
+      "model": "bayes",
+      "cutoff": "2025-06-30",
+      "rows": 244
+    },
+    {
+      "phase": "study",
+      "model": "bayes",
+      "cutoff": "2025-07-31",
+      "rows": 305
+    },
+    {
+      "phase": "study",
+      "model": "bayes",
+      "cutoff": "2025-08-31",
+      "rows": 366
+    },
+    {
+      "phase": "study",
+      "model": "bayes",
+      "cutoff": "2025-10-31",
+      "rows": 418
+    }
+  ],
+  "raw_forecasts_checked": 20,
+  "causal_network_targets_reconstructed": true,
+  "network_prediction_totals_preserved": true,
+  "bayesian_covariance_predictive_factors_reconstructed": true,
+  "absolute_daily_loss_identity": true,
+  "fixed_029_within_day_route_hourshares": true,
+  "exact_029_control": true,
+  "structural_zeros": true,
+  "seed73_all5_raw_exact": null,
+  "local_hgb_inference": "notloaded: localsklearn1.9 differs fromsaved1.8; ownreload onZhores verified",
+  "audit_code_sha256": "5fc4ef69b0b6ac92199b05594ecaa93a7a57122feecfa602ee12143f67b0c307"
+}
