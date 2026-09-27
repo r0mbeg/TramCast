@@ -221,7 +221,7 @@ def save_candidate(data, out, method, predict_raw, windows=WINDOWS, final=True):
             raw = predict_raw(cutoff, end)
             raw.to_csv(raw_path, sep=";", index=False, date_format="%Y-%m-%d")
         rounded = postprocess(raw)
-        if (cutoff, end) == FINAL:
+        if (cutoff, end) == FINAL or pd.Timestamp(cutoff) >= data.date.max():
             rounded.to_csv(out / "submission.csv", sep=";", index=False, date_format="%Y-%m-%d")
         else:
             row, detail, prediction = evaluate(data, rounded, cutoff, end, method, 0)

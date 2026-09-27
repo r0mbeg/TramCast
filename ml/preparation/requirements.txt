@@ -1,0 +1,2 @@
+-r ../runtime/requirements-inference.txt
+timesfm==2.0.2

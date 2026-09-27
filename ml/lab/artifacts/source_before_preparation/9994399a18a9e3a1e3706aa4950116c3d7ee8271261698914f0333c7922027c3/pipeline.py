@@ -101,71 +101,49 @@ def repeat_week(history, keys, cutoff):
     return predict(week, keys, cutoff, 0, "mean")
 
 
-def prepare(end="2025-11-01", reconcile=True, files=None):
+def prepare():
     raw_counts, clean_counts, present_counts = Counter(), Counter(), Counter()
-    audit, boundary, ranges = {}, {}, {}
-    paths = [DATA / name for name in ("train.csv", "test.csv")] if files is None else list(files)
-    if not paths or len(set(paths)) != len(paths):
-        raise ValueError("Expected distinct event files")
-    for path in paths:
-        filename = str(path)
-        totals, edges = Counter(), {}
+    audit, boundary = {}, {}
+    for filename in ["train.csv", "test.csv"]:
+        path = DATA / filename
+        totals, boundary_parts = Counter(), []
         for chunk in pd.read_csv(path, sep=";", chunksize=250_000,
                                  dtype={"tran_no": str, "device_no": str,
                                         "validation_result": "int64"},
                                  usecols=["tran_no", "device_no", "tran_date_time",
                                           "ngpt_route", "validation_result"]):
             # Files have next-month tails: filter the combined history by event time.
-            raw, clean, present, counts = aggregate(chunk, "2025-01-01", end)
+            raw, clean, present, counts = aggregate(chunk, "2025-01-01", "2025-11-01")
             raw_counts.update(raw.to_dict())
             clean_counts.update(clean.to_dict())
             present_counts.update(present.to_dict())
             totals.update(counts)
             day = chunk.tran_date_time.str[:10]
-            included = day.ge("2025-01-01") & day.lt(end)
-            if included.any():
-                low = min([day[included].min(), *edges])
-                high = max([day[included].max(), *edges])
-                edges = {key: edges.get(key, []) for key in {low, high}}
-                for key in edges:
-                    edges[key].append(chunk.loc[day.eq(key)].copy())
+            boundary_parts.append(chunk.loc[day.eq("2025-09-01")].copy())
             if totals["rows"] % 5_000_000 == 0:
                 print(filename, dict(totals), flush=True)
-        if not edges:
-            raise ValueError(f"No in-period events: {path}")
-        ranges[filename] = (min(edges), max(edges))
-        boundary[filename] = pd.concat([part for parts in edges.values() for part in parts], ignore_index=True)
+        boundary[filename] = pd.concat(boundary_parts, ignore_index=True)
         audit[filename] = dict(totals, bytes=path.stat().st_size,
                               mtime_ns=path.stat().st_mtime_ns)
         print(filename, "complete", audit[filename], flush=True)
     # These are candidate identities, not proof of duplicate full raw rows.
+    a, b = boundary["train.csv"], boundary["test.csv"]
     columns = ["tran_no", "device_no", "tran_date_time", "ngpt_route", "validation_result"]
-    overlaps = []
-    names = list(boundary)
-    for i, left_name in enumerate(names):
-        for right_name in names[i + 1:]:
-            low = max(ranges[left_name][0], ranges[right_name][0])
-            high = min(ranges[left_name][1], ranges[right_name][1])
-            if low > high:
-                continue
-            if low != high:
-                raise ValueError("Event files overlap over multiple dates; supply disjoint exports")
-            counts = []
-            for name in (left_name, right_name):
-                frame = boundary[name]
-                counts.append(Counter(frame.loc[frame.tran_date_time.str[:10].eq(low), columns].itertuples(index=False, name=None)))
-            if counts[0] & counts[1]:
-                raise ValueError("Potential boundary duplicates: inspect full events before counting twice")
-            overlaps.append(dict(left=left_name, right=right_name, date=low, matching_occurrences=0))
-    audit["file_boundaries"] = overlaps
-    grid = full_grid(end=pd.Timestamp(end) - pd.Timedelta(days=1))
+    left, right = Counter(a[columns].itertuples(index=False, name=None)), Counter(b[columns].itertuples(index=False, name=None))
+    audit["september_boundary"] = dict(train_rows=len(a), test_rows=len(b),
+        matching_five_field_occurrences=sum((left & right).values()),
+        train_unmatched_occurrences=sum((left - right).values()),
+        train_repeated_tran_no=int(a.tran_no.duplicated().sum()),
+        test_repeated_tran_no=int(b.tran_no.duplicated().sum()))
+    if (left & right):
+        raise ValueError("Potential boundary duplicates: inspect full events before counting twice")
+    grid = full_grid()
     data = pd.DataFrame(index=grid)
     # ponytail: missing counts become zero; retain masks until coverage/imputation is validated.
     for name, counter in [("raw_boardings", raw_counts), ("boardings", clean_counts),
                            ("working_events", present_counts)]:
         data[name] = pd.Series(counter).reindex(grid, fill_value=0).astype("int64")
-    supplied = (pd.concat([pd.read_csv(p, sep=";") for p in (DATA / "labels").glob("*.csv")])
-                if reconcile else pd.DataFrame(columns=KEYS + ["boardings"]))
+    supplied = pd.concat([pd.read_csv(p, sep=";") for p in (DATA / "labels").glob("*.csv")])
     if supplied.duplicated(KEYS).any():
         raise ValueError("Duplicate supplied labels")
     expected = supplied.set_index(KEYS).boardings.reindex(grid, fill_value=0)
@@ -177,17 +155,12 @@ def prepare(end="2025-11-01", reconcile=True, files=None):
     audit["reconciliation"] = dict(mismatched_keys=int(difference.ne(0).sum()),
         raw_total=int(data.raw_boardings.sum()), supplied_total=int(expected.sum()),
         cleaned_total=int(data.boardings.sum()), removed_total=int(data.removed_boardings.sum()))
-    if reconcile:
-        data.assign(supplied_boardings=expected, delta=difference).loc[difference.ne(0)].to_csv(
-            OUT / "label_mismatches.csv", sep=";")
-    else:
-        audit["reconciliation"] = dict(skipped="No supplied labels; explicit operator choice")
+    data.assign(supplied_boardings=expected, delta=difference).loc[difference.ne(0)].to_csv(
+        OUT / "label_mismatches.csv", sep=";")
     (OUT / "preparation_audit.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
-    if reconcile and difference.ne(0).any():
+    if difference.ne(0).any():
         raise ValueError("Raw/label mismatch: inspect preparation_audit.json and label_mismatches.csv")
-    audit["labels_reconciled"] = reconcile
-    (OUT / "preparation_audit.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
-    assert len(data) == len(grid) and data.index.is_unique
+    assert len(data) == 72960 and data.index.is_unique
     assert data.boardings.ge(0).all() and data.removed_boardings.ge(0).all()
     assert data.loc[5, "boardings"].eq(0).all()
     data.to_csv(OUT / "hourly_clean.csv", sep=";")

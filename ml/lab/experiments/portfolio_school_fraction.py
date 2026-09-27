@@ -40,7 +40,8 @@ def calendar():
 
 def calendar_features(frame):
     dates=pd.to_datetime(frame.date); origins=dates-np.asarray(frame.horizon,dtype="timedelta64[D]")
-    if dates.lt("2025-01-01").any() or dates.gt("2025-12-31").any() or dates.le(origins).any():
+    coverage = json.loads(CALENDAR.read_text())["coverage"]
+    if not dates.between(*coverage).all() or dates.le(origins).any():
         raise ValueError("Calendar date outside verified forecast coverage")
     result=np.zeros((len(frame),6)); result[:,2:4]=1.
     for start,end,kind,known in calendar():

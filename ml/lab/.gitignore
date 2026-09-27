@@ -56,7 +56,7 @@
 /artifacts/portfolio_20260926/**/*.npy
 /artifacts/portfolio_20260926/**/*.pkl
 /artifacts/portfolio_20260926/github/
-/artifacts/portfolio_20260926/continuation/external/
+# The external directory has its own narrow allowlist for preparation inputs.
 /artifacts/methodology_20260927/route/**/*.csv
 /artifacts/selection_audit_20260927/replay_cache/
 

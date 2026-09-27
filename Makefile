@@ -8,6 +8,7 @@ GO ?= go
 NPM ?= npm
 ENV_FILE ?= ../.env
 PYTHON ?= python3
+ML_PREPARE_ARGS ?=
 
 .PHONY: help app-build app-up app-down app-logs \
 	env-up env-down env-port-forward env-port-close ps logs \
@@ -43,6 +44,8 @@ help:
 	@echo   make run-backend            Run the Go backend with the root .env file
 	@echo   make proto-generate-python  Generate Python messages and gRPC interfaces
 	@echo   make prepare-ml-model       Download and verify the pinned TabPFN checkpoint
+	@echo   make prepare-ml-data        Rebuild inputs after new history, using ML_PREPARE_ARGS
+	@echo   make test-ml-preparation    Check input preparation without GPU inference
 	@echo   make run-ml                 Serve recipe 030 with persistent inference cache
 	@echo   make test-ml-service        Check the real gRPC service without ML dependencies
 	@echo   make test-ml                Run serving and client checks
@@ -121,6 +124,13 @@ run-backend:
 proto-generate-python:
 	@mkdir -p ml/runtime/generated
 	@$(PYTHON) -m grpc_tools.protoc --proto_path=proto --python_out=ml/runtime/generated --pyi_out=ml/runtime/generated --grpc_python_out=ml/runtime/generated proto/tramcast/forecast/v1/forecast.proto
+
+.PHONY: prepare-ml-data test-ml-preparation
+prepare-ml-data:
+	@$(PYTHON) ml/preparation/build.py $(ML_PREPARE_ARGS)
+
+test-ml-preparation:
+	@$(PYTHON) ml/preparation/test_build.py
 
 prepare-ml-model:
 	@cd ml/runtime && PYTHONPATH=generated $(PYTHON) recipe.py

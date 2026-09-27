@@ -1,5 +1,6 @@
 """Version changes and cancellation of the actual subprocess, without ML dependencies."""
 import json
+import hashlib
 import io
 import os
 from contextlib import redirect_stdout
@@ -23,6 +24,23 @@ def check():
             assert original.metadata["model_version"] != refreshed.metadata["model_version"]
             assert original.metadata["dataset_version"] == refreshed.metadata["dataset_version"]
             assert Recipe(new_path).metadata == refreshed.metadata
+            manifest = Path(folder) / "sources.json"
+            manifest.write_text('{"source":"first"}')
+            spec = dict(refreshed.spec, inputs_dir=folder)
+            for name, content in original.inputs.items():
+                (Path(folder) / name).write_bytes(content)
+            spec["source_manifest_sha256"] = hashlib.sha256(manifest.read_bytes()).hexdigest()
+            manifest_config = Path(folder) / "manifest.json"
+            manifest_config.write_text(json.dumps(spec))
+            with_manifest = Recipe(manifest_config)
+            assert with_manifest.metadata["dataset_version"] != refreshed.metadata["dataset_version"]
+            manifest.write_text('{"source":"changed"}')
+            try:
+                Recipe(manifest_config)
+            except ValueError:
+                pass
+            else:
+                raise AssertionError("Changed source provenance accepted")
             from service import main
             output = io.StringIO()
             with patch.dict(os.environ, {"ML_CONFIG": str(new_path)}), \

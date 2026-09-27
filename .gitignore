@@ -98,5 +98,9 @@ ml/lab/artifacts/boost_comparison/*.pkl
 # Inference weights and disposable persistent cache
 /ml/models/
 /ml/cache/
+/ml/releases/
+/ml/sources/
+!ml/preparation/movement_calendar.json
+!ml/preparation/requirements.txt
 !ml/recipes/tabpfn-030/recipe.json
 !ml/recipes/tabpfn-030/LICENSE.txt
