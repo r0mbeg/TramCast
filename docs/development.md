@@ -1,10 +1,10 @@
 # Локальная разработка TramCast
 
-PostgreSQL запускается в Docker Compose, Go-backend — локально через `make run-backend`. Контейнер backend, frontend и ML-сервис добавляются следующими этапами. Redis и Caddy в текущем окружении не нужны.
+PostgreSQL запускается в Docker Compose, Go-backend — локально через `make run-backend`, фронтенд собирается локально через npm. Контейнер backend и ML-сервис добавляются следующими этапами. Redis и Caddy в текущем окружении не нужны.
 
 ## Настройка
 
-Нужны Go версии из `backend/go.mod` (1.26.8) и Docker с Compose. Make удобен для коротких команд; для SQL-генерации и создания миграций используются установленные `sqlc` и `goose`.
+Нужны Go версии из `backend/go.mod` (1.26.8), Docker с Compose и для фронтенда Node.js 24 с npm 11 (проверено на Node 24.14.1). Make удобен для коротких команд; для SQL-генерации и создания миграций используются установленные `sqlc` и `goose`.
 
 При первом запуске скопируйте `.env.example` в `.env` и задайте непустой пароль PostgreSQL. В PowerShell:
 
@@ -22,6 +22,7 @@ Copy-Item .env.example .env
 make env-up
 make migrate-up
 make migrate-status
+make import-catalog
 make run-backend
 ```
 
@@ -31,8 +32,11 @@ make run-backend
 docker compose up -d --wait postgres env-port-forwarder
 docker compose run --rm --name tramcast-migrate migrate up
 docker compose run --rm --name tramcast-migrate migrate status
+go -C backend run ./cmd/import-catalog -env-file ../.env
 go -C backend run ./cmd/tramcast -env-file ../.env
 ```
+
+`make import-catalog` загружает маршруты, остановки и порядок остановок из книги справочников по пути `CATALOG_FILE` и из снимка OpenStreetMap по пути `CATALOG_OSM_FILE` для маршрутов 17, 25, 26, 28, 50, которых в книге нет. Книгу из `dataset/` каждый участник размещает сам. Снимок `data/osm/tram_routes.json` хранится в репозитории, и значение `CATALOG_OSM_FILE` по умолчанию указывает на него; на сервере файл можно положить в любое место, например рядом с книгой, и задать путь в `.env`. Импорт нужен один раз на базу и повторяется при новой версии книги или снимка. `make import-catalog-dry-run` проверяет оба источника и показывает итог, откатывая изменения. При ошибках команда перечисляет их — в книге по листам и строкам, в снимке по relation и участникам — и ничего не записывает. После импорта обновите открытую страницу интерфейса: справочники кешируются в браузере до перезагрузки, перезапуск backend не нужен. Подробности — в [backend/README.md](../backend/README.md#импорт-справочников), порядок обновления снимка — в [его README](../data/osm/README.md).
 
 | Контейнер | Назначение |
 | --- | --- |
@@ -63,12 +67,27 @@ go -C backend run ./cmd/tramcast -env-file ../.env
 | `POSTGRES_MAX_CONNS` / `POSTGRES_MIN_CONNS` | `10` / `0` |
 | `POSTGRES_CONNECT_TIMEOUT` / `POSTGRES_STARTUP_TIMEOUT` | `5s` / `10s` |
 | `WEB_DIR` | `../frontend/dist`: сборка фронтенда; относительный путь считается от рабочего каталога процесса и при старте переводится в абсолютный |
+| `CATALOG_FILE` | `../dataset/spravochniki/Хакатон_справочники_трамвай_10_маршрутов.xlsx`: книга для `make import-catalog`; путь разрешается так же, как `WEB_DIR`. Книга содержит персональные данные, в Git её не кладут |
+| `CATALOG_OSM_FILE` | `../data/osm/tram_routes.json`: снимок OpenStreetMap для `make import-catalog`, хранится в Git; путь разрешается так же, как `WEB_DIR`. Пустое значение — ошибка: импорт без снимка очистил бы географию маршрутов 17, 25, 26, 28, 50 |
 
 Если изменили `POSTGRES_FORWARD_PORT`, задайте такое же значение `POSTGRES_PORT` для локального backend. В будущем контейнер backend должен использовать `POSTGRES_HOST=postgres`, `POSTGRES_PORT=5432`. Конфигурация проверяется до подключения; ошибки не выводят пароль или содержимое dotenv-файла.
 
-После запуска доступны `http://localhost:8080/healthz` и `http://localhost:8080/readyz`. Первый маршрут проверяет HTTP, второй — доступность БД с ограничением времени. Справочники читаются через `/api/routes`, `/api/routes/{route_id}/stops` и `/api/stops`; пока импортёр не реализован, списки пустые. API прогнозов пока не подключён. Завершение — Ctrl+C; приложение ждёт активные запросы до настроенного таймаута и закрывает пул.
+После запуска доступны `http://localhost:8080/healthz` и `http://localhost:8080/readyz`. Первый маршрут проверяет HTTP, второй — доступность БД с ограничением времени. Справочники читаются через `/api/routes`, `/api/routes/geometry` (схемы маршрутов в GeoJSON для карты), `/api/routes/{route_id}/stops` и `/api/stops`; до `make import-catalog` списки пустые. API прогнозов пока не подключён. Завершение — Ctrl+C; приложение ждёт активные запросы до настроенного таймаута и закрывает пул.
 
 Исходники фронтенда лежат в корневом `frontend/`, а Go отдаёт результат сборки из `WEB_DIR`. `make run-backend` запускает процесс в `backend/`, поэтому значение по умолчанию `../frontend/dist` указывает на `TramCast/frontend/dist`. Абсолютный путь выводится в лог при старте. Если `index.html` нет, в логе будет предупреждение, а страницы вернут `404`; API при этом работает. Новая сборка подхватывается без перезапуска.
+
+## Фронтенд
+
+```text
+make frontend-install
+make frontend-build
+make frontend-dev
+make frontend-test
+```
+
+`frontend-install` ставит зависимости строго по `frontend/package-lock.json` (`npm ci`); повторяйте его после изменения lock-файла. `frontend-build` проверяет типы и собирает `frontend/dist`, который отдаёт Go из `WEB_DIR`: после сборки интерфейс открывается на `http://localhost:8080`. `frontend-dev` запускает Vite на `http://localhost:5173` с горячей перезагрузкой и проксирует `/api` на backend `127.0.0.1:8080`, поэтому backend должен быть запущен. `frontend-test` проверяет типы и запускает модульные тесты Vitest.
+
+Прогноз в интерфейсе — демо-данные, API прогнозов пока не подключён. Сценарий демо переключается в строке контекста («Демо-данные»). Подложка карты загружается с OpenFreeMap и требует интернета; при ошибке загрузки интерфейс сообщает, что подложка недоступна. Без импортированных справочников карта и список маршрутов пустые.
 
 ## Остановка и данные
 
