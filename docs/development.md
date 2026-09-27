@@ -183,3 +183,41 @@ Go раздаёт и API, и собранный фронтенд. Отдельн
 ML находится в необязательном профиле `ml`; обычный запуск приложения не требует GPU. `docker compose up -d --build ml` явно включает этот сервис и запускает только ML. Внутри сети Compose адрес — `ml:50051`; порт не публикуется на хост. Сервис не зависит от PostgreSQL. Текущий Go-клиент ещё не реализован: добавление сервиса не означает готовности полного пользовательского сценария.
 
 Перед запуском ML с пересчётом установите веса: `make prepare-ml-model PYTHON=<абсолютный путь>`. Основной рецепт — 030; Compose требует NVIDIA GPU и NVIDIA Container Toolkit для холодного расчёта, локальный SQLite-кэш сохраняется в volume `ml-cache`. Выдача кэша выполняется на CPU; руководство — [ML README](../ml/README.md).
+
+### ML-сервис в Docker
+
+Цели `ml-*` оборачивают самостоятельную поставку `ml/compose.yaml` из [инструкции ML-команды](../ml/docs/HANDOFF.md): PostgreSQL, Go, локальный Python и корневой `.env` для них не нужны. Режим задаёт `ML_MODE`: `gpu` (по умолчанию) пересчитывает рецепт 030 на NVIDIA GPU, `replay` на CPU отдаёт сохранённый результат 030 под отдельными версиями и не вызывает модель. На компьютере без NVIDIA работает только `replay`; для проверки gRPC-клиента его достаточно.
+
+```text
+make ml-start
+make ml-check
+make ml-describe
+```
+
+`ml-start` выполняет три шага HANDOFF: `ml-install` скачивает закреплённые веса TabPFN (около 42 МБ, нужен интернет) в Docker-том и проверяет SHA256, `ml-up` запускает контейнер и ждёт healthcheck, `ml-warm` один раз рассчитывает полный прогноз (10 маршрутов × 1464 часа) в SQLite-кэш. Обучения при этом нет: веса модели не меняются, исследования и подготовка входов остаются в `ml/lab/`. `ml-check` вызывает `Predict` встроенным клиентом для `ML_ROUTE` (по умолчанию 1) на весь ноябрь–декабрь и печатает число часов и сумму; `ml-describe` показывает ID модели и данных для регистрации версии прогноза. `ml-logs` показывает логи, `ml-down` останавливает оба режима и сохраняет веса и кэш.
+
+Без GPU режим задаётся один раз на сессию PowerShell:
+
+```powershell
+$env:ML_MODE = "replay"
+make ml-up
+make ml-check
+```
+
+Ожидаемый ответ `replay` для маршрута 1 — 1 464 часа и сумма 1 103 274. `ml-up` сначала останавливает контейнер другого режима: оба публикуют один порт. `ml-warm`, `ml-describe` и `ml-start` работают только в `gpu`. Другой маршрут или период — `make ml-check ML_ROUTE=17 ML_FROM=2025-12-01T00:00:00+03:00`; занятый порт меняется через `ML_PORT=50052`.
+
+Сервис слушает `127.0.0.1:50051` без TLS; метод — `tramcast.forecast.v1.ForecastService/Predict`. Reflection не включён, поэтому внешнему клиенту нужен контракт из `proto/`. Например, [grpcurl](https://github.com/fullstorydev/grpcurl) из корня репозитория:
+
+```bash
+grpcurl -plaintext -import-path proto -proto tramcast/forecast/v1/forecast.proto -d '{"route_number": 1, "forecast_from": "2025-10-31T21:00:00Z", "forecast_to": "2025-11-01T21:00:00Z"}' 127.0.0.1:50051 tramcast.forecast.v1.ForecastService/Predict
+```
+
+В JSON-ответе `boardings` приходит строкой, так как это `int64`. Postman и Insomnia принимают тот же `.proto` через импорт. Backend на хосте подключается к `127.0.0.1:50051`; из контейнера — через общую сеть `tramcast-ml_default` по имени `ml-gpu` или `ml-replay`.
+
+Хеши подготовленных входов (`ml/recipes/`), сохранённых результатов (`ml/bundles/`) и кода расчёта проверяются побайтно. `.gitattributes` запрещает Git менять в них переводы строк. Если клон был получен до этого правила при `core.autocrlf=true` и контейнер падает с `Input checksum mismatch`, перевыпишите файлы и пересоберите образ:
+
+```text
+git rm -r --cached -q ml/recipes ml/bundles ml/runtime
+git checkout HEAD -- ml/recipes ml/bundles ml/runtime
+make ml-up
+```
