@@ -8,11 +8,18 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
+	core_domain "github.com/r0mbeg/TramCast/backend/internal/core/domain"
 	routes_sqlc "github.com/r0mbeg/TramCast/backend/internal/features/routes/repository/postgres/sqlc"
 )
 
 // ErrRouteNotFound means that no route has the requested internal ID.
 var ErrRouteNotFound = errors.New("route not found")
+
+// Sources of a movement variant, for provenance on the map.
+const (
+	SourceWorkbook = "workbook"
+	SourceOSM      = "osm"
+)
 
 // Queries is the part of the generated sqlc API used by Service.
 // *routes_sqlc.Queries satisfies it directly.
@@ -20,6 +27,21 @@ type Queries interface {
 	ListRoutes(ctx context.Context) ([]routes_sqlc.Route, error)
 	GetRouteByID(ctx context.Context, routeID int64) (routes_sqlc.Route, error)
 	ListRouteStops(ctx context.Context, routeID int64) ([]routes_sqlc.ListRouteStopsRow, error)
+	ListRouteGeometry(ctx context.Context) ([]routes_sqlc.ListRouteGeometryRow, error)
+}
+
+// Line is one movement variant as a polyline through its stops.
+type Line struct {
+	RouteID         int64
+	RouteNumber     int16
+	ForecastEnabled bool
+	PatternKey      string
+	DirectionID     int16
+	// Source is SourceOSM for a variant from the OpenStreetMap snapshot and
+	// SourceWorkbook for one from the reference workbook.
+	Source string
+	// Coordinates are [longitude, latitude] pairs in stop_sequence order.
+	Coordinates [][2]float64
 }
 
 // Pattern is one movement variant with its stops in stop_sequence order.
@@ -74,4 +96,43 @@ func groupPatterns(rows []routes_sqlc.ListRouteStopsRow) []Pattern {
 		patterns[last].Stops = append(patterns[last].Stops, row)
 	}
 	return patterns
+}
+
+// ListRouteGeometry returns every movement variant as a line through its stops,
+// for the map. The line is a scheme between consecutive stops, not rail
+// geometry; variants with fewer than two stops cannot form a line and are
+// skipped.
+func (s *Service) ListRouteGeometry(ctx context.Context) ([]Line, error) {
+	rows, err := s.queries.ListRouteGeometry(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("list route geometry: %w", err)
+	}
+	lines := []Line{}
+	for i := 0; i < len(rows); {
+		first := rows[i]
+		line := Line{
+			RouteID:         first.RouteID,
+			RouteNumber:     first.RouteNumber,
+			ForecastEnabled: first.ForecastEnabled,
+			PatternKey:      first.PatternKey,
+			DirectionID:     first.DirectionID,
+			Source:          SourceWorkbook,
+		}
+		// The import keys OSM variants by their namespaced relation ID.
+		if core_domain.IsOSM(first.PatternKey) {
+			line.Source = SourceOSM
+		}
+		// ListRouteGeometry orders rows so that one variant is contiguous.
+		for ; i < len(rows) && sameVariant(rows[i], first); i++ {
+			line.Coordinates = append(line.Coordinates, [2]float64{rows[i].Longitude, rows[i].Latitude})
+		}
+		if len(line.Coordinates) >= 2 {
+			lines = append(lines, line)
+		}
+	}
+	return lines, nil
+}
+
+func sameVariant(a, b routes_sqlc.ListRouteGeometryRow) bool {
+	return a.RouteID == b.RouteID && a.PatternKey == b.PatternKey && a.DirectionID == b.DirectionID
 }

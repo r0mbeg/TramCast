@@ -69,3 +69,48 @@ func newListRouteStopsResponse(routeID int64, patterns []routes_service.Pattern)
 	}
 	return response
 }
+
+// GeoJSON (RFC 7946): coordinates are [longitude, latitude].
+type featureCollection struct {
+	Type     string        `json:"type"`
+	Features []lineFeature `json:"features"`
+}
+
+type lineFeature struct {
+	Type       string         `json:"type"`
+	Geometry   lineString     `json:"geometry"`
+	Properties lineProperties `json:"properties"`
+}
+
+type lineString struct {
+	Type        string       `json:"type"`
+	Coordinates [][2]float64 `json:"coordinates"`
+}
+
+type lineProperties struct {
+	RouteID         int64  `json:"route_id"`
+	RouteNumber     int16  `json:"route_number"`
+	PatternKey      string `json:"pattern_key"`
+	DirectionID     int16  `json:"direction_id"`
+	ForecastEnabled bool   `json:"forecast_enabled"`
+	Source          string `json:"source"`
+}
+
+func newGeometryResponse(lines []routes_service.Line) featureCollection {
+	response := featureCollection{Type: "FeatureCollection", Features: make([]lineFeature, len(lines))}
+	for i, line := range lines {
+		response.Features[i] = lineFeature{
+			Type:     "Feature",
+			Geometry: lineString{Type: "LineString", Coordinates: line.Coordinates},
+			Properties: lineProperties{
+				RouteID:         line.RouteID,
+				RouteNumber:     line.RouteNumber,
+				PatternKey:      line.PatternKey,
+				DirectionID:     line.DirectionID,
+				ForecastEnabled: line.ForecastEnabled,
+				Source:          line.Source,
+			},
+		}
+	}
+	return response
+}

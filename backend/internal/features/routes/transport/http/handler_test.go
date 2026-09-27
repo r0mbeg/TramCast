@@ -21,8 +21,13 @@ import (
 type fakeService struct {
 	routes      []routes_sqlc.Route
 	patterns    []routes_service.Pattern
+	lines       []routes_service.Line
 	err         error
 	lastRouteID int64
+}
+
+func (f *fakeService) ListRouteGeometry(context.Context) ([]routes_service.Line, error) {
+	return f.lines, f.err
 }
 
 func (f *fakeService) ListRoutes(context.Context) ([]routes_sqlc.Route, error) {
@@ -121,5 +126,39 @@ func TestInternalErrorsAreNotExposed(t *testing.T) {
 				t.Fatalf("internal error must be logged: %s", logs)
 			}
 		})
+	}
+}
+
+func TestRouteGeometry(t *testing.T) {
+	service := &fakeService{lines: []routes_service.Line{
+		{
+			RouteID: 16, RouteNumber: 1, ForecastEnabled: true, PatternKey: "2040920", DirectionID: 0, Source: routes_service.SourceWorkbook,
+			Coordinates: [][2]float64{{37.59088377, 55.59468022}, {37.58807507, 55.59657683}},
+		},
+		{
+			RouteID: 20, RouteNumber: 17, ForecastEnabled: true, PatternKey: "osm:relation/540139", DirectionID: 1, Source: routes_service.SourceOSM,
+			Coordinates: [][2]float64{{37.6441, 55.8883}, {37.6456, 55.8851}},
+		},
+	}}
+	response, _ := serve(t, service, "/api/routes/geometry")
+	want := `{"type":"FeatureCollection","features":[` +
+		`{"type":"Feature","geometry":{"type":"LineString","coordinates":[[37.59088377,55.59468022],[37.58807507,55.59657683]]},"properties":{"route_id":16,"route_number":1,"pattern_key":"2040920","direction_id":0,"forecast_enabled":true,"source":"workbook"}},` +
+		`{"type":"Feature","geometry":{"type":"LineString","coordinates":[[37.6441,55.8883],[37.6456,55.8851]]},"properties":{"route_id":20,"route_number":17,"pattern_key":"osm:relation/540139","direction_id":1,"forecast_enabled":true,"source":"osm"}}]}`
+	if response.Code != http.StatusOK || response.Body.String() != want {
+		t.Fatalf("response = %d %s\nwant 200 %s", response.Code, response.Body.String(), want)
+	}
+	if service.lastRouteID != 0 {
+		t.Fatal("the static geometry path must not be matched as a route ID")
+	}
+}
+
+func TestRouteGeometryEmptyAndError(t *testing.T) {
+	response, _ := serve(t, &fakeService{lines: []routes_service.Line{}}, "/api/routes/geometry")
+	if response.Code != http.StatusOK || response.Body.String() != `{"type":"FeatureCollection","features":[]}` {
+		t.Fatalf("empty response = %d %s", response.Code, response.Body.String())
+	}
+	response, logs := serve(t, &fakeService{err: errors.New("database-detail-secret")}, "/api/routes/geometry")
+	if response.Code != http.StatusInternalServerError || response.Body.String() != `{"error":"internal_server_error"}` || !strings.Contains(logs, "database-detail-secret") {
+		t.Fatalf("error response = %d %s", response.Code, response.Body.String())
 	}
 }

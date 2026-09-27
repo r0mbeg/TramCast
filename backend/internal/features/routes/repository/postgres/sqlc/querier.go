@@ -21,6 +21,9 @@ type Querier interface {
 	// In the same transaction, insert the validated full set after DeleteRouteStops.
 	// Go verifies one direction_id per pattern_key before replacing any positions.
 	InsertRouteStop(ctx context.Context, arg InsertRouteStopParams) error
+	// All positions of all routes with stop coordinates, ordered so that the rows
+	// of one movement variant are adjacent and follow stop_sequence.
+	ListRouteGeometry(ctx context.Context) ([]ListRouteGeometryRow, error)
 	ListRoutePatterns(ctx context.Context, routeID int64) ([]ListRoutePatternsRow, error)
 	ListRouteStops(ctx context.Context, routeID int64) ([]ListRouteStopsRow, error)
 	ListRoutes(ctx context.Context) ([]Route, error)
