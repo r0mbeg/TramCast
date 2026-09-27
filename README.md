@@ -48,6 +48,7 @@ TramCast/
 ├── ml/          # Python-модель и gRPC-сервер — планируется
 ├── proto/       # Общий Protobuf-контракт Go ↔ Python
 ├── Dockerfile   # Сборка Go, импортёра и фронтенда в один образ
+├── docker/      # Отдельный Dockerfile мигратора Goose
 ├── docker-compose.yaml  # Приложение, PostgreSQL, миграции и первичный импорт
 ├── Makefile     # Команды разработки
 ├── AGENTS.md    # Правила разработки и подробный контракт
