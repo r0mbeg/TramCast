@@ -1,0 +1,22 @@
+{
+  "retrieval": "primary official text returned by search index; direct fetch timed out",
+  "events": [
+    {
+      "url": "https://transport.mos.ru/mostrans/all_news/123857",
+      "published": "2025-04-04",
+      "route": 17,
+      "from": "2025-04-05",
+      "to_exclusive": "2025-05-01",
+      "days": "Saturday/Sunday",
+      "meaning": "shortened from Ostankino to Selskokhozyaystvennaya ulitsa for track repairs in Medvedkovo"
+    },
+    {
+      "url": "https://www.mosmetro.ru/news/details/6793",
+      "published": "2025-04-30",
+      "effective": "2025-05-01",
+      "route": 17,
+      "meaning": "ordinary weekend route restored; bus017 withdrawn"
+    }
+  ],
+  "captured_utc": "2026-09-26T22:52:12.149826+00:00"
+}

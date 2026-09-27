@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-09-27T18:42:20.527833+00:00",
+  "version": {
+    "id": "2f7282ab-472f-40cc-9787-9f178f13a5cc",
+    "model_version": "catboost-cpu-e0dd48742b3c19441521fe1e4d96b56082954e7d151e6b9e5cc3ff68040a2e15",
+    "dataset_version": "prepared-cpu-f78af320354a9674f075d6102ba683594dd10a0a5ce33dbb05dccaa561221ac1",
+    "history_end": "2025-11-01T00:00:00+03:00",
+    "forecast_from": "2025-11-01T00:00:00+03:00",
+    "forecast_to": "2026-01-01T00:00:00+03:00",
+    "timezone": "Europe/Moscow"
+  },
+  "routes": 10,
+  "rows": 14640,
+  "reference_sha256": "538872b074d8ced7f0997e2f1427db4f3dab39db3f3dba0e8be9f80a68a15695",
+  "full_grid_matches_cpu_submission": true,
+  "check_seconds": 0.08439333399292082
+}
