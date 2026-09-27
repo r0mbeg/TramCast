@@ -25,27 +25,58 @@ x-app: &app
     HTTP_PROBE_TIMEOUT: ${HTTP_PROBE_TIMEOUT:-2s}
     LOGGER_LEVEL: ${LOGGER_LEVEL:-INFO}
     LOGGER_FORMAT: ${LOGGER_FORMAT:-json}
-    # Recovery acts on the shared queue, so it uses the attempt limit and retry
-    # delay of a backend on the host that reads the same .env.
+    # The ML service of this file; ML_GRPC_ADDR of .env is for Go on the host.
+    ML_GRPC_ADDR: ml:50051
+    ML_GRPC_TIMEOUT: ${ML_GRPC_TIMEOUT:-930s}
+    # Recovery acts on the shared queue, so a backend on the host reading the
+    # same .env applies the same limits.
+    PREDICTION_JOB_WORKER_ENABLED: ${PREDICTION_JOB_WORKER_ENABLED:-true}
+    PREDICTION_JOB_WORKERS: ${PREDICTION_JOB_WORKERS:-1}
+    PREDICTION_JOB_QUEUE_CAPACITY: ${PREDICTION_JOB_QUEUE_CAPACITY:-20}
     PREDICTION_JOB_MAX_ATTEMPTS: ${PREDICTION_JOB_MAX_ATTEMPTS:-3}
+    PREDICTION_JOB_LEASE_DURATION: ${PREDICTION_JOB_LEASE_DURATION:-60s}
     PREDICTION_JOB_RETRY_DELAY: ${PREDICTION_JOB_RETRY_DELAY:-30s}
+    PREDICTION_JOB_POLL_INTERVAL: ${PREDICTION_JOB_POLL_INTERVAL:-2s}
+    PREDICTION_JOB_SHUTDOWN_TIMEOUT: ${PREDICTION_JOB_SHUTDOWN_TIMEOUT:-5s}
     WEB_DIR: /app/frontend/dist
     CATALOG_FILE: /app/data/catalog/catalog.xlsx
     CATALOG_OSM_FILE: /app/data/osm/tram_routes.json
 
+# CPU CatBoost: no GPU needed. The pinned weights come with the repository in
+# ml/models and are mounted read-only, outside the image build context. The
+# GPU recipe stays in ml/compose.yaml for a backend on the host.
+x-ml: &ml
+  image: tramcast-ml-cpu:local
+  build:
+    context: .
+    dockerfile: ml/Dockerfile
+    target: cpu
+  environment:
+    ML_CONFIG: /app/ml/recipes/catboost-cpu/recipe.json
+  volumes:
+    - ./ml/models:/app/ml/models:ro
+    - ml-cache:/app/ml/cache
+
 services:
   ml:
-    profiles: [ml]
-    build:
-      context: .
-      dockerfile: ml/Dockerfile
-      target: cpu
-    volumes:
-      - ./ml/models:/app/ml/models:ro
-      - ml-cache:/app/ml/cache
+    <<: *ml
     expose:
       - "50051"
+    healthcheck:
+      # Route 5 is a structural zero: this checks gRPC without running the model.
+      test: [CMD, python, client.py, --route, "5", --from, "2025-11-01T00:00:00+03:00", --to, "2025-11-01T01:00:00+03:00", --timeout, "3", --output, /tmp/health.json]
+      interval: 30s
+      timeout: 5s
+      start_period: 5s
+      retries: 3
     restart: unless-stopped
+
+  # Saves the model and dataset IDs the ML service computes for this host into
+  # the cache volume; forecast-version-init registers the version from them.
+  ml-describe:
+    <<: *ml
+    command: [sh, -c, "python service.py --describe > /tmp/forecast-version.json && cp /tmp/forecast-version.json /app/ml/cache/forecast-version.json"]
+    restart: "no"
 
   postgres:
     image: postgres:18.1-bookworm
@@ -106,6 +137,36 @@ services:
         condition: service_completed_successfully
     restart: "no"
 
+  # Registers the version the ML service serves and makes it active, after the
+  # Predict check of route 5. The same IDs return the existing version, so a
+  # restart creates nothing new; replay metadata is refused.
+  forecast-version-init:
+    <<: *app
+    entrypoint: ["/app/register-forecast-version"]
+    command: ["-metadata", "/ml-cache/forecast-version.json", "-activate"]
+    volumes:
+      - ml-cache:/ml-cache:ro
+    depends_on:
+      catalog-init:
+        condition: service_completed_successfully
+      ml-describe:
+        condition: service_completed_successfully
+      ml:
+        condition: service_healthy
+    restart: "no"
+
+  # Admits the job of every forecast route of the active version, so the
+  # worker computes the forecast before the first user asks for it.
+  prediction-jobs-init:
+    <<: *app
+    entrypoint: ["/app/enqueue-prediction-jobs"]
+    depends_on:
+      forecast-version-init:
+        condition: service_completed_successfully
+    restart: "no"
+
+  # The backend does not wait for ML: without it the interface still serves
+  # the catalog and published forecasts and picks up a version once registered.
   backend:
     <<: *app
     ports:

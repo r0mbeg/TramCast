@@ -46,10 +46,10 @@ endif
 
 help:
 	@echo TramCast commands
-	@echo   make app-build              Build the application and migration images
-	@echo   make app-up                 Build and start the app after migrations and initial catalog import
-	@echo   make app-down               Stop the app environment and keep database files
-	@echo   make app-logs               Follow backend, catalog initialization and migration logs
+	@echo   make app-build              Build the application, migration and CPU ML images
+	@echo   make app-up                 Build and start the app with CPU ML: migrations, catalog, version, jobs
+	@echo   make app-down               Stop the app environment and keep database files and ML cache
+	@echo   make app-logs               Follow the logs of the app, ML and initialization services
 	@echo   make env-up                 Start PostgreSQL and the local port-forwarder
 	@echo   make env-down               Stop the environment and keep database volumes
 	@echo   make env-port-forward       Open the PostgreSQL port for local development
@@ -92,16 +92,19 @@ help:
 	@echo   make frontend-test          Type-check and run frontend unit tests
 
 app-build:
-	@$(DOCKER_COMPOSE) build backend migrate
+	@$(DOCKER_COMPOSE) build backend migrate ml
 
+# --wait treats a finished one-off container nothing depends on as a failure,
+# so the version and job initialization runs in the foreground with its exit code.
 app-up:
-	@$(DOCKER_COMPOSE) up -d --build --wait backend
+	@$(DOCKER_COMPOSE) up -d --build --wait backend ml
+	@$(DOCKER_COMPOSE) run --rm prediction-jobs-init
 
 app-down:
 	@$(DOCKER_COMPOSE) --profile dev down
 
 app-logs:
-	@$(DOCKER_COMPOSE) logs --follow backend catalog-init migrate
+	@$(DOCKER_COMPOSE) logs --follow backend ml prediction-jobs-init forecast-version-init ml-describe catalog-init migrate
 
 env-up:
 	@$(DOCKER_COMPOSE) up -d --wait postgres env-port-forwarder

@@ -22,8 +22,12 @@
 
 .subtitle {
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
   color: var(--color-text-3);
   font-size: var(--text-sm);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .list {
@@ -270,9 +274,15 @@
     font-size: var(--text-md);
   }
 
+  /* The date stays in the context bar; the order switch needs the width. */
   .sum,
-  .rulerDay {
+  .rulerDay,
+  .subtitle {
     display: none;
+  }
+
+  .header {
+    justify-content: space-between;
   }
 
   .subline {

@@ -14,15 +14,18 @@ COPY backend/go.mod backend/go.sum ./
 RUN go mod download
 COPY backend/ ./
 RUN go build -trimpath -ldflags="-s -w" -o /out/tramcast ./cmd/tramcast \
-    && go build -trimpath -ldflags="-s -w" -o /out/import-catalog ./cmd/import-catalog
+    && go build -trimpath -ldflags="-s -w" -o /out/import-catalog ./cmd/import-catalog \
+    && go build -trimpath -ldflags="-s -w" -o /out/register-forecast-version ./cmd/register-forecast-version \
+    && go build -trimpath -ldflags="-s -w" -o /out/enqueue-prediction-jobs ./cmd/enqueue-prediction-jobs
 
-# Both Compose application services use this image with the sanitized catalog.
+# Every Compose application service uses this image with the sanitized catalog:
+# the server, the catalog import, version registration and job admission.
 FROM debian:bookworm-slim AS app
 RUN apt-get update \
     && apt-get install --no-install-recommends -y ca-certificates curl tzdata \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
-COPY --from=backend-build /out/tramcast /out/import-catalog ./
+COPY --from=backend-build /out/tramcast /out/import-catalog /out/register-forecast-version /out/enqueue-prediction-jobs ./
 COPY --from=frontend-build /src/frontend/dist ./frontend/dist
 COPY data/catalog/catalog.xlsx ./data/catalog/catalog.xlsx
 COPY data/osm/tram_routes.json ./data/osm/tram_routes.json

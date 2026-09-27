@@ -72,6 +72,7 @@
   color: var(--color-text-2);
   font-size: var(--text-sm);
   font-weight: 500;
+  white-space: nowrap;
   transition: background-color var(--duration) var(--ease-out);
 }
 
