@@ -7,11 +7,12 @@
 у работающей тяжёлой модели — **0.88543**. Прогноз обеих поставок: ноябрь–декабрь
 2025, 14 640 часов. Фронтенд и gRPC-контракт не меняются.
 
-Передайте организаторам репозиторий и файл весов `dense-student-v3.cbm`
-(3 081 572 байта) отдельно: веса исключены из Git.
-Положите его в `ml/models/dense-student-v3.cbm`.
-Контрольная сумма закреплена в `ml/recipes/catboost-cpu/recipe.json`;
-сервис откажется работать с другим файлом. В рабочей копии веса уже установлены.
+Оба чекпоинта включены в Git и доступны после клонирования или обновления `master`:
+`ml/models/dense-student-v3.cbm` (3 081 572 байта) и
+`ml/models/tabpfn-v2-regressor.ckpt` (44 390 977 байт). Передавать их отдельно не нужно.
+[Размеры, SHA256 и лицензия](../models/README.md). Контрольные суммы закреплены
+в соответствующих `recipe.json`; сервис откажется работать с другим файлом.
+Compose подключает `ml/models/` с хоста только для чтения в обоих режимах.
 [Проверки CPU-поставки](../deploy/cpu-verified-20260927/README.md) подтвердили
 побайтовое совпадение с конкурсной посылкой на Mac и в Docker ARM64.
 Исходник обученной модели: `ml/lab/artifacts/dense_student_20260927_v3/bundle/student.cbm`.
@@ -45,7 +46,6 @@ CPU → GPU:
 
 ```sh
 docker compose -f ml/compose.yaml stop ml-cpu
-docker compose -f ml/compose.yaml run --rm --build ml-install
 docker compose -f ml/compose.yaml up -d --build --wait ml-gpu
 docker compose -f ml/compose.yaml exec ml-gpu python service.py --warm-cache
 docker compose -f ml/compose.yaml exec ml-gpu python service.py --describe
@@ -108,17 +108,17 @@ docker compose -f ml/compose.yaml --profile gpu exec ml-gpu python service.py --
 
 Целевое окружение — Linux/x86_64 с NVIDIA RTX 3070 8 ГБ, драйвером NVIDIA
 и [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
-Сборка образа и первая установка весов требуют интернета.
+Интернет нужен для сборки образа; веса уже находятся в репозитории.
 
 ```sh
-docker compose -f ml/compose.yaml run --rm --build ml-install
 docker compose -f ml/compose.yaml --profile gpu up -d --build --wait
 docker compose -f ml/compose.yaml --profile gpu exec ml-gpu python service.py --warm-cache
 ```
 
-Первая команда скачивает закреплённые веса и проверяет SHA256; повторный запуск
-проверяет уже установленный файл. Вторая запускает gRPC на **127.0.0.1:50051**.
-Третья вызывает модель и сохраняет полный прогноз в SQLite. Повторный прогрев
+Первая команда запускает gRPC на **127.0.0.1:50051** с checkpoint из `ml/models/`.
+Вторая вызывает модель и сохраняет полный прогноз в SQLite.
+`ml-install` остаётся необязательной командой проверки/восстановления GPU-весов:
+существующий файл проверяется по SHA256, отсутствующий скачивается из закреплённого источника. Повторный прогрев
 и последующие запросы используют кэш, в том числе после перезапуска.
 Без прогрева расчёт запустит первый запрос ненулевого маршрута.
 
@@ -183,8 +183,8 @@ docker compose -f ml/compose.yaml --profile replay --profile gpu down
 ```
 
 Для логов replay замените профиль `gpu` на `replay`, а сервис `ml-gpu` на
-`ml-replay`. Обычный `down` сохраняет веса и кэш в Docker volumes; `down -v`
-удаляет их. Если порт занят, задайте `ML_PORT=50052` в окружении при запуске.
+`ml-replay`. Обычный `down` сохраняет кэш; `down -v` удаляет том кэша.
+Веса находятся в `ml/models/` на хосте и этими командами не удаляются. Если порт занят, задайте `ML_PORT=50052` в окружении при запуске.
 
 Ручной принудительный пересчёт создаёт новое поколение конфигурации через
 `service.py --refresh`, затем выполняет `--config … --warm-cache`.

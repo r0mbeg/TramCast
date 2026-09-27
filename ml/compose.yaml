@@ -44,11 +44,11 @@ services:
       dockerfile: ml/Dockerfile
       target: serving
     image: tramcast-ml-replay:local
-    # Only the installer writes the weights volume; serving runs unprivileged.
+    # Optional recovery of missing GPU weights; serving mounts the files read-only.
     user: "0:0"
     command: [python, recipe.py]
     volumes:
-      - ml-models:/app/ml/models
+      - ./models:/app/ml/models
 
   ml-gpu:
     profiles: [gpu]
@@ -63,7 +63,7 @@ services:
     ports:
       - "127.0.0.1:${ML_PORT:-50051}:50051"
     volumes:
-      - ml-models:/app/ml/models:ro
+      - ./models:/app/ml/models:ro
       - ml-cache:/app/ml/cache
     deploy:
       resources:
@@ -76,5 +76,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  ml-models:
   ml-cache:

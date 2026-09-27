@@ -2,6 +2,8 @@
 # model_version. Keep the committed bytes on every platform: with Git for
 # Windows defaults (core.autocrlf=true) LF would become CRLF and the recipe
 # fails with "Input checksum mismatch".
+ml/models/*.cbm binary
+ml/models/*.ckpt binary
 ml/recipes/** -text
 ml/bundles/** -text
 ml/runtime/*.py eol=lf

@@ -99,8 +99,12 @@ ml/lab/artifacts/boost_comparison/*.pkl
 !ml/lab/requirements*.txt
 !ml/lab/forecast_bundle.json
 
-# Inference weights and disposable persistent cache
-/ml/models/
+# Only the two pinned serving checkpoints are distributed in Git.
+/ml/models/*
+!/ml/models/dense-student-v3.cbm
+!/ml/models/tabpfn-v2-regressor.ckpt
+!/ml/models/README.md
+# Disposable persistent cache
 /ml/cache/
 /ml/releases/
 /ml/sources/
