@@ -1,0 +1,10 @@
+{
+  "origin": "2025-06-04",
+  "end": "2025-08-04",
+  "history_max": "2025-06-04",
+  "seconds": 47.43845157045871,
+  "sha256": "1812c8b8939930dbc2202f4951c88da335890ea55238f03956eb81b9671aff1d",
+  "rows": 14640,
+  "source_manifest": "started_2025-06-04.json",
+  "peak_gpu_bytes": 371694592
+}

@@ -1,0 +1,264 @@
+{
+  "historical_dynamic": {
+    "effective_base_speed_kmh": 8.741565446612734,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "equal_spacing": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_00": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_01": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_02": {
+    "effective_base_speed_kmh": 8.741565446612734,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_03": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_04": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_05": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_06": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_07": {
+    "effective_base_speed_kmh": 8.741565446612734,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_08": {
+    "effective_base_speed_kmh": 8.74156544661273,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_09": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_10": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_11": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_12": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_13": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_14": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_15": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_16": {
+    "effective_base_speed_kmh": 8.741565446612734,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_17": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "permuted_18": {
+    "effective_base_speed_kmh": 8.741565446612732,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      0.67,
+      1.0,
+      1.5
+    ],
+    "states": 819,
+    "persistence": 0.0
+  },
+  "historical_fixed": {
+    "effective_base_speed_kmh": 8.301045613082643,
+    "registration_mean_seconds": 25.8594448368566,
+    "travel_target_mean_seconds": 173.02931858942713,
+    "tempo_levels": [
+      1.0
+    ],
+    "states": 273,
+    "persistence": 0.0
+  }
+}

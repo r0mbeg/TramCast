@@ -1,0 +1,30 @@
+{
+  "elapsed_seconds": 7.591389458975755,
+  "peak_rss_mib": 213.625,
+  "timings": [
+    {
+      "cutoff": "2025-04-30",
+      "prepare_fit_predict_seconds": 1.068920125020668
+    },
+    {
+      "cutoff": "2025-06-30",
+      "prepare_fit_predict_seconds": 1.3292634999379516
+    },
+    {
+      "cutoff": "2025-07-31",
+      "prepare_fit_predict_seconds": 1.218855542014353
+    },
+    {
+      "cutoff": "2025-08-31",
+      "prepare_fit_predict_seconds": 1.1433485420420766
+    },
+    {
+      "cutoff": "2025-10-31",
+      "prepare_fit_predict_seconds": 1.087629499961622
+    }
+  ],
+  "future_poison_check": "passed",
+  "grid_checks": "passed",
+  "input_hashes_unchanged": true,
+  "gpu_libraries_loaded": false
+}

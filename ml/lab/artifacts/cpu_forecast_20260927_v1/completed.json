@@ -1,0 +1,30 @@
+{
+  "elapsed_seconds": 111.69165362499189,
+  "final_fit_seconds": 31.343690417008474,
+  "test_fit_seconds": 22.61152470810339,
+  "peak_rss_mib": 847.71875,
+  "model_bytes": 269540,
+  "training_audit": [
+    {
+      "cutoff": "2025-04-30",
+      "rows": 43451,
+      "origins": 4,
+      "latest_target": "2025-04-29"
+    },
+    {
+      "cutoff": "2025-06-30",
+      "rows": 108678,
+      "origins": 10,
+      "latest_target": "2025-06-28"
+    },
+    {
+      "cutoff": "2025-10-31",
+      "rows": 238555,
+      "origins": 22,
+      "latest_target": "2025-10-26"
+    }
+  ],
+  "test_training_rows": null,
+  "teacher_comparison_sha256": "8fc2496c1545a98472fce285cf573d47c8eff49e598fb11d8135033b793aafd3",
+  "sources_unchanged": true
+}

@@ -1,0 +1,77 @@
+{
+  "hypothesis": "Existing direct hourly HGB can forecast the full horizon on CPU without foundation models",
+  "params": {
+    "days": 112,
+    "half_life": 55,
+    "leaves": 31,
+    "l2": 4.210779940242304
+  },
+  "windows": [
+    [
+      "2025-04-30",
+      "2025-06-30"
+    ],
+    [
+      "2025-06-30",
+      "2025-08-30"
+    ],
+    [
+      "2025-07-31",
+      "2025-09-30"
+    ],
+    [
+      "2025-08-31",
+      "2025-10-31"
+    ]
+  ],
+  "final": [
+    "2025-10-31",
+    "2025-12-31"
+  ],
+  "seed": 42,
+  "threads": 2,
+  "budget_seconds": 600,
+  "search_trials": 0,
+  "controls": [
+    "route-weekday-hour mean",
+    "saved 030"
+  ],
+  "features": [
+    "route",
+    "hour",
+    "weekday",
+    "days since 2025-01-01"
+  ],
+  "training": "Only working_events_observed before cutoff; last 112 days for HGB",
+  "evaluation": "Observed active cells only; identical mask for all candidates; half-up first",
+  "caveats": [
+    "Previously viewed overlapping windows, not independent validation",
+    "Presence of events does not prove complete counting",
+    "030 uses retrospective external data; HGB uses no external data",
+    "Raw CSV aggregation excluded from timing; frozen cleaned history reused"
+  ],
+  "sources_sha256": {
+    "artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "artifacts/portfolio_20260926/cpu/direct/selection.json": "bb6159de10c9f0412eee47a74c3be438e70a7560ee9bb9bab48d9797f717cca6",
+    "experiments/cpu_hgb_trial.py": "85bfc11fea81dba906c0cb4261e190e19f7270d463ed12c893f1fb5405f7d1c3",
+    "pipeline.py": "97f5bf60891d68c93ee6477ceca33df4788d8d6cb924b460b698877af4fb0c7b",
+    "constants.py": "1c0494094170f9b9b0c14aaac2145fee0eeb2315db88132e643f32c442e3fd36",
+    "experiments/portfolio_experiment.py": "d3cc5216ab67d7adc8a0aae896aa4a248961ed09065d238303bbc684fb8d22cc",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-04-30.csv": "63066dff331204c64ea37162bb98c375af317b94e785965a8a3dc572eb7ee01a",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-06-30.csv": "036c019d73f9f15a1539c4fb4700c9e71998fba255e89b0b0837e74502ea1532",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-07-31.csv": "c2e9bbe5570de89ee5ec2dceb3468f174c4e53752cc737fdc312be6f9d7369ff",
+    "artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-08-31.csv": "8fc2496c1545a98472fce285cf573d47c8eff49e598fb11d8135033b793aafd3"
+  },
+  "environment": {
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "processor": "arm",
+    "logical_cpus": 8,
+    "python": "3.12.14",
+    "versions": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.9.1",
+      "threadpoolctl": "3.7.0"
+    }
+  }
+}

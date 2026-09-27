@@ -1,0 +1,14 @@
+{
+  "model_version": "cpu-observed-2025-67fcfa041545f088",
+  "dataset_version": "observed-2973d1c9a922fa5f",
+  "timezone": "Europe/Moscow",
+  "from_date": "2025-11-01",
+  "to_exclusive": "2026-01-01",
+  "rows": 14640,
+  "training_target_end": "2025-10-31",
+  "history_latest_used": "2025-10-31",
+  "warnings": [],
+  "status": "experimental_observation_model",
+  "route_5_reason": "organizer_required_zero_no_history",
+  "external_regime": "retrospective_2025_calendar_and_movement"
+}

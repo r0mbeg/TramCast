@@ -24,6 +24,8 @@ runs/catalog-alignment-*/*.csv
 runs/catalog-alignment-*/*.npz
 runs/historical-geometry-*/*.csv
 runs/known-counts-*/*.csv
+runs/elastic-data-*/*.csv
+runs/elastic-data-*/*.npz
 releases/*/*.csv
 releases/*/*.csv.gz
 !releases/*/*.json

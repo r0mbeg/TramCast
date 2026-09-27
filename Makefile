@@ -46,7 +46,7 @@ help:
 	@echo   make prepare-ml-model       Download and verify the pinned TabPFN checkpoint
 	@echo   make prepare-ml-data        Rebuild inputs after new history, using ML_PREPARE_ARGS
 	@echo   make test-ml-preparation    Check input preparation without GPU inference
-	@echo   make run-ml                 Serve recipe 030 with persistent inference cache
+	@echo   make run-ml                 Serve CPU CatBoost with persistent inference cache
 	@echo   make test-ml-service        Check the real gRPC service without ML dependencies
 	@echo   make test-ml                Run serving and client checks
 

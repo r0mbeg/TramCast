@@ -1,0 +1,47 @@
+{
+  "timezone": "Europe/Moscow",
+  "route_numbers": [
+    1,
+    5,
+    7,
+    11,
+    12,
+    17,
+    25,
+    26,
+    28,
+    50
+  ],
+  "history_end": "2025-11-01T00:00:00+03:00",
+  "forecast_from": "2025-11-01T00:00:00+03:00",
+  "forecast_to": "2026-01-01T00:00:00+03:00",
+  "model_version": "catboost-cpu-e0dd48742b3c19441521fe1e4d96b56082954e7d151e6b9e5cc3ff68040a2e15",
+  "dataset_version": "prepared-cpu-f78af320354a9674f075d6102ba683594dd10a0a5ce33dbb05dccaa561221ac1",
+  "stop_forecast": {
+    "available": true,
+    "model_version": "stops-3cb7bc744befbd1a02627e9f9e22ec23c1f2b0b124e8f4e6f772613a2e253eb0",
+    "dataset_version": "stops-data-8e6cd37153dce8621fb2d0e628c415a11d72941650051c3a3919414be1eb5fd7",
+    "route_model_version": "catboost-cpu-e0dd48742b3c19441521fe1e4d96b56082954e7d151e6b9e5cc3ff68040a2e15",
+    "route_dataset_version": "prepared-cpu-f78af320354a9674f075d6102ba683594dd10a0a5ce33dbb05dccaa561221ac1",
+    "allocation_model_version": "stop-runtime-cf875865c40cc27d610155b9620ae48f357d57953bf24516d40d06206a817668",
+    "allocation_dataset_version": "stop-data-bafa1eb4d49770a9c71bba393fa849f2da382935a484fd8aac6746b95fbc330a",
+    "network_version": "stop-network-877d806e33994cc97938b6be9cad2ee60626b5e56450bbe4d03f56225e92d714",
+    "allocation_package_version": "E-network-v1-dd0102fde9bb9667",
+    "estimate_status": "scenario_estimate_unvalidated",
+    "geography_status": "late_snapshots_assumed_available_all_forecast_dates_not_verified",
+    "forecast_from": "2025-11-01T00:00:00+03:00",
+    "forecast_to": "2026-01-01T00:00:00+03:00",
+    "occurrence_counts": {
+      "1": 44,
+      "5": 32,
+      "7": 89,
+      "11": 85,
+      "12": 97,
+      "17": 52,
+      "25": 41,
+      "26": 51,
+      "28": 30,
+      "50": 83
+    }
+  }
+}

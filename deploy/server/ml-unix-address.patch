@@ -1,0 +1,72 @@
+diff --git a/backend/internal/core/config/config.go b/backend/internal/core/config/config.go
+index bcde529..488f96a 100644
+--- a/backend/internal/core/config/config.go
++++ b/backend/internal/core/config/config.go
+@@ -69,7 +69,7 @@ type CatalogConfig struct {
+ }
+ 
+ type MLConfig struct {
+-	// Addr is the host:port of the Python forecast gRPC server.
++	// Addr is host:port or unix:///absolute/path for the Python gRPC server.
+ 	Addr string `envconfig:"ML_GRPC_ADDR" default:"127.0.0.1:50051"`
+ 	// Timeout bounds one Predict call. The default exceeds the server's 900 s
+ 	// compute limit, so the server reports its own timeout first.
+@@ -171,13 +171,20 @@ func (cfg Config) validate() error {
+ 	if _, err := strconv.ParseUint(port, 10, 16); err != nil {
+ 		return errors.New("HTTP_ADDR must contain a numeric port from 0 to 65535")
+ 	}
+-	// A client dials a concrete host, unlike the listening HTTP_ADDR.
+-	host, port, err = net.SplitHostPort(cfg.ML.Addr)
+-	if err != nil || host == "" || strings.ContainsAny(host, " /\\\t\r\n?#") {
+-		return errors.New("ML_GRPC_ADDR must have the form host:port")
+-	}
+-	if number, err := strconv.ParseUint(port, 10, 16); err != nil || number == 0 {
+-		return errors.New("ML_GRPC_ADDR must contain a numeric port from 1 to 65535")
++	if strings.HasPrefix(cfg.ML.Addr, "unix://") {
++		path := strings.TrimPrefix(cfg.ML.Addr, "unix://")
++		if !strings.HasPrefix(path, "/") || path == "/" || strings.ContainsAny(path, " \\\t\r\n?#%\x00") {
++			return errors.New("ML_GRPC_ADDR must use unix:///absolute/socket/path")
++		}
++	} else {
++		// A client dials a concrete host, unlike the listening HTTP_ADDR.
++		host, port, err = net.SplitHostPort(cfg.ML.Addr)
++		if err != nil || host == "" || strings.ContainsAny(host, " /\\\t\r\n?#") {
++			return errors.New("ML_GRPC_ADDR must have the form host:port")
++		}
++		if number, err := strconv.ParseUint(port, 10, 16); err != nil || number == 0 {
++			return errors.New("ML_GRPC_ADDR must contain a numeric port from 1 to 65535")
++		}
+ 	}
+ 
+ 	for _, setting := range []struct {
+diff --git a/backend/internal/core/config/config_test.go b/backend/internal/core/config/config_test.go
+index f78a04c..287ef8d 100644
+--- a/backend/internal/core/config/config_test.go
++++ b/backend/internal/core/config/config_test.go
+@@ -396,3 +396,26 @@ func TestLoadMissingExplicitFile(t *testing.T) {
+ 		t.Fatalf("expected a missing-file error, got %v", err)
+ 	}
+ }
++
++func TestMLUnixAddress(t *testing.T) {
++	for _, address := range []string{
++		"unix:///home/bazevv/tramcast/run/forecast.sock",
++		"unix://relative/socket", "unix:///", "unix:///tmp/socket?query",
++		"unix:///tmp/socket#fragment", "unix:///tmp/%2Fsocket",
++	} {
++		t.Run(address, func(t *testing.T) {
++			cleanConfigEnv(t)
++			setRequiredEnv(t)
++			t.Setenv("ML_GRPC_ADDR", address)
++			cfg, err := Load("")
++			valid := address == "unix:///home/bazevv/tramcast/run/forecast.sock"
++			if valid {
++				if err != nil || cfg.ML.Addr != address {
++					t.Fatalf("valid Unix target rejected: %v", err)
++				}
++			} else if err == nil {
++				t.Fatal("invalid Unix target accepted")
++			}
++		})
++	}
++}

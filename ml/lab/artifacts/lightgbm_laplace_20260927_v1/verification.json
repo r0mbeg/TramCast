@@ -1,0 +1,10 @@
+{
+  "checks": "passed",
+  "fresh_process_reload_matches_submission": true,
+  "rows": 14640,
+  "load_model_history_seconds": 0.0636110829655081,
+  "features_predict_seconds": 0.2017912499140948,
+  "peak_rss_mib": 214.46875,
+  "prediction_total": 12116491,
+  "submission_sha256": "910abb1251c923416ebd3547858d2b307dc1d8f67295d148a408eb4acd21025e"
+}

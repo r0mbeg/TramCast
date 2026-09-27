@@ -1,0 +1,70 @@
+{
+  "hypothesis": "CPU direct multi-horizon model trained on observed targets generalizes to held-out 61-day periods",
+  "origin_step_days": 10,
+  "first_start": "2025-01-29",
+  "training_windows": "Only complete 61-day horizons with targets <= fit cutoff",
+  "development": [
+    [
+      "2025-04-30",
+      "2025-05-01"
+    ],
+    [
+      "2025-06-30",
+      "2025-07-01"
+    ]
+  ],
+  "test": {
+    "fit_end": "2025-08-31",
+    "start": "2025-09-01",
+    "end": "2025-10-31"
+  },
+  "final_fit_end": "2025-10-31",
+  "candidates": [
+    {
+      "depth": 5,
+      "iterations": 350
+    },
+    {
+      "depth": 7,
+      "iterations": 500
+    }
+  ],
+  "model_weights": [
+    0.5,
+    1.0
+  ],
+  "selection": "Mean observed-target WAPE across two development windows; no September/October tuning",
+  "target": "Real successful validation counts only where working_events_observed; hour 5 already raw-cleaned",
+  "loss": "MAE of target/reference, weighted reference/repetitions(route,date,hour)",
+  "reference": "Past observed route-weekday-hour mean; route-hour then fitted route median fallback",
+  "cold_start": "One history-free copy per ten examples, with inverse-repetition weights",
+  "calendar_regime": "Retrospective external movement; known route50 autumn weekend closure forced to zero",
+  "budget_seconds": 1800,
+  "threads": 2,
+  "seed": 42,
+  "teacher_used_in_training": false,
+  "limitations": [
+    "Previously viewed history, not independent new data",
+    "No prior-year history, unvalidated early January",
+    "One annual partial cycle, 2026 extrapolation",
+    "Observed events do not prove complete counting",
+    "Final October-trained weights make earlier-date requests retrospective, not causal backtests"
+  ],
+  "versions": {
+    "catboost": "1.2.10",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "ml/lab/artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "ml/lab/artifacts/calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "ml/preparation/movement_calendar.json": "7c3c3fcc5a3b62e4a15f09d6168758d363e375696cd16dfce4b9f3ada71438c3",
+    "ml/lab/cpu_forecast/train.py": "bd3fe41fa5486dd10f3c7b5f0becf7c9cb9e93428952631edc762b78bb4140dc",
+    "ml/lab/cpu_forecast/model.py": "5b6277cbf9a1961da28e4ce1c70f8ba8dd8ad3783936f397faf10565668b7bf9",
+    "ml/lab/cpu_student/model.py": "dc49fb8ed8fb027f8d48571a21da481ad9d10998f9ff3bc9127cca4706c65fb8",
+    "ml/lab/cpu_student/train.py": "696ccbb1cb65b3b4f86ca0dde3424773056d9bb1d30b0e8f9fa03a42f648e7c9",
+    "ml/runtime/constants.py": "1c0494094170f9b9b0c14aaac2145fee0eeb2315db88132e643f32c442e3fd36"
+  }
+}

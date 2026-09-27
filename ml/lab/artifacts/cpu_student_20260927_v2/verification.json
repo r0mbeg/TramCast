@@ -1,0 +1,8 @@
+{
+  "checks": "passed",
+  "load_model_and_history_seconds": 0.041031917091459036,
+  "features_predict_median_seconds": 0.04532362497411668,
+  "peak_rss_mib": 167.359375,
+  "boundary_dates_checked": 6,
+  "gpu_libraries_loaded": false
+}

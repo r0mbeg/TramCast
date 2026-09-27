@@ -6,70 +6,66 @@
 `make prepare-ml-data` выпускает отдельный пакет из новых событий или почасовой истории.
 Нужны внешние снимки с покрытием нового периода; включение версии выполняется отдельно.
 
-Микросервис запускает **рецепт посылки 030**: TabPFN корректирует почасовой профиль подготовленного базового прогноза 029. При отсутствии результата в локальном кэше выполняется вызов модели; повторные запросы используют SQLite-кэш. Текущий подготовленный период — ноябрь–декабрь 2025, десять маршрутов, 14 640 часов.
+Основной режим — **CPU CatBoost**, дистиллированный из 030; тяжёлый **TabPFN 030** сохранён для ручного выбора оператором. На промахе SQLite-кэша выполняется реальное вычисление выбранной модели. Период обоих поставочных пакетов — ноябрь–декабрь 2025, 10 маршрутов, 14 640 часов. По сообщению пользователя закрытые scores: CPU **0.88362**, GPU **0.88543**.
 
 Основное хранение опубликованных прогнозов и очередь — в Go/PostgreSQL. SQLite внутри ML нужен для повторных вычислительных запросов и не заменяет БД продукта. Интеграция Go и UI ещё не завершена.
 
-**Запуск из репозитория:** [короткая инструкция](docs/HANDOFF.md) — установка весов, GPU-режим с кэшем, проверочный запрос и вариант без GPU. Код передаётся через GitHub, отдельный архив не нужен.
+**Запуск из репозитория:** [короткая инструкция](docs/HANDOFF.md) — основной CPU-режим, установка весов, ручное переключение CPU/GPU и проверочный запрос. Код передаётся через GitHub, отдельный архив не нужен.
+
+**Развёрнутый GPU-сервис:** [доступ для backend, проверки и ограничения безопасности](docs/GPU_SERVER.md). Запущен без Docker через пользовательский systemd, доступен по SSH-туннелю.
 
 ## Структура
 
 | Путь | Назначение |
 |---|---|
-| `runtime/` | gRPC, проверка результата, локальный кэш, вызов TabPFN, клиент и тесты |
+| `runtime/` | gRPC, проверка результата, локальный кэш, вызов CPU CatBoost или TabPFN, клиент и тесты |
+| `recipes/catboost-cpu/` | Подготовленные признаки CPU и происхождение модели; веса отдельно |
 | `recipes/tabpfn-030/` | Подготовленные признаки, базовый прогноз, конфигурация и лицензия; готового результата TabPFN здесь нет |
 | `models/` | Локальные веса модели, устанавливаются отдельно, исключены из Git |
 | `cache/` | Удаляемый кэш вычислений, исключён из Git |
 | `lab/` | Действующий полигон поиска моделей и история исследований |
 | `bundles/002/` | Сохранённый прогноз Chronos для контроля и воспроизведения прежнего сервиса |
 | `bundles/030/` | Проверенный результат GPU-прогона 030 для интеграции без GPU; отдельный ID режима replay |
-| `compose.yaml` | Самостоятельный запуск replay/GPU и установка весов |
+| `compose.yaml` | Основной CPU, ручной GPU/replay и установка весов |
 | `docs/` | Интеграция, находки и дальнейшие этапы |
 
-`002` — исторический номер конкурсной посылки. `bundles` содержит готовый результат с метаданными, отдельно от кода. Основной сервис теперь использует рецепт **030**, а не CSV 002. Номера посылок не служат ключами кэша: ключи зависят от содержимого и настроек.
+`002` — исторический номер конкурсной посылки. `bundles` содержит готовый результат с метаданными, отдельно от кода. Основной сервис использует **CPU CatBoost**, GPU-рецепт 030 выбирается явно. Номера посылок не служат ключами кэша: ключи зависят от содержимого и настроек.
 
 ## Запуск
 
-Из корня, Python 3.12:
+Из корня, после установки файла весов по [инструкции](docs/HANDOFF.md):
 
 ```sh
-python3 -m venv ml/.venv
-ml/.venv/bin/python -m pip install -r ml/runtime/requirements-inference.txt
-make prepare-ml-model PYTHON="$PWD/ml/.venv/bin/python"
-make run-ml PYTHON="$PWD/ml/.venv/bin/python"
+docker compose -f ml/compose.yaml up -d --build --wait ml-cpu
 ```
 
-Установка модели один раз скачивает закреплённый checkpoint и проверяет SHA256. При запросах интернет не используется. TabPFN: **Built with PriorLabs-TabPFN**; [условия весов](recipes/tabpfn-030/LICENSE.txt). Рабочий конфиг использует NVIDIA GPU для расчёта; готовый кэш выдаётся на CPU без запуска модели. CPU-расчёт доступен через отдельный конфиг с `device=cpu`, но локальный проверочный прогон превысил 15 минут. Пример с достаточным deadline:
-
-```sh
-PYTHONPATH=ml/runtime/generated ml/.venv/bin/python ml/runtime/client.py \
-  --route 1 --from 2025-11-01T00:00:00+03:00 --to 2025-11-02T00:00:00+03:00 --timeout 900
-```
-
-Адрес — `127.0.0.1:50051`. Docker на Linux-хосте с NVIDIA Container Toolkit: после установки весов выполнить `docker compose up -d --build ml`; Compose выделяет одну GPU, внутри сети адрес `ml:50051`. Веса подключаются только для чтения, кэш — отдельным volume. Порт на хост не публикуется. Холодные расчёты выполняются последовательно, поэтому несколько пользовательских запросов не умножают расход видеопамяти.
+Для локального Python используйте `runtime/requirements-cpu.txt` и `make run-ml`.
+Корневой `docker compose up -d --build ml` также использует CPU; адрес внутри
+сети — `ml:50051`. Модель и кэш подключаются отдельными томами.
+GPU-режим и лицензия TabPFN: [инструкция](docs/HANDOFF.md).
 
 ## Версии и ручной пересчёт
 
 Перед регистрацией версии в Go получить её идентификаторы:
 
 ```sh
-PYTHONPATH=ml/runtime/generated ml/.venv/bin/python ml/runtime/service.py --describe
+PYTHONPATH=ml/runtime/generated ml/.venv-cpu/bin/python ml/runtime/service.py --describe
 ```
 
 Ручной пересчёт создаёт новый конфигурационный файл с новым идентификатором поколения, сохраняя старый кэш:
 
 ```sh
-PYTHONPATH=ml/runtime/generated ml/.venv/bin/python ml/runtime/service.py --refresh /tmp/tramcast-refresh.json
-PYTHONPATH=ml/runtime/generated ml/.venv/bin/python ml/runtime/service.py --config /tmp/tramcast-refresh.json --describe
-PYTHONPATH=ml/runtime/generated ml/.venv/bin/python ml/runtime/service.py --config /tmp/tramcast-refresh.json --warm-cache
-PYTHONPATH=ml/runtime/generated ml/.venv/bin/python ml/runtime/service.py --config /tmp/tramcast-refresh.json
+PYTHONPATH=ml/runtime/generated ml/.venv-cpu/bin/python ml/runtime/service.py --refresh /tmp/tramcast-refresh.json
+PYTHONPATH=ml/runtime/generated ml/.venv-cpu/bin/python ml/runtime/service.py --config /tmp/tramcast-refresh.json --describe
+PYTHONPATH=ml/runtime/generated ml/.venv-cpu/bin/python ml/runtime/service.py --config /tmp/tramcast-refresh.json --warm-cache
+PYTHONPATH=ml/runtime/generated ml/.venv-cpu/bin/python ml/runtime/service.py --config /tmp/tramcast-refresh.json
 ```
 
 Последняя команда запускается вместо прежнего процесса на том же порту. Сохраните новый конфиг в постоянном месте для следующих запусков и закрепите его ID как новую версию в Go. `--warm-cache` сразу вызывает модель для нового поколения; если его пропустить, это сделает первый запрос. Повторные запросы и перезапуск с тем же конфигом используют кэш. Команда не удаляет прежние результаты и не переключает работающий backend автоматически.
 
 ## Проверки и ограничения
 
-`make test-ml-service PYTHON="$PWD/ml/.venv/bin/python"` проверяет gRPC, клиента, постоянный кэш, конкурентные промахи, отмену и ручные версии. Для этих быстрых проверок достаточно `runtime/requirements.txt`; веса и ML-зависимости не нужны. `make test-ml` — тот же набор.
+`make test-ml-service PYTHON="$PWD/ml/.venv-cpu/bin/python"` проверяет gRPC, клиента, постоянный кэш, конкурентные промахи, отмену и ручные версии. Для этих быстрых проверок достаточно `runtime/requirements.txt`; веса и ML-зависимости не нужны. `make test-ml` — тот же набор.
 
 `--bundle ml/bundles/030/forecast_bundle.json` включает проверенный replay 030 без ML-зависимостей; `bundles/002/forecast_bundle.json` — прежний Chronos-контроль. Для обоих Docker собирается с `--target serving`, а самостоятельный Compose явно выбирает 030. Сгенерированный gRPC-код обновляется через `make proto-generate-python` после установки `runtime/requirements-proto.txt`.
 

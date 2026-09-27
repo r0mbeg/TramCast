@@ -176,10 +176,12 @@ Go раздаёт и API, и собранный фронтенд. Отдельн
 
 ## Python ML
 
-`make run-ml` запускает gRPC на `127.0.0.1:50051`; `make test-ml-service` проверяет реальный сетевой вызов и контракт. `make test-ml` запускает тот же набор сервиса и клиента; исследовательские проверки находятся в полигоне `ml/lab/`. Переменная `PYTHON` выбирает интерпретатор; для venv передавайте абсолютный путь, поскольку цели запуска работают из `ml/runtime/`. Зависимости сервиса с пересчётом — `ml/runtime/requirements-inference.txt`, быстрых тестов — `ml/runtime/requirements.txt`, исследований — `ml/lab/requirements.txt`, генератора — `ml/runtime/requirements-proto.txt`.
+`make run-ml` запускает gRPC на `127.0.0.1:50051`; `make test-ml-service` проверяет реальный сетевой вызов и контракт. `make test-ml` запускает тот же набор сервиса и клиента; исследовательские проверки находятся в полигоне `ml/lab/`. Переменная `PYTHON` выбирает интерпретатор; для venv передавайте абсолютный путь, поскольку цели запуска работают из `ml/runtime/`. Зависимости основного CPU-сервиса — `ml/runtime/requirements-cpu.txt`, тяжёлого GPU-режима — `ml/runtime/requirements-inference.txt`, быстрых тестов — `ml/runtime/requirements.txt`, исследований — `ml/lab/requirements.txt`, генератора — `ml/runtime/requirements-proto.txt`.
 
 `make proto-generate-python` генерирует Python из того же `.proto`, что используется Go. Сгенерированный код хранится в `ml/runtime/generated/`.
 
 ML находится в необязательном профиле `ml`; обычный запуск приложения не требует GPU. `docker compose up -d --build ml` явно включает этот сервис и запускает только ML. Внутри сети Compose адрес — `ml:50051`; порт не публикуется на хост. Сервис не зависит от PostgreSQL. Текущий Go-клиент ещё не реализован: добавление сервиса не означает готовности полного пользовательского сценария.
 
-Перед запуском ML с пересчётом установите веса: `make prepare-ml-model PYTHON=<абсолютный путь>`. Основной рецепт — 030; Compose требует NVIDIA GPU и NVIDIA Container Toolkit для холодного расчёта, локальный SQLite-кэш сохраняется в volume `ml-cache`. Выдача кэша выполняется на CPU; руководство — [ML README](../ml/README.md).
+Перед запуском основного CPU-режима положите `dense-student-v3.cbm` в `ml/models/`.
+Корневой Compose больше не резервирует GPU для ML. Ручной выбор тяжёлого режима
+и передача двух моделей организаторам описаны в [инструкции](../ml/docs/HANDOFF.md).

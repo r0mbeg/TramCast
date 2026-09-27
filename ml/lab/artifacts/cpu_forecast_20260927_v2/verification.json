@@ -1,0 +1,11 @@
+{
+  "checks": "passed",
+  "training_future_poison": "passed",
+  "prediction_future_poison": "passed",
+  "exact_training_cutoff": "passed",
+  "boundary_dates": 6,
+  "load_model_history_seconds": 0.06942354107741266,
+  "median_features_predict_seconds": 0.05058183305663988,
+  "peak_rss_mib": 182.65625,
+  "gpu_libraries_loaded": false
+}

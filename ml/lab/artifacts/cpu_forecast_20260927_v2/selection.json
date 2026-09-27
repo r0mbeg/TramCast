@@ -1,0 +1,9 @@
+{
+  "candidate": 1,
+  "params": {
+    "depth": 7,
+    "iterations": 500
+  },
+  "model_weight": 0.5,
+  "mean_dev_wape": 0.18275164872792846
+}

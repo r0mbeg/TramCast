@@ -1,0 +1,27 @@
+?   	github.com/r0mbeg/TramCast/backend/cmd/enqueue-prediction-jobs	[no test files]
+?   	github.com/r0mbeg/TramCast/backend/cmd/import-catalog	[no test files]
+?   	github.com/r0mbeg/TramCast/backend/cmd/register-forecast-version	[no test files]
+?   	github.com/r0mbeg/TramCast/backend/cmd/tramcast	[no test files]
+ok  	github.com/r0mbeg/TramCast/backend/internal/core/config	0.026s
+ok  	github.com/r0mbeg/TramCast/backend/internal/core/domain	0.002s
+ok  	github.com/r0mbeg/TramCast/backend/internal/core/logger	0.004s
+ok  	github.com/r0mbeg/TramCast/backend/internal/core/repository/postgres	0.003s
+ok  	github.com/r0mbeg/TramCast/backend/internal/core/repository/postgres/testdb	0.004s
+ok  	github.com/r0mbeg/TramCast/backend/internal/core/transport/http	0.033s
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/catalog/repository/osm	0.014s
+?   	github.com/r0mbeg/TramCast/backend/internal/features/catalog/repository/postgres/sqlc	[no test files]
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/catalog/repository/xlsx	0.025s
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/catalog/service	0.036s
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/forecasts/predictor/grpc	0.233s
+?   	github.com/r0mbeg/TramCast/backend/internal/features/forecasts/repository/postgres/sqlc	[no test files]
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/forecasts/service	0.021s
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/forecasts/worker	0.019s
+?   	github.com/r0mbeg/TramCast/backend/internal/features/routes/repository/postgres/sqlc	[no test files]
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/routes/service	0.006s
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/routes/transport/http	0.005s
+?   	github.com/r0mbeg/TramCast/backend/internal/features/stops/repository/postgres/sqlc	[no test files]
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/stops/service	0.003s
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/stops/transport/http	0.009s
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/web/service	0.004s
+ok  	github.com/r0mbeg/TramCast/backend/internal/features/web/transport/http	0.017s
+?   	github.com/r0mbeg/TramCast/backend/internal/gen/tramcast/forecast/v1	[no test files]

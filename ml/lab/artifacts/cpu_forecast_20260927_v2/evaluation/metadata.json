@@ -1,0 +1,172 @@
+{
+  "calendar": {
+    "coverage": [
+      "2025-01-01",
+      "2025-12-31"
+    ],
+    "known_at": "2024-10-04",
+    "retrieved_at": "2026-09-26",
+    "scope": "Russian federal five-day working-week calendar; demand feature, not tram operating schedule",
+    "acquisition": "Manual extraction of dates from official sources via web search/open; government document and news text retrieved through search index because direct open failed. No raw page snapshot retained.",
+    "sources": [
+      {
+        "id": "holidays",
+        "url": "https://mintrud.gov.ru/labour/relationship/351",
+        "published_at": "2019-05-31",
+        "title": "Количество нерабочих праздничных дней установлено 112 статьей Трудового кодекса",
+        "used": "Annual federal holiday dates only; the article's proposed 2020 transfers are not used"
+      },
+      {
+        "id": "transfers",
+        "url": "https://government.ru/docs/all/155500/",
+        "published_at": "2024-10-04",
+        "title": "Постановление Правительства РФ от 04.10.2024 № 1335",
+        "corroborating_url": "https://government.ru/news/52895/"
+      }
+    ],
+    "holidays": [
+      "2025-01-01",
+      "2025-01-02",
+      "2025-01-03",
+      "2025-01-04",
+      "2025-01-05",
+      "2025-01-06",
+      "2025-01-07",
+      "2025-01-08",
+      "2025-02-23",
+      "2025-03-08",
+      "2025-05-01",
+      "2025-05-09",
+      "2025-06-12",
+      "2025-11-04"
+    ],
+    "transfers": {
+      "2025-01-04": "2025-05-02",
+      "2025-01-05": "2025-12-31",
+      "2025-02-23": "2025-05-08",
+      "2025-03-08": "2025-06-13",
+      "2025-11-01": "2025-11-03"
+    },
+    "working_weekends": [
+      "2025-11-01"
+    ],
+    "excluded": [
+      "school holidays",
+      "regional holidays",
+      "shortened working-day adjustments",
+      "weather",
+      "transport schedules"
+    ]
+  },
+  "movement": {
+    "coverage": [
+      "2025-01-01",
+      "2025-12-31"
+    ],
+    "sources": [
+      "ml/lab/artifacts/portfolio_20260926/external/EVENTS.md",
+      "ml/lab/artifacts/portfolio_20260926/continuation/external/july_restoration_sources.json"
+    ],
+    "note": "Historical recipe intervals. Extending coverage requires reviewing new notices; absence of new events is an explicit assumption, not an automatic fact.",
+    "events": {
+      "april17": [
+        {
+          "routes": [
+            17
+          ],
+          "start": "2025-04-05",
+          "end": "2025-04-30",
+          "weekdays": [
+            5,
+            6
+          ]
+        }
+      ],
+      "july": [
+        {
+          "routes": [
+            7,
+            50
+          ],
+          "start": "2025-07-10",
+          "end": "2025-08-06"
+        }
+      ],
+      "july_verified": [
+        {
+          "routes": [
+            7,
+            50
+          ],
+          "start": "2025-07-10",
+          "end": "2025-08-10"
+        }
+      ],
+      "autumn": [
+        {
+          "routes": [
+            7,
+            50
+          ],
+          "start": "2025-09-06",
+          "end": "2025-11-14",
+          "weekdays": [
+            5,
+            6
+          ]
+        }
+      ],
+      "august7": [
+        {
+          "routes": [
+            7
+          ],
+          "start": "2025-08-16",
+          "end": "2025-09-05",
+          "weekdays": [
+            5,
+            6
+          ]
+        }
+      ]
+    }
+  },
+  "model_version": "evaluation-only",
+  "features": [
+    "route",
+    "hour",
+    "weekday",
+    "month",
+    "day_of_year",
+    "horizon",
+    "origin_day",
+    "target_year",
+    "is_workday",
+    "movement_april17",
+    "movement_july_verified",
+    "movement_august7",
+    "movement_autumn",
+    "profile_all",
+    "profile_112",
+    "profile_28",
+    "route_hour",
+    "route_level",
+    "history_age",
+    "history_days"
+  ],
+  "route_scales": {
+    "1": 814.0,
+    "11": 1524.0,
+    "12": 1494.5,
+    "17": 2478.0,
+    "25": 329.0,
+    "26": 767.0,
+    "28": 459.0,
+    "50": 865.5,
+    "7": 957.5,
+    "5": 1.0
+  },
+  "model_weight": 0.5,
+  "training_target_end": "2025-08-31",
+  "model_sha256": "9fff9a5587531f675b186993b59fc529bc041d0cedca6e05857798c082eaa9f1"
+}

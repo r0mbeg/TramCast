@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "new_tests": 4,
+  "discovery_tests": 14,
+  "raw_preparation_repeated": true,
+  "shared_model_fit_repeated": true,
+  "all_24_model_scores_repeated": true,
+  "comparisons": {
+    "data/blocks.csv": "a99da0e01b259a526c08f64f1705310183f8741ef50484e995e63905cf2d6e14",
+    "data/counts.npz": "625a0fe570a2219c406448f9ddf3c9ffd810dfe45b37f06681bfe95c7e6f819f",
+    "data/summary.json": "1b9c874157e60b79ba5d577cdbce0214b736f4bf97cd0051e8e3c74e08bda418",
+    "fit/parameters.json": "exact except elapsed_seconds",
+    "fit/selection.json": "exact except elapsed_seconds",
+    "evaluation/per_block_scores.json": "dfb757ca161fd4ceec4214990edce6ef3ae0bcc1b968b2dbc01f0c6ab2125f1a"
+  },
+  "summary_exact_except_elapsed_seconds": true,
+  "stop_accuracy_verified": false
+}

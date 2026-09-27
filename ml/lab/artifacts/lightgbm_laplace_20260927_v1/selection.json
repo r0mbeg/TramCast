@@ -1,0 +1,9 @@
+{
+  "candidate": 1,
+  "params": {
+    "num_leaves": 31,
+    "n_estimators": 500
+  },
+  "model_weight": 0.5,
+  "mean_dev_wape": 0.18299677448386303
+}

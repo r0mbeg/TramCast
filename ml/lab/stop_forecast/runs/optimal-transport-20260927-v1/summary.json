@@ -1,0 +1,82 @@
+{
+  "selected_hours": 96,
+  "selected_vehicle_days": 65,
+  "held_future_events": 701,
+  "zero_held_future_hours": 6,
+  "log_score_per_event": {
+    "historical": -4.7958307925629065,
+    "equal_spacing": -4.787656239309834,
+    "uniform": -4.787491742782046,
+    "permuted_00": -4.8007699874513134,
+    "permuted_01": -4.791096656951623,
+    "permuted_02": -4.797203645431173,
+    "permuted_03": -4.787390489355295,
+    "permuted_04": -4.78940562474451,
+    "permuted_05": -4.781283132533586,
+    "permuted_06": -4.791672482689931,
+    "permuted_07": -4.786867549996091,
+    "permuted_08": -4.781153477104144,
+    "permuted_09": -4.787419977254463,
+    "permuted_10": -4.7843112145186755,
+    "permuted_11": -4.795087719492925,
+    "permuted_12": -4.790696702325922,
+    "permuted_13": -4.7893942245653935,
+    "permuted_14": -4.793564897307743,
+    "permuted_15": -4.794293389301734,
+    "permuted_16": -4.795610186165232,
+    "permuted_17": -4.785067287608355,
+    "permuted_18": -4.786291486445789
+  },
+  "daily_log_score": {
+    "2025-09-15": {
+      "historical": -4.7837058522059435,
+      "uniform": -4.787491742782046,
+      "equal_spacing": -4.797584810644718
+    },
+    "2025-09-16": {
+      "historical": -4.787557232870634,
+      "uniform": -4.787491742782046,
+      "equal_spacing": -4.787051170561876
+    },
+    "2025-09-17": {
+      "historical": -4.7924157151381195,
+      "uniform": -4.787491742782046,
+      "equal_spacing": -4.7869164820902945
+    },
+    "2025-09-18": {
+      "historical": -4.805428973853212,
+      "uniform": -4.787491742782047,
+      "equal_spacing": -4.7882395785918295
+    },
+    "2025-09-19": {
+      "historical": -4.807366420663204,
+      "uniform": -4.787491742782046,
+      "equal_spacing": -4.781285785365278
+    }
+  },
+  "gain_vs_mean_permutation": -0.0059055224974375875,
+  "descriptive_vehicle_day_bootstrap_95": [
+    -0.014460680593426502,
+    0.001873079724691135
+  ],
+  "historical_beats_permutations": 2,
+  "promotion_gate_passed": false,
+  "stop_mae": null,
+  "stop_wape": null,
+  "verified_stop_assignments": 0,
+  "forecast_artifact": null,
+  "status": "temporal_geometry_diagnostic_not_stop_forecast",
+  "version": "OT20260927-v1",
+  "source_hours": 1392,
+  "weekday_hours": 1111,
+  "eligible_hours": 1094,
+  "source_events": 169368,
+  "selected_prefix_reference_events": 6577,
+  "selected_future_reference_events_unused": 3263,
+  "selected_hour_events": 11910,
+  "cycle_distance_m": 36030.38409263095,
+  "historical_positions": 91,
+  "mean_max_hypothesis_weight": 0.2082342529089071,
+  "mean_matched_peak_fraction": 0.9963454447049974,
+  "elapsed_seconds": 49.228611874976195
+}

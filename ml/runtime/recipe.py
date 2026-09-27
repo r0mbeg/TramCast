@@ -21,6 +21,7 @@ MODEL_SHA = "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736"
 
 
 class Recipe:
+    worker = "model_030.py"
     def __init__(self, path):
         self.path = Path(path).resolve()
         self.spec = json.loads(self.path.read_text())
@@ -89,7 +90,7 @@ class Recipe:
                        OMP_NUM_THREADS=str(spec["threads"]), MKL_NUM_THREADS=str(spec["threads"]),
                        OPENBLAS_NUM_THREADS=str(spec["threads"]))
             with (folder/"worker.log").open("w+") as log:
-                process = subprocess.Popen([sys.executable, str(ROOT/"model_030.py"),
+                process = subprocess.Popen([sys.executable, str(ROOT/self.worker),
                     "--spec", str(folder/"spec.json"), "--output", str(folder/"forecast.csv")],
                     env=env, stdout=log, stderr=log)
                 try:

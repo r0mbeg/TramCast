@@ -1,0 +1,70 @@
+{
+  "hypothesis": "LightGBM fixed-scale Laplace location regression improves the observed-target CPU recipe",
+  "objective": "regression_l1",
+  "interpretation": "Laplace location / MAE; no learned scale or prediction intervals",
+  "docs": "https://lightgbm.readthedocs.io/en/latest/Parameters.html#objective",
+  "candidates": [
+    {
+      "num_leaves": 15,
+      "n_estimators": 350
+    },
+    {
+      "num_leaves": 31,
+      "n_estimators": 500
+    }
+  ],
+  "model_weights": [
+    0.5,
+    1.0
+  ],
+  "learning_rate": 0.06,
+  "min_child_samples": 40,
+  "reg_lambda": 1.0,
+  "development": [
+    [
+      "2025-04-30",
+      "2025-05-01"
+    ],
+    [
+      "2025-06-30",
+      "2025-07-01"
+    ]
+  ],
+  "test": [
+    "2025-09-01",
+    "2025-10-31"
+  ],
+  "test_fit_end": "2025-08-31",
+  "final_fit_end": "2025-10-31",
+  "selection": "Mean WAPE on two development windows only; September/October already viewed, no tuning there",
+  "features_and_training_examples": "Identical to cpu_forecast_20260927_v2 including cold-start sampling and weights",
+  "baseline_closed_score": {
+    "value": 0.8563,
+    "source": "user report in conversation",
+    "independently_verified": false,
+    "submission_sha256": "e72976c1f8b70c9307dba44f2c7134d65b8b698c4de8b805b2b1cbf513995efe"
+  },
+  "threads": 2,
+  "seed": 42,
+  "budget_seconds": 1800,
+  "teacher_used_in_training": false,
+  "versions": {
+    "lightgbm": "4.7.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "sources_sha256": {
+    "ml/lab/artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "ml/lab/artifacts/calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "ml/preparation/movement_calendar.json": "7c3c3fcc5a3b62e4a15f09d6168758d363e375696cd16dfce4b9f3ada71438c3",
+    "ml/lab/cpu_forecast/lightgbm_laplace.py": "9dd4eda3456c039d08a85ce99014e478a284fe0befdd531984617625fa89df17",
+    "ml/lab/cpu_forecast/train.py": "c921b976a81be368effe274412a012d3370a64aa545efb52a13b915dad16fbe7",
+    "ml/lab/cpu_forecast/model.py": "5b6277cbf9a1961da28e4ce1c70f8ba8dd8ad3783936f397faf10565668b7bf9",
+    "ml/lab/cpu_student/model.py": "dc49fb8ed8fb027f8d48571a21da481ad9d10998f9ff3bc9127cca4706c65fb8",
+    "ml/lab/cpu_student/train.py": "696ccbb1cb65b3b4f86ca0dde3424773056d9bb1d30b0e8f9fa03a42f648e7c9",
+    "ml/runtime/constants.py": "1c0494094170f9b9b0c14aaac2145fee0eeb2315db88132e643f32c442e3fd36",
+    "ml/lab/artifacts/cpu_forecast_20260927_v2/submission.csv": "e72976c1f8b70c9307dba44f2c7134d65b8b698c4de8b805b2b1cbf513995efe",
+    "ml/lab/artifacts/cpu_forecast_20260927_v2/test_september_october.csv": "2e52ce64f6daf1784c230a8da13913f28f85a872442d3f105c311a6940eb07fa"
+  }
+}

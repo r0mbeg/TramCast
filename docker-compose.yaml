@@ -35,14 +35,7 @@ services:
     build:
       context: .
       dockerfile: ml/Dockerfile
-      target: inference
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+      target: cpu
     volumes:
       - ./ml/models:/app/ml/models:ro
       - ml-cache:/app/ml/cache

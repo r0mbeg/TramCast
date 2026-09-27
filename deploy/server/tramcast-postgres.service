@@ -1,0 +1,41 @@
+[Unit]
+Description=TramCast private PostgreSQL 18
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+ExecStart=%h/tramcast-app/tools/pgsql/bin/postgres -D %h/tramcast-app/pgdata
+ExecStartPost=/bin/sh -c 'until %h/tramcast-app/tools/pgsql/bin/pg_isready -q -h 127.0.0.1 -p 54329; do sleep 1; done'
+TimeoutStartSec=30
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=60
+UMask=0077
+LimitCORE=0
+MemoryMax=2G
+TasksMax=128
+CPUAffinity=2 3
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+RestrictSUIDSGID=yes
+RestrictRealtime=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+RestrictAddressFamilies=AF_UNIX AF_INET
+PrivateUsers=yes
+PrivateTmp=yes
+PrivateIPC=yes
+ProtectSystem=strict
+ProtectControlGroups=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectProc=ptraceable
+ProtectHome=tmpfs
+InaccessiblePaths=-/run/dbus -/run/systemd/private
+BindReadOnlyPaths=%h/tramcast-app/tools/pgsql
+BindPaths=%h/tramcast-app/pgdata %h/tramcast-app/pgsocket
+
+[Install]
+WantedBy=default.target

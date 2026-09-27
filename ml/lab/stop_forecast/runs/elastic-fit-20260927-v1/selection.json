@@ -1,0 +1,26 @@
+{
+  "persistence": 0.0,
+  "candidates": [
+    {
+      "persistence": 0.0,
+      "short_reference_score": -308.60920607620335,
+      "short_reference_count": 123
+    },
+    {
+      "persistence": 0.9,
+      "short_reference_score": -310.42126093140837,
+      "short_reference_count": 123
+    }
+  ],
+  "criterion": "masked reference short log score on equal-spacing, no held/test targets",
+  "validation_date": "2025-09-22",
+  "validation_blocks": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "frozen_before_test": true
+}

@@ -1,0 +1,25 @@
+{
+  "version": "OT20260927-v1",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "pandas": "2.2.3"
+  },
+  "inputs": {
+    "ml/lab/stop_forecast/optimal_transport.py": "cdf265ebfdc2928cf5cbc1dab68beed2245a3d01e3cef1ce444610c94495058e",
+    "ml/lab/stop_forecast/OT_PROTOCOL.md": "89e1520d420e317c6840d7d47c40bc4fdf43218cfdfc3e329074d078849c664f",
+    "ml/lab/stop_forecast/test_optimal_transport.py": "90957703193e02ad1866b5775d7522566d432dc87774d0e638f91cbc43147a34",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/stop_forecast/build_metro_access.py": "e747ef72b75b1b4b4d055ac850ecb23fca912963d66b50e536b4b65b233706a5",
+    "ml/lab/stop_forecast/runs/historical-geometry-20260927-v1/manifest.json": "c9b60901bbefa11f3034e680808ff18514f549bcdd83be01ed1740eb7b854343",
+    "ml/lab/stop_forecast/runs/historical-geometry-20260927-v1/historical_occurrences.csv": "d142815bc09d4d305ca824eacccdae5b0bdad5791fa970552f38d323581df850",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/manifest.json": "a15ec5c8e581331e78bc5fefa7ab28c55f4aa6cbb550c2fa8edd45c67d500989",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/device_hour_scores.csv": "5b49bfe190b4ea86c552a0608814f6d25dbeaf67127361ca33506eed14cbaa26",
+    "ml/lab/stop_forecast/runs/device-holdout-20260927-v1/binned_counts.npz": "d778e5341fc95e84dc8a9d889b4135a0bfbddb3085b79243baf897f50816214f"
+  },
+  "outputs": {
+    "summary.json": "39c0360fd46d485fb000cfd98aefc0a76ec95aa80ec63557e62510872c369d31",
+    "hour_scores.json": "92296b06e190c7287455923c6318e07ddb1ae71a0ab530f1c74edc58f61fb0e9"
+  }
+}

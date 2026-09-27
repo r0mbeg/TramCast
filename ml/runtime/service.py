@@ -165,7 +165,7 @@ def main():
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--bundle", type=Path, help="Explicit replay of a precomputed package")
     mode.add_argument("--config", type=Path, default=os.environ.get("ML_CONFIG"),
-                      help="Prepared recipe; defaults to ML_CONFIG or tabpfn-030")
+                      help="Prepared recipe; defaults to ML_CONFIG or catboost-cpu")
     parser.add_argument("--cache", type=Path, default=ROOT.parent / "cache" / "forecasts.sqlite3")
     parser.add_argument("--stop-bundle", type=Path, default=os.environ.get("ML_STOP_BUNDLE", DEFAULT_STOPS),
                         help="Pinned stop profiles; independent of route model/cache")
@@ -177,9 +177,12 @@ def main():
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     recipe = cache = None
     if args.bundle is None:
-        from recipe import Recipe, DEFAULT_RECIPE
+        from recipe import Recipe
+        from recipe_cpu import CPURecipe, DEFAULT_CPU_RECIPE
         from cache import ForecastCache
-        recipe = Recipe(args.config or DEFAULT_RECIPE)
+        config = args.config or DEFAULT_CPU_RECIPE
+        kind = json.loads(Path(config).read_text())["recipe"]
+        recipe = CPURecipe(config) if kind == "catboost-cpu" else Recipe(config)
         if args.refresh:
             recipe.refresh(args.refresh)
             print(json.dumps(dict(config=str(args.refresh.resolve()), next="Start service with --config and this path")))

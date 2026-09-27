@@ -1,0 +1,127 @@
+{
+  "candidates": [
+    {
+      "kind": "catboost",
+      "alpha": 1.0
+    },
+    {
+      "kind": "catboost",
+      "alpha": 0.75
+    },
+    {
+      "kind": "catboost",
+      "alpha": 0.5
+    },
+    {
+      "kind": "lightgbm",
+      "alpha": 1.0
+    },
+    {
+      "kind": "lightgbm",
+      "alpha": 0.75
+    },
+    {
+      "kind": "lightgbm",
+      "alpha": 0.5
+    },
+    {
+      "kind": "lightgbm",
+      "alpha": 0.0
+    }
+  ],
+  "development": [
+    "2025-05-01",
+    "2025-07-01"
+  ],
+  "test": "2025-09-01",
+  "sources_sha256": {
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/dense_student/train.py": "9dddf1e6f3def30c59e8ca9b0bb121ffc554a04e31b444129221b5c6d0560611",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/dense_student/model.py": "8f6a904aa9577250fb1ae3938d1f53216b12143e1f858b391ff7b1cdf5ce6af5",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_student_20260927_v2/PROTOCOL.md": "c4216f9e7ae4bae41f6d559fed27338752d23eebc776d98d2a50800713dac2de",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/hourly_clean.csv": "7031c686c149fcb552711df49d82bab23540d8c80ffa6f140c6d0444138384ae",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/calendar_sources.json": "15f28c5726086ae1b867d961a1badb9901561689f7be36e7dd9eecb6b2cddaf3",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/preparation/movement_calendar.json": "7c3c3fcc5a3b62e4a15f09d6168758d363e375696cd16dfce4b9f3ada71438c3",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/portfolio_20260926/continuation/external/weather_2025.csv": "e2f443b258f6ff93598ef5cddf0b71f8dc0902c4b475eb9c672288dfd32bc074",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/portfolio_20260926/continuation/external/school_calendar/sources.json": "d9925b4d4dea37b5fab7fd34cdf9050e34cdc52b87f8c404c4efacbb8d0b55ae",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/cpu_student/model.py": "dc49fb8ed8fb027f8d48571a21da481ad9d10998f9ff3bc9127cca4706c65fb8",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/cpu_forecast/model.py": "5b6277cbf9a1961da28e4ce1c70f8ba8dd8ad3783936f397faf10565668b7bf9",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/cpu_student/train.py": "696ccbb1cb65b3b4f86ca0dde3424773056d9bb1d30b0e8f9fa03a42f648e7c9",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/cpu_forecast/train.py": "c921b976a81be368effe274412a012d3370a64aa545efb52a13b915dad16fbe7",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/portfolio_20260926/continuation/tabular_shape/study/tabular_shape/selected/raw_2025-08-31.csv": "8fc2496c1545a98472fce285cf573d47c8eff49e598fb11d8135033b793aafd3",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/bundles/030/forecast.csv": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-04-09.csv": "afde5da3aa47585cfb627a8ac668fa789e64b48b9375079b8addcba6de5a79bf",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-04-09.json": "eb80e2dfaa33e48fd6a3161e9d9d87eadfb18d4156c7b12abc4b5638b50a1e56",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-04-16.csv": "41c701d759e2057c795dad96db09646552e876bbcf51a783e5325eaca9871583",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-04-16.json": "560f5401e1a98fa1ed51cdfaeb0c5333c1377447d1815afcf4ebaf07028d4b51",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-04-23.csv": "ee28566b5423c13a84b9bee1d0dc570450f49a3a907e3fa437c07505473d1b0a",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-04-23.json": "6bbb6a80499f4510a6cdb9db55a985fb8d6a175591ef5ade27b64013a9938d9c",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-04-30.csv": "8c6a2dddef8bb080d483d34aa86063838a2e14792c5e92f2b05f22bce6cede1d",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-04-30.json": "610469a816bd7202f81384aced31b2299b4f63059ed81de4f70762ca1efa602e",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-07.csv": "a2f51a58910cb3f21d3af4cd3b2049b0bf19bec5b102ecd5e61dfd32dfac7777",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-07.json": "35e426e83e2a510fb61a61ff6999b05eb787ae4a65636b4a93bc112c6d50d107",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-14.csv": "ece81f7b97fc3b59fb85fd09f2847f395aff287b6ab69e8ccfa0c55addade2b8",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-14.json": "8a1d1bcac201691cf0ffdea9590d22a59df2fcba30636436a6666037e71fb03c",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-21.csv": "961416e66d9c87608972f1e524324066e8528f4596ad29f7084641007a53c139",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-21.json": "1f7d111815908a963b8a5891b7fb23c40330c3d7226306e803e913da6a5dbb58",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-28.csv": "683e9ba00a29bed09e3fc39fd8e17961bcf71031c39f99a853dc3ad29aadddb4",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-28.json": "d95c58505cba75557485e3922ea4bdbf313bceb21b1f27881c7991bad9aa900e",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-31.csv": "8fb38f65752bb44756fdb70ce3dacc4799125d973b8a2f1fba2049f2e2048071",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-05-31.json": "d2bfdf8b9f2a1837d69760cf72fcc285979120e90e558627e03adc494ce7b4b7",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-06-04.csv": "1812c8b8939930dbc2202f4951c88da335890ea55238f03956eb81b9671aff1d",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-06-04.json": "a65028ee217180f4a480e0097a5774e645f4c80e674b739e1d0732b21d063bb1",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-06-11.csv": "dd59ace4f651ecb74410d09920e097b9d18d6d572c74992994010e5a23179f25",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-06-11.json": "aa67b49e27b1b81b05321b0fdb901b6388bc8432141f26bb60e883745f8e398b",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-06-18.csv": "efe473f44e44501115b36baa0edfeea773a3d6f43b0c8b8f46d66ea69137280f",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-06-18.json": "b18c1969be588aa53bc9fc1850cfea1f5e522d76da67ee8cc9f1c344c77ea39e",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-06-25.csv": "20e5ee63bd927c9c1830781655e3f470c6f9630dff35c8c7944af596df7cc6e2",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-06-25.json": "3fdd9d5aec5e9dac62784e52d0e779e98179de368dd4e51db91d89fd96a40670",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-02.csv": "6deb6d1f87be3ae2e843c7f8c1854f9746e3b2143a8f311f5314f035399bcd75",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-02.json": "a975c484494b89825014865c6af28e0ac9a24aa2d1a86b338782a08d9595ede7",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-09.csv": "906ea15671672217cdd747b3bd8a414880a74bb448bc64eb25d8aee61679ac32",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-09.json": "13b1bfc2883f8394011b187f27ce6d1cccf8b5778fb6f86a3afbd650679a0b07",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-16.csv": "e5f2d5accbe345ac1cce44d53770de047ef254d205b647c816858451e504fc6a",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-16.json": "c08d0c2a6ff5f9cb940f0279584637019ecc4fc957a7909eb7606167437c1e9c",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-23.csv": "97fc6ab6f6f3af98752c1813bf60c6016212df25ea4112a5fe22350969bc1b4e",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-23.json": "f459c618a65f7409dfee022081ce3fabfb7f478d7c82c25396b4e3d10bb7d8b6",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-30.csv": "86ea188be3181874edcc543fdeb0f523193890e88991292916bd62aaedb3371b",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-07-30.json": "e74d3f2338102e94b12d3a77a138ffdd9c4de793345f8b0d0d1f78ac18e6633d",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-08-06.csv": "70be3d8a7af59362cf76d28078cf5917fe9a39b6a0a3a294276911a287ab8350",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-08-06.json": "8c4b6d135e8bde29eaf6e444a710888a1dc1ccd010f8ad2a73e71399cb86a62a",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-08-13.csv": "65a697db7023433e66a8578cd83da632f581bfbee78b606d8257485e5e0ec524",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-08-13.json": "85f5d9ce016a7db7b3d5e79da222f0ee210323dd9e8201f03d9f4bb6a0f740cf",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-08-20.csv": "57edf8b6d757be8dee05aadeec43d4c1b0fc36be05b508f5aa5df9d2d0f442f2",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-08-20.json": "6d5fe68724b6b9f84d703fee6faed9fc50491bc66573ff132ef5903d8aeef293",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-08-27.csv": "b2ec811e3eb596aa42d19e05689483c3cfb8da8abcdb1b2de9739d19ee7e2f84",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-08-27.json": "039f4099de1c0b932dca8fec2b6ec1541ab6070856257ac7e57c930f83493fb2",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-09-03.csv": "4d04509af17efaca99cb3d137ea2a51f79fd75b220d87ffedd98d6c6ce9cffae",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-09-03.json": "59a69af1957ee3fa7ae7127070cf8981bfc70f5eeb252b8f875c20216a6ae3c6",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-09-10.csv": "259d8280cdc9494a9813838622ed33da67c655be976ea046a0f1c9074eaf3618",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-09-10.json": "5f7e7f3a676b50b827279d6bfcf18169ee62814eddbddacc5c3c3a716ae17897",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-09-17.csv": "3105422240af143b5e8be66122461b56574aa349673081fe53bb8564ecd6a996",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-09-17.json": "5e5af12ac6a418545fc844b64f3ed7d5fd281b89458e91677d4f3f4fbfb38ad8",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-09-24.csv": "927561d9a04326947e4675e1e727fc1187d5f4dd541cc1d24c06f7c33dbb2b2c",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-09-24.json": "8fdd53897c6e324f90a83568308b48b6db75fd834844a78893bc29514d7a056d",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-01.csv": "79f98e242a7d79c48ecdfc5e41ebcb6a1305e60b37e4d3e7924a95fd4414f7ae",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-01.json": "41f4ca9736d80c303bc3b2202d7412da8707efca1d9c043df8f93333bfcde545",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-08.csv": "6871a068c2662a33ccdcf85a9d359ca44b9b392e7bc79bcb5b565714862a91ed",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-08.json": "c9381064c4e0cefe6297aa9ca4d532ab301b259c7041e6dd4a02a593628ad2dd",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-15.csv": "ce5e85f927793be2c5693745a70807cdd97a6282f2ab85080a4f5eca7bf7e0ec",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-15.json": "bcb746ab9cf39fd0d1e8d9c12085726516f1fd8fcfd23462ea0c2d2f26433a40",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-22.csv": "5a53b72da24f08aade624918d159af38cc4b0675d2fc38d9869f84fa872f0c6b",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-22.json": "74b47060e3632506ad051f493e72ccf8fe36a6b94fde1b0db7bf531becba93ea",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-29.csv": "18471ac4ddebc8965ab1b6ad38a7f296b3f982b3987dca8be5df557978d53ca3",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_teacher_20260927_v2/teachers/raw_2025-10-29.json": "83f35c9a58f67bae60909291fb20ee65b864d01be17973471378c4257a2241d1",
+    "/Users/michael/Documents/pet-projects/хакатон-мостранс/ml/lab/artifacts/dense_student_20260927_v2/selection.json": "11617a1adb2cbf844cc0af40314f47a9e74ecdba5a414db605a865142391a0b7"
+  },
+  "selection": "mean observed WAPE on development",
+  "gpu_in_student": false,
+  "versions": {
+    "catboost": "1.2.10",
+    "lightgbm": "4.7.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "external_weather": "retrospective ERA5 scenario, not historical weather forecast",
+  "budget_seconds": 1800
+}

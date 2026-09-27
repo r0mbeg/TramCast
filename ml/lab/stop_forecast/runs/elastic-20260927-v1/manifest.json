@@ -1,0 +1,32 @@
+{
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "pandas": "2.2.3"
+  },
+  "inputs": {
+    "ml/lab/stop_forecast/runs/elastic-data-20260927-v1/manifest.json": "67ceef3384a9361c7a9e74344643422b833a1a5a6b8ee2bdb11d262b8c893bef",
+    "ml/lab/stop_forecast/runs/elastic-data-20260927-v1/blocks.csv": "a99da0e01b259a526c08f64f1705310183f8741ef50484e995e63905cf2d6e14",
+    "ml/lab/stop_forecast/runs/elastic-data-20260927-v1/counts.npz": "625a0fe570a2219c406448f9ddf3c9ffd810dfe45b37f06681bfe95c7e6f819f",
+    "ml/lab/stop_forecast/runs/historical-geometry-20260927-v1/manifest.json": "c9b60901bbefa11f3034e680808ff18514f549bcdd83be01ed1740eb7b854343",
+    "ml/lab/stop_forecast/runs/historical-geometry-20260927-v1/historical_occurrences.csv": "d142815bc09d4d305ca824eacccdae5b0bdad5791fa970552f38d323581df850",
+    "ml/lab/stop_forecast/runs/elastic-fit-20260927-v1/manifest.json": "619e29a225ae92335179b063c597786f886634a179800d9f8e3c8f15fa24e708",
+    "ml/lab/stop_forecast/runs/elastic-fit-20260927-v1/parameters.json": "db8735b7230487a27392aa55392047fad5e16e316c52084319f2f078b617a851",
+    "ml/lab/stop_forecast/runs/elastic-fit-20260927-v1/selection.json": "06730afdebf5db0dc668762ce52d2d8c94e3495b4766e98d34c101447e09ba2e",
+    "ml/lab/stop_forecast/elastic_experiment.py": "fcf952db730c43d0095c37d3ee4f065861d3644abf177f1bc53b0615184af647",
+    "ml/lab/stop_forecast/elastic_model.py": "824c472b943f877819dfb0de4838c9747b4b6e672b5fe95a06aa382085ddc303",
+    "ml/lab/stop_forecast/ELASTIC_PROTOCOL.md": "2040bf45d5d41b47e3c46883c4148604dfb8ad78cfffa7d59ea4e242c4473c2e",
+    "ml/lab/stop_forecast/test_elastic.py": "de85ec10ab3de7c37ce68168d2f4f008e69882c4fa5d8ace4a2365555e683c54",
+    "ml/lab/stop_forecast/build_elastic_data.py": "93c65b45d61b78c1e899dfb3badf571e4443981a1dface548d38f7521d787155",
+    "ml/lab/stop_forecast/activity_model.py": "984be72a18f5114446e74c791e17625526d6805a240dbfaf02f7e3a03bfdbaf3",
+    "ml/lab/stop_forecast/duration_model.py": "998ecad2f1f215d7e69573e459af728efa67bfacf9256662ca3e7e5831450053",
+    "ml/lab/stop_forecast/audit.py": "95a155c0274aab5c0bcc9b7fa9d6037b49f57c7d130ed80190d325babf8173f9",
+    "ml/lab/stop_forecast/build_metro_access.py": "e747ef72b75b1b4b4d055ac850ecb23fca912963d66b50e536b4b65b233706a5"
+  },
+  "outputs": {
+    "model_diagnostics.json": "fe88b1697d3467c18cad2cc5d52aab5489572324f2fcee92634a6e9eea18ffe3",
+    "summary.json": "05337371759994379f132e393e373e8f9e43f4ab9d17ef1577bee0bc4ebc0e87",
+    "per_block_scores.json": "dfb757ca161fd4ceec4214990edce6ef3ae0bcc1b968b2dbc01f0c6ab2125f1a"
+  }
+}

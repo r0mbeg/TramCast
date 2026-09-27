@@ -1,0 +1,12 @@
+{
+  "model_reload_exact": true,
+  "full_grid": true,
+  "nonnegative_int64": true,
+  "future_target_mask_poison_unchanged": true,
+  "structural_zeros": true,
+  "year_boundary_requests": true,
+  "sources_unchanged": true,
+  "gpu_modules_loaded": [],
+  "submission_sha256": "538872b074d8ced7f0997e2f1427db4f3dab39db3f3dba0e8be9f80a68a15695",
+  "rows": 14640
+}

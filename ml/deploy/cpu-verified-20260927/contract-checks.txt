@@ -1,0 +1,7 @@
+gRPC bundle 002: all 14640 values, grid, zeros, errors, integrity and cancellation passed.
+gRPC bundle 030: all 14640 values, grid, zeros, errors, integrity and cancellation passed.
+Client: exact values, timezone, zeros, JSON output and error exit codes passed.
+Cache: concurrent miss computed once, restart hit, refresh, corruption and cancellation passed.
+Recipe: refresh IDs, snapshot integrity and child termination passed.
+Inference gRPC: validation before compute, all routes/slices reuse one calculation, restart hit passed.
+Stop gRPC: 884256 values, largest response 178976 bytes; versions, cache reuse/restart, zeros, malformed input, cancellation and CLI passed. Frozen reference: False

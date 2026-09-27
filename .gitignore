@@ -105,3 +105,10 @@ ml/lab/artifacts/boost_comparison/*.pkl
 !ml/preparation/requirements.txt
 !ml/recipes/tabpfn-030/recipe.json
 !ml/recipes/tabpfn-030/LICENSE.txt
+!ml/recipes/catboost-cpu/*.json
+!ml/deploy/cpu-verified-20260927/*.json
+!ml/deploy/cpu-verified-20260927/*.txt
+!ml/deploy/verified-20260927/*.json
+!ml/deploy/verified-20260927/*.txt
+!deploy/server/verified-20260927/*.json
+!deploy/server/verified-20260927/*.log

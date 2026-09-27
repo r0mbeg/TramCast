@@ -1,0 +1,28 @@
+{
+  "commit": "40e2adfefded24a22beb3047cd5a3085d9e637d0",
+  "deployment_patch": "ml-unix-address.patch",
+  "forecast_version_id": "09eb6be2-d8c5-42a7-9aef-4f9d0ef31b0b",
+  "model_version": "tabpfn030-530bff4e9421db2166c308ac58da454baff12085a3e5cc06bac2d23929d3a49d",
+  "dataset_version": "prepared-844b17f7f0a0d34e203758ba3c1158ef820ae416c8c09b21fc4cd4c5c4c1898e",
+  "routes": 15,
+  "stops": 731,
+  "geometry_features": 30,
+  "prediction_rows": 14640,
+  "jobs_succeeded": 10,
+  "job_ids": [
+    "b920166d-ae36-4372-885a-d2b3331f4282",
+    "160ca598-1efa-48fd-911d-f08a7e223db3",
+    "ea5709db-f25d-43ec-8b40-9594187779be",
+    "b7b9afe1-c073-4e75-8785-3e875d3e47f1",
+    "c47468df-af5d-4d49-85ac-44b8df8b9bff",
+    "32ffef6a-9f29-4f4b-b19f-83b73901fe34",
+    "3f850167-8f6a-42e7-9787-49dce0bff2ad",
+    "b8769695-4501-48f1-af52-48a2a5c3f0b9",
+    "be6ea717-3a6d-47f0-b1b1-234af184f353",
+    "9036cef1-e745-4a43-bd81-380230b14b0c"
+  ],
+  "prediction_sha256": "512e9db4746842d4ba31ab1268c50f623b77a23dc8fb111a5727b8c2f460e6d4",
+  "http_and_assets": "passed",
+  "loopback_only": "passed",
+  "service_checks": "passed"
+}

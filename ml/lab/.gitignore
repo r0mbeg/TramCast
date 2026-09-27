@@ -61,6 +61,53 @@
 /artifacts/selection_audit_20260927/replay_cache/
 
 # Compact evidence for the service's real GPU verification.
+!/artifacts/cpu_hgb_20260927/protocol.json
+!/artifacts/cpu_hgb_20260927/completed.json
 !/artifacts/runtime_030_verification_20260927/*.json
 !/artifacts/runtime_030_verification_20260927/*.txt
 !/artifacts/runtime_030_verification_20260927/*.log
+
+# CPU distillation: keep compact provenance and scores; weights stay local.
+/artifacts/cpu_student_20260927_v*/**/*.cbm
+!/artifacts/cpu_student_20260927_v*/protocol.json
+!/artifacts/cpu_student_20260927_v*/selection.json
+!/artifacts/cpu_student_20260927_v*/completed.json
+!/artifacts/cpu_student_20260927_v*/interpolation.json
+!/artifacts/cpu_student_20260927_v*/verification.json
+!/artifacts/cpu_student_20260927_v*/portable_check.json
+!/artifacts/cpu_student_20260927_v*/bundle/metadata.json
+!/cpu_student/requirements.txt
+
+# Observed-target CPU forecast: retain evidence, never commit fitted weights.
+/artifacts/cpu_forecast_20260927_v*/**/*.cbm
+!/artifacts/cpu_forecast_20260927_v*/protocol.json
+!/artifacts/cpu_forecast_20260927_v*/selection.json
+!/artifacts/cpu_forecast_20260927_v*/completed.json
+!/artifacts/cpu_forecast_20260927_v*/verification.json
+!/artifacts/cpu_forecast_20260927_v*/portable_check.json
+!/artifacts/cpu_forecast_20260927_v*/forecast_november_december.json
+!/artifacts/cpu_forecast_20260927_v*/bundle/metadata.json
+!/artifacts/cpu_forecast_20260927_v*/evaluation/metadata.json
+!/cpu_forecast/requirements.txt
+
+# LightGBM Laplace trial evidence; fitted models stay outside Git.
+/artifacts/lightgbm_laplace_20260927_v*/*.lgb
+!/artifacts/lightgbm_laplace_20260927_v*/protocol.json
+!/artifacts/lightgbm_laplace_20260927_v*/selection.json
+!/artifacts/lightgbm_laplace_20260927_v*/metadata.json
+!/artifacts/lightgbm_laplace_20260927_v*/completed.json
+!/artifacts/lightgbm_laplace_20260927_v*/verification.json
+!/cpu_forecast/requirements-lightgbm.txt
+
+# Dense distillation: native weights/caches local, compact evidence retained.
+/artifacts/dense_teacher_20260927_v*/cache/
+/artifacts/dense_student_20260927_v*/**/*.cbm
+/artifacts/dense_student_20260927_v*/**/*.lgb
+!/artifacts/dense_teacher_20260927_v*/*.json
+!/artifacts/dense_teacher_20260927_v*/teachers/*.json
+!/artifacts/dense_student_20260927_v*/*.json
+!/artifacts/dense_student_20260927_v*/**/metadata.json
+!/artifacts/boundary_teacher_20260927_v*/*.json
+!/artifacts/boundary_teacher_20260927_v*/teachers/*.json
+!/artifacts/dense_student_20260927_v*/teacher_dataset/*.json
+!/artifacts/dense_student_20260927_v*/teacher_dataset/teachers/*.json
