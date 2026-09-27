@@ -44,7 +44,6 @@ Thumbs.db
 
 # Editor directories and files
 .vscode/*
-!.vscode/extensions.json
 .idea
 *.suo
 *.ntvs*
@@ -62,6 +61,19 @@ Thumbs.db
 
 # ML
 /dataset/
+
+# Frontend: sources and configs are tracked despite *.json above; dependencies
+# and the build output are not.
+!/frontend/package.json
+!/frontend/package-lock.json
+!/frontend/tsconfig*.json
+!/frontend/src/**/*.json
+/frontend/node_modules/
+/frontend/dist/
+
+# OSM snapshot read by the catalog importer from CATALOG_OSM_FILE: public
+# ODbL data without personal data, tracked despite *.json above.
+!/data/osm/*.json
 
 # Docs
 *.pdf

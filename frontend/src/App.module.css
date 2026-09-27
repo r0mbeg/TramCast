@@ -1,0 +1,35 @@
+.shell {
+  display: grid;
+  grid-template-columns: var(--board-w) minmax(0, 1fr);
+  grid-template-rows: var(--bar-h) minmax(0, 1fr);
+  height: 100dvh;
+  min-width: 64rem;
+}
+
+.workspace {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+.fatal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100dvh;
+  color: var(--color-text-2);
+}
+
+.fatal h1 {
+  margin: 0;
+  color: var(--color-text-1);
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.fatal p {
+  margin: 0;
+}

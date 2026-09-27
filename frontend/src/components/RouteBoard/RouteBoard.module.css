@@ -1,0 +1,277 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-surface-1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem 0 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.subtitle {
+  flex: 1;
+  color: var(--color-text-3);
+  font-size: var(--text-sm);
+}
+
+.list {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Shared column template keeps the ruler aligned with every strip. */
+.ruler,
+.row {
+  display: grid;
+  /* 448 px board: 40 + 239 (strip) + 48 + 56 + 3 × 8 gaps + 28 padding = 435. */
+  grid-template-columns: 2.5rem var(--strip-w) 3rem 3.5rem;
+  column-gap: 0.5rem;
+  padding: 0 0.75rem 0 1rem;
+  --cell-w: 9px;
+  --cell-gap: 1px;
+  --strip-w: calc(24 * var(--cell-w) + 23 * var(--cell-gap));
+}
+
+@media (min-width: 1680px) {
+  .ruler,
+  .row {
+    --cell-w: 13px;
+    --cell-gap: 2px;
+  }
+}
+
+.ruler {
+  height: 1.5rem;
+  align-items: end;
+  color: var(--color-text-3);
+  font-size: var(--text-xs);
+}
+
+.rulerHours {
+  grid-column: 2;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(24, var(--cell-w));
+  gap: var(--cell-gap);
+  height: 100%;
+  cursor: pointer;
+}
+
+.rulerTick {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-size: var(--text-xs);
+}
+
+.rulerTick span {
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0;
+  white-space: nowrap;
+}
+
+.rulerTick[aria-pressed='true']::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 0;
+  border: 4px solid transparent;
+  border-top-color: var(--color-selection);
+  border-bottom: 0;
+}
+
+.rulerLabel {
+  grid-column: 3 / 5;
+  justify-self: end;
+  padding-bottom: 0.3rem;
+}
+
+.row {
+  position: relative;
+  grid-template-rows: auto auto;
+  row-gap: 0.25rem;
+  align-items: center;
+  width: 100%;
+  min-height: 3.125rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--duration) var(--ease-out);
+}
+
+.row:hover {
+  background: var(--color-surface-2);
+}
+
+.row[aria-current='true'] {
+  background: var(--color-accent-row);
+}
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(24, var(--cell-w));
+  gap: var(--cell-gap);
+  height: 1.25rem;
+}
+
+.cell {
+  position: relative;
+  border-radius: 2px;
+  background: var(--color-surface-3);
+}
+
+.cellOff {
+  background: var(--hatch), var(--color-surface-1);
+}
+
+.cellSelected {
+  outline: 1.5px solid var(--color-selection);
+  outline-offset: 1px;
+  z-index: 1;
+}
+
+.cellSkeleton {
+  background: var(--color-surface-2);
+}
+
+.stripMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  height: 1.25rem;
+  padding: 0 0.5rem;
+  border: 1px dashed var(--color-border-control);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-2);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+.stripError {
+  border-style: solid;
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.value {
+  justify-self: end;
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+.sum {
+  justify-self: end;
+  color: var(--color-text-2);
+  font-size: var(--text-sm);
+}
+
+.subline {
+  grid-column: 2 / 5;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  overflow: hidden;
+  color: var(--color-text-3);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.subline > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flag {
+  flex: none;
+  padding: 0 0.3rem;
+  border: 1px solid var(--color-border-control);
+  border-radius: 3px;
+  color: var(--color-text-2);
+}
+
+.schema {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.schemaTitle {
+  width: 100%;
+  color: var(--color-text-3);
+  font-size: var(--text-xs);
+}
+
+.schemaButton {
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+}
+
+.schemaButton[aria-current='true'] {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 1px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-3);
+  font-size: var(--text-xs);
+}
+
+.footer strong {
+  color: var(--color-text-2);
+  font-weight: 500;
+}
+
+/* Compact board for browser zoom around 125 %: names and sums go to tooltips. */
+@media (max-width: 1279px) {
+  /* 336 px board: 40 + 191 (strip) + 44 + 2 × 8 gaps + 28 padding = 319. */
+  .ruler,
+  .row {
+    grid-template-columns: 2.5rem var(--strip-w) 2.75rem;
+    --cell-w: 7px;
+  }
+
+  .value {
+    font-size: var(--text-md);
+  }
+
+  .sum,
+  .rulerLabel {
+    display: none;
+  }
+
+  .subline {
+    grid-column: 2 / 4;
+  }
+}

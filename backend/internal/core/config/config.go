@@ -20,6 +20,7 @@ type Config struct {
 	Logger   LoggerConfig
 	Postgres PostgresConfig
 	Web      WebConfig
+	Catalog  CatalogConfig
 }
 
 type HTTPConfig struct {
@@ -56,6 +57,16 @@ type WebConfig struct {
 	Dir string `envconfig:"WEB_DIR" default:"../frontend/dist"`
 }
 
+type CatalogConfig struct {
+	// File is the reference workbook read by the catalog import command. Load
+	// makes it absolute; the default assumes the process runs in backend/.
+	File string `envconfig:"CATALOG_FILE" default:"../dataset/spravochniki/Хакатон_справочники_трамвай_10_маршрутов.xlsx"`
+	// OSMFile is the OpenStreetMap snapshot of the target routes the workbook
+	// lacks, also read by the import command. It is resolved like File; the
+	// default is the snapshot committed in data/osm.
+	OSMFile string `envconfig:"CATALOG_OSM_FILE" default:"../data/osm/tram_routes.json"`
+}
+
 // Load reads process environment and optionally loads the explicitly named
 // dotenv file first. Existing environment variables, including empty values,
 // take precedence. Call once during startup, before launching goroutines.
@@ -73,7 +84,7 @@ func Load(envFile string) (Config, error) {
 	}
 
 	var cfg Config
-	for _, section := range []any{&cfg.HTTP, &cfg.Logger, &cfg.Postgres, &cfg.Web} {
+	for _, section := range []any{&cfg.HTTP, &cfg.Logger, &cfg.Postgres, &cfg.Web, &cfg.Catalog} {
 		if err := envconfig.Process("", section); err != nil {
 			var parseErr *envconfig.ParseError
 			if errors.As(err, &parseErr) {
@@ -87,11 +98,20 @@ func Load(envFile string) (Config, error) {
 	if err := cfg.validate(); err != nil {
 		return Config{}, err
 	}
-	webDir, err := filepath.Abs(cfg.Web.Dir)
-	if err != nil {
-		return Config{}, fmt.Errorf("resolve WEB_DIR: %w", err)
+	for _, setting := range []struct {
+		name  string
+		value *string
+	}{
+		{"WEB_DIR", &cfg.Web.Dir},
+		{"CATALOG_FILE", &cfg.Catalog.File},
+		{"CATALOG_OSM_FILE", &cfg.Catalog.OSMFile},
+	} {
+		absolute, err := filepath.Abs(*setting.value)
+		if err != nil {
+			return Config{}, fmt.Errorf("resolve %s: %w", setting.name, err)
+		}
+		*setting.value = absolute
 	}
-	cfg.Web.Dir = webDir
 	return cfg, nil
 }
 
@@ -134,6 +154,8 @@ func (cfg Config) validate() error {
 		{"POSTGRES_PASSWORD", cfg.Postgres.Password},
 		{"POSTGRES_DB", cfg.Postgres.Database},
 		{"WEB_DIR", cfg.Web.Dir},
+		{"CATALOG_FILE", cfg.Catalog.File},
+		{"CATALOG_OSM_FILE", cfg.Catalog.OSMFile},
 	} {
 		if strings.TrimSpace(setting.value) == "" {
 			return fmt.Errorf("%s must not be blank", setting.name)

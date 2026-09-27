@@ -20,6 +20,22 @@ JOIN stops AS s ON s.id = rs.stop_id
 WHERE rs.route_id = sqlc.arg(route_id)
 ORDER BY rs.direction_id, rs.pattern_key, rs.stop_sequence;
 
+-- name: ListRouteGeometry :many
+-- All positions of all routes with stop coordinates, ordered so that the rows
+-- of one movement variant are adjacent and follow stop_sequence.
+SELECT rs.route_id,
+       r.route_number,
+       r.forecast_enabled,
+       rs.pattern_key,
+       rs.direction_id,
+       rs.stop_sequence,
+       s.latitude,
+       s.longitude
+FROM routes_stops AS rs
+JOIN routes AS r ON r.id = rs.route_id
+JOIN stops AS s ON s.id = rs.stop_id
+ORDER BY r.route_number, rs.route_id, rs.direction_id, rs.pattern_key, rs.stop_sequence;
+
 -- name: DeleteRouteStops :execrows
 -- Use only within the replacement transaction after GetRouteForUpdate.
 DELETE FROM routes_stops

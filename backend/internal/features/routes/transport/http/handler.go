@@ -17,6 +17,7 @@ import (
 type Service interface {
 	ListRoutes(ctx context.Context) ([]routes_sqlc.Route, error)
 	ListRouteStops(ctx context.Context, routeID int64) ([]routes_service.Pattern, error)
+	ListRouteGeometry(ctx context.Context) ([]routes_service.Line, error)
 }
 
 type Handler struct {
@@ -30,7 +31,19 @@ func NewHandler(service Service) *Handler {
 // Register adds the handlers to the API group.
 func (h *Handler) Register(router gin.IRouter) {
 	router.GET("/routes", h.listRoutes)
+	router.GET("/routes/geometry", h.routeGeometry)
 	router.GET("/routes/:route_id/stops", h.listRouteStops)
+}
+
+// routeGeometry returns a GeoJSON FeatureCollection with one LineString per
+// movement variant; GeoJSON is formed by Go as the contract requires.
+func (h *Handler) routeGeometry(c *gin.Context) {
+	lines, err := h.service.ListRouteGeometry(c.Request.Context())
+	if err != nil {
+		core_http_server.WriteInternalError(c, err)
+		return
+	}
+	c.JSON(http.StatusOK, newGeometryResponse(lines))
 }
 
 func (h *Handler) listRoutes(c *gin.Context) {

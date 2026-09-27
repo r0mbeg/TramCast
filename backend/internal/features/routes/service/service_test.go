@@ -12,12 +12,18 @@ import (
 )
 
 type fakeQueries struct {
-	routes    []routes_sqlc.Route
-	routeErr  error
-	stops     []routes_sqlc.ListRouteStopsRow
-	stopsErr  error
-	listErr   error
-	stopCalls int
+	routes      []routes_sqlc.Route
+	routeErr    error
+	stops       []routes_sqlc.ListRouteStopsRow
+	stopsErr    error
+	listErr     error
+	stopCalls   int
+	geometry    []routes_sqlc.ListRouteGeometryRow
+	geometryErr error
+}
+
+func (f *fakeQueries) ListRouteGeometry(context.Context) ([]routes_sqlc.ListRouteGeometryRow, error) {
+	return f.geometry, f.geometryErr
 }
 
 func (f *fakeQueries) ListRoutes(context.Context) ([]routes_sqlc.Route, error) {
@@ -122,4 +128,75 @@ func summarize(patterns []Pattern) []string {
 		result[i] = fmt.Sprintf("%s/%d:%v", pattern.Key, pattern.DirectionID, stopIDs)
 	}
 	return result
+}
+
+func geometryRow(routeID int64, number int16, pattern string, direction int16, sequence int32, lon, lat float64) routes_sqlc.ListRouteGeometryRow {
+	return routes_sqlc.ListRouteGeometryRow{RouteID: routeID, RouteNumber: number, ForecastEnabled: number == 1,
+		PatternKey: pattern, DirectionID: direction, StopSequence: sequence, Longitude: lon, Latitude: lat}
+}
+
+func TestListRouteGeometryBuildsLinesPerVariant(t *testing.T) {
+	queries := &fakeQueries{geometry: []routes_sqlc.ListRouteGeometryRow{
+		geometryRow(16, 1, "a", 0, 1, 37.59, 55.59), geometryRow(16, 1, "a", 0, 2, 37.58, 55.60),
+		geometryRow(16, 1, "b", 1, 1, 37.58, 55.60), geometryRow(16, 1, "b", 1, 2, 37.59, 55.59),
+		geometryRow(17, 2, "c", 0, 1, 37.70, 55.75), geometryRow(17, 2, "c", 0, 2, 37.71, 55.76), geometryRow(17, 2, "c", 0, 3, 37.72, 55.77),
+	}}
+	lines, err := NewService(queries).ListRouteGeometry(context.Background())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(lines) != 3 {
+		t.Fatalf("lines = %+v, want 3", lines)
+	}
+	first := lines[0]
+	if first.RouteID != 16 || first.RouteNumber != 1 || !first.ForecastEnabled || first.PatternKey != "a" || first.DirectionID != 0 ||
+		first.Source != SourceWorkbook {
+		t.Errorf("first line = %+v", first)
+	}
+	// GeoJSON order is [longitude, latitude].
+	if fmt.Sprint(first.Coordinates) != "[[37.59 55.59] [37.58 55.6]]" {
+		t.Errorf("coordinates = %v", first.Coordinates)
+	}
+	if lines[2].RouteNumber != 2 || lines[2].ForecastEnabled || len(lines[2].Coordinates) != 3 {
+		t.Errorf("third line = %+v", lines[2])
+	}
+}
+
+func TestListRouteGeometryMarksOSMVariants(t *testing.T) {
+	queries := &fakeQueries{geometry: []routes_sqlc.ListRouteGeometryRow{
+		geometryRow(16, 1, "2040920", 0, 1, 37.59, 55.59), geometryRow(16, 1, "2040920", 0, 2, 37.58, 55.60),
+		geometryRow(20, 17, "osm:relation/540033", 0, 1, 37.61, 55.82), geometryRow(20, 17, "osm:relation/540033", 0, 2, 37.61, 55.83),
+	}}
+	lines, err := NewService(queries).ListRouteGeometry(context.Background())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(lines) != 2 || lines[0].Source != SourceWorkbook || lines[1].Source != SourceOSM {
+		t.Fatalf("lines = %+v, want a workbook and an OSM variant", lines)
+	}
+}
+
+func TestListRouteGeometrySkipsSingleStopVariants(t *testing.T) {
+	queries := &fakeQueries{geometry: []routes_sqlc.ListRouteGeometryRow{
+		geometryRow(16, 1, "a", 0, 1, 37.59, 55.59),
+		geometryRow(16, 1, "b", 1, 1, 37.58, 55.60), geometryRow(16, 1, "b", 1, 2, 37.59, 55.59),
+	}}
+	lines, err := NewService(queries).ListRouteGeometry(context.Background())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(lines) != 1 || lines[0].PatternKey != "b" {
+		t.Fatalf("lines = %+v, want only variant b", lines)
+	}
+}
+
+func TestListRouteGeometryEmptyAndErrors(t *testing.T) {
+	lines, err := NewService(&fakeQueries{geometry: []routes_sqlc.ListRouteGeometryRow{}}).ListRouteGeometry(context.Background())
+	if err != nil || lines == nil || len(lines) != 0 {
+		t.Fatalf("lines = %#v, err = %v; want an empty non-nil slice", lines, err)
+	}
+	failure := errors.New("connection reset")
+	if _, err := NewService(&fakeQueries{geometryErr: failure}).ListRouteGeometry(context.Background()); !errors.Is(err, failure) {
+		t.Fatalf("error = %v, want wrapped database error", err)
+	}
 }

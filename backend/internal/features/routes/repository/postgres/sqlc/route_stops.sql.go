@@ -55,6 +55,63 @@ func (q *Queries) InsertRouteStop(ctx context.Context, arg InsertRouteStopParams
 	return err
 }
 
+const listRouteGeometry = `-- name: ListRouteGeometry :many
+SELECT rs.route_id,
+       r.route_number,
+       r.forecast_enabled,
+       rs.pattern_key,
+       rs.direction_id,
+       rs.stop_sequence,
+       s.latitude,
+       s.longitude
+FROM routes_stops AS rs
+JOIN routes AS r ON r.id = rs.route_id
+JOIN stops AS s ON s.id = rs.stop_id
+ORDER BY r.route_number, rs.route_id, rs.direction_id, rs.pattern_key, rs.stop_sequence
+`
+
+type ListRouteGeometryRow struct {
+	RouteID         int64   `json:"route_id"`
+	RouteNumber     int16   `json:"route_number"`
+	ForecastEnabled bool    `json:"forecast_enabled"`
+	PatternKey      string  `json:"pattern_key"`
+	DirectionID     int16   `json:"direction_id"`
+	StopSequence    int32   `json:"stop_sequence"`
+	Latitude        float64 `json:"latitude"`
+	Longitude       float64 `json:"longitude"`
+}
+
+// All positions of all routes with stop coordinates, ordered so that the rows
+// of one movement variant are adjacent and follow stop_sequence.
+func (q *Queries) ListRouteGeometry(ctx context.Context) ([]ListRouteGeometryRow, error) {
+	rows, err := q.db.Query(ctx, listRouteGeometry)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []ListRouteGeometryRow{}
+	for rows.Next() {
+		var i ListRouteGeometryRow
+		if err := rows.Scan(
+			&i.RouteID,
+			&i.RouteNumber,
+			&i.ForecastEnabled,
+			&i.PatternKey,
+			&i.DirectionID,
+			&i.StopSequence,
+			&i.Latitude,
+			&i.Longitude,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const listRoutePatterns = `-- name: ListRoutePatterns :many
 SELECT pattern_key, direction_id
 FROM routes_stops

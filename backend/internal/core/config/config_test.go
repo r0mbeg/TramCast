@@ -19,7 +19,7 @@ func cleanConfigEnv(t *testing.T) {
 		"LOGGER_LEVEL", "LOGGER_FORMAT", "POSTGRES_HOST", "POSTGRES_PORT",
 		"POSTGRES_USER", "POSTGRES_PASSWORD", "POSTGRES_DB", "POSTGRES_SSLMODE",
 		"POSTGRES_MAX_CONNS", "POSTGRES_MIN_CONNS", "POSTGRES_CONNECT_TIMEOUT", "POSTGRES_STARTUP_TIMEOUT",
-		"WEB_DIR",
+		"WEB_DIR", "CATALOG_FILE", "CATALOG_OSM_FILE",
 	} {
 		previous, existed := os.LookupEnv(key)
 		if err := os.Unsetenv(key); err != nil {
@@ -80,7 +80,7 @@ func TestLoadDefaults(t *testing.T) {
 	}
 }
 
-func TestLoadResolvesWebDir(t *testing.T) {
+func TestLoadResolvesPaths(t *testing.T) {
 	root := t.TempDir()
 	backend := filepath.Join(root, "backend")
 	if err := os.Mkdir(backend, 0700); err != nil {
@@ -88,7 +88,7 @@ func TestLoadResolvesWebDir(t *testing.T) {
 	}
 	t.Chdir(backend)
 
-	t.Run("default is relative to the working directory", func(t *testing.T) {
+	t.Run("defaults are relative to the working directory", func(t *testing.T) {
 		cleanConfigEnv(t)
 		setRequiredEnv(t)
 		cfg, err := Load("")
@@ -98,17 +98,31 @@ func TestLoadResolvesWebDir(t *testing.T) {
 		if want := filepath.Join(root, "frontend", "dist"); cfg.Web.Dir != want {
 			t.Errorf("WEB_DIR default = %q, want %q", cfg.Web.Dir, want)
 		}
+		if want := filepath.Join(root, "dataset", "spravochniki", "Хакатон_справочники_трамвай_10_маршрутов.xlsx"); cfg.Catalog.File != want {
+			t.Errorf("CATALOG_FILE default = %q, want %q", cfg.Catalog.File, want)
+		}
+		if want := filepath.Join(root, "data", "osm", "tram_routes.json"); cfg.Catalog.OSMFile != want {
+			t.Errorf("CATALOG_OSM_FILE default = %q, want %q", cfg.Catalog.OSMFile, want)
+		}
 	})
-	t.Run("custom relative path", func(t *testing.T) {
+	t.Run("custom relative paths", func(t *testing.T) {
 		cleanConfigEnv(t)
 		setRequiredEnv(t)
 		t.Setenv("WEB_DIR", "../frontend")
+		t.Setenv("CATALOG_FILE", "../data/catalog.xlsx")
+		t.Setenv("CATALOG_OSM_FILE", "../data/osm.json")
 		cfg, err := Load("")
 		if err != nil {
 			t.Fatal(err)
 		}
 		if want := filepath.Join(root, "frontend"); cfg.Web.Dir != want {
 			t.Errorf("WEB_DIR = %q, want %q", cfg.Web.Dir, want)
+		}
+		if want := filepath.Join(root, "data", "catalog.xlsx"); cfg.Catalog.File != want {
+			t.Errorf("CATALOG_FILE = %q, want %q", cfg.Catalog.File, want)
+		}
+		if want := filepath.Join(root, "data", "osm.json"); cfg.Catalog.OSMFile != want {
+			t.Errorf("CATALOG_OSM_FILE = %q, want %q", cfg.Catalog.OSMFile, want)
 		}
 	})
 }
@@ -179,6 +193,8 @@ func TestLoadValidation(t *testing.T) {
 		{"invalid log level", "LOGGER_LEVEL", "quiet"},
 		{"invalid log format", "LOGGER_FORMAT", "xml"},
 		{"blank web directory", "WEB_DIR", " "},
+		{"blank catalog file", "CATALOG_FILE", " "},
+		{"blank OSM snapshot file", "CATALOG_OSM_FILE", " "},
 	} {
 		t.Run(tt.name, func(t *testing.T) {
 			cleanConfigEnv(t)

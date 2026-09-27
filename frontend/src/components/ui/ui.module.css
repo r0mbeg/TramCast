@@ -1,0 +1,213 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  height: 2rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--color-border-control);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-1);
+  color: var(--color-text-1);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out);
+}
+
+.button:hover:not(:disabled) {
+  background: var(--color-surface-2);
+}
+
+.button:active:not(:disabled) {
+  background: var(--color-surface-3);
+}
+
+.button:disabled {
+  color: var(--color-disabled);
+  border-color: var(--color-border);
+}
+
+.primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent-border);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.primary:active:not(:disabled) {
+  background: var(--color-accent-active);
+}
+
+.ghost {
+  border-color: transparent;
+  background: transparent;
+}
+
+.icon {
+  width: 2rem;
+  padding: 0;
+}
+
+.segmented {
+  display: inline-flex;
+  padding: 2px;
+  gap: 2px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-app);
+}
+
+.segment {
+  position: relative;
+  height: 1.625rem;
+  padding: 0 0.625rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: background-color var(--duration) var(--ease-out);
+}
+
+.segment:hover {
+  background: var(--color-surface-2);
+  color: var(--color-text-1);
+}
+
+.segment[aria-pressed='true'] {
+  background: var(--color-surface-3);
+  color: var(--color-text-1);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--color-accent-strong);
+}
+
+.badge {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+  min-width: 2.5rem;
+  height: 1.5rem;
+  padding: 0 0.375rem;
+  border-radius: var(--radius-sm);
+  color: oklch(0.18 0.01 255);
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.badgeOutline {
+  border: 1px solid var(--color-border-control);
+  color: var(--color-text-2);
+  background: transparent;
+}
+
+.letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.25rem;
+  border-radius: 3px;
+  background: var(--color-selection);
+  color: oklch(0.18 0.01 255);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  height: 1.75rem;
+  padding: 0 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-1);
+  color: var(--color-text-2);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+button.chip:hover {
+  background: var(--color-surface-2);
+  color: var(--color-text-1);
+}
+
+.chipDemo {
+  border-style: dashed;
+  border-color: var(--color-text-3);
+}
+
+.popover {
+  position: fixed;
+  z-index: var(--z-popover);
+  min-width: 16rem;
+  max-width: 26rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-1);
+  color: var(--color-text-1);
+  font-size: var(--text-sm);
+  box-shadow: 0 12px 32px oklch(0 0 0 / 0.45);
+}
+
+.popoverTitle {
+  margin: 0 0 0.5rem;
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.375rem;
+  height: 1.375rem;
+  padding: 0 0.3rem;
+  border: 1px solid var(--color-border-control);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-1);
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+.note {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  color: var(--color-text-2);
+  font-size: var(--text-sm);
+}
+
+.note svg {
+  flex: none;
+  margin-top: 1px;
+}
+
+.spinner {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid var(--color-text-3);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

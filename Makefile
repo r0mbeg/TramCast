@@ -5,6 +5,7 @@ GOOSE ?= goose
 SQLC ?= sqlc
 PROTOC ?= protoc
 GO ?= go
+NPM ?= npm
 ENV_FILE ?= ../.env
 PYTHON ?= python3
 
@@ -12,7 +13,9 @@ PYTHON ?= python3
 	migrate-up migrate-status migrate-down migrate-create migrate-validate \
 	sqlc-compile sqlc-generate proto-generate-go \
 	tidy-backend tidy-backend-check run-backend \
-	proto-generate-python run-ml test-ml test-ml-service
+	proto-generate-python run-ml test-ml test-ml-service \
+	import-catalog import-catalog-dry-run \
+	frontend-install frontend-dev frontend-build frontend-test
 
 help:
 	@echo TramCast commands
@@ -37,6 +40,13 @@ help:
 	@echo   make run-ml                 Serve the saved Chronos forecast on localhost:50051
 	@echo   make test-ml-service        Check the real gRPC service without ML dependencies
 	@echo   make test-ml                Run ML checks and the gRPC contract check
+
+	@echo   make import-catalog         Import the workbook from CATALOG_FILE and the OSM snapshot from CATALOG_OSM_FILE
+	@echo   make import-catalog-dry-run Check the workbook and OSM snapshot and roll the import back
+	@echo   make frontend-install       Install frontend dependencies from package-lock.json
+	@echo   make frontend-dev           Run the Vite dev server with /api proxied to :8080
+	@echo   make frontend-build         Build frontend/dist, which the backend serves
+	@echo   make frontend-test          Type-check and run frontend unit tests
 
 env-up:
 	@$(DOCKER_COMPOSE) up -d --wait postgres env-port-forwarder
@@ -102,3 +112,24 @@ test-ml-service:
 
 test-ml:
 	@cd ml && PYTHONPATH=generated $(PYTHON) -m tests
+
+# The workbook path comes from CATALOG_FILE in the env file: a Cyrillic path
+# passed through make is mangled in PowerShell.
+import-catalog:
+	@$(GO) -C backend run ./cmd/import-catalog -env-file "$(ENV_FILE)"
+
+import-catalog-dry-run:
+	@$(GO) -C backend run ./cmd/import-catalog -env-file "$(ENV_FILE)" -dry-run
+
+frontend-install:
+	@$(NPM) --prefix frontend ci
+
+frontend-dev:
+	@$(NPM) --prefix frontend run dev
+
+frontend-build:
+	@$(NPM) --prefix frontend run build
+
+frontend-test:
+	@$(NPM) --prefix frontend run typecheck
+	@$(NPM) --prefix frontend test
