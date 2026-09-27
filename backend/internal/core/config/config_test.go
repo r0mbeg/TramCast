@@ -19,7 +19,7 @@ func cleanConfigEnv(t *testing.T) {
 		"LOGGER_LEVEL", "LOGGER_FORMAT", "POSTGRES_HOST", "POSTGRES_PORT",
 		"POSTGRES_USER", "POSTGRES_PASSWORD", "POSTGRES_DB", "POSTGRES_SSLMODE",
 		"POSTGRES_MAX_CONNS", "POSTGRES_MIN_CONNS", "POSTGRES_CONNECT_TIMEOUT", "POSTGRES_STARTUP_TIMEOUT",
-		"WEB_DIR", "CATALOG_FILE", "CATALOG_OSM_FILE",
+		"WEB_DIR", "CATALOG_FILE", "CATALOG_OSM_FILE", "ML_GRPC_ADDR", "ML_GRPC_TIMEOUT",
 	} {
 		previous, existed := os.LookupEnv(key)
 		if err := os.Unsetenv(key); err != nil {
@@ -77,6 +77,26 @@ func TestLoadDefaults(t *testing.T) {
 		cfg.Postgres.MaxConns != 10 || cfg.Postgres.MinConns != 0 ||
 		cfg.Postgres.ConnectTimeout != 5*time.Second || cfg.Postgres.StartupTimeout != 10*time.Second {
 		t.Error("unexpected PostgreSQL defaults")
+	}
+	if want := (MLConfig{Addr: "127.0.0.1:50051", Timeout: 930 * time.Second}); cfg.ML != want {
+		t.Errorf("ML defaults: got %+v, want %+v", cfg.ML, want)
+	}
+}
+
+func TestLoadMLAddress(t *testing.T) {
+	for _, addr := range []string{"ml:50051", "ml-replay:50051", "[::1]:50051", "127.0.0.1:65535"} {
+		t.Run(addr, func(t *testing.T) {
+			cleanConfigEnv(t)
+			setRequiredEnv(t)
+			t.Setenv("ML_GRPC_ADDR", addr)
+			cfg, err := Load("")
+			if err != nil {
+				t.Fatal(err)
+			}
+			if cfg.ML.Addr != addr {
+				t.Errorf("ML_GRPC_ADDR = %q, want %q", cfg.ML.Addr, addr)
+			}
+		})
 	}
 }
 
@@ -239,6 +259,15 @@ func TestLoadValidation(t *testing.T) {
 		{"blank web directory", "WEB_DIR", " "},
 		{"blank catalog file", "CATALOG_FILE", " "},
 		{"blank OSM snapshot file", "CATALOG_OSM_FILE", " "},
+		{"blank ML address", "ML_GRPC_ADDR", " "},
+		{"missing ML port", "ML_GRPC_ADDR", "ml"},
+		{"missing ML host", "ML_GRPC_ADDR", ":50051"},
+		{"zero ML port", "ML_GRPC_ADDR", "ml:0"},
+		{"overflow ML port", "ML_GRPC_ADDR", "ml:70000"},
+		{"named ML port", "ML_GRPC_ADDR", "ml:grpc"},
+		{"ML target URI", "ML_GRPC_ADDR", "dns:///ml:50051"},
+		{"zero ML timeout", "ML_GRPC_TIMEOUT", "0s"},
+		{"negative ML timeout", "ML_GRPC_TIMEOUT", "-1s"},
 	} {
 		t.Run(tt.name, func(t *testing.T) {
 			cleanConfigEnv(t)

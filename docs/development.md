@@ -111,8 +111,10 @@ go -C backend run ./cmd/tramcast -env-file ../.env
 | `WEB_DIR` | `./frontend/dist`: сборка фронтенда; относительный путь разрешается от папки явного env-файла, а без него — от рабочего каталога процесса |
 | `CATALOG_FILE` | `./data/catalog/catalog.xlsx`: очищенная книга для `make import-catalog`, хранится в Git; путь разрешается так же, как `WEB_DIR` |
 | `CATALOG_OSM_FILE` | `./data/osm/tram_routes.json`: снимок OpenStreetMap для `make import-catalog`, хранится в Git; путь разрешается так же, как `WEB_DIR`. Пустое значение — ошибка: импорт без снимка очистил бы географию маршрутов 17, 25, 26, 28, 50 |
+| `ML_GRPC_ADDR` | `127.0.0.1:50051`: адрес `host:port` Python gRPC-сервиса; порт числовой, от 1 до 65535 |
+| `ML_GRPC_TIMEOUT` | `930s`: deadline одного вызова `Predict`. Больше лимита расчёта рецепта 030 (900 с), поэтому сервер первым сообщает о собственном тайм-ауте |
 
-Если изменили `POSTGRES_FORWARD_PORT`, задайте такое же значение `POSTGRES_PORT` для локального backend. Compose переопределяет адрес БД на `postgres:5432`, HTTP-адрес на `:8080`, `WEB_DIR` на `/app/frontend/dist` и пути источников на контейнерные; хостовые пути локальной разработки внутрь не передаются. Конфигурация проверяется до подключения; ошибки не выводят пароль или содержимое dotenv-файла.
+Если изменили `POSTGRES_FORWARD_PORT`, задайте такое же значение `POSTGRES_PORT` для локального backend. Compose переопределяет адрес БД на `postgres:5432`, HTTP-адрес на `:8080`, `WEB_DIR` на `/app/frontend/dist` и пути источников на контейнерные; хостовые пути локальной разработки внутрь не передаются. Адрес ML в Compose не задаётся: сервер пока не вызывает Python, но проверяет `ML_GRPC_*` при загрузке конфигурации; их использует [регистрация версии прогноза](#версия-прогноза). Конфигурация проверяется до подключения; ошибки не выводят пароль или содержимое dotenv-файла.
 
 После запуска доступны `http://localhost:8080/healthz` и `http://localhost:8080/readyz`. Первый маршрут проверяет HTTP, второй — доступность БД с ограничением времени. Справочники читаются через `/api/routes`, `/api/routes/geometry` (схемы маршрутов в GeoJSON для карты), `/api/routes/{route_id}/stops` и `/api/stops`; при локальном запуске до импорта списки пустые; Compose выполняет первичный импорт автоматически. API прогнозов пока не подключён. Завершение — Ctrl+C; приложение ждёт активные запросы до настроенного таймаута и закрывает пул.
 
@@ -180,7 +182,7 @@ Go раздаёт и API, и собранный фронтенд. Отдельн
 
 `make proto-generate-python` генерирует Python из того же `.proto`, что используется Go. Сгенерированный код хранится в `ml/runtime/generated/`.
 
-ML находится в необязательном профиле `ml`; обычный запуск приложения не требует GPU. `docker compose up -d --build ml` явно включает этот сервис и запускает только ML. Внутри сети Compose адрес — `ml:50051`; порт не публикуется на хост. Сервис не зависит от PostgreSQL. Текущий Go-клиент ещё не реализован: добавление сервиса не означает готовности полного пользовательского сценария.
+ML находится в необязательном профиле `ml`; обычный запуск приложения не требует GPU. `docker compose up -d --build ml` явно включает этот сервис и запускает только ML. Внутри сети Compose адрес — `ml:50051`; порт не публикуется на хост. Сервис не зависит от PostgreSQL. Go-клиент `Predict` реализован и пока используется только [регистрацией версии прогноза](#версия-прогноза); очередь и API прогнозов ещё не подключены, поэтому запуск сервиса не включает пользовательский расчёт.
 
 Перед запуском ML с пересчётом установите веса: `make prepare-ml-model PYTHON=<абсолютный путь>`. Основной рецепт — 030; Compose требует NVIDIA GPU и NVIDIA Container Toolkit для холодного расчёта, локальный SQLite-кэш сохраняется в volume `ml-cache`. Выдача кэша выполняется на CPU; руководство — [ML README](../ml/README.md).
 
@@ -196,7 +198,7 @@ make ml-check
 make ml-describe
 ```
 
-`ml-start` выполняет три шага HANDOFF: `ml-install` скачивает закреплённые веса TabPFN (около 42 МБ) в Docker-том и проверяет SHA256, `ml-up` запускает контейнер и ждёт healthcheck, `ml-warm` один раз рассчитывает полный прогноз (10 маршрутов × 1464 часа) в SQLite-кэш. Сборка образов и первая установка весов требуют интернета; GPU-образ с PyTorch и CUDA весит несколько гигабайт. Обучения при этом нет: веса модели не меняются, исследования и подготовка входов остаются в `ml/lab/`. `ml-check` вызывает `Predict` встроенным клиентом для `ML_ROUTE` (по умолчанию 1) на весь ноябрь–декабрь и печатает число часов и сумму; `ml-describe` показывает ID модели и данных для регистрации версии прогноза. `ml-logs` выводит последние строки логов и следит за ними до Ctrl+C, `ml-down` останавливает оба режима и сохраняет веса и кэш.
+`ml-start` выполняет три шага HANDOFF: `ml-install` скачивает закреплённые веса TabPFN (около 42 МБ) в Docker-том и проверяет SHA256, `ml-up` запускает контейнер и ждёт healthcheck, `ml-warm` один раз рассчитывает полный прогноз (10 маршрутов × 1464 часа) в SQLite-кэш. Сборка образов и первая установка весов требуют интернета; GPU-образ с PyTorch и CUDA весит несколько гигабайт. Обучения при этом нет: веса модели не меняются, исследования и подготовка входов остаются в `ml/lab/`. `ml-check` вызывает `Predict` встроенным клиентом для `ML_ROUTE` (по умолчанию 1) на весь ноябрь–декабрь и печатает число часов и сумму; `ml-describe` выводит JSON с ID модели и данных, периодом и маршрутами для [регистрации версии прогноза](#версия-прогноза). `ml-logs` выводит последние строки логов и следит за ними до Ctrl+C, `ml-down` останавливает оба режима и сохраняет веса и кэш.
 
 Без GPU режим задаётся один раз на сессию PowerShell:
 
@@ -220,7 +222,7 @@ Windows PowerShell 5.1 убирает внутренние кавычки из �
 '{"route_number": 1, "forecast_from": "2025-10-31T21:00:00Z", "forecast_to": "2025-11-01T21:00:00Z"}' | grpcurl -plaintext -import-path proto -proto tramcast/forecast/v1/forecast.proto -d '@' 127.0.0.1:50051 tramcast.forecast.v1.ForecastService/Predict
 ```
 
-В JSON-ответе `boardings` приходит строкой, так как это `int64`. Postman и Insomnia принимают тот же `.proto` через импорт. Backend на хосте (`make run-backend`) подключается к `127.0.0.1:50051`. Контейнер backend корневого Compose к этой поставке сейчас не подключён: для этого его нужно явно добавить во внешнюю сеть `tramcast-ml_default` и обращаться к `ml-gpu:50051` или `ml-replay:50051`.
+В JSON-ответе `boardings` приходит строкой, так как это `int64`. Postman и Insomnia принимают тот же `.proto` через импорт. Команды Go на хосте обращаются к `ML_GRPC_ADDR`, по умолчанию `127.0.0.1:50051`; при `ML_PORT=50052` задайте тот же порт в `ML_GRPC_ADDR`. Контейнер backend корневого Compose к этой поставке сейчас не подключён: для этого его нужно явно добавить во внешнюю сеть `tramcast-ml_default` и обращаться к `ml-gpu:50051` или `ml-replay:50051`.
 
 Подготовленные входы (`ml/recipes/`) и сохранённые результаты (`ml/bundles/`) сверяются по SHA256, а байты `model_030.py` и `constants.py` входят в `model_version`. `.gitattributes` запрещает Git менять в этих файлах переводы строк. В клоне, полученном до этого правила при `core.autocrlf=true`, режим `gpu` падает с `Input checksum mismatch`, а `replay` пишет в лог `Forecast checksum mismatch` и остаётся unhealthy. `git pull` такие файлы не исправляет, а `git status` может показывать их изменёнными, даже если правок нет.
 
@@ -230,4 +232,50 @@ Windows PowerShell 5.1 убирает внутренние кавычки из �
 git diff --ignore-cr-at-eol --stat -- ml/recipes ml/bundles ml/runtime
 git rm -r --cached -q -- ml/recipes ml/bundles ml/runtime/model_030.py ml/runtime/constants.py && git -c core.autocrlf=false checkout HEAD -- ml/recipes ml/bundles ml/runtime/model_030.py ml/runtime/constants.py
 make ml-up
+```
+
+## Версия прогноза
+
+Прогнозы Go привязаны к записи `forecast_versions` с ID модели и данных, которые обслуживает запущенный Python-сервис. Её записывает команда `register-forecast-version`; флаги, проверки, повторный запуск и правила replay описаны в [backend/README.md](../backend/README.md#версии-прогноза), здесь — порядок действий.
+
+Команда запускается на хосте с Go. Нужны PostgreSQL с применёнными миграциями (`make migrate-up`) и импортированными справочниками (`make import-catalog`; в Docker их загружает `catalog-init`), доступная с хоста (`make env-up`, при уже запущенном приложении — `make env-port-forward`), и ML-сервер по адресу `ML_GRPC_ADDR`, если проверка не отключена через `VERIFY=0`. `METADATA` указывается от корня репозитория или абсолютным путём. `DRY_RUN=1` выполняет все проверки без записи.
+
+Для разработки без GPU подходит replay 030; для него обязателен `ALLOW_REPLAY=1`.
+
+```text
+make ml-up ML_MODE=replay
+make forecast-version-register METADATA=ml/bundles/030/forecast_bundle.json ALLOW_REPLAY=1 ACTIVATE=1
+```
+
+На GPU-хосте после `make ml-start` сохраните вывод `make ml-describe` в файл и зарегистрируйте версию по нему. В cmd:
+
+```text
+make ml-describe > out\ml-describe.json
+```
+
+В Git Bash — то же перенаправление с путём `out/ml-describe.json`. Windows PowerShell 5.1 при `>` пишет UTF-16, который команда отклоняет, поэтому там нужен `Out-File`; добавленный им UTF-8 BOM команда удаляет:
+
+```powershell
+make ml-describe | Out-File -Encoding utf8 out\ml-describe.json
+```
+
+Затем:
+
+```text
+make forecast-version-register METADATA=out/ml-describe.json ACTIVATE=1
+```
+
+Каталог `out/` должен существовать; JSON-файлы исключены из Git. ID модели зависит от весов, библиотек образа, устройства и поколения рецепта, поэтому после пересборки ML, смены `ML_CONFIG` или нового поколения через `--refresh` повторите `ml-describe` и регистрацию. Прежние версии и их прогнозы остаются в БД. Без Make из корня: `go -C backend run ./cmd/register-forecast-version -env-file ../.env -metadata ../out/ml-describe.json -activate`; здесь относительный `-metadata` считается от `backend`, а вместо `VERIFY=0` передаётся `-verify=false`.
+
+Интеграционный тест Go-клиента вызывает запущенный replay: маршрут 1 на весь горизонт — 1 464 часа с суммой 1 103 274, маршрут 5 — нули; ожидаемые ID берутся из `ml/bundles/030/forecast_bundle.json`. PostgreSQL для него не нужна, без `TRAMCAST_TEST_ML_ADDR` тест пропускается. В Git Bash:
+
+```bash
+TRAMCAST_TEST_ML_ADDR=127.0.0.1:50051 go -C backend test -count=1 -run Replay ./internal/features/forecasts/predictor/grpc/
+```
+
+В PowerShell:
+
+```powershell
+$env:TRAMCAST_TEST_ML_ADDR = "127.0.0.1:50051"
+go -C backend test -count=1 -run Replay ./internal/features/forecasts/predictor/grpc/
 ```

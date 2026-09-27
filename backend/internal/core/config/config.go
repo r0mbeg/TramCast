@@ -21,6 +21,7 @@ type Config struct {
 	Postgres PostgresConfig
 	Web      WebConfig
 	Catalog  CatalogConfig
+	ML       MLConfig
 }
 
 type HTTPConfig struct {
@@ -66,6 +67,14 @@ type CatalogConfig struct {
 	OSMFile string `envconfig:"CATALOG_OSM_FILE" default:"./data/osm/tram_routes.json"`
 }
 
+type MLConfig struct {
+	// Addr is the host:port of the Python forecast gRPC server.
+	Addr string `envconfig:"ML_GRPC_ADDR" default:"127.0.0.1:50051"`
+	// Timeout bounds one Predict call. The default exceeds the server's 900 s
+	// compute limit, so the server reports its own timeout first.
+	Timeout time.Duration `envconfig:"ML_GRPC_TIMEOUT" default:"930s"`
+}
+
 // Load reads process environment and optionally loads the explicitly named
 // dotenv file first. Existing environment variables, including empty values,
 // take precedence. Call once during startup, before launching goroutines.
@@ -91,7 +100,7 @@ func Load(envFile string) (Config, error) {
 	}
 
 	var cfg Config
-	for _, section := range []any{&cfg.HTTP, &cfg.Logger, &cfg.Postgres, &cfg.Web, &cfg.Catalog} {
+	for _, section := range []any{&cfg.HTTP, &cfg.Logger, &cfg.Postgres, &cfg.Web, &cfg.Catalog, &cfg.ML} {
 		if err := envconfig.Process("", section); err != nil {
 			var parseErr *envconfig.ParseError
 			if errors.As(err, &parseErr) {
@@ -134,6 +143,14 @@ func (cfg Config) validate() error {
 	if _, err := strconv.ParseUint(port, 10, 16); err != nil {
 		return errors.New("HTTP_ADDR must contain a numeric port from 0 to 65535")
 	}
+	// A client dials a concrete host, unlike the listening HTTP_ADDR.
+	host, port, err = net.SplitHostPort(cfg.ML.Addr)
+	if err != nil || host == "" || strings.ContainsAny(host, " /\\\t\r\n?#") {
+		return errors.New("ML_GRPC_ADDR must have the form host:port")
+	}
+	if number, err := strconv.ParseUint(port, 10, 16); err != nil || number == 0 {
+		return errors.New("ML_GRPC_ADDR must contain a numeric port from 1 to 65535")
+	}
 
 	for _, setting := range []struct {
 		name  string
@@ -147,6 +164,7 @@ func (cfg Config) validate() error {
 		{"HTTP_PROBE_TIMEOUT", cfg.HTTP.ProbeTimeout},
 		{"POSTGRES_CONNECT_TIMEOUT", cfg.Postgres.ConnectTimeout},
 		{"POSTGRES_STARTUP_TIMEOUT", cfg.Postgres.StartupTimeout},
+		{"ML_GRPC_TIMEOUT", cfg.ML.Timeout},
 	} {
 		if setting.value <= 0 {
 			return fmt.Errorf("%s must be positive", setting.name)
