@@ -5,6 +5,26 @@
 Для самостоятельного запуска нужны Docker и Compose v2; PostgreSQL, Go,
 локальный Python и корневой `.env` не требуются.
 
+## Если запуск останавливается на `Input checksum mismatch: base.csv`
+
+Git с `core.autocrlf=true` может заменить LF на CRLF при скачивании на Windows.
+Числа в CSV остаются прежними, но SHA256 меняется. `ml/.gitattributes` запрещает
+такое преобразование для входов и сохранённых прогнозов; исходники runtime
+получают LF, поскольку их байты также участвуют в ID модели.
+
+Для ранее скачанной копии нужно восстановить исходные байты и пересобрать образ.
+Если перечисленные файлы не содержат ваших правок, выполните из корня проекта
+(работает и до получения обновлённого `.gitattributes`):
+
+```sh
+git -c core.autocrlf=false restore --source=HEAD --worktree -- ml/recipes/tabpfn-030/base.csv ml/bundles/002/forecast.csv ml/bundles/030/forecast.csv ml/runtime/model_030.py ml/runtime/constants.py
+docker compose -f ml/compose.yaml --profile gpu up -d --build --wait
+docker compose -f ml/compose.yaml --profile gpu exec ml-gpu python service.py --warm-cache
+```
+
+Веса и кэш сохраняются; заново запускать `ml-install` не требуется.
+Не заменяйте ожидаемые SHA256 в `recipe.json`: они проверяют целостность входов.
+
 ## Рабочий режим: расчёт на GPU, выдача кэша на CPU
 
 Целевое окружение — Linux/x86_64 с NVIDIA RTX 3070 8 ГБ, драйвером NVIDIA
