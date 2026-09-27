@@ -1,4 +1,3 @@
-import type { DemoScenario } from '../forecast/demo'
 import { addDays, clampToHorizon, inHorizon, isIsoDate, monthDates } from '../lib/calendar'
 
 export type Period = 'day' | 'week' | 'month'
@@ -19,7 +18,6 @@ export interface AppState {
   hour: number
   slots: Slot[]
   activeSlotId: number
-  scenario: DemoScenario
   commonScale: boolean
 }
 
@@ -51,12 +49,12 @@ function defaultState(): AppState {
     hour: DEFAULT_HOUR,
     slots: [{ id: 1, routeId: null, period: 'day', date: null }],
     activeSlotId: 1,
-    scenario: 'ready',
     commonScale: true,
   }
 }
 
-// ?d=2025-11-05&h=8&s=16:day,24:week@2025-11-08&a=2&sc=mixed&cs=0
+// ?d=2025-11-05&h=8&s=16:day,24:week@2025-11-08&a=2&cs=0 — unknown keys, such as
+// sc of the former demo scenario, are ignored.
 export function parseState(search: string): AppState {
   const params = new URLSearchParams(search)
   const state = defaultState()
@@ -82,7 +80,6 @@ export function parseState(search: string): AppState {
   if (slots.length > 0) state.slots = slots
   const active = Number(params.get('a'))
   state.activeSlotId = state.slots.some((slot) => slot.id === active) ? active : state.slots[0]!.id
-  if (params.get('sc') === 'mixed') state.scenario = 'mixed'
   if (params.get('cs') === '0') state.commonScale = false
   return state
 }
@@ -94,7 +91,6 @@ export function serializeState(state: AppState): string {
   const slots = state.slots.map((slot) => `${slot.routeId ?? ''}:${slot.period}${slot.date ? `@${slot.date}` : ''}`)
   if (slots.some((slot) => slot !== ':day')) params.set('s', slots.join(','))
   if (state.slots.length > 1) params.set('a', String(state.activeSlotId))
-  if (state.scenario !== 'ready') params.set('sc', state.scenario)
   if (!state.commonScale) params.set('cs', '0')
   return params.toString()
 }

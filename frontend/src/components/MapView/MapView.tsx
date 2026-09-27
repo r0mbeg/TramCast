@@ -4,7 +4,7 @@ import { AttributionControl, LngLatBounds, Map as MapLibreMap, type ExpressionSp
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { osmRouteNumbers, type Route, type RouteGeometry } from '../../api/catalog'
 import { sum } from '../../forecast/aggregate'
-import { routeStatus, type RouteStatus } from '../../forecast/status'
+import { MISSING_LABEL, jobLabel, routeStatus, type RouteStatus } from '../../forecast/status'
 import type { ForecastState } from '../../forecast/useForecast'
 import { formatMedium } from '../../lib/calendar'
 import { formatNumber, hourRange, isServiceOff } from '../../lib/format'
@@ -65,12 +65,13 @@ function statusText(status: RouteStatus, date: string, hour: number): string {
     case 'loading':
       return 'загрузка…'
     case 'missing':
-      return 'прогноз не рассчитан'
+      return MISSING_LABEL[status.reason].toLowerCase()
     case 'running':
-      return 'идёт расчёт'
+      return jobLabel(status.jobStatus).toLowerCase()
     case 'failed':
-    case 'error':
       return 'ошибка расчёта'
+    case 'error':
+      return 'прогноз не получен'
     case 'ready': {
       if (status.fallback) return '0 · нет истории'
       if (isServiceOff(hour)) return '0 · терминалы выключены'
@@ -88,7 +89,7 @@ function labelValue(status: RouteStatus, date: string, hour: number): string {
     case 'missing':
       return '—'
     case 'running':
-      return 'расчёт'
+      return status.jobStatus === 'queued' ? 'очередь' : 'расчёт'
     case 'failed':
     case 'error':
       return 'ошибка'
@@ -332,7 +333,7 @@ export function MapView({ state, routes, geometry, forecasts }: MapViewProps) {
           </>
         ) : (
           <>
-            Посадки за <strong>{hourRange(state.hour)}</strong> · {formatMedium(state.date)} · демо-данные
+            Посадки за <strong>{hourRange(state.hour)}</strong> · {formatMedium(state.date)}
           </>
         )}
       </div>
@@ -397,7 +398,7 @@ export function MapView({ state, routes, geometry, forecasts }: MapViewProps) {
             const route = routesById.get(id)
             if (!route) return null
             const status = routeStatus(forecasts.get(id))
-            const meta = [route.name, osmNumbers.includes(route.route_number) ? 'схема: OpenStreetMap' : null, route.forecast_enabled ? 'демо-данные' : null].filter(Boolean).join(' · ')
+            const meta = [route.name, osmNumbers.includes(route.route_number) ? 'схема: OpenStreetMap' : null].filter(Boolean).join(' · ')
             return (
               <div key={id} className={styles.tooltipRow}>
                 <RouteBadge routeNumber={route.route_number} outline={!route.forecast_enabled} />

@@ -25,9 +25,10 @@
   color-scheme: dark;
 }
 
+/* Room for 13 px hour cells with the numbers inside the padding. */
 @media (min-width: 1680px) {
   :root {
-    --board-w: 34rem;
+    --board-w: 36rem;
   }
 }
 

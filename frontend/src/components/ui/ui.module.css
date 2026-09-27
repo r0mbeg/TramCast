@@ -142,7 +142,8 @@ button.chip:hover {
   color: var(--color-text-1);
 }
 
-.chipDemo {
+/* A chip about the nature of the data, not a control state. */
+.chipDashed {
   border-style: dashed;
   border-color: var(--color-text-3);
 }

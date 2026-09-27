@@ -18,11 +18,12 @@ describe('URL state', () => {
       { id: 2, routeId: 24, period: 'week', date: '2025-11-19' },
     ])
     expect(state.activeSlotId).toBe(2)
-    expect(state.scenario).toBe('mixed')
     expect(state.commonScale).toBe(false)
     expect(slotDate(state, state.slots[0]!)).toBe('2025-11-12')
     expect(slotDate(state, state.slots[1]!)).toBe('2025-11-19')
     expect(parseState(serializeState(state))).toEqual(state)
+    // The demo scenario of old links is dropped.
+    expect(serializeState(state)).not.toContain('sc=')
   })
 
   it('ignores invalid values and clamps dates to the horizon', () => {

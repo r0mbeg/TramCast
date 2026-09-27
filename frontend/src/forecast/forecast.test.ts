@@ -1,56 +1,28 @@
 import { describe, expect, it } from 'vitest'
+import { horizonDates, weekday } from '../lib/calendar'
 import { dayTotals, maxHourly, niceCeil, peak, sum, toDailySeries } from './aggregate'
-import { DEMO_VERSION, DemoForecastSource, demoPoints, roundHalfUp } from './demo'
+import type { ForecastPoint } from './types'
 
-describe('demo forecast', () => {
-  it('is deterministic and covers the full grid', () => {
-    const first = demoPoints(11)
-    expect(first).toHaveLength(61 * 24)
-    expect(demoPoints(11)).toEqual(first)
-    expect(first.every((point) => Number.isInteger(point.boardings) && point.boardings >= 0)).toBe(true)
-  })
-
-  it('keeps hours 1–4 at zero and route 5 at the zero fallback', () => {
-    expect(demoPoints(17).filter((point) => point.hour >= 1 && point.hour <= 4).every((point) => point.boardings === 0)).toBe(true)
-    expect(demoPoints(5).every((point) => point.boardings === 0)).toBe(true)
-  })
-
-  it('makes working days busier than holidays', () => {
-    const series = toDailySeries({ forecast_version_id: 'x', route_id: 1, timezone: 'Europe/Moscow', from: '', to: '', points: demoPoints(12) })
-    expect(sum(series.get('2025-11-05')!)).toBeGreaterThan(sum(series.get('2025-11-04')!))
-    expect(peak(series.get('2025-11-05')!).index).toBeGreaterThanOrEqual(7)
-  })
-
-  it('rounds half up', () => {
-    expect([0.5, 1.5, 2.49, -3].map(roundHalfUp)).toEqual([1, 2, 2, 0])
-  })
-
-  it('answers in the shape of the future API, with scenario states', async () => {
-    const ready = await new DemoForecastSource('ready').forecast({ id: 24, routeNumber: 11 })
-    expect(ready.status).toBe('ready')
-    if (ready.status === 'ready') {
-      expect(ready.slice.forecast_version_id).toBe(DEMO_VERSION.id)
-      expect(ready.slice.route_id).toBe(24)
-      expect(ready.slice.points).toHaveLength(1464)
-      expect(ready.fallback).toBe(false)
-    }
-    const mixed = new DemoForecastSource('mixed')
-    expect((await mixed.forecast({ id: 16, routeNumber: 1 })).status).toBe('missing')
-    expect((await mixed.forecast({ id: 24, routeNumber: 11 })).status).toBe('running')
-    expect((await mixed.forecast({ id: 25, routeNumber: 12 })).status).toBe('failed')
-    const fallback = await mixed.forecast({ id: 20, routeNumber: 5 })
-    expect(fallback.status === 'ready' && fallback.fallback).toBe(true)
-  })
-})
+/** A full horizon with a morning peak and zeros in hours 1–4. */
+function fixturePoints(): ForecastPoint[] {
+  return horizonDates().flatMap((date, day) =>
+    Array.from({ length: 24 }, (_, hour) => ({
+      date,
+      weekday: weekday(date),
+      hour,
+      boardings: hour >= 1 && hour <= 4 ? 0 : 100 + day + (hour === 8 ? 900 : hour * 10),
+    })),
+  )
+}
 
 describe('aggregates', () => {
-  const series = toDailySeries({
-    forecast_version_id: 'x',
-    route_id: 1,
-    timezone: 'Europe/Moscow',
-    from: '',
-    to: '',
-    points: demoPoints(7),
+  const series = toDailySeries({ forecast_version_id: 'x', route_id: 1, timezone: 'Europe/Moscow', from: '', to: '', points: fixturePoints() })
+
+  it('groups the points by date with 24 hours each', () => {
+    expect(series.size).toBe(61)
+    expect(series.get('2025-11-01')).toHaveLength(24)
+    expect(series.get('2025-11-01')![8]).toBe(1000)
+    expect(series.get('2025-12-31')![0]).toBe(160)
   })
 
   it('sums days from integer hours and leaves dates outside the horizon empty', () => {
@@ -60,7 +32,8 @@ describe('aggregates', () => {
   })
 
   it('finds maxima and nice axis bounds', () => {
-    expect(maxHourly(series)).toBeGreaterThan(0)
+    expect(peak(series.get('2025-11-05')!).index).toBe(8)
+    expect(maxHourly(series)).toBe(1060)
     expect([0, 7, 1234, 2600, 9001].map(niceCeil)).toEqual([10, 10, 2000, 5000, 10000])
   })
 })

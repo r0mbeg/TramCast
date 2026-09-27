@@ -16,7 +16,9 @@ import (
 	core_postgres "github.com/r0mbeg/TramCast/backend/internal/core/repository/postgres"
 	core_http_server "github.com/r0mbeg/TramCast/backend/internal/core/transport/http"
 	forecasts_predictor_grpc "github.com/r0mbeg/TramCast/backend/internal/features/forecasts/predictor/grpc"
+	forecasts_sqlc "github.com/r0mbeg/TramCast/backend/internal/features/forecasts/repository/postgres/sqlc"
 	forecasts_service "github.com/r0mbeg/TramCast/backend/internal/features/forecasts/service"
+	forecasts_transport_http "github.com/r0mbeg/TramCast/backend/internal/features/forecasts/transport/http"
 	forecasts_worker "github.com/r0mbeg/TramCast/backend/internal/features/forecasts/worker"
 	routes_sqlc "github.com/r0mbeg/TramCast/backend/internal/features/routes/repository/postgres/sqlc"
 	routes_service "github.com/r0mbeg/TramCast/backend/internal/features/routes/service"
@@ -56,10 +58,20 @@ func run(ctx context.Context, envFile string) error {
 	defer pool.Close()
 	log.Info("postgres connection established")
 
+	// Admission applies the queue limits even while the worker is disabled.
+	jobs := cfg.PredictionJobs
+	queue := forecasts_service.NewQueue(pool, forecasts_service.JobPolicy{
+		QueueCapacity: jobs.QueueCapacity,
+		MaxAttempts:   jobs.MaxAttempts,
+		LeaseDuration: jobs.LeaseDuration,
+		RetryDelay:    jobs.RetryDelay,
+	})
 	server := core_http_server.New(cfg.HTTP, log, pool.Ping)
 	api := server.Router().Group("/api")
 	routes_transport_http.NewHandler(routes_service.NewService(routes_sqlc.New(pool))).Register(api)
 	stops_transport_http.NewHandler(stops_service.NewService(stops_sqlc.New(pool))).Register(api)
+	forecasts := forecasts_service.NewForecasts(queue, routes_sqlc.New(pool), forecasts_sqlc.New(pool))
+	forecasts_transport_http.NewHandler(forecasts).Register(api)
 
 	webFiles := os.DirFS(cfg.Web.Dir)
 	server.Router().NoRoute(web_transport_http.NewHandler(web_service.NewService(webFiles)).Serve)
@@ -74,19 +86,13 @@ func run(ctx context.Context, envFile string) error {
 	defer cancel()
 	var wg sync.WaitGroup
 	workerStarted := false
-	if jobs := cfg.PredictionJobs; jobs.WorkerEnabled {
+	if jobs.WorkerEnabled {
 		client, err := forecasts_predictor_grpc.New(cfg.ML.Addr, cfg.ML.Timeout)
 		if err != nil {
 			return err
 		}
 		// Deferred after pool.Close, so it runs first; both run after wg.Wait.
 		defer client.Close()
-		queue := forecasts_service.NewQueue(pool, forecasts_service.JobPolicy{
-			QueueCapacity: jobs.QueueCapacity,
-			MaxAttempts:   jobs.MaxAttempts,
-			LeaseDuration: jobs.LeaseDuration,
-			RetryDelay:    jobs.RetryDelay,
-		})
 		worker := forecasts_worker.New(queue, client, forecasts_worker.Config{
 			Workers:         jobs.Workers,
 			PollInterval:    jobs.PollInterval,

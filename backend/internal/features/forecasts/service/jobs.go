@@ -43,6 +43,7 @@ var (
 	// nothing more for this attempt.
 	ErrLeaseLost       = errors.New("prediction job attempt lost ownership")
 	ErrNoActiveVersion = errors.New("no active forecast version")
+	ErrJobNotFound     = errors.New("prediction job not found")
 	// ErrPublicationConflict means the points break a key or check of
 	// validation_predictions; computing them again would not help.
 	ErrPublicationConflict = errors.New("predictions conflict with the stored data")
@@ -218,6 +219,23 @@ func (q *Queue) Lookup(ctx context.Context, versionID pgtype.UUID, routeID int64
 		return nil
 	})
 	return job, found, err
+}
+
+// Job returns the job or ErrJobNotFound without writing.
+func (q *Queue) Job(ctx context.Context, id pgtype.UUID) (forecasts_sqlc.PredictionJob, error) {
+	var job forecasts_sqlc.PredictionJob
+	err := q.readOnly(ctx, func(s queueStore) error {
+		var err error
+		job, err = s.jobs.GetPredictionJob(ctx, id)
+		switch {
+		case errors.Is(err, pgx.ErrNoRows):
+			return fmt.Errorf("%w: %s", ErrJobNotFound, id)
+		case err != nil:
+			return fmt.Errorf("get prediction job: %w", err)
+		}
+		return nil
+	})
+	return job, err
 }
 
 // ForecastRoutes returns the routes with forecasts enabled by route number.
@@ -452,15 +470,12 @@ func predictionRows(job ClaimedJob, points []forecasts_predictor_grpc.Point) ([]
 		// ponytail: Moscow keeps a fixed offset, so hours map to distinct
 		// date/hour pairs; a zone with DST would need the repeated hour.
 		local := point.HourStart.In(core_domain.Moscow)
-		year, month, day := local.Date()
 		rows[i] = forecasts_sqlc.CopyValidationPredictionsParams{
 			ForecastVersionID: job.Job.ForecastVersionID,
 			RouteID:           job.Job.RouteID,
-			// pgx encodes the year, month and day of the time; UTC midnight
-			// also equals the values it decodes.
-			Date:      pgtype.Date{Time: time.Date(year, month, day, 0, 0, 0, 0, time.UTC), Valid: true},
-			Hour:      int16(local.Hour()),
-			Boardings: point.Boardings,
+			Date:              localDate(local),
+			Hour:              int16(local.Hour()),
+			Boardings:         point.Boardings,
 		}
 	}
 	return rows, nil

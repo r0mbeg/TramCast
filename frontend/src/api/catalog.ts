@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
+import { getJson } from './client'
 
-// Shapes of the Go API (see AGENTS.md, "HTTP API и DTO для фронтенда").
+// Shapes of the Go catalog API (see backend/README.md).
 
 export interface Route {
   id: number
@@ -54,24 +55,6 @@ export function osmRouteNumbers(geometry: RouteGeometry): number[] {
     if (feature.properties.source === 'osm') numbers.add(feature.properties.route_number)
   }
   return [...numbers].sort((a, b) => a - b)
-}
-
-export class ApiError extends Error {
-  constructor(
-    readonly status: number,
-    readonly code: string,
-  ) {
-    super(`API ${status}: ${code}`)
-  }
-}
-
-async function getJson<T>(path: string): Promise<T> {
-  const response = await fetch(path, { headers: { Accept: 'application/json' } })
-  if (!response.ok) {
-    const body = (await response.json().catch(() => ({}))) as { error?: string }
-    throw new ApiError(response.status, body.error ?? 'unknown_error')
-  }
-  return (await response.json()) as T
 }
 
 // The catalog is static for a session, so it is fetched once.

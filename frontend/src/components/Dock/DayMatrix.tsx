@@ -2,7 +2,7 @@ import { AlertCircle, Clock3 } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import type { Route } from '../../api/catalog'
 import { peak, sum } from '../../forecast/aggregate'
-import { routeStatus, type RouteStatus } from '../../forecast/status'
+import { MISSING_LABEL, jobLabel, routeStatus, type RouteStatus } from '../../forecast/status'
 import type { ForecastState } from '../../forecast/useForecast'
 import { formatLong } from '../../lib/calendar'
 import { formatNumber, hourLabel, hourRange } from '../../lib/format'
@@ -26,12 +26,13 @@ function rowMessage(status: RouteStatus): { text: string; error?: boolean; runni
     case 'loading':
       return { text: 'загрузка…' }
     case 'missing':
-      return { text: '— Прогноз для маршрута ещё не рассчитан' }
+      return { text: `— ${MISSING_LABEL[status.reason]}` }
     case 'running':
-      return { text: 'Идёт расчёт — результат появится здесь', running: true }
+      return { text: `${jobLabel(status.jobStatus)} — результат появится здесь`, running: true }
     case 'failed':
-    case 'error':
       return { text: 'Ошибка расчёта — откройте маршрут для подробностей', error: true }
+    case 'error':
+      return { text: 'Прогноз не получен — откройте маршрут, чтобы повторить', error: true }
     case 'ready':
       return null
   }
@@ -63,7 +64,7 @@ export function DayMatrix({ state, routes, forecasts }: { state: AppState; route
     <>
       <div className={styles.matrixHeader}>
         <h2 className={styles.matrixTitle}>Картина дня</h2>
-        <span className={styles.matrixMeta}>{formatLong(state.date)} · демо-данные</span>
+        <span className={styles.matrixMeta}>{formatLong(state.date)}</span>
         <span className={styles.matrixMeta} style={{ marginLeft: 'auto' }}>
           Сеть за сутки {formatNumber(sum(network))} · пик сети {hourRange(networkPeak.index)}
         </span>
@@ -121,7 +122,7 @@ export function DayMatrix({ state, routes, forecasts }: { state: AppState; route
                         role="gridcell"
                         className={`${styles.gridCell} ${color ? '' : styles.gridCellZero} ${hour === state.hour ? styles.gridCellSelected : ''}`}
                         style={color ? { background: color, fontWeight: hour === rowPeak ? 600 : 500 } : undefined}
-                        title={`№ ${route.route_number} · ${hourRange(hour)} — ${formatNumber(value)} посадок · демо`}
+                        title={`№ ${route.route_number} · ${hourRange(hour)} — ${formatNumber(value)} посадок`}
                         onClick={() => actions.selectRoute(route.id, hour)}
                       >
                         {showNumbers || value === 0 ? formatNumber(value) : ''}

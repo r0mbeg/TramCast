@@ -50,6 +50,7 @@ type fakeQueue struct {
 	finishArgs  []forecasts_sqlc.FinishPredictionJobWithErrorParams
 	recoverArgs []forecasts_sqlc.RecoverExpiredPredictionJobsParams
 	exhaustArgs []forecasts_sqlc.FailExhaustedQueuedPredictionJobsParams
+	listArgs    []forecasts_sqlc.ListValidationPredictionsParams
 }
 
 func (s *fakeQueue) call(name string) error {

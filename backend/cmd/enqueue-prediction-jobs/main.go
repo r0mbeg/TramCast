@@ -11,7 +11,6 @@ import (
 	"log/slog"
 	"os"
 	"os/signal"
-	"strings"
 	"syscall"
 	"time"
 
@@ -57,7 +56,7 @@ func main() {
 	var o options
 	flag.StringVar(&o.envFile, "env-file", "", "optional dotenv file; process environment takes priority")
 	flag.Func("version", "forecast version ID, a UUID; default: the active version", func(value string) error {
-		id, err := parseVersionID(value)
+		id, err := forecasts_service.ParseUUID(value)
 		o.version = id
 		return err
 	})
@@ -268,16 +267,6 @@ func jobAttrs(routeNumber int16, job forecasts_sqlc.PredictionJob) []any {
 		"attempt_count", job.AttemptCount,
 		"last_error_code", job.LastErrorCode.String,
 	}
-}
-
-// parseVersionID accepts only the canonical 36-character form: pgtype also
-// takes 32 hex digits and ignores the characters at the dash positions.
-func parseVersionID(value string) (pgtype.UUID, error) {
-	var id pgtype.UUID
-	if err := id.Scan(value); err != nil || !strings.EqualFold(id.String(), value) {
-		return pgtype.UUID{}, errors.New("want a UUID such as 0b9c6f1e-3a52-4d7e-9f10-2c4b8a6d5e31")
-	}
-	return id, nil
 }
 
 // moscow formats t in the forecast zone, whatever location pgx returns.
