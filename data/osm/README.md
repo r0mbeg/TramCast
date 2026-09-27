@@ -40,7 +40,7 @@
    С `--fail` тело ошибки HTTP не записывается. При сбое запроса Overpass может ответить кодом 200 с полем `remark` и неполными данными; такой снимок импорт отклонит.
 2. Переместить `data/osm/tram_routes.json.tmp` на место `data/osm/tram_routes.json`.
 3. Выполнить `go -C backend test ./internal/features/catalog/...`. Тесты читают `data/osm/tram_routes.json` и сверяют дату `timestamp_osm_base`, число элементов, маршрутов, остановок и позиций, названия маршрутов и идентификаторы relation. После каждого нового запроса проверка даты **всегда** перестаёт проходить, потому что `timestamp_osm_base` меняется при любой выгрузке: обновите дату в `backend/internal/features/catalog/repository/osm/repository_test.go` и в константе `committedSnapshotBase` в `backend/internal/features/catalog/service/osm_test.go`. Если изменились сами данные OSM, после проверки изменений обновите и остальные ожидания: число элементов, идентификаторы, названия, состав маршрутов и счётчики отчёта в `backend/internal/features/catalog/service/service_test.go`.
-4. Обновить дату и значения `check_date` в разделе «Актуальность» этого файла и в `AGENTS.md`: в таблице источников, в абзаце о датировке географии и в правиле импорта «Не сохраняются».
+4. Обновить дату и значения `check_date` в разделе «Актуальность» этого файла. Дату снимка в `AGENTS.md` не дублировать: он ссылается на этот README.
 5. Выполнить `make import-catalog-dry-run`: нужны запущенная PostgreSQL и книга справочников.
 6. Просмотреть изменения (`git diff`) и закоммитить снимок.
 
