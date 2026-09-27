@@ -177,5 +177,30 @@
     "published": false,
     "stop_metrics": null,
     "note": "Top-level blocked status refers to verified stop forecasting; this is the separately approved scenario feature."
+  },
+  "application_estimate_network": {
+    "status": "ready_local_scenario_unvalidated",
+    "package_version": "E-network-v1-dd0102fde9bb9667",
+    "package": "releases/network-entropy-v1",
+    "schema_and_handoff": "NETWORK_PACKAGE.md",
+    "routes": [
+      1,
+      5,
+      7,
+      11,
+      12,
+      17,
+      25,
+      26,
+      28,
+      50
+    ],
+    "occurrences": 604,
+    "rows": 884256,
+    "integrated_into_app": false,
+    "published": false,
+    "stop_metrics": null,
+    "prior": "metro_distance_with_uniform_floor",
+    "pilot_preserved": "releases/route12-entropy-v1"
   }
 }

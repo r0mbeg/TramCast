@@ -1,0 +1,23 @@
+{
+  "package_version": "E-network-v1-dd0102fde9bb9667",
+  "identical_files": {
+    "coverage.csv": "d51d81024ad77a9454269984c55a8e85613d717e6aef4d72b2c5004217b2c6aa",
+    "manifest.json": "72ed9d09bad8742dfef23fabda27ca17ff6eccc62eb4b7aa7595d6f254e39bb7",
+    "metadata.json": "a8acd649464501f90dd50984649648542ba8e6e189c2f0c403dd3db998f2d0e5",
+    "occurrences.csv": "877d806e33994cc97938b6be9cad2ee60626b5e56450bbe4d03f56225e92d714",
+    "profiles.csv.gz": "c6a9ee1be2c5a4938d8721d1dcffe521e9aabf2eaa2cb91adb1e607ee952979b",
+    "route_balance.csv": "a056c9990e53849570d54104eca0fedf0c6959f8fbc523cd6c89045a7ac365ec",
+    "route_forecast.csv": "31b646027a6c2a71810ea89d22303cc4969e352f15b39cae43350c9aeef7d26e",
+    "sensitivity.csv": "0c5a5fbc241cde3e0d5c710ef1f1b3bb668ad461b8464040c003db1911a0458f",
+    "stop_estimates.csv.gz": "10dbeee182321c259b31acc4a672230a511ad894a6459d656f4c52cc94d75b8e"
+  },
+  "file_count": 9,
+  "clean_checkout_rebuild": "passed_without_dataset_catalog_archives_or_model_weights",
+  "clean_checkout_input_directories": [
+    "ml/lab/stop_forecast/inputs/network-v1",
+    "ml/bundles/030"
+  ],
+  "former_route12_release_hashes": "unchanged",
+  "preflight_numerical_outputs": "unchanged_after_path_normalization",
+  "python": "3.12.14"
+}

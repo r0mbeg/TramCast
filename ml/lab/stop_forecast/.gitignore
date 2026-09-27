@@ -30,3 +30,11 @@ releases/*/*.csv.gz
 # Approved integration snapshot is delivered through Git, without a ZIP archive.
 !releases/route12-entropy-v1/*.csv
 !releases/route12-entropy-v1/*.csv.gz
+# Compact, self-contained inputs and the ten-route integration snapshot.
+!inputs/network-v1/*.json
+!inputs/network-v1/*.csv
+!inputs/network-v1/*.csv.gz
+!releases/network-entropy-v1/*.csv
+!releases/network-entropy-v1/*.csv.gz
+runs/network-preflight-*/*.csv
+runs/network-preflight-*/*.csv.gz

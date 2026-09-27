@@ -1,0 +1,15 @@
+{
+  "package_version": "E-network-v1-dd0102fde9bb9667",
+  "positions": 604,
+  "estimates": 884256,
+  "route_hours": 14640,
+  "total": 12806176,
+  "exit_only_positions": 10,
+  "hashes": "passed",
+  "exact_balances": "passed",
+  "entropy_formula": "passed",
+  "integer_replay": "passed",
+  "route12_uniform_control": "matches_preserved_release",
+  "empirical_stop_accuracy": null,
+  "verification_code_sha256": "6941a86fd91baad969afbe41c7d5408f58f1ac08048662f23b4b0a5f09ab3982"
+}
