@@ -103,6 +103,7 @@ export function MapView({ state, routes, geometry, forecasts }: MapViewProps) {
   const mapRef = useRef<MapLibreMap | null>(null)
   const [ready, setReady] = useState(false)
   const [basemapFailed, setBasemapFailed] = useState(false)
+  const [mapFailed, setMapFailed] = useState(false)
   const [hover, setHover] = useState<HoverInfo | null>(null)
   const [chooser, setChooser] = useState<Chooser | null>(null)
   const fitted = useRef(false)
@@ -168,22 +169,31 @@ export function MapView({ state, routes, geometry, forecasts }: MapViewProps) {
   // Create the map once.
   useEffect(() => {
     if (!container.current) return
-    const map = new MapLibreMap({
-      container: container.current,
-      style: tramcastStyle(),
-      center: [37.6, 55.72],
-      zoom: 10.3,
-      minZoom: 9,
-      maxZoom: 17,
-      maxBounds: [
-        [36.8, 55.3],
-        [38.4, 56.2],
-      ],
-      dragRotate: false,
-      pitchWithRotate: false,
-      keyboard: false,
-      attributionControl: false,
-    })
+    let map: MapLibreMap
+    try {
+      map = new MapLibreMap({
+        container: container.current,
+        style: tramcastStyle(),
+        center: [37.6, 55.72],
+        zoom: 10.3,
+        minZoom: 9,
+        maxZoom: 17,
+        maxBounds: [
+          [36.8, 55.3],
+          [38.4, 56.2],
+        ],
+        dragRotate: false,
+        pitchWithRotate: false,
+        keyboard: false,
+        attributionControl: false,
+      })
+    } catch (error) {
+      // MapLibre throws without WebGL2 (acceleration off, a blocklisted GPU,
+      // a remote desktop); uncaught, it would unmount the whole interface.
+      console.warn('The map is unavailable', error)
+      setMapFailed(true)
+      return
+    }
     map.touchZoomRotate.disableRotation()
     map.addControl(new AttributionControl({ compact: false }), 'bottom-right')
     map.on('error', (event) => {
@@ -321,6 +331,20 @@ export function MapView({ state, routes, geometry, forecasts }: MapViewProps) {
   const offMap = routes.filter((route) => route.forecast_enabled && geometry && !geometry.features.some((feature) => feature.properties.route_id === route.id))
   const onMapForecast = routes.filter((route) => route.forecast_enabled && !offMap.includes(route))
   const serviceOff = isServiceOff(state.hour)
+
+  // Without a map its caption, controls and legend have nothing to act on.
+  if (mapFailed) {
+    return (
+      <section className={styles.wrap} aria-label="Карта маршрутов">
+        <div className={`${styles.panel} ${styles.mapFailed}`} role="status">
+          <strong>Карта недоступна</strong>
+          <span>
+            Браузер не поддерживает WebGL2 или он отключён, поэтому карта не рисуется. Маршруты, картина дня и графики работают. Включите аппаратное ускорение в настройках браузера или откройте TramCast в другом браузере.
+          </span>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className={styles.wrap} aria-label="Карта маршрутов">
