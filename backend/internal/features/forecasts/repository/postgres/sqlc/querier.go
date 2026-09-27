@@ -31,6 +31,8 @@ type Querier interface {
 	// Admission capacity covers both waiting and running jobs, including retries.
 	CountPendingPredictionJobs(ctx context.Context) (int64, error)
 	// Versions are registered inactive. Metadata is immutable after creation.
+	// When the same artifacts and period are registered, no row is returned:
+	// issue GetForecastVersionByArtifacts as a NEW statement (fresh snapshot).
 	CreateForecastVersion(ctx context.Context, arg CreateForecastVersionParams) (ForecastVersion, error)
 	// Use only in the admission transaction. On conflict, no row is returned:
 	// issue GetPredictionJobByRouteAndVersion as a NEW statement (fresh snapshot).
@@ -46,6 +48,8 @@ type Querier interface {
 	FinishPredictionJobWithError(ctx context.Context, arg FinishPredictionJobWithErrorParams) (PredictionJob, error)
 	GetActiveForecastVersion(ctx context.Context) (ForecastVersion, error)
 	GetForecastVersion(ctx context.Context, id pgtype.UUID) (ForecastVersion, error)
+	// Matches forecast_versions_artifacts_key; timestamps compare as instants.
+	GetForecastVersionByArtifacts(ctx context.Context, arg GetForecastVersionByArtifactsParams) (ForecastVersion, error)
 	GetPredictionJob(ctx context.Context, id pgtype.UUID) (PredictionJob, error)
 	GetPredictionJobByRouteAndVersion(ctx context.Context, arg GetPredictionJobByRouteAndVersionParams) (PredictionJob, error)
 	// Go converts validated, hour-aligned bounds to Europe/Moscow date/hour pairs.

@@ -10,13 +10,38 @@ ENV_FILE ?= ../.env
 PYTHON ?= python3
 ML_PREPARE_ARGS ?=
 
+# Standalone ML delivery from ml/docs/HANDOFF.md. ML_MODE=gpu recomputes recipe
+# 030 on an NVIDIA GPU; ML_MODE=replay serves the saved 030 result on CPU.
+ML_COMPOSE ?= $(DOCKER_COMPOSE) -f ml/compose.yaml
+ML_MODE ?= gpu
+ML_ROUTE ?= 1
+ML_FROM ?= 2025-11-01T00:00:00+03:00
+ML_TO ?= 2026-01-01T00:00:00+03:00
+ML_TIMEOUT ?= 930
+ML_OTHER_MODE = $(if $(filter gpu,$(ML_MODE)),replay,gpu)
+
+# Git Bash would otherwise rewrite container paths such as /tmp/... for Docker.
+export MSYS_NO_PATHCONV := 1
+
+ifneq ($(filter ml-up ml-check ml-logs ml-start ml-warm ml-describe,$(MAKECMDGOALS)),)
+ifeq ($(filter gpu replay,$(ML_MODE)),)
+$(error ML_MODE must be gpu or replay, got "$(ML_MODE)")
+endif
+endif
+ifneq ($(filter ml-start ml-warm ml-describe,$(MAKECMDGOALS)),)
+ifneq ($(ML_MODE),gpu)
+$(error $(filter ml-start ml-warm ml-describe,$(MAKECMDGOALS)) needs ML_MODE=gpu: replay serves a saved result)
+endif
+endif
+
 .PHONY: help app-build app-up app-down app-logs \
 	env-up env-down env-port-forward env-port-close ps logs \
 	migrate-up migrate-status migrate-down migrate-create migrate-validate \
 	sqlc-compile sqlc-generate proto-generate-go \
 	tidy-backend tidy-backend-check run-backend \
 	proto-generate-python prepare-ml-model run-ml test-ml test-ml-service \
-	import-catalog import-catalog-dry-run \
+	ml-install ml-up ml-warm ml-start ml-check ml-describe ml-logs ml-down \
+	import-catalog import-catalog-dry-run forecast-version-register prediction-jobs-enqueue \
 	frontend-install frontend-dev frontend-build frontend-test
 
 help:
@@ -49,9 +74,18 @@ help:
 	@echo   make run-ml                 Serve CPU CatBoost with persistent inference cache
 	@echo   make test-ml-service        Check the real gRPC service without ML dependencies
 	@echo   make test-ml                Run serving and client checks
-
+	@echo   make ml-install             Download and verify the pinned TabPFN weights into a Docker volume
+	@echo   make ml-up                  Start the ML gRPC container on 127.0.0.1:50051, ML_MODE=gpu or replay
+	@echo   make ml-warm                Compute the full forecast into the ML cache, gpu only
+	@echo   make ml-start               Run ml-install, ml-up and ml-warm, gpu only
+	@echo   make ml-check               Call Predict for ML_ROUTE over ML_FROM..ML_TO with the bundled client
+	@echo   make ml-describe            Show the model and dataset versions, gpu only
+	@echo   make ml-logs                Follow the logs of the ML container
+	@echo   make ml-down                Stop both ML modes and keep weights and cache
 	@echo   make import-catalog         Import the workbook from CATALOG_FILE and the OSM snapshot from CATALOG_OSM_FILE
 	@echo   make import-catalog-dry-run Check the workbook and OSM snapshot and roll the import back
+	@echo   make forecast-version-register METADATA=x  Register ML version metadata, ACTIVATE=1 DRY_RUN=1 ALLOW_REPLAY=1 VERIFY=0
+	@echo   make prediction-jobs-enqueue  Queue a prediction job for every forecast route, VERSION=x DRY_RUN=1 WAIT=1
 	@echo   make frontend-install       Install frontend dependencies from package-lock.json
 	@echo   make frontend-dev           Run the Vite dev server with /api proxied to :8080
 	@echo   make frontend-build         Build frontend/dist, which the backend serves
@@ -143,6 +177,34 @@ test-ml-service:
 
 test-ml: test-ml-service
 
+ml-install:
+	@$(ML_COMPOSE) run --rm --build ml-install
+
+# Both modes publish the same port, so the other mode is stopped first.
+ml-up:
+	@$(ML_COMPOSE) --profile $(ML_OTHER_MODE) stop ml-$(ML_OTHER_MODE)
+	@$(ML_COMPOSE) --profile $(ML_MODE) up -d --build --wait ml-$(ML_MODE)
+
+ml-warm:
+	@$(ML_COMPOSE) --profile gpu exec -T ml-gpu python service.py --warm-cache
+
+# The ml-start steps depend on each other. Make 3.81 applies .NOTPARALLEL to
+# the whole file, so make -j still runs them in order.
+.NOTPARALLEL:
+ml-start: ml-install ml-up ml-warm
+
+ml-check:
+	@$(ML_COMPOSE) --profile $(ML_MODE) exec -T ml-$(ML_MODE) python client.py --route $(ML_ROUTE) --from $(ML_FROM) --to $(ML_TO) --timeout $(ML_TIMEOUT) --output /tmp/prediction.json
+
+ml-describe:
+	@$(ML_COMPOSE) --profile gpu exec -T ml-gpu python service.py --describe
+
+ml-logs:
+	@$(ML_COMPOSE) --profile $(ML_MODE) logs --tail 100 --follow ml-$(ML_MODE)
+
+ml-down:
+	@$(ML_COMPOSE) --profile replay --profile gpu down
+
 # The workbook path comes from CATALOG_FILE in the env file: a Cyrillic path
 # passed through make is mangled in PowerShell.
 import-catalog:
@@ -150,6 +212,20 @@ import-catalog:
 
 import-catalog-dry-run:
 	@$(GO) -C backend run ./cmd/import-catalog -env-file "$(ENV_FILE)" -dry-run
+
+# METADATA is the JSON of ml-describe or of a replay bundle. go -C backend
+# changes the working directory, so a relative path is prefixed with the
+# repository root here; $(abspath) breaks drive letters in make 3.81.
+METADATA_PATH = $(if $(filter /%,$(METADATA))$(findstring :,$(METADATA)),$(strip $(METADATA)),$(CURDIR)/$(strip $(METADATA)))
+
+forecast-version-register:
+	$(if $(strip $(METADATA)),,$(error Set METADATA, for example: make forecast-version-register METADATA=out/ml-describe.json))
+	@$(GO) -C backend run ./cmd/register-forecast-version -env-file "$(ENV_FILE)" -metadata "$(METADATA_PATH)"$(if $(filter 1,$(ACTIVATE)), -activate)$(if $(filter 1,$(DRY_RUN)), -dry-run)$(if $(filter 1,$(ALLOW_REPLAY)), -allow-replay)$(if $(filter 0,$(VERIFY)), -verify=false)
+
+# The worker of a running backend computes the jobs; VERSION defaults to the
+# active forecast version.
+prediction-jobs-enqueue:
+	@$(GO) -C backend run ./cmd/enqueue-prediction-jobs -env-file "$(ENV_FILE)"$(if $(strip $(VERSION)), -version "$(strip $(VERSION))")$(if $(filter 1,$(DRY_RUN)), -dry-run)$(if $(filter 1,$(WAIT)), -wait)
 
 frontend-install:
 	@$(NPM) --prefix frontend ci

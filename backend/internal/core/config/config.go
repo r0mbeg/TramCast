@@ -16,11 +16,13 @@ import (
 )
 
 type Config struct {
-	HTTP     HTTPConfig
-	Logger   LoggerConfig
-	Postgres PostgresConfig
-	Web      WebConfig
-	Catalog  CatalogConfig
+	HTTP           HTTPConfig
+	Logger         LoggerConfig
+	Postgres       PostgresConfig
+	Web            WebConfig
+	Catalog        CatalogConfig
+	ML             MLConfig
+	PredictionJobs PredictionJobConfig
 }
 
 type HTTPConfig struct {
@@ -66,6 +68,41 @@ type CatalogConfig struct {
 	OSMFile string `envconfig:"CATALOG_OSM_FILE" default:"./data/osm/tram_routes.json"`
 }
 
+type MLConfig struct {
+	// Addr is the host:port of the Python forecast gRPC server.
+	Addr string `envconfig:"ML_GRPC_ADDR" default:"127.0.0.1:50051"`
+	// Timeout bounds one Predict call. The default exceeds the server's 900 s
+	// compute limit, so the server reports its own timeout first.
+	Timeout time.Duration `envconfig:"ML_GRPC_TIMEOUT" default:"930s"`
+}
+
+// PredictionJobConfig limits the PostgreSQL prediction job queue and its
+// worker. It is validated even with the worker disabled, since admission uses
+// the capacity too.
+type PredictionJobConfig struct {
+	// WorkerEnabled runs the worker inside the HTTP server process.
+	WorkerEnabled bool `envconfig:"PREDICTION_JOB_WORKER_ENABLED" default:"true"`
+	// Workers is the number of claim loops. The ML server builds one response
+	// at a time, so more than one mostly collides on its busy slot.
+	Workers int `envconfig:"PREDICTION_JOB_WORKERS" default:"1"`
+	// QueueCapacity bounds queued plus running jobs of all versions.
+	QueueCapacity int64 `envconfig:"PREDICTION_JOB_QUEUE_CAPACITY" default:"20"`
+	// MaxAttempts bounds the claims of one job, retries included.
+	MaxAttempts int32 `envconfig:"PREDICTION_JOB_MAX_ATTEMPTS" default:"3"`
+	// LeaseDuration is how long a claim owns a job without renewal; the SQL
+	// takes whole seconds.
+	LeaseDuration time.Duration `envconfig:"PREDICTION_JOB_LEASE_DURATION" default:"60s"`
+	// RetryDelay is the base delay before a retry, in whole seconds; later
+	// attempts wait longer.
+	RetryDelay time.Duration `envconfig:"PREDICTION_JOB_RETRY_DELAY" default:"30s"`
+	// PollInterval is the idle wait after an empty claim.
+	PollInterval time.Duration `envconfig:"PREDICTION_JOB_POLL_INTERVAL" default:"2s"`
+	// ShutdownTimeout is how long a running call may finish after shutdown
+	// starts. At most 20 s: with the re-read of a commit whose outcome is
+	// unknown (up to 5 s more) it stays under the compose stop grace of 30 s.
+	ShutdownTimeout time.Duration `envconfig:"PREDICTION_JOB_SHUTDOWN_TIMEOUT" default:"5s"`
+}
+
 // Load reads process environment and optionally loads the explicitly named
 // dotenv file first. Existing environment variables, including empty values,
 // take precedence. Call once during startup, before launching goroutines.
@@ -91,7 +128,7 @@ func Load(envFile string) (Config, error) {
 	}
 
 	var cfg Config
-	for _, section := range []any{&cfg.HTTP, &cfg.Logger, &cfg.Postgres, &cfg.Web, &cfg.Catalog} {
+	for _, section := range []any{&cfg.HTTP, &cfg.Logger, &cfg.Postgres, &cfg.Web, &cfg.Catalog, &cfg.ML, &cfg.PredictionJobs} {
 		if err := envconfig.Process("", section); err != nil {
 			var parseErr *envconfig.ParseError
 			if errors.As(err, &parseErr) {
@@ -134,6 +171,14 @@ func (cfg Config) validate() error {
 	if _, err := strconv.ParseUint(port, 10, 16); err != nil {
 		return errors.New("HTTP_ADDR must contain a numeric port from 0 to 65535")
 	}
+	// A client dials a concrete host, unlike the listening HTTP_ADDR.
+	host, port, err = net.SplitHostPort(cfg.ML.Addr)
+	if err != nil || host == "" || strings.ContainsAny(host, " /\\\t\r\n?#") {
+		return errors.New("ML_GRPC_ADDR must have the form host:port")
+	}
+	if number, err := strconv.ParseUint(port, 10, 16); err != nil || number == 0 {
+		return errors.New("ML_GRPC_ADDR must contain a numeric port from 1 to 65535")
+	}
 
 	for _, setting := range []struct {
 		name  string
@@ -147,6 +192,8 @@ func (cfg Config) validate() error {
 		{"HTTP_PROBE_TIMEOUT", cfg.HTTP.ProbeTimeout},
 		{"POSTGRES_CONNECT_TIMEOUT", cfg.Postgres.ConnectTimeout},
 		{"POSTGRES_STARTUP_TIMEOUT", cfg.Postgres.StartupTimeout},
+		{"ML_GRPC_TIMEOUT", cfg.ML.Timeout},
+		{"PREDICTION_JOB_POLL_INTERVAL", cfg.PredictionJobs.PollInterval},
 	} {
 		if setting.value <= 0 {
 			return fmt.Errorf("%s must be positive", setting.name)
@@ -185,6 +232,24 @@ func (cfg Config) validate() error {
 	case "disable", "allow", "prefer", "require", "verify-ca", "verify-full":
 	default:
 		return errors.New("POSTGRES_SSLMODE must be disable, allow, prefer, require, verify-ca or verify-full")
+	}
+
+	// The queue SQL treats a non-positive lease or attempt limit as "nothing
+	// to claim" and a negative delay as lost ownership, so reject them here.
+	jobs := cfg.PredictionJobs
+	switch {
+	case jobs.Workers < 1 || jobs.Workers > 16:
+		return errors.New("PREDICTION_JOB_WORKERS must be between 1 and 16")
+	case jobs.QueueCapacity < 1:
+		return errors.New("PREDICTION_JOB_QUEUE_CAPACITY must be positive")
+	case jobs.MaxAttempts < 1 || jobs.MaxAttempts > 100:
+		return errors.New("PREDICTION_JOB_MAX_ATTEMPTS must be between 1 and 100")
+	case jobs.LeaseDuration%time.Second != 0 || jobs.LeaseDuration < 3*time.Second || jobs.LeaseDuration > time.Hour:
+		return errors.New("PREDICTION_JOB_LEASE_DURATION must be whole seconds from 3s to 1h")
+	case jobs.RetryDelay%time.Second != 0 || jobs.RetryDelay < 0 || jobs.RetryDelay > time.Hour:
+		return errors.New("PREDICTION_JOB_RETRY_DELAY must be whole seconds from 0s to 1h")
+	case jobs.ShutdownTimeout < 0 || jobs.ShutdownTimeout > 20*time.Second:
+		return errors.New("PREDICTION_JOB_SHUTDOWN_TIMEOUT must be from 0s to 20s")
 	}
 	return nil
 }

@@ -1,5 +1,6 @@
 .git
 .idea
+.codex-remote-attachments/
 **/.env
 **/.env.*
 !**/.env.example

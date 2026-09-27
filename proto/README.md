@@ -97,7 +97,7 @@ make proto-generate-go
 protoc --proto_path=proto --go_out=backend --go_opt=module=github.com/r0mbeg/TramCast/backend --go-grpc_out=backend --go-grpc_opt=module=github.com/r0mbeg/TramCast/backend proto/tramcast/forecast/v1/forecast.proto
 ```
 
-Результат в `backend/internal/gen/tramcast/forecast/v1/`: сообщения `forecast.pb.go` и gRPC-интерфейсы `forecast_grpc.pb.go`. Будущий Go-клиент использует `NewForecastServiceClient`; преобразование и валидация остаются в `internal/features/forecasts/predictor/grpc`.
+Результат в `backend/internal/gen/tramcast/forecast/v1/`: сообщения `forecast.pb.go` и gRPC-интерфейсы `forecast_grpc.pb.go`. Go-клиент `forecasts_predictor_grpc` в `internal/features/forecasts/predictor/grpc` использует `NewForecastServiceClient` без повторов gRPC, проверяет запрос до отправки и ответ по правилам выше и классифицирует статусы по таблице ошибок; коды ошибок описаны в [backend/README.md](../backend/README.md#grpc-контракт).
 
 Runtime-зависимости `google.golang.org/protobuf` и `google.golang.org/grpc` закреплены в `backend/go.mod`. Сгенерированный код хранится в репозитории; при изменении `.proto` его нужно обновить той же командой. Версии генераторов указаны в заголовках сгенерированных файлов. [Пути генерации Go](https://protobuf.dev/reference/go/go-generated/#compiler-invocation).
 
@@ -119,7 +119,7 @@ python -m grpc_tools.protoc --proto_path=proto --python_out=ml/runtime/generated
 
 ## Текущая Python-реализация
 
-[ml/runtime/service.py](../ml/runtime/service.py) реализует контракт в двух режимах: основной рецепт 030 с реальным TabPFN inference и постоянным кэшем либо явный контрольный `--bundle` с готовым Chronos 002. Сервис закреплён за одним рецептом; `--describe` выдаёт фактические model/dataset ID для Go. `--refresh` создаёт новый конфиг для ручного пересчёта, не изменяя текущий процесс или прежние результаты. Кэш опубликованных прогнозов остаётся в PostgreSQL; локальный SQLite в Python предотвращает повторный дорогой расчёт.
+[ml/runtime/service.py](../ml/runtime/service.py) реализует контракт в двух режимах: основной рецепт 030 с реальным TabPFN inference и постоянным кэшем либо явный контрольный `--bundle` с готовым Chronos 002. Сервис закреплён за одним рецептом; `--describe` выдаёт фактические model/dataset ID для Go; по ним команда `register-forecast-version` регистрирует версию прогноза после проверочного `Predict` маршрута 5. `--refresh` создаёт новый конфиг для ручного пересчёта, не изменяя текущий процесс или прежние результаты. Кэш опубликованных прогнозов остаётся в PostgreSQL; локальный SQLite в Python предотвращает повторный дорогой расчёт.
 
 Подробности сроков, подготовки входов, отмены и совместного использования версий — [интеграция ML](../ml/docs/INTEGRATION.md). Сгенерированный Python-код обновляется через `make proto-generate-python` после установки `ml/runtime/requirements-proto.txt`. API сообщений не изменён.
 

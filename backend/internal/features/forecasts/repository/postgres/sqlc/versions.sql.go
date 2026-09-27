@@ -61,6 +61,7 @@ INSERT INTO forecast_versions (
     $5::timestamptz,
     $6::timestamptz
 )
+ON CONFLICT ON CONSTRAINT forecast_versions_artifacts_key DO NOTHING
 RETURNING
     id,
     model_version,
@@ -83,6 +84,8 @@ type CreateForecastVersionParams struct {
 }
 
 // Versions are registered inactive. Metadata is immutable after creation.
+// When the same artifacts and period are registered, no row is returned:
+// issue GetForecastVersionByArtifacts as a NEW statement (fresh snapshot).
 func (q *Queries) CreateForecastVersion(ctx context.Context, arg CreateForecastVersionParams) (ForecastVersion, error) {
 	row := q.db.QueryRow(ctx, createForecastVersion,
 		arg.ID,
@@ -168,6 +171,57 @@ WHERE id = $1::uuid
 
 func (q *Queries) GetForecastVersion(ctx context.Context, id pgtype.UUID) (ForecastVersion, error) {
 	row := q.db.QueryRow(ctx, getForecastVersion, id)
+	var i ForecastVersion
+	err := row.Scan(
+		&i.ID,
+		&i.ModelVersion,
+		&i.DatasetVersion,
+		&i.HistoryEnd,
+		&i.ForecastFrom,
+		&i.ForecastTo,
+		&i.Timezone,
+		&i.IsActive,
+		&i.CreatedAt,
+	)
+	return i, err
+}
+
+const getForecastVersionByArtifacts = `-- name: GetForecastVersionByArtifacts :one
+SELECT
+    id,
+    model_version,
+    dataset_version,
+    history_end,
+    forecast_from,
+    forecast_to,
+    timezone,
+    is_active,
+    created_at
+FROM forecast_versions
+WHERE model_version = $1::text
+    AND dataset_version = $2::text
+    AND history_end = $3::timestamptz
+    AND forecast_from = $4::timestamptz
+    AND forecast_to = $5::timestamptz
+`
+
+type GetForecastVersionByArtifactsParams struct {
+	ModelVersion   string             `json:"model_version"`
+	DatasetVersion string             `json:"dataset_version"`
+	HistoryEnd     pgtype.Timestamptz `json:"history_end"`
+	ForecastFrom   pgtype.Timestamptz `json:"forecast_from"`
+	ForecastTo     pgtype.Timestamptz `json:"forecast_to"`
+}
+
+// Matches forecast_versions_artifacts_key; timestamps compare as instants.
+func (q *Queries) GetForecastVersionByArtifacts(ctx context.Context, arg GetForecastVersionByArtifactsParams) (ForecastVersion, error) {
+	row := q.db.QueryRow(ctx, getForecastVersionByArtifacts,
+		arg.ModelVersion,
+		arg.DatasetVersion,
+		arg.HistoryEnd,
+		arg.ForecastFrom,
+		arg.ForecastTo,
+	)
 	var i ForecastVersion
 	err := row.Scan(
 		&i.ID,

@@ -71,4 +71,4 @@ PYTHONPATH=ml/runtime/generated ml/.venv-cpu/bin/python ml/runtime/service.py --
 
 Подготовка признаков, базовых прогнозов и новой истории выполняется в полигоне вне RPC. Микросервис пересчитывает финальную модель на подготовленном снимке, а не весь исследовательский поиск. Новые даты/внешние данные требуют нового согласованного входного пакета. Годовой расчёт и автоматический выбор моделей пока не реализованы.
 
-[Интеграция](docs/INTEGRATION.md) · [План развития](docs/ROADMAP.md) · [Проверки и GPU](docs/VALIDATION.md) · [Находки](docs/FINDINGS.md) · [Полигон](lab/README.md)
+[Интеграция](docs/INTEGRATION.md) · [План развития](docs/ROADMAP.md) · [Проверки и GPU](docs/VALIDATION.md) · [Сверка ревью коллеги](docs/REVIEW_20260927.md) · [Находки](docs/FINDINGS.md) · [Полигон](lab/README.md)

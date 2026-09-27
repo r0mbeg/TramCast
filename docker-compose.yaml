@@ -25,6 +25,10 @@ x-app: &app
     HTTP_PROBE_TIMEOUT: ${HTTP_PROBE_TIMEOUT:-2s}
     LOGGER_LEVEL: ${LOGGER_LEVEL:-INFO}
     LOGGER_FORMAT: ${LOGGER_FORMAT:-json}
+    # Recovery acts on the shared queue, so it uses the attempt limit and retry
+    # delay of a backend on the host that reads the same .env.
+    PREDICTION_JOB_MAX_ATTEMPTS: ${PREDICTION_JOB_MAX_ATTEMPTS:-3}
+    PREDICTION_JOB_RETRY_DELAY: ${PREDICTION_JOB_RETRY_DELAY:-30s}
     WEB_DIR: /app/frontend/dist
     CATALOG_FILE: /app/data/catalog/catalog.xlsx
     CATALOG_OSM_FILE: /app/data/osm/tram_routes.json
