@@ -170,7 +170,8 @@ services:
   backend:
     <<: *app
     ports:
-      - "127.0.0.1:${HTTP_PORT:-8080}:8080"
+      # 127.0.0.1 by default; HTTP_BIND=0.0.0.0 opens the server port to the network.
+      - "${HTTP_BIND:-127.0.0.1}:${HTTP_PORT:-8080}:8080"
     depends_on:
       catalog-init:
         condition: service_completed_successfully
